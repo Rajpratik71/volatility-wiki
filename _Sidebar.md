@@ -8,7 +8,7 @@ Getting Started
 
 Releases
 * [[Volatility 2.3]]
-  * [[Basic Usage|Basic-Usage]]
+  * [[Basic Usage|Volatility-Usage23]]
   * Command Reference
     * [[Windows Core|Command-Reference23]]
     * [[Windows GUI|Command-Reference-Gui23]]
