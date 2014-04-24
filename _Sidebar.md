@@ -8,7 +8,7 @@ Getting Started
 
 Releases
 * [[Volatility 2.3]]
-  * [[Basic Usage|Volatility-Usage23]]
+  * [[Basic Usage|Basic-Usage]]
   * Command Reference
     * [[Windows Core|Command-Reference23]]
     * [[Windows GUI|Command-Reference-Gui23]]
@@ -18,7 +18,7 @@ Releases
     * [[Mac OSX|Mac-Command-Reference23]]
 
 * [[Volatility 2.2]]
-  * [[Basic Usage|Volatility-Usage22]]
+  * [[Basic Usage|Basic-Usage]]
   * Command Reference
     * [[Windows Core|Command-Reference22]]
     * [[Windows GUI|Command-Reference-Gui22]]
