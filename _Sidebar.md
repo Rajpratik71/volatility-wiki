@@ -43,5 +43,3 @@ Physical Address Spaces
 * [[VMWare Snapshot|VMware-Snapshot-File]]
 * [[Hpak (FDPro)|Hpak-Address-Space]]
 
-[[Volatility Team]]
-
