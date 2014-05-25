@@ -117,7 +117,7 @@ Crash dumps from 64-bit systems begin with a `_DMP_HEADER64` structure. The Sign
 You can use the crashinfo plugin to dump meta-data from the crash header:
 
     $ python vol.py -f win7.dmp --profile=Win7SP1x86 crashinfo
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.4
     _DMP_HEADER:
      Majorversion:         0x0000000f (15)
      Minorversion:         0x00001db0 (7600)
