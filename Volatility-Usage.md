@@ -89,7 +89,7 @@ The remainder of this section will discuss the various options in greater detail
 
 Volatility needs to know what type of system your memory dump came from, so it knows which data structures, algorithms, and symbols to use. A default profile of WinXPSP2x86 is set internally, so if you're analyzing a Windows XP SP2 x86 memory dump, you do not need to supply --profile at all. However, for all others, you must specify the proper profile name. 
 
-Note: If you do not know what type of system the memory dump is from, use the [imageinfo](http://code.google.com/p/volatility/wiki/CommandReference23#imageinfo) or [kdbgscan](http://code.google.com/p/volatility/wiki/CommandReference23#kdbgscan) plugins for a suggestion. These plugins are Windows-only. 
+Note: If you do not know what type of system the memory dump is from, use the [imageinfo](Command Reference23#imageinfo) or [kdbgscan](Command Reference23#kdbgscan) plugins for a suggestion. These plugins are Windows-only. 
 
 If you want to see a list of supported profile names, do the following:
 
@@ -165,7 +165,7 @@ Please note that specifying a timezone will not affect how system-local times ar
 By default the `_EPROCESS` `CreateTime` and `ExitTime` timestamps are in UTC.  Below is output from Volatility with `pytz` installed:
 
     $ python vol.py -f win7.vmem --profile=Win7SP1x86 pslist
-    Volatility Foundation Volatility Framework 2.4_alpha
+    Volatility Foundation Volatility Framework 2.4
     Offset(V)  Name                    PID   PPID   Thds     Hnds   Sess  Wow64 Start                          Exit                          
     ---------- -------------------- ------ ------ ------ -------- ------ ------ ------------------------------ ------------------------------
     0x84133630 System                    4      0     93      420 ------      0 2011-10-20 15:25:11 UTC+0000                                 
@@ -178,7 +178,7 @@ By default the `_EPROCESS` `CreateTime` and `ExitTime` timestamps are in UTC.  B
 Below is output from the same sample using the `--tz=America/Chicago` option to get Central Standard Time:
 
     $ python vol.py -f win7.vmem --profile=Win7SP1x86 pslist --tz=America/Chicago
-    Volatility Foundation Volatility Framework 2.4_alpha
+    Volatility Foundation Volatility Framework 2.4
     Offset(V)  Name                    PID   PPID   Thds     Hnds   Sess  Wow64 Start                          Exit                          
     ---------- -------------------- ------ ------ ------ -------- ------ ------ ------------------------------ ------------------------------
     0x84133630 System                    4      0     93      420 ------      0 2011-10-20 10:25:11 CDT-0500                                 
@@ -191,7 +191,7 @@ Below is output from the same sample using the `--tz=America/Chicago` option to 
 Below is the same output above, but without the `pytz` library installed:
 
     $ python2.6 vol.py -f win7.vmem --profile=Win7SP1x86 pslist --tz=America/Chicago
-    Volatility Foundation Volatility Framework 2.4_alpha
+    Volatility Foundation Volatility Framework 2.4
     Offset(V)  Name                    PID   PPID   Thds     Hnds   Sess  Wow64 Start                          Exit                          
     ---------- -------------------- ------ ------ ------ -------- ------ ------ ------------------------------ ------------------------------
     0x84133630 System                    4      0     93      420 ------      0 2011-10-20 10:25:11 CDT                                      
@@ -209,13 +209,13 @@ The DTB (Directory Table Base) is what Volatility uses to translate virtual addr
 
 **This is a Windows-only option**
 
-Volatility scans for the KDDEBUGGER_DATA64 structure using hard-coded signatures "KDBG" and a series of sanity checks. These signatures are not critical for the operating system to function properly, thus malware can overwrite them in attempt to throw off tools that **do** rely on the signature. Additionally, in some cases there may be more than one KDDEBUGGER_DATA64 (for example if you apply a major OS update and don't reboot), which can cause confusion and lead to incorrect process and module listings, among other problems. If you know the address add KDDEBUGGER_DATA64, you can specify it with --kdbg=ADDRESS and this override the automated scans. For more information, see the [kdbgscan](http://code.google.com/p/volatility/wiki/CommandReference23#kdbgscan) plugin. 
+Volatility scans for the KDDEBUGGER_DATA64 structure using hard-coded signatures "KDBG" and a series of sanity checks. These signatures are not critical for the operating system to function properly, thus malware can overwrite them in attempt to throw off tools that **do** rely on the signature. Additionally, in some cases there may be more than one KDDEBUGGER_DATA64 (for example if you apply a major OS update and don't reboot), which can cause confusion and lead to incorrect process and module listings, among other problems. If you know the address add KDDEBUGGER_DATA64, you can specify it with --kdbg=ADDRESS and this override the automated scans. For more information, see the [kdbgscan](Command Reference#kdbgscan) plugin. 
 
 ## Setting the KPCR Address
 
 **This is a Windows-only option**
 
-There is one KPCR (Kernel Processor Control Region) for each CPU on a system. Some Volatility plugins display per-processor information. Thus if you want to display data for a specific CPU, for example CPU 3 instead of CPU 1, you can pass the address of that CPU's KPCR with --kpcr=ADDRESS. To locate the KPCRs for all CPUs, see the [kpcrscan](http://code.google.com/p/volatility/wiki/CommandReference23#kpcrscan) plugin. Also note that starting in Volatility 2.2, many of the plugins such as [idt](http://code.google.com/p/volatility/wiki/CommandReference23#idt) and [gdt](http://code.google.com/p/volatility/wiki/CommandReference23#gdt) automatically iterate through the list of KPCRs.
+There is one KPCR (Kernel Processor Control Region) for each CPU on a system. Some Volatility plugins display per-processor information. Thus if you want to display data for a specific CPU, for example CPU 3 instead of CPU 1, you can pass the address of that CPU's KPCR with --kpcr=ADDRESS. To locate the KPCRs for all CPUs, see the [kpcrscan](Command Reference#kpcrscan) plugin. Also note that starting in Volatility 2.2, many of the plugins such as [idt](Command Reference#idt) and [gdt](Command Reference#gdt) automatically iterate through the list of KPCRs.
 
 ## Enabling Write Support
 
