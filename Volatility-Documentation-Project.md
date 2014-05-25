@@ -2,6 +2,10 @@ This is a catalog of research, documentation, analysis, and tutorials generated 
 
 |Year | Month | Type | Title | Author|
 |-----|-------|------|-------|-------|
+|2014|May|Blog|[Mr Silverlight Drive-by Meet Volatility Timelines](http://journeyintoir.blogspot.com/2014/05/mr-silverlight-drive-by-meet-volatility.html)|Corey Harrell (@corey_harrell)|
+|2014|May|Blog|[GETTING STARTED WITH MEMORY FORENSICS](http://salimawad.com/2014/05/12/getting-started-with-memory-forensics/)|Salim Awad|
+|2014|May|Code|[Volatility USN Journal Parser](https://github.com/tomspencer/volatility)|Tom Spencer|
+|2014|May|Blog|[Post-Mortem Memory Analysis of Cold-Booted Android Devices](https://www1.informatik.uni-erlangen.de/filepool/publications/android.ram.analysis.pdf)|Hilgers, Macht, Muller, Spreitzenbarth|
 |2014|March|Blog|[Finding Advanced Malware Using Volatility](http://blog.eforensicsmag.com/finding-malware-using-memory-forensics/?a_aid=cc6dcc1d)|Monnappa (@monnappa22)|
 |2014|March|Blog|[Uroburos Rootkit Hook Analysis and Driver Extraction](http://spresec.blogspot.com/2014/03/uroburos-rootkit-hook-analysis-and.html)|@spresec|
 |2014|March|Code|[OpenVPN credentials extractor](https://github.com/Phaeilo/vol-openvpn)|Phaeilo|
