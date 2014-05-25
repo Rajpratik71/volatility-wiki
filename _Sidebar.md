@@ -9,7 +9,7 @@ Getting Started
 
 Command References 
 * [[Windows Core|Command Reference]]
-* [[Windows GUI|Command-Reference-Gui23]]
+* [[Windows GUI|Command Reference Gui]]
 * [[Windows Malware|Command-Reference-Mal23]]
 * [[Windows Registry|Command-Reference-Registry-Api23]]
 * [[Linux|Linux-Command-Reference23]]
