@@ -22,7 +22,7 @@ For detailed instructions creating crash dumps see Microsoft's [KB 969028](http:
 - Remote kernel debugger's .crash or .dump command
 - The SysInternals [LiveKD](http://download.sysinternals.com/files/LiveKD.zip) tool (LiveKd -o)
 - Some [forensic memory imaging tools](http://www.forensicswiki.org/wiki/Tools:Memory_Imaging) can create dumps in crash format
-- If you have a raw memory dump, you can convert it to a crash dump with volatility's [raw2dmp command](Command-Reference22#raw2dmp)
+- If you have a raw memory dump, you can convert it to a crash dump with volatility's [raw2dmp command](Command-Reference#raw2dmp)
 
 Also see the technet article [Understanding Crash Dump Files](http://blogs.technet.com/b/askperf/archive/2008/01/08/understanding-crash-dump-files.aspx) which summarizes the difference between complete memory dumps, kernel memory dumps, and mini dumps. 
 
