@@ -1,9 +1,34 @@
-  * *Choose a release* - the most recent is [Release23] (Volatility 2.3), released October 2013. Older versions are also available on the [Downloads](http://www.volatilityfoundation.org/#!releases/component_71401) page or respective release pages. If you want the cutting edge development build, use an git client and clone the master.
+### Quick Start
+
+ * *Choose a release* - the most recent is [Release23] (Volatility 2.3), released October 2013. Older versions are also available on the [Downloads](http://www.volatilityfoundation.org/#!releases/component_71401) page or respective release pages. If you want the cutting edge development build, use an git client and clone the master.
   * *Install the code* - Volatility is packaged in several formats, including source code in zip or tar archive (all platforms), a Pyinstaller executable (Windows only) and a standalone executable (Windows only). For help deciding which format is best for your needs, and for installation or upgrade instructions, see VolatilityInstallation.
   * *Target OS specific setup* - the Linux, Mac, and Andoid support may require accessing symbols and building your own profiles before using volatility. If you plan to analyze these operating systems, please see LinuxMemoryForensics, MacMemoryForensics, or AndroidMemoryForensics.
   * *Read usage and plugins* - command-line parameters, options, and plugins may differ between releases. Thus, each release has a basic usage page and a command reference. For Volatility 2.3, see [[VolatilityUsage23]] and [[Command-Reference23]]. 
   * *Communicate* - If you have documentation, patches, ideas, or bug reports, you can communicate them through the  [github interface](https://github.com/gleeda/Volatility/issues), IRC (#volatility on freenode), the [Volatility Mailing List](http://lists.volatilesystems.com/mailman/listinfo)or Twitter ([@volatility](https://twitter.com/volatility)). 
   * *Develop* - For advanced users who want to develop their own plugins, address spaces, and other components of volatility, there is a recommended StyleGuide and API documentation for each release (see DeveloperGuide22 for the most recent version).
+
+### Malware and Memory Forensics Training 
+
+We've put together an exhaustive course covering everything you need to know about memory forensics for malware investigations, incident response, and digital forensics. The material is "field tested" and has been executed in front of hundreds of students.
+
+For more information, click the link for the event you're interested in or read [student feedback on our blog](http://www.memoryanalysis.net/#!testimonials/c1dos).
+
+Current Courses:
+
+* [Dec 2014 in Austin, TX](http://www.memoryanalysis.net/#!New-Event-in-Austin-TX-December-8th---12th-2014/c1zo4/EF551588-9E8A-4036-B5B5-4E4B5D4A4D66)
+* [Oct 2014 in Reston, VA](http://www.memoryanalysis.net/#!New-Event-in-Reston-VA-October-6th---10th-2014/c1zo4/FE9134FC-B2E4-47AF-A2F1-D3899840A4B7)
+* [Aug 2014 in Canberra, AU](http://www.memoryanalysis.net/#!New-Event-in-Canberra-AU-August-25th---29th-2014/c1zo4/5F514FDF-F43B-415D-9053-84E9A5E3FE3A)
+* [Jun 2014 in London, UK](http://www.memoryanalysis.net/#!New-Event-in-London-UK-June-9th---13th-2014/c1zo4/0BB86C58-D266-4A49-B503-5EA917057394)
+
+Past Courses:
+
+* [May 2014 in New York, NY](http://www.memoryanalysis.net/#!New-Event-in-New-York-NY-May-5th---9th-2014/c1zo4/1)
+* [Jan 2014 in San Diego CA](http://volatility-labs.blogspot.com/2013/09/2014-malware-and-memory-forensics.html)
+* [Nov 2013 in Reston VA](http://volatility-labs.blogspot.com/2013/06/memory-forensics-training-reston-va.html)
+* [Sep 2013 in The Netherlands](http://volatility-labs.blogspot.com/2013/04/memory-forensics-training-netherlands.html)
+* [Jun 2013 in Reston, VA](http://volatility-labs.blogspot.com/2013/03/official-training-by-volatility.html)
+* [Mar 2013 in Chicago, IL](http://volatility-labs.blogspot.com/2013/01/windows-malware-and-memory-forensics.html)
+* [Dec 2012 in Reston, VA](http://volatility-labs.blogspot.com/2012/11/windows-memory-forensics-training-for.html)
 
 ### Why Volatility
 
