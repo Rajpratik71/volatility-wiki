@@ -79,9 +79,9 @@ You will need the Volatility source code (i.e. not the standalone Windows execut
 
 ## Creating a profile 
 
-To create a profile, you first need to download the !KernelDebugKit for the kernel you want to analyze. This can be downloaded from the [Apple Developer's website](http://developer.apple.com/hardwaredrivers) (click OS X Kernel Debug Kits on the right). This account is free and only requires a valid Email address. 
+To create a profile, you first need to download the KernelDebugKit for the kernel you want to analyze. This can be downloaded from the [Apple Developer's website](http://developer.apple.com/hardwaredrivers) (click OS X Kernel Debug Kits on the right). This account is free and only requires a valid Email address. 
 
-After the !DebugKit is downloaded, mount the dmg file. This will place the contents at "/Volumes/!KernelDebugKit". 
+After the DebugKit is downloaded, mount the dmg file. This will place the contents at "/Volumes/KernelDebugKit". 
 
 ## Creating the vtypes 
 
