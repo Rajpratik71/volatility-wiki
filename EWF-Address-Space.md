@@ -1,11 +1,8 @@
 **Table of Contents**  
 
-- [Expert Witness Files](EWF-Address-Space#expert-witness-files)
 - [Introduction](EWF-Address-Space#introduction)
 - [Acquisition](EWF-Address-Space#acquisition)
 - [File Format](EWF-Address-Space#file-format)
-
-# Expert Witness Files
 
 # Introduction
 
