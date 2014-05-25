@@ -302,7 +302,7 @@ Don't make install, because that may overwrite the dwarfdump that came with your
 
 Get Volatility 2.3 or greater, if you don't already have it and change into the linux directory:
 
-    $ svn checkout https://volatility.googlecode.com/svn/trunk/ ~/android-volatility
+    $ git clone https://github.com/volatilityfoundation/volatility.git ~/android-volatility
     $ cd ~android-volatility/tools/linux
 
 Edit the Makefile like so:
@@ -337,16 +337,16 @@ Now combine module.dwarf and the System.map from your android kernel source code
 
 # Examine the Memory Dump with Volatility 
 
-Android is based on Linux so you can use any of the [[LinuxCommandReference23]] to analyze your memory dump. 
+Android is based on Linux so you can use any of the [[Linux Command Reference]] to analyze your memory dump. 
 
 	$ cd ~/android-volatility/
 	
 	$ python vol.py --info | grep Linux
-	Volatile Systems Volatility Framework 2.3_alpha
+	Volatility Foundation Volatility Framework 2.4
 	LinuxGolfish-2_6_29x86 - A Profile for Linux Golfish-2.6.29 x86
 	
 	$ python vol.py --profile=LinuxGolfish-2_6_29x86 -f ~/lime.dump linux_pslist
-	Volatile Systems Volatility Framework 2.3_alpha
+	Volatility Foundation Volatility Framework 2.4
 	Offset     Name                 Pid             Uid             Gid    DTB        Start Time
 	---------- -------------------- --------------- --------------- ------ ---------- ----------
 	0xf3812c00 init                 1               0               0      0x33b04000 2013-02-25 16:42:16 UTC+0000
