@@ -1,6 +1,5 @@
 **Table of Contents**  
 
-- [Information on using the Firewire Address Space](Firewire-Address-Space#information-on-using-the-firewire-address-space)
 - [Introduction](Firewire-Address-Space#introduction)
 - [Technique](Firewire-Address-Space#technique)
 		- [Masquerading as an SBP2 device](Firewire-Address-Space#masquerading-as-an-sbp2-device)
@@ -11,8 +10,6 @@
 		- [Setup](Firewire-Address-Space#setup)
 		- [Usage](Firewire-Address-Space#usage-1)
 - [Limitations](Firewire-Address-Space#limitations)
-
-# Information on using the Firewire Address Space
 
 # Introduction
 
