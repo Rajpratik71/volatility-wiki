@@ -1,11 +1,8 @@
 **Table of Contents**  
 
-- [An address space for LiME files](Lime-Address-Space#an-address-space-for-lime-files)
 - [Introduction](Lime-Address-Space#introduction)
 - [Acquisition](Lime-Address-Space#acquisition)
 - [File Format](Lime-Address-Space#file-format)
-
-# An address space for LiME files
 
 # Introduction
 
