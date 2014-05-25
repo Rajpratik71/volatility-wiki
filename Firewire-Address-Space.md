@@ -39,7 +39,7 @@ Prerequisites:
 
 Simply run volatility with the following command line:
 
-    volatility -l firewire://forensic1394/<devno> <plugin> [<plugin_opts>]
+    python vol.py -l firewire://forensic1394/<devno> <plugin> [<plugin_opts>]
 
 It will automatically set your firewire card into SBP2 mode, and allow the reading and writing of memory, thus enabling all plugins.
 
@@ -85,7 +85,7 @@ The following command will attempt to copy 10K of data and therefore determine q
 
 Once read/write access is operating correctly, the device can be accessed through volatility by running the following command:
 
-    volatility -l firewire://raw1394/<port>/<node> <plugin> [<plugin_opts>]
+    python vol.py -l firewire://raw1394/<port>/<node> <plugin> [<plugin_opts>]
 
 # Limitations
 
