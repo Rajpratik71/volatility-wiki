@@ -1,13 +1,3 @@
-**Table of Contents**  
-
-- [Introduction](VMware-Snapshot-File#introduction)
-- [Acquisition](VMware-Snapshot-File#acquisition)
-- [Notes](VMware-Snapshot-File#notes)
-- [File Format](VMware-Snapshot-File#file-format)
-- [Meta Data](VMware-Snapshot-File#meta-data)
-
-# Introduction
-
 Volatility can analyze VMware saved state (.vmss) and VMware snapshot (.vmsn) files. This capability was researched and introduced by Nir Izraeli and the AS is modeled after his [vmsnparser project](http://code.google.com/p/vmsnparser/). Saved state and snapshot files are not the same as typical .vmem files that most everyone is familiar with. Rather, these .vmss/.vmsn contain a fairly complex structure layout which contains the physical memory runs, the VM configuration data, CPU registers, and even PNG thumbnails of the VM's screen. 
 
 # Acquisition
