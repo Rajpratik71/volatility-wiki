@@ -1,23 +1,19 @@
 **Table of Contents**  
 
-- [Commands for Windows GUI Memory](Command-Reference-Gui23#commands-for-windows-gui-memory)
-- [sessions](Command-Reference-Gui23#sessions)
-- [wndscan](Command-Reference-Gui23#wndscan)
-- [deskscan](Command-Reference-Gui23#deskscan)
-- [atomscan](Command-Reference-Gui23#atomscan)
-- [atoms](Command-Reference-Gui23#atoms)
-- [clipboard](Command-Reference-Gui23#clipboard)
-- [eventhooks](Command-Reference-Gui23#eventhooks)
-- [gahti](Command-Reference-Gui23#gahti)
-- [messagehooks](Command-Reference-Gui23#messagehooks)
-- [userhandles](Command-Reference-Gui23#userhandles)
-- [screenshot](Command-Reference-Gui23#screenshot)
-- [gditimers](Command-Reference-Gui23#gditimers)
-- [windows](Command-Reference-Gui23#windows)
-- [wintree](Command-Reference-Gui23#wintree)
-
-# Commands for Windows GUI Memory
-
+- [sessions](Command Reference Gui#sessions)
+- [wndscan](Command Reference Gui#wndscan)
+- [deskscan](Command Reference Gui#deskscan)
+- [atomscan](Command Reference Gui#atomscan)
+- [atoms](Command Reference Gui#atoms)
+- [clipboard](Command Reference Gui#clipboard)
+- [eventhooks](Command Reference Gui#eventhooks)
+- [gahti](Command Reference Gui#gahti)
+- [messagehooks](Command Reference Gui#messagehooks)
+- [userhandles](Command Reference Gui#userhandles)
+- [screenshot](Command Reference Gui#screenshot)
+- [gditimers](Command Reference Gui#gditimers)
+- [windows](Command Reference Gui#windows)
+- [wintree](Command Reference Gui#wintree)
 
 The win32k.sys suite of plugins analyzes GUI memory. Most of these plugins are more thoroughly described (including details on underlying data structures, example use cases, etc) on the [Volatility Labs Blog](http://volatility-labs.blogspot.com), so the content here is just a quick summary. 
 
@@ -26,7 +22,7 @@ The win32k.sys suite of plugins analyzes GUI memory. Most of these plugins are m
 This command analyzes the unique `_MM_SESSION_SPACE` objects and prints details related to the processes running in each logon session, mapped drivers, paged/non-paged pools etc. The alternate process lists output by this plugin are leveraged by the `psxview` plugin for rootkit detection. For more information, see [MoVP 1.1 Logon Sessions, Processes, and Images](http://volatility-labs.blogspot.com/2012/09/movp-11-logon-sessions-processes-and.html). 
 
     $ python vol.py -f win7x64.dd --profile=Win7SP1x64 sessions
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     **************************************************
     Session(V): fffff88002ec7000 ID: 0 Processes: 20
     PagedPoolStart: fffff900c0000000 PagedPoolEnd fffff920bfffffff
@@ -59,7 +55,7 @@ This command analyzes the unique `_MM_SESSION_SPACE` objects and prints details 
 This command scans for `tagWINDOWSTATION` objects and prints details on the window station, its global atom table, available clipboard formats, and processes or threads currently interacting with the clipboard. For more information see [MoVP 1.2 Window Stations and Clipboard Malware](http://volatility-labs.blogspot.com/2012/09/movp-12-window-stations-and-clipboard.html).
 
     $ python vol.py -f rdp.mem --profile=Win2003SP2x86 wndscan
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     **************************************************
     WindowStation: 0x8581e40, Name: WinSta0, Next: 0x0
     SessionId: 2, AtomTable: 0xe7981648, Interactive: True
@@ -83,7 +79,7 @@ This command subclasses the `wndscan` plugin and for each window station found, 
 Here's an example of the output. For more information see [MoVP 1.3 Desktops, Heaps, and Ransomware](http://volatility-labs.blogspot.com/2012/09/movp-13-desktops-heaps-and-ransomware.html). 
 
     $ python vol.py -f rdp.mem --profile=Win2003SP2x86 deskscan
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     **************************************************
     Desktop: 0x8001038, Name: WinSta0\Default, Next: 0x8737bc10
     SessionId: 2, DesktopInfo: 0xbc6f0650, fsHooks: 2128
@@ -156,7 +152,7 @@ This command recovers data from users' clipboards. It walks the array of `tagCLI
 The output below shows an extracted unicode command that a user had copied to the clipboard:
 
     $ python vol.py -f dfrws2008-rodeo-memory.img clipboard
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     Session  WindowStation Format               Handle Object     Data                                             
     -------- ------------- ---------------- ---------- ---------- ------------
         0    WinSta0       CF_UNICODETEXT     0x4900c3 0xe12a7c98 pp -B -p -o out.pl file                           
@@ -167,7 +163,7 @@ The output below shows an extracted unicode command that a user had copied to th
 The next example is a format type CF_HDROP which is a copy & paste operating of a file from windows explorer. Notice the entire file's content isn't copied to the clipboard, just the full path. 
 
     $ python vol.py -f xpsp3.vmem clipboard -v
-    Volatile Systems Volatility Framework 2.1_rc3
+    Volatility Foundation Volatility Framework 2.1_rc3
     [snip]
     
        0    WinSta0       CF_HDROP           0x10230131 0xe1fa6590
@@ -187,7 +183,7 @@ The next example is a format type CF_HDROP which is a copy & paste operating of 
 This command enumerates event hooks installed via the `SetWinEventHook` API. It prints the minimum and maximum event IDs to which the hook applies, the targeted threads, owning processes, and offset to the hook procedure. For more information, see [MoVP 3.1 Detecting Malware Hooks in the Windows GUI Subsystem](http://volatility-labs.blogspot.com/2012/09/movp-31-detecting-malware-hooks-in.html). 
 
     $ python vol.py -f  win7x64.dd --profile=Win7SP1x64 eventhooks
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     
     Handle: 0x300cb, Object: 0xfffff900c01eda10, Session: 1
     Type: TYPE_WINEVENTHOOK, Flags: 0, Thread: 1516, Process: 880
@@ -201,7 +197,7 @@ This command enumerates event hooks installed via the `SetWinEventHook` API. It 
 This command uses an algorithmic approach to finding the `win32kgahti` symbol which is an array of `tagHANDLETYPEINFO` structures - one for each type of USER object for the system. Windows XP has typically 20 objects and Windows 7 has 22, including TYPE_FREE. The plugin shows you the 4-byte tag associated with allocations, where the objects are allocated from (desktop heap, shared heap, session pool), and how the objects are owned (thread owned, process owned, or anonymous). For more information, see [MoVP 3.3 Analyzing USER Handles and the Win32k Gahti](http://volatility-labs.blogspot.com/2012/09/movp-33-analyzing-user-handles-and.html). 
 
     $ python vol.py -f win7x64cmd.dd --profile=Win7SP1x64 gahti
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     Session  Type                 Tag      fnDestroy          Flags
     -------- -------------------- -------- ------------------ -----
            0 TYPE_FREE                     0x0000000000000000 
@@ -232,7 +228,7 @@ This command uses an algorithmic approach to finding the `win32kgahti` symbol wh
 This command prints both local and global message hooks, installed via `SetWindowsHookEx` APIs. This is a common trick used by malware to inject code into other processes and log keystrokes, record mouse movements, etc. For more information, see [MoVP 3.1 Detecting Malware Hooks in the Windows GUI Subsystem](http://volatility-labs.blogspot.com/2012/09/movp-31-detecting-malware-hooks-in.html). 
 
     $ python vol.py -f laqma.vmem messagehooks --output=block
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     Offset(V)  : 0xbc693988
     Session    : 0
     Desktop    : WinSta0\Default
@@ -269,7 +265,7 @@ This command prints both local and global message hooks, installed via `SetWindo
 This command takes a screenshot from each desktop on the system. The screenshot is a wire-frame diagram, with labeled window titles, according to the Z-Order (i.e. front to back) arrangement of the windows and their coordinates at the time of the memory dump. For more information, see [MoVP 4.3 Taking Screenshots From Memory Dumps](http://volatility-labs.blogspot.com/2012/10/movp-43-taking-screenshots-from-memory.html). 
 
     $ python vol.py -f users.vmem --profile=Win7SP1x86 screenshot -D shots/
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     Wrote shots/session_0.Service-0x0-3e4$.Default.png
     Wrote shots/session_0.Service-0x0-3e5$.Default.png
     Wrote shots/session_0.msswindowstation.mssrestricteddesk.png
@@ -291,7 +287,7 @@ Here's an example of one of the desktops:
 This command locates the session-specific `tagSHAREDINFO` structure, walks the `aheList` member (an array of `_HANDLEENTRY`) structures. It determines if each handle entry is thread or process owned, shows the object type, and its offset in session space. This plugin is not very verbose, its just meant to show an overview of the USER objects currently in use by each thread or process; and it serves as an API for other plugins that do want verbose details on an object type. For example the gditimers and eventhooks plugins leverage the APIs from this plugin. For more information, see [http://volatility-labs.blogspot.com/2012/09/movp-33-analyzing-user-handles-and.html MoVP 3.3 Analyzing USER Handles and the Win32k Gahti](http://4.bp.blogspot.com/-qH4Qt7QP37w/UGqEM7oHbLI/AAAAAAAACx4/LY8Ekvqi47s/s1600/session_0.WinSta0.Default.png]). 
 
     $ python vol.py -f win7x64.dd --profile=Win7SP1x64 userhandles
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     **************************************************
     SharedInfo: 0xfffff9600035d300, SessionId: 0 
     aheList: 0xfffff900c0400000, Table size: 0x2000, Entry size: 0x18
@@ -317,7 +313,7 @@ This command locates the session-specific `tagSHAREDINFO` structure, walks the `
 This command leverages the USER handle table API as described above and for each TYPE_TIMER, it dereferences the object as a `tagTIMER` and prints details on the fields. Malware uses timers often to schedule routine functions, such as contacting a C2 server or making sure a hidden process remains hidden. For more information, see [MoVP 4.1 Detecting Malware with GDI Timers](http://volatility-labs.blogspot.com/2012/10/movp-41-detecting-malware-with-gdi.html). 
 
     $ python vol.py -f laqma.vmem gditimers
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     Thread   Process                     nID Rate(ms)   Countdown(ms) Func      
     -------- -------------------- ---------- ---------- ------------- ----------
          696 csrss.exe:660            0x7ffe       1000           734 0xbf8012b8
@@ -342,7 +338,7 @@ This command leverages the USER handle table API as described above and for each
 This command enumerates all windows (visible or not) in all desktops of the system. It walks windows in their Z-Order (i.e. front to back focus) starting at the desktops `spwnd` value (the foreground window). For each window it shows details on the window's title, class atoms, the owning thread and process, the visibility properties, the left/right/top/bottom coordinates, the flags and ex-flags, and the window procedure address. For more information on windows, see [MoVP 2.2 Malware In Your Windows](http://volatility-labs.blogspot.com/2012/09/movp-22-malware-in-your-windows.html).
 
     $ python vol.py -f win7x64.dd --profile=Win7SP1x64 windows
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     **************************************************
     Window context: 1\WinSta0\Default
     
