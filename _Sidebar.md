@@ -10,10 +10,10 @@ Getting Started
 Command References 
 * [[Windows Core|Command Reference]]
 * [[Windows GUI|Command Reference Gui]]
-* [[Windows Malware|Command-Reference-Mal23]]
-* [[Windows Registry|Command-Reference-Registry-Api23]]
-* [[Linux|Linux-Command-Reference23]]
-* [[Mac OSX|Mac-Command-Reference23]]
+* [[Windows Malware|Command-Reference-Mal]]
+* [[Windows Registry|Command-Reference-Registry-Api]]
+* [[Linux|Linux-Command-Reference]]
+* [[Mac OSX|Mac-Command-Reference]]
 
 Miscellaneous
 * [[Memory Samples]]
