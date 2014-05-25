@@ -1,6 +1,5 @@
 **Table of Contents**  
 
-- [Introduction](Mac#introduction)
 - [Determine your version](Mac#determine-your-version)
 - [Download pre-built profiles](Mac#download-pre-built-profiles)
 - [Building a Profile](Mac#building-a-profile)
@@ -14,10 +13,6 @@
 	- [Putting it all together](Mac#putting-it-all-together)
 - [Acquiring memory](Mac#acquiring-memory)
 - [Plugins](Mac#plugins)
-
-# Introduction 
-
-These are the instructions for using the Mac support in Volatility. A presentation on the initial set of features can be found [here](http://www.slideshare.net/AndrewDFIR/mac-memory-analysis-with-volatility).
 
 # Determine your version 
 
@@ -46,7 +41,7 @@ Assuming you wanted to switch to a different mode, for testing purposes, you can
 
 # Download pre-built profiles 
 
-Click to download an [archive of 38 different Mac OSX profiles](https://github.com/gleeda/Volatility/archive/macprofiles.zip). Extract the main zip and copy/move the individual profiles that you want to activate into your volatility/plugins/overlays/mac folder.  
+Click to download an [archive of 42 Mac OSX profiles](http://downloads.volatilityfoundation.org/profiles/mac/MacProfiles.zip). Extract the main zip and copy/move the individual profiles that you want to activate into your volatility/plugins/overlays/mac folder.  
 
   * Leopard 10.5 (32-bit)
   * Leopard 10.5.3 (32-bit)
@@ -70,6 +65,9 @@ Click to download an [archive of 38 different Mac OSX profiles](https://github.c
   * Mountain Lion 10.8.1 (64-bit)
   * Mountain Lion 10.8.2 (64-bit)
   * Mountain Lion 10.8.3 (64-bit) 
+  * Mavericks 10.9.1 (64-bit)
+  * Mavericks 10.9.2 (64-bit)
+  * Mavericks 10.9.3 (64-bit)
 
 # Building a Profile  
 
@@ -77,9 +75,7 @@ If you need to perform memory analysis on a version of Mac OSX that isn't in the
 
 ## Getting the source 
 
-The source can be currently downloaded by checking out with SVN:
-
-    $ svn co http://volatility.googlecode.com/svn/trunk volatility-trunk
+You will need the Volatility source code (i.e. not the standalone Windows executable) from the [Releases](http://www.volatilityfoundation.org/#!releases/component_71401) page or the GitHub repository. 
 
 ## Creating a profile 
 
@@ -133,7 +129,7 @@ Volatility does not provide the ability to acquire memory. We recommend using [M
 
 # Plugins 
 
-To find all currently available plugins, use the following command. For more information on what these plugins do and how to use them correctly, see the [MacCommandReference23] page. 
+To find all currently available plugins, use the following command. For more information on what these plugins do and how to use them correctly, see the [MacCommandReference] page. 
 
 	$ python vol.py --info | grep mac_
 	mac_arp                 - Prints the arp table
