@@ -1,7 +1,6 @@
 **Table of Contents**  
 
 - [Prerequisites](Linux#prerequisites)
-- [Getting the Volatility source](Linux#getting-the-volatility-source)
 - [Creating a profile](Linux#creating-a-profile)
 	- [Creating vtypes](Linux#creating-vtypes)
 	- [Getting Symbols](Linux#getting-symbols)
@@ -19,11 +18,7 @@ First check the [Release Documentation](http://www.volatilityfoundation.org/#!re
   * GCC/make: apt-get install build-essential on Debial/Ubuntu.
   * headers for building kernel modules: this is the kernel-devel or linux-headers-generic package. sometimes you may need to uname -a to find your kernel version and then be specific like apt-get install linux-headers-2.6.24-16.server
 
-<font color = 'red'>By far, the most common mistake regarding Linux memory forensics is building a profile for a system other than the machine you want to analyze. For example, you cannot build a profile for a Debian 2.6.32 system to analyze a memory dump from Mandrake 2.6.32. Likewise you cannot build a profile for SuSE 2.5.35 system to analyze a memory dump from SuSE 2.6.42. You must ensure the profile you build matches the target system in 1) Linux distribution 2) exact kernel version 3) CPU architecture (32-bit, 64-bit, etc).</font>
-
-# Getting the Volatility source 
-
-Linux support is available as of [Release22]. Please see the release page for direct download links.
+By far, the most common mistake regarding Linux memory forensics is building a profile for a system other than the machine you want to analyze. For example, you cannot build a profile for a Debian 2.6.32 system to analyze a memory dump from Mandrake 2.6.32. Likewise you cannot build a profile for SuSE 2.5.35 system to analyze a memory dump from SuSE 2.6.42. You must ensure the profile you build matches the target system in 1) Linux distribution 2) exact kernel version 3) CPU architecture (32-bit, 64-bit, etc).
 
 # Creating a profile 
 
@@ -65,8 +60,8 @@ There are technically no naming rules for your zip file, but we recommend you ch
 
 If you _do not_ want to write to the core volatility directories (which may be overwritten during upgrades/uninstalls, or may not even exist if you're using the standalone windows executable), then just place your profiles in a directory on disk and use the --plugins=/path/to/profiles to get them loaded by volatility. Here is an example:
 
-    C:\Users\Jake\Desktop>volatility-2.2_rc1.standalone.exe --info | findstr Linux
-    Volatile Systems Volatility Framework 2.2_rc1
+    C:\Users\Jake\Desktop>volatility-2.4.standalone.exe --info | findstr Linux
+    Volatility Foundation Volatility Framework 2.4
 
     C:\Users\Jake\Desktop>dir profiles
      Volume in drive C has no label.
@@ -82,8 +77,8 @@ If you _do not_ want to write to the core volatility directories (which may be o
                    3 File(s)      2,028,154 bytes
                    2 Dir(s)   8,360,775,680 bytes free
 
-    C:\Users\Jake\Desktop>volatility-2.2_rc1.standalone.exe --plugins=profiles --info | findstr Linux
-    Volatile Systems Volatility Framework 2.2_rc1
+    C:\Users\Jake\Desktop>volatility-2.4.standalone.exe --plugins=profiles --info | findstr Linux
+    Volatility Foundation Volatility Framework 2.4
     LinuxMandriva2011x64 - A Profile for Linux Mandriva2011 x64
     LinuxOpenSuSE12x86   - A Profile for Linux OpenSuSE12 x86
     LinuxUbuntu1204x64   - A Profile for Linux Ubuntu1204 x64
@@ -93,7 +88,7 @@ If you _do not_ want to write to the core volatility directories (which may be o
 To find the name of your profile, run:
 
     $ python vol.py --info | grep Linux
-    Volatile Systems Volatility Framework 2.2_alpha
+    Volatility Foundation Volatility Framework 2.4
     LinuxDebian2632_zipx86 - A Profile for Linux Debian2632.zip x86
     LinuxDebian2632x86     - A Profile for Linux Debian2632 x86
     LinuxUbuntu1204x64    - A Profile for Linux Ubuntu1204 x64 <=== This is the one we just created
@@ -109,7 +104,7 @@ The basic form to run Volatility is:
 Soon, a wiki page will be created that details every plugin and its output. Until then, to find all the available plugins and get a quick description of their purpose, you can run:
 
 	$ python vol.py --info | grep -i linux_
-	Volatile Systems Volatility Framework 2.2_alpha
+	Volatility Foundation Volatility Framework 2.4
 	linux_arp           - Print the ARP table
 	linux_bash          - Recover bash history from bash process memory
 	linux_check_afinfo  - Verifies the operation function pointers of network protocols
