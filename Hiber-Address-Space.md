@@ -1,5 +1,3 @@
-# Introduction
-
 A hibernation file (hiberfil.sys) contains a complete copy of memory that is dumped to disk by the system during the hibernation process. 
 
 # Acquisition
