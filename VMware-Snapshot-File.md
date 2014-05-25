@@ -1,13 +1,10 @@
 **Table of Contents**  
 
-- [VMware snapshot file address space](VMware-Snapshot-File#vmware-snapshot-file-address-space)
 - [Introduction](VMware-Snapshot-File#introduction)
 - [Acquisition](VMware-Snapshot-File#acquisition)
 - [Notes](VMware-Snapshot-File#notes)
 - [File Format](VMware-Snapshot-File#file-format)
 - [Meta Data](VMware-Snapshot-File#meta-data)
-
-# VMware snapshot file address space
 
 # Introduction
 
