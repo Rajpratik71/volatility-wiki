@@ -1,11 +1,3 @@
-**Table of Contents**  
-
-- [Linux Profile Reference](#linux-profile-reference)
-- [Profiles](#profiles)
-
-# Linux Profile Reference
-
-
 As described on the [[Linux Memory Forensics|Linux]] page, these are the available example linux profiles. Do not use these profiles with memory dumps from systems running different kernels than as specified in the profile description. 
 
 # Profiles
