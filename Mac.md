@@ -129,7 +129,7 @@ Volatility does not provide the ability to acquire memory. We recommend using [M
 
 # Plugins 
 
-To find all currently available plugins, use the following command. For more information on what these plugins do and how to use them correctly, see the [MacCommandReference] page. 
+To find all currently available plugins, use the following command. For more information on what these plugins do and how to use them correctly, see the [Mac-Command-Reference] page. 
 
 	$ python vol.py --info | grep mac_
 	mac_arp                 - Prints the arp table
