@@ -8,7 +8,7 @@ Getting Started
 * [[Basic Usage|Volatility Usage]]
 
 Command References 
-* [[Windows Core|Command-Reference23]]
+* [[Windows Core|Command Reference]]
 * [[Windows GUI|Command-Reference-Gui23]]
 * [[Windows Malware|Command-Reference-Mal23]]
 * [[Windows Registry|Command-Reference-Registry-Api23]]
