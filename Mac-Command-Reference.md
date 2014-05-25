@@ -1,44 +1,44 @@
 **Table of Contents**  
 
-- [Processes](Mac-Command-Reference23#processes)
-	- [mac_pslist](Mac-Command-Reference23#mac_pslist)
-	- [mac_tasks](Mac-Command-Reference23#mac_tasks)
-	- [mac_pstree](Mac-Command-Reference23#mac_pstree)
-	- [mac_lsof](Mac-Command-Reference23#mac_lsof)
-	- [mac_pgrp_hash_table](Mac-Command-Reference23#mac_pgrp_hash_table)
-	- [mac_pid_hash_table](Mac-Command-Reference23#mac_pid_hash_table)
-	- [mac_psaux](Mac-Command-Reference23#mac_psaux)
-	- [mac_dead_procs](Mac-Command-Reference23#mac_dead_procs)
-	- [mac_psxview](Mac-Command-Reference23#mac_psxview)
-- [Process Memory](Mac-Command-Reference23#process-memory)
-	- [mac_proc_maps](Mac-Command-Reference23#mac_proc_maps)
-	- [mac_dump_maps](Mac-Command-Reference23#mac_dump_maps)
-- [Kernel Memory and Objects](Mac-Command-Reference23#kernel-memory-and-objects)
-	- [mac_list_sessions](Mac-Command-Reference23#mac_list_sessions)
-	- [mac_list_zones](Mac-Command-Reference23#mac_list_zones)
-	- [mac_lsmod](Mac-Command-Reference23#mac_lsmod)
-	- [mac_mount](Mac-Command-Reference23#mac_mount)
-- [Networking](Mac-Command-Reference23#networking)
-	- [mac_arp](Mac-Command-Reference23#mac_arp)
-	- [mac_ifconfig](Mac-Command-Reference23#mac_ifconfig)
-	- [mac_netstat](Mac-Command-Reference23#mac_netstat)
-	- [mac_route](Mac-Command-Reference23#mac_route)
-- [Malware/Rootkits](Mac-Command-Reference23#malwarerootkits)
-	- [mac_check_sysctl](Mac-Command-Reference23#mac_check_sysctl)
-	- [mac_check_syscalls](Mac-Command-Reference23#mac_check_syscalls)
-	- [mac_check_trap_table](Mac-Command-Reference23#mac_check_trap_table)
-	- [mac_ip_filters](Mac-Command-Reference23#mac_ip_filters)
-	- [mac_notifiers](Mac-Command-Reference23#mac_notifiers)
-	- [mac_trustedbsd](Mac-Command-Reference23#mac_trustedbsd)
-- [System Information](Mac-Command-Reference23#system-information)
-	- [mac_dmesg](Mac-Command-Reference23#mac_dmesg)
-	- [mac_find_aslr_shift](Mac-Command-Reference23#mac_find_aslr_shift)
-	- [mac_machine_info](Mac-Command-Reference23#mac_machine_info)
-	- [mac_version](Mac-Command-Reference23#mac_version)
-	- [mac_print_boot_cmdline](Mac-Command-Reference23#mac_print_boot_cmdline)
-- [Miscellaneous](Mac-Command-Reference23#miscellaneous)
-	- [mac_volshell](Mac-Command-Reference23#mac_volshell)
-	- [mac_yarascan](Mac-Command-Reference23#mac_yarascan)
+- [Processes](Mac Command Reference#processes)
+	- [mac_pslist](Mac Command Reference#mac_pslist)
+	- [mac_tasks](Mac Command Reference#mac_tasks)
+	- [mac_pstree](Mac Command Reference#mac_pstree)
+	- [mac_lsof](Mac Command Reference#mac_lsof)
+	- [mac_pgrp_hash_table](Mac Command Reference#mac_pgrp_hash_table)
+	- [mac_pid_hash_table](Mac Command Reference#mac_pid_hash_table)
+	- [mac_psaux](Mac Command Reference#mac_psaux)
+	- [mac_dead_procs](Mac Command Reference#mac_dead_procs)
+	- [mac_psxview](Mac Command Reference#mac_psxview)
+- [Process Memory](Mac Command Reference#process-memory)
+	- [mac_proc_maps](Mac Command Reference#mac_proc_maps)
+	- [mac_dump_maps](Mac Command Reference#mac_dump_maps)
+- [Kernel Memory and Objects](Mac Command Reference#kernel-memory-and-objects)
+	- [mac_list_sessions](Mac Command Reference#mac_list_sessions)
+	- [mac_list_zones](Mac Command Reference#mac_list_zones)
+	- [mac_lsmod](Mac Command Reference#mac_lsmod)
+	- [mac_mount](Mac Command Reference#mac_mount)
+- [Networking](Mac Command Reference#networking)
+	- [mac_arp](Mac Command Reference#mac_arp)
+	- [mac_ifconfig](Mac Command Reference#mac_ifconfig)
+	- [mac_netstat](Mac Command Reference#mac_netstat)
+	- [mac_route](Mac Command Reference#mac_route)
+- [Malware/Rootkits](Mac Command Reference#malwarerootkits)
+	- [mac_check_sysctl](Mac Command Reference#mac_check_sysctl)
+	- [mac_check_syscalls](Mac Command Reference#mac_check_syscalls)
+	- [mac_check_trap_table](Mac Command Reference#mac_check_trap_table)
+	- [mac_ip_filters](Mac Command Reference#mac_ip_filters)
+	- [mac_notifiers](Mac Command Reference#mac_notifiers)
+	- [mac_trustedbsd](Mac Command Reference#mac_trustedbsd)
+- [System Information](Mac Command Reference#system-information)
+	- [mac_dmesg](Mac Command Reference#mac_dmesg)
+	- [mac_find_aslr_shift](Mac Command Reference#mac_find_aslr_shift)
+	- [mac_machine_info](Mac Command Reference#mac_machine_info)
+	- [mac_version](Mac Command Reference#mac_version)
+	- [mac_print_boot_cmdline](Mac Command Reference#mac_print_boot_cmdline)
+- [Miscellaneous](Mac Command Reference#miscellaneous)
+	- [mac_volshell](Mac Command Reference#mac_volshell)
+	- [mac_yarascan](Mac Command Reference#mac_yarascan)
 
 # Processes
 
@@ -46,10 +46,10 @@
 
 This plugin walks the linked list of processes and displays their short name, pid, uid, gid, bits (32, 64, or 64 shared), the DTB address, and creation time. You can tweak the timestamp time zone by using --tz=TIMEZONE (see [Setting the Timezone](Volatility-Usage23#Setting_the_Timezone)).
 
-Note: in testing, we determined that oftentimes the list is corrupt, leading to semi-garbage output. This is likely due to smearing while acquiring the memory sample. In these cases, use the [mac_tasks](Mac-Command-Reference23#mac_tasks) plugin instead - it has been found to be a more reliable source of process listings. 
+Note: in testing, we determined that oftentimes the list is corrupt, leading to semi-garbage output. This is likely due to smearing while acquiring the memory sample. In these cases, use the [mac_tasks](Mac Command Reference#mac_tasks) plugin instead - it has been found to be a more reliable source of process listings. 
 
     $ python vol.py --profile=MacMountainLion_10_8_3_AMDx64 -f ~/10.8.3.mmr.macho mac_pslist
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.4
     Offset             Name                 Pid      Uid      Gid      PGID     Bits         DTB                Start Time
     ------------------ -------------------- -------- -------- -------- -------- ------------ ------------------ ----------
     0xffffff8032be4ea0 image                4175     0        0        4167     64BIT        0x0000000317e7e000 2013-03-29 12:16:20 UTC+0000
@@ -70,7 +70,7 @@ Note: in testing, we determined that oftentimes the list is corrupt, leading to 
 This plugin enumerates processes by first enumerating tasks and then following the task.bsd_info pointer to find the process object. 
 
     $ python vol.py --profile=MacMountainLion_10_8_3_AMDx64 -f ~/10.8.3.mmr.macho mac_tasks
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.4
     Offset             Name                 Pid      Uid      Gid      PGID     Bits         DTB                Start Time
     ------------------ -------------------- -------- -------- -------- -------- ------------ ------------------ ----------
     0xffffff800fada2d0 kernel_task          0        0        0        0        64BIT        0x0000000011e9f000 2013-03-29 01:08:47 UTC+0000
@@ -86,7 +86,7 @@ This plugin enumerates processes by first enumerating tasks and then following t
 This plugin shows the parent/child relationship between processes. 
 
     $ python vol.py --profile=MacMountainLion_10_8_3_AMDx64 -f ~/10.8.3.mmr.macho mac_pstree
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.4
     Name                 Pid             Uid            
     kernel_task          0               0              
     .launchd             1               0              
@@ -111,7 +111,7 @@ This plugin shows the parent/child relationship between processes.
 This plugin lists the open file handles. As you can see from the output, a user was viewing volatility source code files at the time of the memory dump. 
 
     $ python vol.py --profile=MacMountainLion_10_8_3_AMDx64 -f ~/10.8.3.mmr.macho mac_lsof
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.4
     0 -> /Macintosh HD/dev/null
     1 -> /Macintosh HD/dev/null
     2 -> /Macintosh HD/dev/null
@@ -135,7 +135,7 @@ This plugin lists the open file handles. As you can see from the output, a user 
 This plugin enumerates processes by walking the process group hash table. 
 
     $ python vol.py --profile=MacMountainLion_10_8_3_AMDx64 -f ~/10.8.3.mmr.macho mac_pgrp_hash_table
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.4
     Offset             Name                 Pid      Uid      Gid      PGID     Bits         DTB                Start Time
     ------------------ -------------------- -------- -------- -------- -------- ------------ ------------------ ----------
     0xffffff800fada2d0 kernel_task          0        0        0        0        64BIT        0x0000000011e9f000 2013-03-29 01:08:47 UTC+0000
@@ -152,7 +152,7 @@ This plugin enumerates processes by walking the process group hash table.
 This plugin enumerates processes by walking the pid hash table. 
 
     $ python vol.py --profile=MacMountainLion_10_8_3_AMDx64 -f ~/10.8.3.mmr.macho mac_pid_hash_table
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.4
     Offset             Name                 Pid      Uid      Gid      PGID     Bits         DTB                Start Time
     ------------------ -------------------- -------- -------- -------- -------- ------------ ------------------ ----------
     0xffffff80314aa600 Google Chrome He     1025     501      20       261      32BIT        0x000000004c7a4000 2013-03-29 01:56:58 UTC+0000
@@ -169,7 +169,7 @@ This plugin enumerates processes by walking the pid hash table.
 This plugin accesses process memory to pull command-line arguments passed to the process at startup. 
 
     $ python vol.py --profile=MacMountainLion_10_8_3_AMDx64 -f ~/10.8.3.mmr.macho mac_psaux
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.4
     Pid      Name                 Bits             Stack              Length   Argc     Arguments
     -------- -------------------- ---------------- ------------------ -------- -------- ---------
            0 kernel_task          64BIT            0x0000000000000000        0        0 
@@ -201,7 +201,7 @@ This plugin accesses process memory to pull command-line arguments passed to the
 This plugin prints terminated/dead processes. In most cases, the UID, GID, PGID, Bits, and DTB columns will show invalid data since we could be looking at partially overwritten data structures. Also please note in some rare cases, active processes are also found in this list. We are currently investigating conditions that lead to active processes showing up in the freed process object list. 
 
     $ python vol.py --profile=MacMountainLion_10_8_3_AMDx64 -f ~/10.8.3.mmr.macho mac_dead_procs
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.4
     Offset             Name                 Pid      Uid      Gid      PGID     Bits         DTB                Start Time
     ------------------ -------------------- -------- -------- -------- -------- ------------ ------------------ ----------
     0xffffff8036349760 diskmanagementd      4158     -        -        -55...11              ------------------ 2013-03-29 12:14:31 UTC+0000
@@ -219,7 +219,7 @@ This plugin enumerates processes in 6 different ways and cross-references the pr
 For more information, see [MOVP II - 4.1 - Leveraging Process Cross-View Analysis for Mac Rootkit Detection](http://volatility-labs.blogspot.com/2013/06/movp-ii-41-leveraging-process-cross.html).
 
     $ python vol.py --profile=MacMountainLion_10_8_3_AMDx64 -f ~/10.8.3.mmr.macho mac_psxview
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.4
     Offset(P)          Name                    PID pslist parents pid_hash pgrp_hash_table session leaders task processes
     ------------------ -------------------- ------ ------ ------- -------- --------------- --------------- --------------
     0xffffff800fada2d0 kernel_task               0 True   True    False    True            True            True          
@@ -245,7 +245,7 @@ For more information on the complexities of Mac process memory, see [MoVP II - 4
 This plugin shows the allocated memory blocks in each process, along with their starting and ending addresses, permissions, and name of them mapped file if it applies. You can filter processes with the -p option. 
 
     $ python vol.py --profile=MacMountainLion_10_8_3_AMDx64 -f ~/10.8.3.mmr.macho mac_proc_maps -p 1 
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.4
     Pid      Name                 Start              End                Perms     Map Name
     -------- -------------------- ------------------ ------------------ --------- --------
     1        launchd              0x000000010630c000 0x0000000106333000 r-x       Macintosh HD/sbin/launchd
@@ -264,7 +264,7 @@ This plugin shows the allocated memory blocks in each process, along with their 
 This plugin dumps/extracts a memory block seen in the mac_proc_maps output. For example, if you wanted to recover the launchd binary which is reportedly located at 0x000000010630c000 in the launchd process memory, you can do the following:
 
     $ python vol.py --profile=MacMountainLion_10_8_3_AMDx64 -f ~/10.8.3.mmr.macho mac_dump_maps -p 1 -s 0x000000010630c000 -O launchd.binary.dmp
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.4
     Wrote 159744 bytes
     
     $ file launchd.binary.dmp 
@@ -277,7 +277,7 @@ This plugin dumps/extracts a memory block seen in the mac_proc_maps output. For 
 This plugin enumerates sessions from the session hash table. You can use this information to link processes to user names. 
 
     $ python vol.py --profile=MacMountainLion_10_8_3_AMDx64 -f ~/10.8.3.mmr.macho mac_list_sessions
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.4
     Leader (Pid) Leader (Name)        Login Name               
     ------------ -------------------- -------------------------
                0 kernel_task                                   
@@ -296,7 +296,7 @@ This plugin enumerates sessions from the session hash table. You can use this in
 This plugin enumerates zones (in this context a zone is similar to a structure). You can use it to determine how many of a particular type of structure (i.e. a process object) are active and freed. For example, below you can see that 133 proc structures are active on the system. Other plugins can inherit from mac_list_zones and actually collect the addresses of each active object type, leading to a wealthy source of information regarding where to find allocated objects in memory dumps. 
 
     $ python vol.py --profile=MacMountainLion_10_8_3_AMDx64 -f ~/10.8.3.mmr.macho mac_list_zones
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.4
     Name                           Active Count Free Count Element Size
     ------------------------------ ------------ ---------- ------------
     zones                                   182          0          592
@@ -316,7 +316,7 @@ This plugin enumerates zones (in this context a zone is similar to a structure).
 This plugin lists the loaded kernel extensions, their base addresses and size, reference count, and version number. 
 
     $ python vol.py --profile=MacMountainLion_10_8_3_AMDx64 -f ~/10.8.3.mmr.macho mac_lsmod
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.4
     Address                          Size   Refs   Version      Name
     ------------------ ------------------ -------- ------------ ----
     0xffffff7f91847000             0x3000    0     3.0.2        com.atc-nycorp.devmem.kext
@@ -333,7 +333,7 @@ This plugin lists the loaded kernel extensions, their base addresses and size, r
 This plugin shows the mounted file systems. 
 
     $ python vol.py --profile=MacMountainLion_10_8_3_AMDx64 -f ~/10.8.3.mmr.macho mac_mount
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.4
     Device                         Mount Point                                                  Type
     ------------------------------ ------------------------------------------------------------ ----
     /                              /dev/disk3                                                   hfs
@@ -349,7 +349,7 @@ This plugin shows the mounted file systems.
 This plugin prints the ARP table, including sent/recv statistics, time the entry was created, and its expiration. 
 
     $ python vol.py --profile=MacMountainLion_10_8_3_AMDx64 -f ~/10.8.3.mmr.macho mac_arp
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.4
     Source IP                Dest. IP                    Name           Sent               Recv                     Time                 Exp.    Delta
     ------------------------ ------------------------ ---------- ------------------ ------------------ ------------------------------ ---------- -----
     192.168.228.255          ff:ff:ff:ff:ff:ff          vmnet8           10                 0           2013-03-29 12:13:59 UTC+0000    39913    0
@@ -364,7 +364,7 @@ This plugin prints the ARP table, including sent/recv statistics, time the entry
 This plugin prints the IPv4, IPv6, and Ethernet addresses for interfaces (both physical and virtual) on the system. 
 
     $ python vol.py --profile=MacMountainLion_10_8_3_AMDx64 -f ~/10.8.3.mmr.macho mac_ifconfig
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.4
     Interface  Address
     ---------- -------
     lo0        fe80:1::1
@@ -388,7 +388,7 @@ This plugin prints the IPv4, IPv6, and Ethernet addresses for interfaces (both p
 This plugin shows active UNIX sockets and TCP/UDP endpoints (along with the TCP state and local/remote IPs and ports).
 
     $ python vol.py --profile=MacMountainLion_10_8_3_AMDx64 -f ~/10.8.3.mmr.macho mac_netstat
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.4
     UNIX -
     UNIX /var/tmp/launchd/sock
     UNIX -
@@ -416,7 +416,7 @@ This plugin shows active UNIX sockets and TCP/UDP endpoints (along with the TCP 
 This plugin dumps the routing table. It shows the Source and Destination IPs, name of the interface, and for versions that support it - the sent/recv statistics and expiration/delta times. Only 10.7.x and 10.8.x OSX versions include the extra details.  
 
     $ python vol.py --profile=MacMountainLion_10_8_3_AMDx64 -f ~/10.8.3.mmr.macho mac_route
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.4
     Source IP                Dest. IP                    Name           Sent               Recv                     Time                 Exp.    Delta
     ------------------------ ------------------------ ---------- ------------------ ------------------ ------------------------------ ---------- -----
     0.0.0.0                  10.0.1.1                    en1            4342              50431         2013-03-29 01:08:55 UTC+0000      0      0
@@ -438,7 +438,7 @@ This plugin dumps the routing table. It shows the Source and Destination IPs, na
 This plugin checks for unknown sysctl handlers. You'll see the name of the sysctl, associated permissions, the handler address, and any available details (may be a string or a number, depending on the purpose of the sysctl. The "Status" column will contain "OK" if the sysctl is known/safe or "UNKNOWN" if its been hooked. 
 
     $ python vol.py --profile=MacMountainLion_10_8_3_AMDx64 -f ~/10.8.3.mmr.macho mac_check_sysctl
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.4
     Name                           Number   Perms  Handler            Status     Value
     ------------------------------ -------- ------ ------------------ ---------- -----
     ostype                                1 R-L    0xffffff800f76cee0 OK         Darwin
@@ -460,7 +460,7 @@ This plugin prints the syscall table entries and resolves the function address t
 There are some exceptions, however, where a function can be hooked and you won't see the HOOKED indicator...for example when you hook with D-Trace as described in [Hunting D-Trace Rootkits with The Volatility Framework](http://siliconblade.blogspot.com/2013/04/hunting-d-trace-rootkits-with.html). The dtrace infrastructure is compiled inside the kernel (not a kernel module) so the dysmutil output knows the symbol name. 
 
     $ python vol.py --profile=MacMountainLion_10_8_3_AMDx64 -f ~/10.8.3.mmr.macho mac_check_syscalls
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.4
     Table Name      Index  Address            Symbol                        
     --------------- ------ ------------------ ------------------------------
     SyscallTable         0 0xffffff800f7755f0 _nosys                        
@@ -483,7 +483,7 @@ There are some exceptions, however, where a function can be hooked and you won't
 This plugin checks the status of the mach trap table function pointers to determine if they've been hooked. The Symbol column displays "HOOKED" if any appear to be maliciously altered. The "kern_invalid" entries are safe, they're just default/un-used handlers (similar to how un-used IRPs on Windows point to nt!IopInvalidDeviceRequest). 
 
     $ python vol.py --profile=MacMountainLion_10_8_3_AMDx64 -f ~/10.8.3.mmr.macho mac_check_trap_table
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.4
     Table Name      Index  Address            Symbol                                            
     --------------- ------ ------------------ --------------------------------------------------
     TrapTable            0 0xffffff800f434ec0 _kern_invalid                                     
@@ -508,7 +508,7 @@ This plugin checks the status of the mach trap table function pointers to determ
 This plugin detects rootkits that add hooks into I/O Kit (e.g. LogKext). If any entries are suspicious, you'll see "UNKNOWN" in the Status column. 
 
     $ python vol.py --profile=MacMountainLion_10_8_3_AMDx64 -f ~/10.8.3.mmr.macho mac_notifiers
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.4
     Status     Key                            Handler            Matches
     ---------- ------------------------------ ------------------ -------
     OK         IOServicePublish               0xffffff7f8fa878e8 IODisplayConnect
@@ -530,7 +530,7 @@ This plugin detects rootkits that add hooks into I/O Kit (e.g. LogKext). If any 
 This plugin recovers the kernel debug buffer. 
 
     $ python vol.py --profile=MacMountainLion_10_8_3_AMDx64 -f ~/10.8.3.mmr.macho mac_dmesg
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.4
     deny mach-lookup com.apple.coresymbolicationd
     MacAuthEvent en1   Auth result for: 00:26:bb:77:d2:a7  MAC AUTH succeeded
     wlEvent: en1 en1 Link UP virtIf = 0
@@ -548,7 +548,7 @@ This plugin recovers the kernel debug buffer.
 This plugin only applies to Mountain Lion (10.8.x) versions using Address Space Layout Randomization. The symbol addresses that Volatility pulls from the mach_kernel need to be adjusted using a special "shift" value that we first must find by scanning the physical memory dump. Any plugin for 10.8.x that utilizes symbols will do this scan in the background unless you supply the value as the --shift=SHIFT parameter. 
 
     $ python vol.py --profile=MacMountainLion_10_8_3_AMDx64 -f ~/10.8.3.mmr.macho mac_find_aslr_shift
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.4
     Shift Value       
     ------------------
     0x000000000f200000
@@ -556,7 +556,7 @@ This plugin only applies to Mountain Lion (10.8.x) versions using Address Space 
 For example, if you run the mac_pslist plugin (which uses symbols) and it will scan for the shift value automatically:
 
     $ time python vol.py --profile=MacMountainLion_10_8_3_AMDx64 -f ~/10.8.3.mmr.macho mac_pslist
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.4
     Offset             Name                 Pid      Uid      Gid      PGID     Bits         DTB                Start Time
     ------------------ -------------------- -------- -------- -------- -------- ------------ ------------------ ----------
     0xffffff8032be4ea0 image                4175     0        0        4167     64BIT        0x0000000317e7e000 2013-03-29 12:16:20 UTC+0000
@@ -570,7 +570,7 @@ For example, if you run the mac_pslist plugin (which uses symbols) and it will s
 If you supply the shift value when running mac_pslist, the plugin will complete about 1.5 seconds quicker. This isn't a significant speed enhancement, but if you were running several plugins sequentially, the total time saved can end up being significant.
 
     $ time python vol.py --profile=MacMountainLion_10_8_3_AMDx64 -f ~/10.8.3.mmr.macho mac_pslist --shift=0x000000000f200000
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.4
     Offset             Name                 Pid      Uid      Gid      PGID     Bits         DTB                Start Time
     ------------------ -------------------- -------- -------- -------- -------- ------------ ------------------ ----------
     0xffffff8032be4ea0 image                4175     0        0        4167     64BIT        0x0000000317e7e000 2013-03-29 12:16:20 UTC+0000
@@ -586,7 +586,7 @@ If you supply the shift value when running mac_pslist, the plugin will complete 
 This plugin prints the machine's kernel major/minor versions, RAM size, and CPU details. 
 
     $ python vol.py --profile=MacMountainLion_10_8_3_AMDx64 -f ~/10.8.3.mmr.macho mac_machine_info
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.4
     Major Version:  12
     Minor Version:  3
     Memory Size:    17179869184
@@ -599,7 +599,7 @@ This plugin prints the machine's kernel major/minor versions, RAM size, and CPU 
 This plugin shows the version string you'd see from "uname -a" on a live system.
 
     $ python vol.py --profile=MacMountainLion_10_8_3_AMDx64 -f ~/10.8.3.mmr.macho mac_version
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.4
     Darwin Kernel Version 12.3.0: Sun Jan  6 22:37:10 PST 2013; root:xnu-2050.22.13~1/RELEASE_X86_64
 
 ## mac_print_boot_cmdline
@@ -607,7 +607,7 @@ This plugin shows the version string you'd see from "uname -a" on a live system.
 This plugin prints the boot arguments passed to the kernel upon system start
 
     $ python vol.py --profile=MacSnowLeopard_10_6_AMDx64  -f /root/mac-images-profiles/s10.6.0x64.vmem mac_print_boot_cmdline
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.4
     Command Line
     ------------
     srv=1
@@ -622,7 +622,7 @@ This plugin presents an interactive shell in the mac memory image. You can list 
 To list processes:
 
     $ python vol.py --profile=MacMountainLion_10_8_3_AMDx64 -f ~/Desktop/10.8.3/10.8.3.mmr.macho mac_volshell
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.4
     Current context: process kernel_task, pid=0 DTB=0x11e9f000
     Welcome to volshell! Current memory image is:
     file:///Users/michaelligh/Desktop/10.8.3.mmr.macho
