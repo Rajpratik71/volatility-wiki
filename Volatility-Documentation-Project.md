@@ -9,6 +9,7 @@ This is a catalog of research, documentation, analysis, and tutorials generated 
 |2014|April|Blog|[Windows Logon Password – Get Windows Logon Password using Wdigest in Memory Dump](http://www.forensicfocus.com/News/article/sid=2183/)|For-MD (http://for-md.org)|
 |2014|April|Blog|[Hyper-V 2012 and 2012 R2 live virtual machine memory acquisition and analysis](http://www.wyattroersma.com/?p=87)|Wyatt Roersma (@WyattRoersma)|
 |2014|April|Blog|[Rewriting/anonymizing artifacts](http://hiddenillusion.blogspot.com/2014/04/rewritinganonymizing-artifacts.html)|Glenn P. Edwards Jr. (@hiddenillusion)|
+|2014|March|Blog|[Analyzing a Linux Memory Dump](http://securitykilroy.blogspot.com/2014/03/analyzing-linux-memory-dump.html)|Ric Messier (@ricmessier)|
 |2014|March|Blog|[Finding Advanced Malware Using Volatility](http://blog.eforensicsmag.com/finding-malware-using-memory-forensics/?a_aid=cc6dcc1d)|Monnappa (@monnappa22)|
 |2014|March|Blog|[Uroburos Rootkit Hook Analysis and Driver Extraction](http://spresec.blogspot.com/2014/03/uroburos-rootkit-hook-analysis-and.html)|@spresec|
 |2014|March|Code|[OpenVPN credentials extractor](https://github.com/Phaeilo/vol-openvpn)|Phaeilo|
