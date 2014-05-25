@@ -1,13 +1,3 @@
-**Table of Contents**  
-
-- [Introduction](Virtual-Box-Core-Dump#introduction)
-- [Acquisition](Virtual-Box-Core-Dump#acquisition)
-- [Notes](Virtual-Box-Core-Dump#notes)
-- [File Format](Virtual-Box-Core-Dump#file-format)
-- [Meta Data](Virtual-Box-Core-Dump#meta-data)
-
-# Introduction
-
 Volatility can analyze memory dumps from [VirtualBox](https://www.virtualbox.org/) virtual machines. Philippe Teuwen wrote this Address Space and detailed much of the acquisition, file format, and other intricacies related to this exciting capability [on his personal wiki](http://wiki.yobi.be/wiki/RAM_analysis). 
 
 # Acquisition
@@ -53,7 +43,7 @@ You can use the [vboxinfo](Command-Reference23#vboxinfo) plugin to dump meta-dat
 The system below had about 5.5 GB RAM:
 
     $ python vol.py -f ~/Desktop/win7sp1x64_vbox.elf --profile=Win7SP1x64 vboxinfo 
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.4
     
     Magic: 0xc01ac0de
     Format: 0x10000
