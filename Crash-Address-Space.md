@@ -1,6 +1,5 @@
 **Table of Contents**  
 
-- [Microsoft Crash Dump Files](Crash-Address-Space#microsoft-crash-dump-files)
 - [Introduction](Crash-Address-Space#introduction)
 - [Acquisition](Crash-Address-Space#acquisition)
 - [Notes](Crash-Address-Space#notes)
@@ -8,8 +7,6 @@
 	- [32-bit crash dumps](Crash-Address-Space#32-bit-crash-dumps)
 	- [64-bit crash dumps](Crash-Address-Space#64-bit-crash-dumps)
 - [Meta Data](Crash-Address-Space#meta-data)
-
-# Microsoft Crash Dump Files
 
 # Introduction
 
