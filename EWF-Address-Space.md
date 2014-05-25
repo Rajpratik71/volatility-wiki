@@ -1,9 +1,3 @@
-**Table of Contents**  
-
-- [Introduction](EWF-Address-Space#introduction)
-- [Acquisition](EWF-Address-Space#acquisition)
-- [File Format](EWF-Address-Space#file-format)
-
 # Introduction
 
 Memory acquired by EnCase or converted using ewfacquire are stored in Expert Witness Format (EWF).  Volatility supports the "older" EWF format used by EnCase v6 (and prior versions), but not the newer EWF2-EX01 format used in EnCase v7.
@@ -32,7 +26,7 @@ To acquire the sample, right-click, click on "Acquire"  and follow the acquisiti
 You must have libewf installed for the EWF address space to work correctly.  The address space can be found in the `contrib/plugins/aspaces` folder.  You can use the `--plugins=` parameter in order to use the ewf.py address space without moving it.  The `--plugins=` parameter must come before any other parameters for `vol.py`.  You can see an example below:
 
 	$ python vol.py --plugins=contrib/plugins -f WinXPSP3x86.E01 --profile=WinXPSP3x86 pslist
-	Volatile Systems Volatility Framework 2.2_alpha
+	Volatility Foundation Volatility Framework 2.4
 	Offset(V)  Name                    PID   PPID   Thds     Hnds   Sess  Wow64 Start                Exit    
 	---------- -------------------- ------ ------ ------ -------- ------ ------ -------------------- --------------------
 	0x8aeda660 System                    4      0     99     2022 ------      0    
