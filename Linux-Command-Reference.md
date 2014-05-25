@@ -1,52 +1,52 @@
 **Table of Contents**  
 
-- [Processes](Linux-Command-Reference23#processes)
-	- [linux_pslist](Linux-Command-Reference23#linux_pslist)
-	- [linux_psaux](Linux-Command-Reference23#linux_psaux)
-	- [linux_pstree](Linux-Command-Reference23#linux_pstree)
-	- [linux_pslist_cache](Linux-Command-Reference23#linux_pslist_cache)
-	- [linux_pidhashtable](Linux-Command-Reference23#linux_pidhashtable)
-	- [linux_psxview](Linux-Command-Reference23#linux_psxview)
-	- [linux_lsof](Linux-Command-Reference23#linux_lsof)
-- [Process Memory](Linux-Command-Reference23#process-memory)
-	- [linux_memmap](Linux-Command-Reference23#linux_memmap)
-	- [linux_proc_maps](Linux-Command-Reference23#linux_proc_maps)
-	- [linux_dump_map](Linux-Command-Reference23#linux_dump_map)
-	- [linux_bash](Linux-Command-Reference23#linux_bash)
-- [Kernel Memory and Objects](Linux-Command-Reference23#kernel-memory-and-objects)
-	- [linux_lsmod](Linux-Command-Reference23#linux_lsmod)
-	- [linux_moddump](Linux-Command-Reference23#linux_moddump)
-	- [linux_tmpfs](Linux-Command-Reference23#linux_tmpfs)
-- [Rootkit Detection](Linux-Command-Reference23#rootkit-detection)
-	- [linux_check_afinfo](Linux-Command-Reference23#linux_check_afinfo)
-	- [linux_check_tty](Linux-Command-Reference23#linux_check_tty)
-	- [linux_keyboard_notifier](Linux-Command-Reference23#linux_keyboard_notifier)
-	- [linux_check_creds](Linux-Command-Reference23#linux_check_creds)
-	- [linux_check_fop](Linux-Command-Reference23#linux_check_fop)
-	- [linux_check_idt](Linux-Command-Reference23#linux_check_idt)
-	- [linux_check_syscall](Linux-Command-Reference23#linux_check_syscall)
-	- [linux_check_modules](Linux-Command-Reference23#linux_check_modules)
-	- [linux_check_creds](Linux-Command-Reference23#linux_check_creds-1)
-- [Networking](Linux-Command-Reference23#networking)
-	- [linux_arp](Linux-Command-Reference23#linux_arp)
-	- [linux_ifconfig](Linux-Command-Reference23#linux_ifconfig)
-	- [linux_route_cache](Linux-Command-Reference23#linux_route_cache)
-	- [linux_netstat](Linux-Command-Reference23#linux_netstat)
-	- [linux_pkt_queues](Linux-Command-Reference23#linux_pkt_queues)
-	- [linux_sk_buff_cache](Linux-Command-Reference23#linux_sk_buff_cache)
-- [System Information](Linux-Command-Reference23#system-information)
-	- [linux_cpuinfo](Linux-Command-Reference23#linux_cpuinfo)
-	- [linux_dmesg](Linux-Command-Reference23#linux_dmesg)
-	- [linux_iomem](Linux-Command-Reference23#linux_iomem)
-	- [linux_slabinfo](Linux-Command-Reference23#linux_slabinfo)
-	- [linux_mount](Linux-Command-Reference23#linux_mount)
-	- [linux_mount_cache](Linux-Command-Reference23#linux_mount_cache)
-	- [linux_dentry_cache](Linux-Command-Reference23#linux_dentry_cache)
-	- [linux_find_file](Linux-Command-Reference23#linux_find_file)
-	- [linux_vma_cache](Linux-Command-Reference23#linux_vma_cache)
-- [Miscellaneous](Linux-Command-Reference23#miscellaneous)
-	- [linux_volshell](Linux-Command-Reference23#linux_volshell)
-	- [linux_yarascan](Linux-Command-Reference23#linux_yarascan)
+- [Processes](Linux Command Reference#processes)
+	- [linux_pslist](Linux Command Reference#linux_pslist)
+	- [linux_psaux](Linux Command Reference#linux_psaux)
+	- [linux_pstree](Linux Command Reference#linux_pstree)
+	- [linux_pslist_cache](Linux Command Reference#linux_pslist_cache)
+	- [linux_pidhashtable](Linux Command Reference#linux_pidhashtable)
+	- [linux_psxview](Linux Command Reference#linux_psxview)
+	- [linux_lsof](Linux Command Reference#linux_lsof)
+- [Process Memory](Linux Command Reference#process-memory)
+	- [linux_memmap](Linux Command Reference#linux_memmap)
+	- [linux_proc_maps](Linux Command Reference#linux_proc_maps)
+	- [linux_dump_map](Linux Command Reference#linux_dump_map)
+	- [linux_bash](Linux Command Reference#linux_bash)
+- [Kernel Memory and Objects](Linux Command Reference#kernel-memory-and-objects)
+	- [linux_lsmod](Linux Command Reference#linux_lsmod)
+	- [linux_moddump](Linux Command Reference#linux_moddump)
+	- [linux_tmpfs](Linux Command Reference#linux_tmpfs)
+- [Rootkit Detection](Linux Command Reference#rootkit-detection)
+	- [linux_check_afinfo](Linux Command Reference#linux_check_afinfo)
+	- [linux_check_tty](Linux Command Reference#linux_check_tty)
+	- [linux_keyboard_notifier](Linux Command Reference#linux_keyboard_notifier)
+	- [linux_check_creds](Linux Command Reference#linux_check_creds)
+	- [linux_check_fop](Linux Command Reference#linux_check_fop)
+	- [linux_check_idt](Linux Command Reference#linux_check_idt)
+	- [linux_check_syscall](Linux Command Reference#linux_check_syscall)
+	- [linux_check_modules](Linux Command Reference#linux_check_modules)
+	- [linux_check_creds](Linux Command Reference#linux_check_creds-1)
+- [Networking](Linux Command Reference#networking)
+	- [linux_arp](Linux Command Reference#linux_arp)
+	- [linux_ifconfig](Linux Command Reference#linux_ifconfig)
+	- [linux_route_cache](Linux Command Reference#linux_route_cache)
+	- [linux_netstat](Linux Command Reference#linux_netstat)
+	- [linux_pkt_queues](Linux Command Reference#linux_pkt_queues)
+	- [linux_sk_buff_cache](Linux Command Reference#linux_sk_buff_cache)
+- [System Information](Linux Command Reference#system-information)
+	- [linux_cpuinfo](Linux Command Reference#linux_cpuinfo)
+	- [linux_dmesg](Linux Command Reference#linux_dmesg)
+	- [linux_iomem](Linux Command Reference#linux_iomem)
+	- [linux_slabinfo](Linux Command Reference#linux_slabinfo)
+	- [linux_mount](Linux Command Reference#linux_mount)
+	- [linux_mount_cache](Linux Command Reference#linux_mount_cache)
+	- [linux_dentry_cache](Linux Command Reference#linux_dentry_cache)
+	- [linux_find_file](Linux Command Reference#linux_find_file)
+	- [linux_vma_cache](Linux Command Reference#linux_vma_cache)
+- [Miscellaneous](Linux Command Reference#miscellaneous)
+	- [linux_volshell](Linux Command Reference#linux_volshell)
+	- [linux_yarascan](Linux Command Reference#linux_yarascan)
 
 
 # Processes
@@ -56,7 +56,7 @@
 This plugin prints the list of active processes starting from the `init_task` symbol and walking the `task_struct->tasks` linked list. It does not display the swapper process. If the DTB column is blank, the item is likely a kernel thread. 
 
     $ python vol.py -f ~/Desktop/Linux/ubuntu.lime --profile=LinuxUbuntu1204x64 linux_pslist
-    Volatile Systems Volatility Framework 2.2_rc2
+    Volatility Foundation Volatility Framework 2.4
     Offset             Name                 Pid             Uid             Gid    DTB                Start Time
     ------------------ -------------------- --------------- --------------- ------ ------------------ ----------
     0xffff88007b818000 init                 1               0               0      0x00000000366ec000 Fri, 17 Aug 2012 19:55:38 +0000
@@ -79,7 +79,7 @@ This plugin prints the list of active processes starting from the `init_task` sy
 This plugin subclasses `linux_pslist` so it enumerates processes in the same way as described above. However, it mimics the `ps aux` command on a live system (specifically it can show the command-line arguments). 
 
     $ python vol.py -f ~/Desktop/Linux/ubuntu.lime --profile=LinuxUbuntu1204x64 linux_psaux
-    Volatile Systems Volatility Framework 2.2_rc2
+    Volatility Foundation Volatility Framework 2.4
     Pid    Uid    Arguments                                                       
     1      0      /sbin/init ro quiet splash                                       Fri, 17 Aug 2012 19:55:38 +0000    
     2      0      [kthreadd]                                                       Fri, 17 Aug 2012 19:55:38 +0000    
@@ -99,7 +99,7 @@ This plugin subclasses `linux_pslist` so it enumerates processes in the same way
 This plugin prints a parent/child relationship tree by walking the `task_struct.children` and `task_struct.sibling` members.
 
     $ python vol.py -f ~/Desktop/Linux/ubuntu.lime --profile=LinuxUbuntu1204x64 linux_pstree
-    Volatile Systems Volatility Framework 2.2_rc2
+    Volatility Foundation Volatility Framework 2.4
     Name                 Pid             Uid            
     init                 1               0              
     .upstart-udev-br     375             0              
@@ -121,7 +121,7 @@ This plugin prints a parent/child relationship tree by walking the `task_struct.
 Here's an example showing how this plugin can associate child processes spawned by a malicious backdoor. In this case pid 2777 is related to the KBeast rootkit and a bash shell and the sleep command were executed by it. 
 
     # python vol.py --profile=LinuxDebianx86 -f kbeast.lime linux_pstree
-    Volatile Systems Volatility Framework 2.2_rc1
+    Volatility Foundation Volatility Framework 2.2_rc1
     Name                 Pid             Uid
     <snip>
     ._h4x_bd             2777            0
@@ -134,7 +134,7 @@ Here's an example showing how this plugin can associate child processes spawned 
 This plugin enumerates processes from kmem_cache. It currently only works on systems that use SLAB (i.e. SLUB is not  yet supported). 
 
     $ python vol.py -f ~/Desktop/Linux/centos.lime --profile=LinuxCentOS63x64 linux_pslist_cache
-    Volatile Systems Volatility Framework 2.2_rc2
+    Volatility Foundation Volatility Framework 2.4
     Offset             Name                 Pid             Uid             Gid    DTB                Start Time
     ------------------ -------------------- --------------- --------------- ------ ------------------ ----------
     0xffff88003d52c080 fcoemon              1436            0               0      0x000000003d41a000 Tue, 28 Aug 2012 11:06:24 +0000
@@ -169,7 +169,7 @@ This plugin enumerates processes by walking the pid hash table. It can assist wi
 This plugin is similar in concept to the [Windows psxview command](Command-Reference22#psxview) in that it gives you a cross-reference of processes based on multiple sources (the `task_struct->tasks` linked list, the pid hash table, and the kmem_cache). 
 
     $ python vol.py -f ~/Desktop/Linux/centos.lime --profile=LinuxCentOS63x64 linux_psxview
-    Volatile Systems Volatility Framework 2.2_rc2
+    Volatility Foundation Volatility Framework 2.4
     Offset(V)          Name                    PID pslist pid_hash kmem_cache
     ------------------ -------------------- ------ ------ -------- ----------
     0xffff88003ef85500 init                      1 True   True     True      
@@ -186,7 +186,7 @@ This plugin is similar in concept to the [Windows psxview command](Command-Refer
 This plugin mimics the `lsof` command on a live system. It prints the list of open file descriptors and their paths for each running process. To print only the files for a specific process, use the -p PID option. 
 
     $ python vol.py -f ~/Desktop/Linux/ubuntu.lime --profile=LinuxUbuntu1204x64 linux_lsof
-    Volatile Systems Volatility Framework 2.2_rc2
+    Volatility Foundation Volatility Framework 2.4
     Pid      FD       Path
     -------- -------- ----
            1        0 /dev/null
@@ -226,7 +226,7 @@ This plugin prints the list of allocated and memory-resident (non-swapped) pages
 This plugin prints details of process memory, including heaps, stacks, and shared libraries. In the example below from a KBeast infection, you can see the rootkit module in a hidden directory (with prefix `*h4x*`) starting at  0x8048000 in the memory of process with pid 2777. 
 
     $ python vol.py --profile=LinuxDebianx86 -f kbeast.lime linux_proc_maps -p 2777
-    Volatile Systems Volatility Framework 2.2_rc1
+    Volatility Foundation Volatility Framework 2.2_rc1
     0x8048000-0x8049000 r-x          0  8: 1       301353 /usr/_h4x_/_h4x_bd
     0x8049000-0x804a000 rw-       4096  8: 1       301353 /usr/_h4x_/_h4x_bd
     0xb75d7000-0xb75d8000 rw-          0  0: 0            0
@@ -289,7 +289,7 @@ The argument to the -H/--history_list parameter can be gathered by using gdb on 
 Here's an example of the output. 
 
     $ python vol.py -f avgcoder.mem --profile=LinuxCentOS63x64 linux_bash -H 0x6e0950 -P
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.3_alpha
     Pid      Name                 Command Time                   Command
     -------- -------------------- ------------------------------ -------
         2738 bash                 2013-08-09 21:28:13 UTC+0000   dmesg | head -50
@@ -320,7 +320,7 @@ Note: The -H/--history_list argument is now optional starting with Volatility 2.
 This plugin prints the list of loaded kernel modules starting at the `modules` symbol and walking the `modules.list` linked list. It optionally can print the module section information (with the -S/--sections option) or the module load parameters (with the --P/--params option). In the example below, you can see the lime module is 18070 bytes and it was passed the parameters "format=lime path=/home/mhl/ubuntu.lime" when the user loaded it. 
 
     $ python vol.py -f ~/Desktop/Linux/ubuntu.lime --profile=LinuxUbuntu1204x64 linux_lsmod -P
-    Volatile Systems Volatility Framework 2.2_rc2
+    Volatility Foundation Volatility Framework 2.4
     lime 18070
     	format=lime                                                                                         
     	dio=Y                                                                                               
@@ -344,7 +344,7 @@ This plugin prints the list of loaded kernel modules starting at the `modules` s
 This plugin dumps linux kernel modules to disk for further inspection. The files are named according to their lkm name, their starting address in kernel memory, and with an .lkm extension. If you know the name of a module you want to dump, you can use the -r/--regex=REGEX parameter with -i/--ignore-case option. 
 
     $ python vol.py --profile=LinuxUbuntux64 -f ~/ubuntu.lime linux_moddump -D mods/
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.3_alpha
     Wrote 16794 bytes to lime.0xffffffffa01ef000.lkm
     Wrote 122198 bytes to vmwgfx.0xffffffffa0296000.lkm
     Wrote 76949 bytes to ttm.0xffffffffa0282000.lkm
@@ -361,14 +361,14 @@ This plugins lists and recovers tmpfs filesystems from memory. This is very usef
 To use this plugin you must first list the tmpfs filesystems with the "L" option:
 
     # python vol.py --profile=Linuxthisx86 -f after-blog-post.lime linux_tmpfs -L
-    Volatile Systems Volatility Framework 2.2
+    Volatility Foundation Volatility Framework 2.2
     1 -> /dev/shm
     2 -> /lib/init/rw
 
 You then choose a filesystem to recover by number and give an output directory:
 
     # python vol.py --profile=Linuxthisx86 -f after-blog-post.lime linux_tmpfs -S 1 -D tmpfs
-    Volatile Systems Volatility Framework 2.2
+    Volatility Foundation Volatility Framework 2.2
     # ls -lR tmpfs
     tmpfs:
     total 0
@@ -381,7 +381,7 @@ You then choose a filesystem to recover by number and give an output directory:
 This plugin walks the `file_operations` and `sequence_operations` structures of all UDP and TCP protocol structures including, tcp6_seq_afinfo, tcp4_seq_afinfo, udplite6_seq_afinfo, udp6_seq_afinfo, udplite4_seq_afinfo, and udp4_seq_afinfo, and verifies each member. This effectively detects any tampering with the interesting members of these structures. The following output shows this plugin against the VM infected with KBeast:
 
     # python vol.py -f  kbeast.lime --profile=LinuxDebianx86 linux_check_afinfo
-    Volatile Systems Volatility Framework 2.2_rc1
+    Volatility Foundation Volatility Framework 2.2_rc1
     Symbol Name        Member          Address
     -----------        ------          ----------
     tcp4_seq_afinfo    show            0xe0fb9965
@@ -392,7 +392,7 @@ This plugin detects one of the kernel level keylogging methods described in "Bri
 Keyloggers". It works by checking the receive_buf function pointer for every active tty driver on the system. If the function pointer is not hooked then its symbol name is printed, otherwise "HOOKED" is printed.
 
     # python vol.py -f centos.lime --profile=LinuxCentos63Newx64 linux_check_tty
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.3_alpha
     Name             Address            Symbol
     ---------------- ------------------ ------------------------------
     tty1             0xffffffff8131a0b0 n_tty_receive_buf
@@ -419,7 +419,7 @@ The borrowing of cred structures leads to an inconsistency that Volatility can l
 The following output shows the cred structure running on an infected VM and showing that PID 1 has the same cred structure as the elevated bash shell (PID 9673):
 
     $ python vol.py -f avg.hidden-proc.lime --profile=Linuxthisx86 linux_check_creds
-    Volatile Systems Volatility Framework 2.2_rc1
+    Volatility Foundation Volatility Framework 2.2_rc1
     PIDs
     --------
     1, 9673
@@ -431,7 +431,7 @@ For more information on this plugin, see [MoVP 1.4 Average Coder Rootkit, Bash H
 This plugin enumerates the /proc filesystem and all opened files and verifies that each member of every file_operations structure is valid (valid means the function pointer is either in the kernel or in a known (not hidden) loadable kernel module). 
 
     $ python vol.py -f avgcoder.mem --profile=LinuxCentOS63x64 linux_check_fop
-    Volatile Systems Volatility Framework 2.2_rc1
+    Volatility Foundation Volatility Framework 2.2_rc1
     Symbol Name              Member           Address
     ------------------------ ---------------- ------------------
     proc_mnt: root           readdir          0xffffa05ce0e0
@@ -443,7 +443,7 @@ As we can see from the output, Volatility was able to report the three hooks pla
 This plugin, when given the –i/--inode option, reads the inode at the given address and verifies each member of its i_fop pointer. 
 
     $ python vol.py -f avgcoder.mem --profile=LinuxCentOS63x64 linux_check_fop -i 0x88007a85acc0
-    Volatile Systems Volatility Framework 2.2_rc1
+    Volatility Foundation Volatility Framework 2.2_rc1
     Symbol Name                   Member                 Address
     ----------------------------- ---------------------- ------------------
     inode at 88007a85acc0         read                   0xffffa05ce4d0
@@ -457,7 +457,7 @@ For more information on this plugin, see [MoVP 1.4 Average Coder Rootkit, Bash H
 This plugin enumerates the interrupt descriptor table (IDT) addresses and symbols. If any entries are hooked by rootkits, you'll see "HOOKED" in the far right column instead of the symbol name. 
 
     $ python vol.py -f ~/Downloads/Metasploitable2-Linux/Metasploitable-555c9224.vmem --profile=LinuxMetasploitx86 linux_check_idt
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.3_alpha
          Index Address    Symbol                        
     ---------- ---------- ------------------------------
            0x0 0xc0108fec divide_error                  
@@ -487,7 +487,7 @@ This plugin enumerates the interrupt descriptor table (IDT) addresses and symbol
 This plugin prints the system call tables and checks for hooked functions. For 64-bit systems, it prints both the 32-bit and 64-bit table. If a function is hooked, you'll see "HOOKED" displayed in the output, otherwise you'll see the name of the system call function. 
 
     $ python vol.py -f ~/Desktop/Linux/ubuntu.lime --profile=LinuxUbuntu1204x64 linux_check_syscall
-    Volatile Systems Volatility Framework 2.2_rc2
+    Volatility Foundation Volatility Framework 2.4
     Table Name              Index Address            Symbol                        
     ---------- ------------------ ------------------ ------------------------------
     64bit                     0x0 0xffffffff81177e80 sys_read                      
@@ -534,7 +534,7 @@ Here's an example from [MoVP 1.5 KBeast Rootkit, Detecting Hidden Modules, and s
 This plugin finds rootkits that break themselves from the module list but not sysfs. We have never found a rootkit that actually removes itself from sysfs, so on a live system they are hidden from lsmod and /proc/modules, but can still be found under /sys/modules. We perform the same differnecing with the in-memory data structures. For more information, see [MoVP 1.5 KBeast Rootkit, Detecting Hidden Modules, and sysfs](http://volatility-labs.blogspot.com/2012/09/movp-15-kbeast-rootkit-detecting-hidden.html). 
 
     # python vol.py -f kbeast.this --profile=LinuxDebianx86 linux_check_modules
-    Volatile Systems Volatility Framework 2.2_rc1
+    Volatility Foundation Volatility Framework 2.2_rc1
     Module Name
     -----------
     ipsecs_kbeast_v1
@@ -550,7 +550,7 @@ The purpose of this plugin is to check if any processes are sharing 'cred' struc
 This plugin prints the ARP table. 
 
     $ python vol.py --profile=LinuxUbuntux64 -f ~/ubuntu.lime linux_arp
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.3_alpha
     WARNING : volatility.obj      : Overlay structure tty_struct not present in vtypes
     [?                                         ] at 00:00:00:00:00:00    on lo
     [192.168.16.254                            ] at 00:50:56:f5:fd:73    on eth0
@@ -562,7 +562,7 @@ This plugin prints the ARP table.
 This plugin prints the active interface information, including IPs, interface name, MAC address, and whether the NIC is in promiscuous mode or not (sniffing). 
 
     $ python vol.py --profile=LinuxUbuntux64 -f ~/ubuntu.lime linux_ifconfig
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.3_alpha
     Interface        IP Address           MAC Address        Promiscous Mode
     ---------------- -------------------- ------------------ ---------------
     lo               127.0.0.1            00:00:00:00:00:00  False          
@@ -573,7 +573,7 @@ This plugin prints the active interface information, including IPs, interface na
 This plugin enumerates the data in the routing table cache. It can show you which systems a machine communicated with in the past. 
 
     $ python vol.py --profile=LinuxUbuntux64 -f ~/ubuntu.lime linux_route_cache
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.3_alpha
     Interface        Destination          Gateway
     ---------------- -------------------- -------
     eth0             173.194.43.41        192.168.16.2
@@ -596,7 +596,7 @@ This plugin mimics the `netstat` command on a live system. It leverages the `lin
 Here's an example of the command revealing KBeast active network connections:
 
     # python vol.py --profile=LinuxDebianx86 -f kbeast.lime linux_netstat -p 2777
-    Volatile Systems Volatility Framework 2.2_rc1
+    Volatility Foundation Volatility Framework 2.2_rc1
     TCP      192.168.110.150:13377 192.168.110.140:41744 CLOSE_WAIT           _h4x_bd/2777
     TCP      0.0.0.0:13377         0.0.0.0:0             LISTEN                       _h4x_bd/2777
     TCP      192.168.110.150:13377 192.168.110.140:41745 ESTABLISHED           _h4x_bd/2777
@@ -611,7 +611,7 @@ The linux_pkt_queues plugin enumerates these queues for each active socket in th
 Running the Plugin:
 
     # python vol.py --profile=LinuxDebianx86 -f network.lime linux_pkt_queues -D recovered_packets
-    Volatile Systems Volatility Framework 2.2_rc1
+    Volatility Foundation Volatility Framework 2.2_rc1
     Wrote 32 bytes to receive.1466.3
     Wrote 128 bytes to receive.2565.3
     Wrote 32 bytes to receive.2839.3
@@ -626,7 +626,7 @@ The linux_sk_buff_cache plugin leverages the kmem_cache to find network packets 
 Running the plugin:
 
     # python vol.py --profile=LinuxDebianx86 -f network.lime linux_sk_buff_cache -D recovered_packets
-    Volatile Systems Volatility Framework 2.2_rc1
+    Volatility Foundation Volatility Framework 2.2_rc1
     Wrote 20 bytes to de2c60c0
     Wrote 1430 bytes to de2da900
     Wrote 60 bytes to de21c680
@@ -666,7 +666,7 @@ Note: This plugin can be run with the –u/--unallocated option to recover packe
 This plugin shows information on the target system's CPUs.
 
     $ python vol.py --profile=LinuxUbuntux64 -f ~/ubuntu.lime linux_cpuinfo
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.3_alpha
     Processor    Vendor           Model
     ------------ ---------------- -----
     0            GenuineIntel     Intel(R) Core(TM) i7 CPU         870  @ 2.93GHz
@@ -677,7 +677,7 @@ This plugin shows information on the target system's CPUs.
 This plugin dumps the kernel debug buffer. 
 
     $ python vol.py --profile=LinuxUbuntux64 -f ~/ubuntu.lime linux_dmesg
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.3_alpha
     WARNING : volatility.obj      : Overlay structure tty_struct not present in vtypes
     [2314885531810281020.2314885531] ] Initializing cgroup subsys cpuset
     <6>[    0.000000] Initializing cgroup subsys cpu
@@ -699,7 +699,7 @@ This plugin dumps the kernel debug buffer.
 This plugin shows the physical addresses currently reserved for IO devices like PCI and video card memory. 
 
     $ python vol.py --profile=LinuxUbuntux64 -f ~/ubuntu1204/ubuntu.lime linux_iomem
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.3_alpha
     WARNING : volatility.obj      : Overlay structure tty_struct not present in vtypes
     PCI mem                            	0x0               	0xFFFFFFFFFF      
       reserved                         	0x0               	0xFFFF            
@@ -721,7 +721,7 @@ This plugin shows the physical addresses currently reserved for IO devices like 
 This plugin mimics the output of reading /proc/slabinfo on a running Linux system. It is part of the infrastructure to allow plugins to read entries from the kmem_cache.
 
     # python vol.py -f centos.lime --profile=LinuxCentos63Newx64 linux_slabinfo
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.3_alpha
     <name>                         <active_objs> <num_objs> <objsize>  <objperslab> <pagesperslab>  <active_slabs> <num_slabs>
     ------------------------------ ------------- ---------- ---------- ------------ --------------- -------------- -----------
     fuse_request                   0             0          632        6            1               0              0
@@ -738,7 +738,7 @@ This plugin mimics the output of reading /proc/slabinfo on a running Linux syste
 This plugins mimics of the output of /proc/mouns on a running Linux system. For each mountpoint it prints the flags, mounted source (drive, network share, etc) and the director it is mounted on.
 
     # python vol.py -f centos.lime --profile=LinuxCentos63Newx64 linux_mount
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.3_alpha
     sunrpc                    /var/lib/nfs/rpc_pipefs             rpc_pipefs   rw,relatime
     /proc/bus/usb             /proc/bus/usb                       usbfs        rw,relatime
     devtmpfs                  /                                   devtmpfs     rw,relatime,nosuid
@@ -760,7 +760,7 @@ This plugins mimics of the output of /proc/mouns on a running Linux system. For 
 This plugins gathers information on currrently mounted filesystems from the kmem_cache. You can use the -u option to potentially gather information on previously connected devices.
 
     # python vol.py -f centos.lime --profile=LinuxCentos63Newx64 linux_mount_cache
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.3_alpha
     sunrpc                    /var/lib/nfs/rpc_pipefs             rpc_pipefs   rw,relatime
     /etc/auto.misc            /misc                               autofs       rw,relatime
     -hosts                    /net                                autofs       rw,relatime
@@ -786,7 +786,7 @@ This plugin recovers the filesystem in memory for each active mount point and ca
 MD5|name|inode|mode_as_string|UID|GID|size|atime|mtime|ctime|crtime
 
     $ python vol.py -f ~Desktop/Linux/centos.lime --profile=LinuxCentOS63x64 linux_dentry_cache
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.3_alpha
     0|home/mhl/Downloads/src/Module.symvers|0|0|0|0|0|0|0|0
     0|home/mhl/Downloads/src/.3017.o|0|0|0|0|0|0|0|0
     0|home/mhl/Downloads/src/.3017.tmp|0|0|0|0|0|0|0|0
@@ -807,7 +807,7 @@ If you encounter lines that are all 0's, they're indicative of uninitialized ent
 This plugin is typically used in two steps. First you find the inode to a file in the following manner: 
 
     $ python vol.py -f avgcoder.mem --profile=LinuxCentOS63x64 linux_find_file -F "/var/run/utmp"
-    Volatile Systems Volatility Framework 2.2_rc1
+    Volatility Foundation Volatility Framework 2.2_rc1
     Inode Number                  Inode
     ---------------- ------------------
               130564     0x88007a85acc0
@@ -827,7 +827,7 @@ Now we have a file named "utmp" which was extracted from the memory sample. You 
 This plugins works by walking the kmem_cache of vm_area_struct structures. These structures represent a memory mapping within a process and hold information such as the mapped file, starting and ending addresses, and permissions. Depending on how the kernel is compiled, these structures may also hold a pointer to the task_struct (process) that opened or still has open the mapping. The "-u" flag can be passed to the plugin to find information on mappings that were closed or that were opened by processes that exited.
 
     # python vol.py -f centos.lime --profile=LinuxCentos63Newx64 linux_vma_cache | head -20
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.3_alpha
     Process          PID    Start              End                Path
     ---------------- ------ ------------------ ------------------ ----
     bash               3066 0x00000000008dc000 0x00000000008e5000 bin/bash
@@ -856,7 +856,7 @@ This plugins works by walking the kmem_cache of vm_area_struct structures. These
 This plugin presents an interactive shell in the linux memory image. You can use it to simply list processes:
 
     $ python vol.py --profile=LinuxUbuntux64 -f ~/ubuntu.lime linux_volshell
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.3_alpha
     Current context: process init, pid=1 DTB=0x366ec000
     Welcome to volshell! Current memory image is:
     file:///Users/michaelligh/Desktop/ubuntu.lime
@@ -910,7 +910,7 @@ After doing so, any of the db/dd/dq commands will output data from the process's
 This plugin allows you to scan for Yara rules anywhere in process or kernel memory. The rules can be supplied on command-line (-Y) or in a file on disk (-y). In the example below, we limit our scan to one process (firefox pid 11370) and look for URLs:
 
     $ python vol.py --profile=LinuxUbuntux64 -f ~/ubuntu.lime linux_yarascan -Y "http://" -p 11370
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.3_alpha
     Task: firefox pid 11370 rule r1 addr 0x7ff9fdde4945
     0x7ff9fdde4945  68 74 74 70 3a 2f 2f 6c 69 6d 65 2d 66 6f 72 65   http://lime-fore
     0x7ff9fdde4955  6e 73 69 63 73 2e 67 6f 6f 67 6c 65 63 6f 64 65   nsics.googlecode
