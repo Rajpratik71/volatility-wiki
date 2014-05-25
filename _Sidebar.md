@@ -17,6 +17,7 @@ Command References
 Development 
 * [[Windows Registry|Command-Reference-Registry-Api]]
 * [[Address Spaces|Address Spaces]]
+* [[Style Guide|Style Guide]]
 
 Miscellaneous
 * [[Memory Samples]]
