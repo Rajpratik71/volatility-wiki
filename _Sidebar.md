@@ -11,9 +11,12 @@ Command References
 * [[Windows Core|Command Reference]]
 * [[Windows GUI|Command Reference Gui]]
 * [[Windows Malware|Command-Reference-Mal]]
-* [[Windows Registry|Command-Reference-Registry-Api]]
 * [[Linux|Linux-Command-Reference]]
 * [[Mac OSX|Mac-Command-Reference]]
+
+Development 
+* [[Windows Registry|Command-Reference-Registry-Api]]
+
 
 Miscellaneous
 * [[Memory Samples]]
