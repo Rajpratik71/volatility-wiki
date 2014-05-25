@@ -1,13 +1,10 @@
 **Table of Contents**  
 
-- [An Address Space for VirtualBox Core Dumps](Virtual-Box-Core-Dump#an-address-space-for-virtualbox-core-dumps)
 - [Introduction](Virtual-Box-Core-Dump#introduction)
 - [Acquisition](Virtual-Box-Core-Dump#acquisition)
 - [Notes](Virtual-Box-Core-Dump#notes)
 - [File Format](Virtual-Box-Core-Dump#file-format)
 - [Meta Data](Virtual-Box-Core-Dump#meta-data)
-
-# An Address Space for VirtualBox Core Dumps
 
 # Introduction
 
