@@ -1,23 +1,23 @@
 **Table of Contents**  
 
-- [Using Volatility](Volatility-Usage23#using-volatility)
-- [Global Options](Volatility-Usage23#global-options)
-	- [Displaying Help](Volatility-Usage23#displaying-help)
-	- [Selecting a Profile](Volatility-Usage23#selecting-a-profile)
-	- [Alternatives to Command Line Options](Volatility-Usage23#alternatives-to-command-line-options)
-		- [Environment Variables](Volatility-Usage23#environment-variables)
-		- [Configuration Files](Volatility-Usage23#configuration-files)
-	- [Enabling Debug Messages](Volatility-Usage23#enabling-debug-messages)
-	- [Using the Cache](Volatility-Usage23#using-the-cache)
-	- [Setting the Timezone](Volatility-Usage23#setting-the-timezone)
-	- [Setting the DTB](Volatility-Usage23#setting-the-dtb)
-	- [Setting the KDBG Address](Volatility-Usage23#setting-the-kdbg-address)
-	- [Setting the KPCR Address](Volatility-Usage23#setting-the-kpcr-address)
-	- [Enabling Write Support](Volatility-Usage23#enabling-write-support)
-	- [Specifying Additional Plugin Directories](Volatility-Usage23#specifying-additional-plugin-directories)
-	- [Choosing an Output Format](Volatility-Usage23#choosing-an-output-format)
-- [Plugin Specific Options](Volatility-Usage23#plugin-specific-options)
-- [Using Volatility as a Library](Volatility-Usage23#using-volatility-as-a-library)
+- [Using Volatility](Volatility Usage#using-volatility)
+- [Global Options](Volatility Usage#global-options)
+	- [Displaying Help](Volatility Usage#displaying-help)
+	- [Selecting a Profile](Volatility Usage#selecting-a-profile)
+	- [Alternatives to Command Line Options](Volatility Usage#alternatives-to-command-line-options)
+		- [Environment Variables](Volatility Usage#environment-variables)
+		- [Configuration Files](Volatility Usage#configuration-files)
+	- [Enabling Debug Messages](Volatility Usage#enabling-debug-messages)
+	- [Using the Cache](Volatility Usage#using-the-cache)
+	- [Setting the Timezone](Volatility Usage#setting-the-timezone)
+	- [Setting the DTB](Volatility Usage#setting-the-dtb)
+	- [Setting the KDBG Address](Volatility Usage#setting-the-kdbg-address)
+	- [Setting the KPCR Address](Volatility Usage#setting-the-kpcr-address)
+	- [Enabling Write Support](Volatility Usage#enabling-write-support)
+	- [Specifying Additional Plugin Directories](Volatility Usage#specifying-additional-plugin-directories)
+	- [Choosing an Output Format](Volatility Usage#choosing-an-output-format)
+- [Plugin Specific Options](Volatility Usage#plugin-specific-options)
+- [Using Volatility as a Library](Volatility Usage#using-volatility-as-a-library)
 
 # Using Volatility
 
@@ -42,7 +42,7 @@ You can display the main help menu by passing -h or --help on command-line. This
 The remainder of this section will discuss the various options in greater detail. 
 
     $ python vol.py -h
-    Volatile Systems Volatility Framework 2.3
+    Volatility Foundation Volatility Framework 2.4
     
     Usage: Volatility - A memory forensics analysis platform.
     
@@ -165,7 +165,7 @@ Please note that specifying a timezone will not affect how system-local times ar
 By default the `_EPROCESS` `CreateTime` and `ExitTime` timestamps are in UTC.  Below is output from Volatility with `pytz` installed:
 
     $ python vol.py -f win7.vmem --profile=Win7SP1x86 pslist
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.4_alpha
     Offset(V)  Name                    PID   PPID   Thds     Hnds   Sess  Wow64 Start                          Exit                          
     ---------- -------------------- ------ ------ ------ -------- ------ ------ ------------------------------ ------------------------------
     0x84133630 System                    4      0     93      420 ------      0 2011-10-20 15:25:11 UTC+0000                                 
@@ -178,7 +178,7 @@ By default the `_EPROCESS` `CreateTime` and `ExitTime` timestamps are in UTC.  B
 Below is output from the same sample using the `--tz=America/Chicago` option to get Central Standard Time:
 
     $ python vol.py -f win7.vmem --profile=Win7SP1x86 pslist --tz=America/Chicago
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.4_alpha
     Offset(V)  Name                    PID   PPID   Thds     Hnds   Sess  Wow64 Start                          Exit                          
     ---------- -------------------- ------ ------ ------ -------- ------ ------ ------------------------------ ------------------------------
     0x84133630 System                    4      0     93      420 ------      0 2011-10-20 10:25:11 CDT-0500                                 
@@ -191,7 +191,7 @@ Below is output from the same sample using the `--tz=America/Chicago` option to 
 Below is the same output above, but without the `pytz` library installed:
 
     $ python2.6 vol.py -f win7.vmem --profile=Win7SP1x86 pslist --tz=America/Chicago
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.4_alpha
     Offset(V)  Name                    PID   PPID   Thds     Hnds   Sess  Wow64 Start                          Exit                          
     ---------- -------------------- ------ ------ ------ -------- ------ ------ ------------------------------ ------------------------------
     0x84133630 System                    4      0     93      420 ------      0 2011-10-20 10:25:11 CDT                                      
