@@ -1,11 +1,3 @@
-**Table of Contents**  
-
-- [Introduction](Hiber-Address-Space#introduction)
-- [Acquisition](Hiber-Address-Space#acquisition)
-- [Notes](Hiber-Address-Space#notes)
-- [File Format](Hiber-Address-Space#file-format)
-- [Meta Data](Hiber-Address-Space#meta-data)
-
 # Introduction
 
 A hibernation file (hiberfil.sys) contains a complete copy of memory that is dumped to disk by the system during the hibernation process. 
@@ -50,7 +42,3 @@ The standard header exists at offset 0 of the file and is shown below. Generally
     0x60  : PerfInfo                       ['_PO_HIBER_PERF']
 
 More details on the hibernation file format can be seen in [Windows Hibernation File For Fun N' Profit](http://www.blackhat.com/presentations/bh-usa-08/Suiche/BH_US_08_Suiche_Windows_hibernation.pdf). 
-
-# Meta Data
-
-Coming soon....
