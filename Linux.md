@@ -13,7 +13,7 @@
 
 # Prerequisites 
 
-First check the [Release22] page for the supported Linux kernels, distributions, and architectures. Then ensure you have the following tools:
+First check the [Release Documentation](http://www.volatilityfoundation.org/#!releases/component_71401) page for the supported Linux kernels, distributions, and architectures. Then ensure you have the following tools:
 
   * dwarfdump: apt-get install dwarfdump on Debian/Ubuntu or the libdwarf-tools package on OpenSuSE, Fedora, and other distributions. If you can't find it in your OS's package manager, build it from the latest [source package](http://reality.sgiweb.org/davea/dwarf.html). Make sure to build libdwarf first and then dwarfdump. Do not build dwarfdump2. Users building profiles on CentOS have also reported success using libdwarf from the [Fedora repository](http://pkgs.fedoraproject.org/repo/pkgs/libdwarf/) and getting the ELF utilities via "yum install elfutils-libelf-devel"
   * GCC/make: apt-get install build-essential on Debial/Ubuntu.
