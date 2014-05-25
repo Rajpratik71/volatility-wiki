@@ -8,13 +8,12 @@ Getting Started
 * [[Basic Usage|Volatility-Usage23]]
 
 Command References 
-* [[Volatility 2.3]]
-    * [[Windows Core|Command-Reference23]]
-    * [[Windows GUI|Command-Reference-Gui23]]
-    * [[Windows Malware|Command-Reference-Mal23]]
-    * [[Windows Registry|Command-Reference-Registry-Api23]]
-    * [[Linux|Linux-Command-Reference23]]
-    * [[Mac OSX|Mac-Command-Reference23]]
+* [[Windows Core|Command-Reference23]]
+* [[Windows GUI|Command-Reference-Gui23]]
+* [[Windows Malware|Command-Reference-Mal23]]
+* [[Windows Registry|Command-Reference-Registry-Api23]]
+* [[Linux|Linux-Command-Reference23]]
+* [[Mac OSX|Mac-Command-Reference23]]
 
 [[Memory Samples]]
 
