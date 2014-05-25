@@ -5,7 +5,7 @@ Getting Started
 * [[Linux]]
 * [[Mac]]
 * [[Android]]
-* [[Basic Usage|Volatility-Usage23]]
+* [[Basic Usage|Volatility Usage]]
 
 Command References 
 * [[Windows Core|Command-Reference23]]
