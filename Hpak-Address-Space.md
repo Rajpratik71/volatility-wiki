@@ -1,15 +1,3 @@
-**Table of Contents**  
-
-- [An address space for HPAK files](Hpak-Address-Space#an-address-space-for-hpak-files)
-- [Introduction](Hpak-Address-Space#introduction)
-- [Acquisition](Hpak-Address-Space#acquisition)
-- [Notes](Hpak-Address-Space#notes)
-- [File Format](Hpak-Address-Space#file-format)
-- [Meta Data](Hpak-Address-Space#meta-data)
-
-
-# Introduction
-
 Volatility can analyze memory dumps in the "HPAK" archive format, which is proprietary to the Fast Dump (FDPro.exe) acquisition utility. 
 
 # Acquisition
@@ -18,7 +6,7 @@ When acquiring memory with FDPro.exe, use the -hpak command-line option to creat
 
 # Notes
 
-The target system's physical memory can be zlib-compressed if the "-compress" option is chosen during the acquisition. In this case, we advise that you use the [hpakextract](Command-Reference23#hpakextract) plugin to convert the .hpak file into a raw memory dump. 
+The target system's physical memory can be zlib-compressed if the "-compress" option is chosen during the acquisition. In this case, we advise that you use the [hpakextract](Command-Reference#hpakextract) plugin to convert the .hpak file into a raw memory dump. 
 
 # File Format
 
@@ -43,7 +31,7 @@ The Header value (a string) will be "HPAKSECTHPAK_SECTION_PHYSDUMP" for the sect
 
 # Meta Data
 
-The [hpakinfo](Command-Reference23#hpakinfo) plugin prints information found in the HPAK file headers. 
+The [hpakinfo](Command-Reference#hpakinfo) plugin prints information found in the HPAK file headers. 
 
     $ python vol.py -f memdump.hpak hpakinfo
     Header:     HPAKSECTHPAK_SECTION_PHYSDUMP
