@@ -1,6 +1,7 @@
 [[Home]]
 
 Getting Started
+* [[FAQ]]
 * [[Installation]]
 * [[Linux]]
 * [[Mac]]
