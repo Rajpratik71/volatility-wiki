@@ -1,88 +1,83 @@
 **Table of Contents**  
 
-- [Example usage cases and output for Volatility 2.3 commands](Command-Reference23#example-usage-cases-and-output-for-volatility-23-commands)
-- [Image Identification](Command-Reference23#image-identification)
-	- [imageinfo](Command-Reference23#imageinfo)
-	- [kdbgscan](Command-Reference23#kdbgscan)
-	- [kpcrscan](Command-Reference23#kpcrscan)
-- [Processes and DLLs](Command-Reference23#processes-and-dlls)
-	- [pslist](Command-Reference23#pslist)
-	- [pstree](Command-Reference23#pstree)
-	- [psscan](Command-Reference23#psscan)
-	- [psdispscan](Command-Reference23#psdispscan)
-	- [dlllist](Command-Reference23#dlllist)
-	- [dlldump](Command-Reference23#dlldump)
-	- [handles](Command-Reference23#handles)
-	- [getsids](Command-Reference23#getsids)
-	- [cmdscan](Command-Reference23#cmdscan)
-	- [consoles](Command-Reference23#consoles)
-	- [privs](Command-Reference23#privs)
-	- [envars](Command-Reference23#envars)
-	- [verinfo](Command-Reference23#verinfo)
-	- [enumfunc](Command-Reference23#enumfunc)
-- [Process Memory](Command-Reference23#process-memory)
-	- [memmap](Command-Reference23#memmap)
-	- [memdump](Command-Reference23#memdump)
-	- [procmemdump](Command-Reference23#procmemdump)
-	- [procexedump](Command-Reference23#procexedump)
-	- [vadinfo](Command-Reference23#vadinfo)
-	- [vadwalk](Command-Reference23#vadwalk)
-	- [vadtree](Command-Reference23#vadtree)
-	- [vaddump](Command-Reference23#vaddump)
-	- [evtlogs](Command-Reference23#evtlogs)
-	- [iehistory](Command-Reference23#iehistory)
-- [Kernel Memory and Objects](Command-Reference23#kernel-memory-and-objects)
-	- [modules](Command-Reference23#modules)
-	- [modscan](Command-Reference23#modscan)
-	- [moddump](Command-Reference23#moddump)
-	- [ssdt](Command-Reference23#ssdt)
-	- [driverscan](Command-Reference23#driverscan)
-	- [filescan](Command-Reference23#filescan)
-	- [mutantscan](Command-Reference23#mutantscan)
-	- [symlinkscan](Command-Reference23#symlinkscan)
-	- [thrdscan](Command-Reference23#thrdscan)
-	- [dumpfiles](Command-Reference23#dumpfiles)
-	- [unloadedmodules](Command-Reference23#unloadedmodules)
-- [Networking](Command-Reference23#networking)
-	- [connections](Command-Reference23#connections)
-	- [connscan](Command-Reference23#connscan)
-	- [sockets](Command-Reference23#sockets)
-	- [sockscan](Command-Reference23#sockscan)
-	- [netscan](Command-Reference23#netscan)
-- [Registry](Command-Reference23#registry)
-	- [hivescan](Command-Reference23#hivescan)
-	- [hivelist](Command-Reference23#hivelist)
-	- [printkey](Command-Reference23#printkey)
-	- [hivedump](Command-Reference23#hivedump)
-	- [hashdump](Command-Reference23#hashdump)
-	- [lsadump](Command-Reference23#lsadump)
-	- [userassist](Command-Reference23#userassist)
-	- [shellbags](Command-Reference23#shellbags)
-	- [shimcache](Command-Reference23#shimcache)
-	- [getservicesids](Command-Reference23#getservicesids)
-- [Crash Dumps, Hibernation, and Conversion](Command-Reference23#crash-dumps-hibernation-and-conversion)
-	- [crashinfo](Command-Reference23#crashinfo)
-	- [hibinfo](Command-Reference23#hibinfo)
-	- [imagecopy](Command-Reference23#imagecopy)
-	- [raw2dmp](Command-Reference23#raw2dmp)
-	- [vboxinfo](Command-Reference23#vboxinfo)
-	- [vmwareinfo](Command-Reference23#vmwareinfo)
-	- [hpakinfo](Command-Reference23#hpakinfo)
-	- [hpakextract](Command-Reference23#hpakextract)
-- [File System](Command-Reference23#file-system)
-	- [mbrparser](Command-Reference23#mbrparser)
-	- [mftparser](Command-Reference23#mftparser)
-- [Miscellaneous](Command-Reference23#miscellaneous)
-	- [strings](Command-Reference23#strings)
-	- [volshell](Command-Reference23#volshell)
-	- [bioskbd](Command-Reference23#bioskbd)
-	- [patcher](Command-Reference23#patcher)
-	- [pagecheck](Command-Reference23#pagecheck)
-	- [timeliner](Command-Reference23#timeliner)
-
-# Example usage cases and output for Volatility 2.3 commands
-
-<wiki:toc max_depth="3" />
+- [Image Identification](Command Reference#image-identification)
+	- [imageinfo](Command Reference#imageinfo)
+	- [kdbgscan](Command Reference#kdbgscan)
+	- [kpcrscan](Command Reference#kpcrscan)
+- [Processes and DLLs](Command Reference#processes-and-dlls)
+	- [pslist](Command Reference#pslist)
+	- [pstree](Command Reference#pstree)
+	- [psscan](Command Reference#psscan)
+	- [psdispscan](Command Reference#psdispscan)
+	- [dlllist](Command Reference#dlllist)
+	- [dlldump](Command Reference#dlldump)
+	- [handles](Command Reference#handles)
+	- [getsids](Command Reference#getsids)
+	- [cmdscan](Command Reference#cmdscan)
+	- [consoles](Command Reference#consoles)
+	- [privs](Command Reference#privs)
+	- [envars](Command Reference#envars)
+	- [verinfo](Command Reference#verinfo)
+	- [enumfunc](Command Reference#enumfunc)
+- [Process Memory](Command Reference#process-memory)
+	- [memmap](Command Reference#memmap)
+	- [memdump](Command Reference#memdump)
+	- [procmemdump](Command Reference#procmemdump)
+	- [procexedump](Command Reference#procexedump)
+	- [vadinfo](Command Reference#vadinfo)
+	- [vadwalk](Command Reference#vadwalk)
+	- [vadtree](Command Reference#vadtree)
+	- [vaddump](Command Reference#vaddump)
+	- [evtlogs](Command Reference#evtlogs)
+	- [iehistory](Command Reference#iehistory)
+- [Kernel Memory and Objects](Command Reference#kernel-memory-and-objects)
+	- [modules](Command Reference#modules)
+	- [modscan](Command Reference#modscan)
+	- [moddump](Command Reference#moddump)
+	- [ssdt](Command Reference#ssdt)
+	- [driverscan](Command Reference#driverscan)
+	- [filescan](Command Reference#filescan)
+	- [mutantscan](Command Reference#mutantscan)
+	- [symlinkscan](Command Reference#symlinkscan)
+	- [thrdscan](Command Reference#thrdscan)
+	- [dumpfiles](Command Reference#dumpfiles)
+	- [unloadedmodules](Command Reference#unloadedmodules)
+- [Networking](Command Reference#networking)
+	- [connections](Command Reference#connections)
+	- [connscan](Command Reference#connscan)
+	- [sockets](Command Reference#sockets)
+	- [sockscan](Command Reference#sockscan)
+	- [netscan](Command Reference#netscan)
+- [Registry](Command Reference#registry)
+	- [hivescan](Command Reference#hivescan)
+	- [hivelist](Command Reference#hivelist)
+	- [printkey](Command Reference#printkey)
+	- [hivedump](Command Reference#hivedump)
+	- [hashdump](Command Reference#hashdump)
+	- [lsadump](Command Reference#lsadump)
+	- [userassist](Command Reference#userassist)
+	- [shellbags](Command Reference#shellbags)
+	- [shimcache](Command Reference#shimcache)
+	- [getservicesids](Command Reference#getservicesids)
+- [Crash Dumps, Hibernation, and Conversion](Command Reference#crash-dumps-hibernation-and-conversion)
+	- [crashinfo](Command Reference#crashinfo)
+	- [hibinfo](Command Reference#hibinfo)
+	- [imagecopy](Command Reference#imagecopy)
+	- [raw2dmp](Command Reference#raw2dmp)
+	- [vboxinfo](Command Reference#vboxinfo)
+	- [vmwareinfo](Command Reference#vmwareinfo)
+	- [hpakinfo](Command Reference#hpakinfo)
+	- [hpakextract](Command Reference#hpakextract)
+- [File System](Command Reference#file-system)
+	- [mbrparser](Command Reference#mbrparser)
+	- [mftparser](Command Reference#mftparser)
+- [Miscellaneous](Command Reference#miscellaneous)
+	- [strings](Command Reference#strings)
+	- [volshell](Command Reference#volshell)
+	- [bioskbd](Command Reference#bioskbd)
+	- [patcher](Command Reference#patcher)
+	- [pagecheck](Command Reference#pagecheck)
+	- [timeliner](Command Reference#timeliner)
 
 # Image Identification
 
@@ -91,7 +86,7 @@
 For a high level summary of the memory sample you're analyzing, use the imageinfo command. Most often this command is used to identify the operating system, service pack, and hardware architecture (32 or 64 bit), but it also contains other useful information such as the DTB address and time the sample was collected.  
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw imageinfo
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     Determining profile based on KDBG search...
     
               Suggested Profile(s) : Win7SP0x64, Win7SP1x64, Win2008R2SP0x64, Win2008R2SP1x64
@@ -107,7 +102,7 @@ For a high level summary of the memory sample you're analyzing, use the imageinf
                Image date and time : 2012-02-22 11:29:02 UTC+0000
          Image local date and time : 2012-02-22 03:29:02 -0800
 
-The imageinfo output tells you the suggested profile that you should pass as the parameter to --profile=PROFILE when using other plugins. There may be more than one profile suggestion if profiles are closely related. It also prints the address of the KDBG (short for `_KDDEBUGGER_DATA64`) structure that will be used by plugins like [pslist](Command-Reference23#pslist) and [modules](Command-Reference23#modules) to find the process and module list heads, respectively. In some cases, especially larger memory samples, there may be multiple KDBG structures. Similarly, if there are multiple processors, you'll see the KPCR address and CPU number for each one. 
+The imageinfo output tells you the suggested profile that you should pass as the parameter to --profile=PROFILE when using other plugins. There may be more than one profile suggestion if profiles are closely related. It also prints the address of the KDBG (short for `_KDDEBUGGER_DATA64`) structure that will be used by plugins like [pslist](Command Reference#pslist) and [modules](Command Reference#modules) to find the process and module list heads, respectively. In some cases, especially larger memory samples, there may be multiple KDBG structures. Similarly, if there are multiple processors, you'll see the KPCR address and CPU number for each one. 
 
 Plugins automatically scan for the KPCR and KDBG values when they need them. However, you can specify the values directly for any plugin by providing --kpcr=ADDRESS or --kdbg=ADDRESS. By supplying the profile and KDBG (or failing that KPCR) to other Volatility commands, you'll get the most accurate and fastest results possible.
 
@@ -115,14 +110,14 @@ Plugins automatically scan for the KPCR and KDBG values when they need them. How
 
 ## kdbgscan
 
-As opposed to [imageinfo](Command-Reference23#imageinfo) which simply provides profile suggestions, kdbgscan is designed to positively identify the correct profile and the correct KDBG address (if there happen to be multiple). This plugin scans for the KDBGHeader signatures linked to Volatility profiles and applies sanity checks to reduce false positives. The verbosity of the output and number of sanity checks that can be performed depends on whether Volatility can find a DTB, so if you already know the correct profile (or if you have a profile suggestion from [imageinfo](Command-Reference23#imageinfo)), then make sure you use it. 
+As opposed to [imageinfo](Command Reference#imageinfo) which simply provides profile suggestions, kdbgscan is designed to positively identify the correct profile and the correct KDBG address (if there happen to be multiple). This plugin scans for the KDBGHeader signatures linked to Volatility profiles and applies sanity checks to reduce false positives. The verbosity of the output and number of sanity checks that can be performed depends on whether Volatility can find a DTB, so if you already know the correct profile (or if you have a profile suggestion from [imageinfo](Command Reference#imageinfo)), then make sure you use it. 
 
-Here's an example scenario of when this plugin can be useful. You have a memory sample that you believe to be Windows 2003 SP2 x64, but [pslist](Command-Reference23#pslist) doesn't show any processes. The pslist plugin relies on finding the process list head which is pointed to by KDBG. However, the plugin takes the *first* KDBG found in the memory sample, which is not always the *best* one. You may run into this problem if a KDBG with an invalid PsActiveProcessHead pointer is found earlier in a sample (i.e. at a lower physical offset) than the valid KDBG.
+Here's an example scenario of when this plugin can be useful. You have a memory sample that you believe to be Windows 2003 SP2 x64, but [pslist](Command Reference#pslist) doesn't show any processes. The pslist plugin relies on finding the process list head which is pointed to by KDBG. However, the plugin takes the *first* KDBG found in the memory sample, which is not always the *best* one. You may run into this problem if a KDBG with an invalid PsActiveProcessHead pointer is found earlier in a sample (i.e. at a lower physical offset) than the valid KDBG.
 
-Notice below how kdbgscan picks up two KDBG structures: an invalid one (with 0 processes and 0 modules) is found first at 0xf80001172cb0 and a valid one (with 37 processes and 116 modules) is found next at 0xf80001175cf0. In order to "fix" [pslist](Command-Reference23#pslist) for this sample, you would simply need to supply the --kdbg=0xf80001175cf0 to the plist plugin.
+Notice below how kdbgscan picks up two KDBG structures: an invalid one (with 0 processes and 0 modules) is found first at 0xf80001172cb0 and a valid one (with 37 processes and 116 modules) is found next at 0xf80001175cf0. In order to "fix" [pslist](Command Reference#pslist) for this sample, you would simply need to supply the --kdbg=0xf80001175cf0 to the plist plugin.
 
     $ python vol.py -f Win2K3SP2x64-6f1bedec.vmem --profile=Win2003SP2x64 kdbgscan
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     **************************************************
     Instantiating KDBG using: Kernel AS Win2003SP2x64 (5.2.3791 64bit)
     Offset (V)                    : 0xf80001172cb0
@@ -161,7 +156,7 @@ For more information on how KDBG structures are identified read [Finding Kernel 
 Use this command to scan for potential KPCR structures by checking for the self-referencing members as described by [Finding Object Roots in Vista](http://blog.schatzforensic.com.au/2010/07/finding-object-roots-in-vista-kpcr/). On a multi-core system, each processor has its own KPCR. Therefore, you'll see details for each processor, including IDT and GDT address; current, idle, and next threads; CPU number, vendor & speed; and CR3 value. 
 
     $ python vol.py -f dang_win7_x64.raw --profile=Win7SP1x64 kpcrscan
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     **************************************************
     Offset (V)                    : 0xf800029ead00
     Offset (P)                    : 0x29ead00
@@ -183,7 +178,7 @@ Use this command to scan for potential KPCR structures by checking for the self-
     Details                       : CPU 1 (GenuineIntel @ 2220 MHz)
     CR3/DTB                       : 0x1dcec000
 
-If the KdVersionBlock is not null, then it may be possible to find the machine's KDBG address via the KPCR. In fact, the backup method of finding KDBG used by plugins such as [pslist](Command-Reference23#pslist) is to leverage kpcrscan and then call the KPCR.get_kdbg() API function. 
+If the KdVersionBlock is not null, then it may be possible to find the machine's KDBG address via the KPCR. In fact, the backup method of finding KDBG used by plugins such as [pslist](Command Reference#pslist) is to leverage kpcrscan and then call the KPCR.get_kdbg() API function. 
 
 # Processes and DLLs
 
@@ -191,14 +186,14 @@ If the KdVersionBlock is not null, then it may be possible to find the machine's
 
 To list the processes of a system, use the pslist command. This walks the doubly-linked list pointed to by PsActiveProcessHead and shows the offset, process name, process ID, the parent process ID, number of threads, number of handles, and date/time when the process started and exited. As of 2.1 it also shows the Session ID and if the process is a Wow64 process (it uses a 32 bit address space on a 64 bit kernel).
 
-This plugin does not detect hidden or unlinked processes (but [psscan](Command-Reference23#psscan) can do that).
+This plugin does not detect hidden or unlinked processes (but [psscan](Command Reference#psscan) can do that).
 
 If you see processes with 0 threads, 0 handles, and/or a non-empty exit time, the process may not actually still be active. For more information, see [The Missing Active in PsActiveProcessHead](http://mnin.blogspot.com/2011/03/mis-leading-active-in.html). Below, you'll notice regsvr32.exe has terminated even though its still in the "active" list. 
 
 Also note the two processes System and smss.exe will not have a Session ID, because System starts before sessions are established and smss.exe is the session manager itself. 
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 pslist
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     Offset(V)          Name                    PID   PPID   Thds     Hnds   Sess  Wow64 Start                Exit                
     ------------------ -------------------- ------ ------ ------ -------- ------ ------ -------------------- --------------------
     0xfffffa80004b09e0 System                    4      0     78      489 ------      0 2012-02-22 19:58:20                      
@@ -237,7 +232,7 @@ Also note the two processes System and smss.exe will not have a Session ID, beca
 By default, pslist shows virtual offsets for the EPROCESS but the physical offset can be obtained with the -P switch:
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 pslist -P 
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     Offset(P)          Name                    PID   PPID   Thds     Hnds   Sess  Wow64 Start                Exit                
     ------------------ -------------------- ------ ------ ------ -------- ------ ------ -------------------- --------------------
     0x0000000017fef9e0 System                    4      0     78      489 ------      0 2012-02-22 19:58:20                      
@@ -252,7 +247,7 @@ By default, pslist shows virtual offsets for the EPROCESS but the physical offse
 To view the process listing in tree form, use the pstree command. This enumerates processes using the same technique as pslist, so it will also not show hidden or unlinked processes. Child process are indicated using indention and periods. 
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 pstree
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     Name                                                  Pid   PPid   Thds   Hnds Time                
     -------------------------------------------------- ------ ------ ------ ------ --------------------
      0xfffffa80004b09e0:System                              4      0     78    489 2012-02-22 19:58:20 
@@ -275,7 +270,7 @@ To view the process listing in tree form, use the pstree command. This enumerate
 To enumerate processes using pool tag scanning (POOL_HEADER), use the psscan command. This can find processes that previously terminated (inactive) and processes that have been hidden or unlinked by a rootkit. The downside is that rootkits can still hide by overwriting the pool tag values (though not commonly seen in the wild).
 
     $ python vol.py --profile=Win7SP0x86 -f win7.dmp psscan
-    Volatile Systems Volatility Framework 2.0
+    Volatility Foundation Volatility Framework 2.0
      Offset     Name             PID    PPID   PDB        Time created             Time exited             
     ---------- ---------------- ------ ------ ---------- ------------------------ ------------------------ 
     0x3e025ba8 svchost.exe        1116    508 0x3ecf1220 2010-06-16 15:25:25                              
@@ -328,10 +323,10 @@ To display a process's loaded DLLs, use the dlllist command. It walks the doubly
     0x000007fefd860000            0x9f000             0xffff C:\Windows\system32\msvcrt.dll
     [snip]
 
-To display the DLLs for a specific process instead of all processes, use the -p or --pid filter as shown below. Also, in the following output, notice we're analyzing a Wow64 process. Wow64 processes have a limited list of DLLs in the PEB lists, but that doesn't mean they're the *only* DLLs loaded in the process address space. Thus Volatility will remind you to use the [ldrmodules](Command-Reference23#ldrmodules) instead for these processes. 
+To display the DLLs for a specific process instead of all processes, use the -p or --pid filter as shown below. Also, in the following output, notice we're analyzing a Wow64 process. Wow64 processes have a limited list of DLLs in the PEB lists, but that doesn't mean they're the *only* DLLs loaded in the process address space. Thus Volatility will remind you to use the [ldrmodules](Command Reference#ldrmodules) instead for these processes. 
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 dlllist -p 1892
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     ************************************************************************
     iexplore.exe pid:   1892
     Command line : "C:\Program Files (x86)\Internet Explorer\iexplore.exe" 
@@ -376,7 +371,7 @@ To specify an output directory, use --dump-dir=DIR or -d DIR.
     0xfffffa80011c5700 lsass.exe            0x000007fefc5d0000 Secur32.dll          OK: module.444.173c5700.7fefc5d0000.dll
     ...
 
-If the extraction fails, as it did for a few DLLs above, it probably means that some of the memory pages in that DLL were not memory resident (due to paging). In particular, this is a problem if the first page containing the PE header and thus the PE section mappings is not available. In these cases you can still extract the memory segment using the [vaddump](Command-Reference23#vaddump) command, but you'll need to manually rebuild the PE header and fixup the sections (if you plan on analyzing in IDA Pro) as described in [Recovering CoreFlood Binaries with Volatility](http://mnin.blogspot.com/2008/11/recovering-coreflood-binaries-with.html). 
+If the extraction fails, as it did for a few DLLs above, it probably means that some of the memory pages in that DLL were not memory resident (due to paging). In particular, this is a problem if the first page containing the PE header and thus the PE section mappings is not available. In these cases you can still extract the memory segment using the [vaddump](Command Reference#vaddump) command, but you'll need to manually rebuild the PE header and fixup the sections (if you plan on analyzing in IDA Pro) as described in [Recovering CoreFlood Binaries with Volatility](http://mnin.blogspot.com/2008/11/recovering-coreflood-binaries-with.html). 
 
 To dump a PE file that doesn't exist in the DLLs list (for example, due to code injection or malicious unlinking), just specify the base address of the PE in process memory:
 
@@ -391,7 +386,7 @@ You can also specify an EPROCESS offset if the DLL you want is in a hidden proce
 To display the open handles in a process, use the handles command. This applies to files, registry keys, mutexes, named pipes, events, window stations, desktops, threads, and all other types of securable executive objects. This command replaces the older "files" and "regobjkeys" commands from the Volatility 1.3 framework. As of 2.1, the output includes handle value and granted access for each object. 
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 handles
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     Offset(V)             Pid             Handle             Access Type             Details
     ------------------ ------ ------------------ ------------------ ---------------- -------
     0xfffffa80004b09e0      4                0x4           0x1fffff Process          System(4)
@@ -423,7 +418,7 @@ To display the open handles in a process, use the handles command. This applies 
 You can display handles for a particular process by specifying --pid=PID or the physical offset of an EPROCESS structure (--physical-offset=OFFSET). You can also filter by object type using -t or --object-type=OBJECTTYPE. For example to only display handles to process objects for pid 600, do the following:
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 handles -p 296 -t Process
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     Offset(V)             Pid             Handle             Access Type             Details
     ------------------ ------ ------------------ ------------------ ---------------- -------
     0xfffffa8000c92300    296               0x54           0x1fffff Process          wininit.exe(332)
@@ -447,7 +442,7 @@ To view the SIDs (Security Identifiers) associated with a process, use the getsi
 For more information, see BDG's [Linking Processes To Users](http://moyix.blogspot.com/2008/08/linking-processes-to-users.html).
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 getsids
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     System (4): S-1-5-18 (Local System)
     System (4): S-1-5-32-544 (Administrators)
     System (4): S-1-1-0 (Everyone)
@@ -478,7 +473,7 @@ In addition to the commands entered into a shell, this plugin shows:
 Due to the scanning technique this plugin uses, it has the capability to find commands from both active and closed consoles. 
 
     $ python vol.py -f VistaSP2x64.vmem --profile=VistaSP2x64 cmdscan
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     
     **************************************************
     CommandProcess: csrss.exe Pid: 528
@@ -511,7 +506,7 @@ For background information, see Richard Stevens and Eoghan Casey's [Extracting W
 
 ## consoles
 
-Similar to [cmdscan](Command-Reference23#cmdscan) the consoles plugin finds commands that attackers typed into cmd.exe or executed via backdoors. However, instead of scanning for COMMAND_HISTORY, this plugin scans for CONSOLE_INFORMATION. The major advantage to this plugin is it not only prints the commands attackers typed, but it collects the entire screen buffer (input **and** output). For instance, instead of just seeing "dir", you'll see exactly what the attacker saw, including all files and directories listed by the "dir" command. 
+Similar to [cmdscan](Command Reference#cmdscan) the consoles plugin finds commands that attackers typed into cmd.exe or executed via backdoors. However, instead of scanning for COMMAND_HISTORY, this plugin scans for CONSOLE_INFORMATION. The major advantage to this plugin is it not only prints the commands attackers typed, but it collects the entire screen buffer (input **and** output). For instance, instead of just seeing "dir", you'll see exactly what the attacker saw, including all files and directories listed by the "dir" command. 
 
 Additionally, this plugin prints the following: 
 
@@ -523,7 +518,7 @@ Additionally, this plugin prints the following:
 Here's an example of the consoles command. For more information and a single file with various example output from public images, see the [cmd_history.txt attachment to issue #147](http://bit.ly/LYEQOc). Below, you'll notice something quite funny. The forensic investigator seems to have lost his mind and cannot find the dd.exe tool for dumping memory. Nearly 20 typos later, he finds the tool and uses it. 
 
     $ python vol.py -f xp-laptop-2005-07-04-1430.img consoles
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     
     [csrss.exe @ 0x821c11a8 pid 456 console @ 0x4e23b0]
       OriginalTitle: '%SystemRoot%\\system32\\cmd.exe'
@@ -658,7 +653,7 @@ Here's an example of the consoles command. For more information and a single fil
 This plugin shows you which process privileges are present, enabled, and/or enabled by default. You can pass it the --silent flag to only show privileges that a process explicitly enabled (i.e. that were were not enabled by default but are currently enabled). The --regex=REGEX parameter can be used to filter for specific privilege names. 
 
     $ python vol.py -f win7_trial_64bit.raw privs --profile=Win7SP0x64
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.3_alpha
     Pid      Process          Value  Privilege                            Attributes               Description
     -------- ---------------- ------ ------------------------------------ ------------------------ -----------
            4 System                2 SeCreateTokenPrivilege               Present                  Create a token object
@@ -680,10 +675,10 @@ This plugin shows you which process privileges are present, enabled, and/or enab
 
 ## envars
 
-To display a process's environment variables, use the envars plugin. Typically this will show the number of CPUs installed and the hardware architecture (though the [kdbgscan](Command-Reference23#kdbgscan) output is a much more reliable source), the process's current directory, temporary directory, session name, computer name, user name, and various other interesting artifacts. 
+To display a process's environment variables, use the envars plugin. Typically this will show the number of CPUs installed and the hardware architecture (though the [kdbgscan](Command Reference#kdbgscan) output is a much more reliable source), the process's current directory, temporary directory, session name, computer name, user name, and various other interesting artifacts. 
 
     $ /usr/bin/python2.6 vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 envars
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     Pid      Process              Block              Variable                       Value
     -------- -------------------- ------------------ ------------------------------ -----
          296 csrss.exe            0x00000000003d1320 ComSpec                        C:\Windows\system32\cmd.exe
@@ -711,7 +706,7 @@ To display the version information embedded in PE files, use the verinfo command
 Note that this plugin resides in the contrib directory, therefore you'll need to tell Volatility to look there using the --plugins option. It currently only supports printing version information from process executables and DLLs, but later will be expanded to include kernel modules. If you want to filter by module name, use the --regex=REGEX and/or --ignore-case options. 
 
     $ python vol.py --plugins=contrib/plugins/ -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 verinfo
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     \SystemRoot\System32\smss.exe
     C:\Windows\SYSTEM32\ntdll.dll
     
@@ -735,7 +730,7 @@ Note that this plugin resides in the contrib directory, therefore you'll need to
 
 ## enumfunc
 
-This plugin enumerates imported and exported functions from processes, dlls, and kernel drivers. Specifically, it handles functions imported by name or ordinal, functions exported by name or ordinal, and forwarded exports. The output will be very verbose in most cases (functions exported by ntdll, msvcrt, and kernel32 can reach 1000+ alone). So you can either reduce the verbosity by filtering criteria with the command-line options (shown below) or you can use look at the code in enumfunc.py and use it as an example of how to use the IAT and EAT parsing API functions in your own plugin. For example, the [apihooks](Command-Reference23#apihooks) plugin leverages the imports and exports APIs to find functions in memory when checking for hooks. 
+This plugin enumerates imported and exported functions from processes, dlls, and kernel drivers. Specifically, it handles functions imported by name or ordinal, functions exported by name or ordinal, and forwarded exports. The output will be very verbose in most cases (functions exported by ntdll, msvcrt, and kernel32 can reach 1000+ alone). So you can either reduce the verbosity by filtering criteria with the command-line options (shown below) or you can use look at the code in enumfunc.py and use it as an example of how to use the IAT and EAT parsing API functions in your own plugin. For example, the [apihooks](Command Reference#apihooks) plugin leverages the imports and exports APIs to find functions in memory when checking for hooks. 
 
 Also note this plugin is in the contrib directory, so you can pass that to --plugins like this:
 
@@ -770,7 +765,7 @@ To show exported functions in process memory, use -P and -E like this:
 To show imported functions in kernel memory, use -K and -I like this:
 
     $ python vol.py --plugins=contrib/plugins/ -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 enumfunc -K -I
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     Process              Type       Module               Ordinal    Address              Name
     <KERNEL>             Import     VIDEOPRT.SYS         583        0xfffff80002acc320 ntoskrnl.exeIoRegisterPlugPlayNotification
     <KERNEL>             Import     VIDEOPRT.SYS         1325       0xfffff800029f9f30 ntoskrnl.exeRtlAppendStringToString
@@ -792,10 +787,10 @@ To show imported functions in kernel memory, use -K and -I like this:
 
 The memmap command shows you exactly which pages are memory resident, given a specific process DTB (or kernel DTB if you use this plugin on the Idle or System process). It shows you the virtual address of the page, the corresponding physical offset of the page, and the size of the page. The map information generated by this plugin comes from the underlying address space's get_available_addresses method. 
 
-As of 2.1, the new column DumpFileOffset helps you correlate the output of memmap with the dump file produced by the [memdump](Command-Reference23#memdump) plugin. For example, according to the output below, the page at virtual address 0x0000000000058000 in the System process's memory can be found at offset 0x00000000162ed000 of the win7_trial_64bit.raw file. After using [memdump](Command-Reference23#memdump) to extract the addressable memory of the System process to an individual file, you can find this page at offset 0x8000. 
+As of 2.1, the new column DumpFileOffset helps you correlate the output of memmap with the dump file produced by the [memdump](Command Reference#memdump) plugin. For example, according to the output below, the page at virtual address 0x0000000000058000 in the System process's memory can be found at offset 0x00000000162ed000 of the win7_trial_64bit.raw file. After using [memdump](Command Reference#memdump) to extract the addressable memory of the System process to an individual file, you can find this page at offset 0x8000. 
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 memmap -p 4 
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     System pid:      4
     Virtual            Physical                         Size     DumpFileOffset
     ------------------ ------------------ ------------------ ------------------
@@ -812,20 +807,20 @@ As of 2.1, the new column DumpFileOffset helps you correlate the output of memma
 
 ## memdump
 
-To extract all memory resident pages in a process (see [memmap](Command-Reference23#memmap) for details) into an individual file, use the memdump command. Supply the output directory with -D or --dump-dir=DIR. 
+To extract all memory resident pages in a process (see [memmap](Command Reference#memmap) for details) into an individual file, use the memdump command. Supply the output directory with -D or --dump-dir=DIR. 
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 memdump -p 4 -D dump/
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     ************************************************************************
     Writing System [     4] to 4.dmp
     
     $ ls -alh dump/4.dmp 
     -rw-r--r--  1 Michael  staff   111M Jun 24 15:47 dump/4.dmp
 
-To conclude the demonstration we began in the [memmap](Command-Reference23#memmap) discussion, we should now be able to make an assertion regarding the relationship of the mapped and extracted pages: 
+To conclude the demonstration we began in the [memmap](Command Reference#memmap) discussion, we should now be able to make an assertion regarding the relationship of the mapped and extracted pages: 
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 volshell
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     Current context: process System, pid=4, ppid=0 DTB=0x187000
     Welcome to volshell Current memory image is:
     file:///Users/Michael/Desktop/win7_trial_64bit.raw
@@ -845,7 +840,7 @@ To dump a process's executable (including the slack space), use the procmemdump 
 For more information, see Andreas Schuster's 4-part series on [Reconstructing a Binary](http://computer.forensikblog.de/en/2006/04/reconstructing_a_binary.html#more). Also see [impscan](http://code.google.com/p/volatility/wiki/Command-Reference#impscan) for help rebuilding a binary's import address table.
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 procmemdump -D dump/ -p 296
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     ************************************************************************
     Dumping csrss.exe, pid:    296 output: executable.296.exe
     
@@ -868,7 +863,7 @@ The vadinfo command displays extended information about a process's VAD nodes. I
 - The memory protection constant (permissions). Note there is a difference between the original protection and current protection. The original protection is derived from the flProtect parameter to VirtualAlloc. For example you can reserve memory (MEM_RESERVE) with protection PAGE_NOACCESS (original protection). Later, you can call VirtualAlloc again to commit (MEM_COMMIT) and specify PAGE_READWRITE (becomes current protection). The vadinfo command shows the original protection only. Thus, just because you see PAGE_NOACCESS here, it doesn't mean code in the region cannot be read, written, or executed.
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 vadinfo -p 296
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     ************************************************************************
     Pid:    296
     VAD node @ 0xfffffa8000c00620 Start 0x000000007f0e0000 End 0x000000007ffdffff Tag VadS
@@ -901,7 +896,7 @@ For more information on the VAD, see BDG's [The VAD Tree: A Process-Eye View of 
 To inspect a process's VAD nodes in table form, use the vadwalk command. 
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 vadwalk -p 296
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     ************************************************************************
     Pid:    296
     Address            Parent             Left               Right              Start              End                Tag 
@@ -921,7 +916,7 @@ To inspect a process's VAD nodes in table form, use the vadwalk command.
 To display the VAD nodes in a visual tree form, use the vadtree command. 
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 vadtree -p 296
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     ************************************************************************
     Pid:    296
      0x000000007f0e0000 - 0x000000007ffdffff
@@ -945,10 +940,10 @@ If you want to view the balanced binary tree in Graphviz format, just add --outp
 
 ## vaddump
 
-To extract the range of pages described by a VAD node, use the vaddump command. This is similar to [memdump](Command-Reference23#memdump), except the pages belonging to each VAD node are placed in separate files (named according to the starting and ending addresses) instead of one large conglomerate file. If any pages in the range are not memory resident, they're padded with 0's using the address space's zread() method. 
+To extract the range of pages described by a VAD node, use the vaddump command. This is similar to [memdump](Command Reference#memdump), except the pages belonging to each VAD node are placed in separate files (named according to the starting and ending addresses) instead of one large conglomerate file. If any pages in the range are not memory resident, they're padded with 0's using the address space's zread() method. 
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 vaddump -D vads
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.3_alpha
     Pid        Process              Start              End                Result
     ---------- -------------------- ------------------ ------------------ ------
              4 System               0x0000000076d40000 0x0000000076eeafff vads/System.17fef9e0.0x0000000076d40000-0x0000000076eeafff.dmp
@@ -991,7 +986,7 @@ The reason the PhysicalOffset field exists is so you can distinguish between two
 The `evtlogs` command extracts and parses binary event logs from memory.  Binary event logs are found on Windows XP and 2003 machines, therefore this plugin only works on these architectures.  These files are extracted from VAD of the services.exe process, parsed and dumped to a specified location.
 
     $ python vol.py -f WinXPSP1x64.vmem --profile=WinXPSP2x64 evtlogs -D output
-    Volatile Systems Volatility Framework 2.2_alpha
+    Volatility Foundation Volatility Framework 2.2_alpha
     Parsed data sent to appevent.txt
     Parsed data sent to secevent.txt
     Parsed data sent to sysevent.txt
@@ -1000,7 +995,7 @@ There is also an option (`--save-evt`) to dump raw event logs for parsing with e
 
     $ python vol.py -f WinXPSP1x64.vmem --profile=WinXPSP2x64 evtlogs
     --save-evt -D output
-    Volatile Systems Volatility Framework 2.2_alpha
+    Volatility Foundation Volatility Framework 2.2_alpha
     Saved raw .evt file to appevent.evt
     Parsed data sent to appevent.txt
     Saved raw .evt file to secevent.evt
@@ -1027,7 +1022,7 @@ If the `--verbose` flag is used, SIDs are also evaluated and placed in the parse
 This plugin recovers fragments of IE history index.dat cache files. It can find basic accessed links (via FTP or HTTP), redirected links (--REDR), and deleted entries (--LEAK). It applies to any process which loads and uses the wininet.dll library, not just Internet Explorer. Typically that includes Windows Explorer and even malware samples. For more information, see [HowTo: Scan for Internet Cache/History and URLs](http://volatility-labs.blogspot.com/2012/09/howto-scan-for-internet-cachehistory.html).
 
     $ python vol.py -f exemplar17_1.vmem iehistory
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.3_alpha
     **************************************************
     Process: 1928 explorer.exe
     Cache type "URL " at 0xf25100
@@ -1051,12 +1046,12 @@ This plugin recovers fragments of IE history index.dat cache files. It can find 
 
 ## modules
 
-To view the list of kernel drivers loaded on the system, use the modules command. This walks the doubly-linked list of LDR_DATA_TABLE_ENTRY structures pointed to by PsLoadedModuleList. Similar to the [pslist](Command-Reference23#pslist) command, this relies on finding the KDBG structure. In rare cases, you may need to use [kdbgscan](Command-Reference23#kdbgscan) to find the most appropriate KDBG structure address and then supply it to this plugin like --kdbg=ADDRESS. 
+To view the list of kernel drivers loaded on the system, use the modules command. This walks the doubly-linked list of LDR_DATA_TABLE_ENTRY structures pointed to by PsLoadedModuleList. Similar to the [pslist](Command Reference#pslist) command, this relies on finding the KDBG structure. In rare cases, you may need to use [kdbgscan](Command Reference#kdbgscan) to find the most appropriate KDBG structure address and then supply it to this plugin like --kdbg=ADDRESS. 
 
-It cannot find hidden/unlinked kernel drivers, however [modscan](Command-Reference23#modscan) serves that purpose. Also, since this plugin uses list walking techniques, you typically can assume that the order the modules are displayed in the output is the order they were loaded on the system. For example, below, ntoskrnl.exe was first to load, followed by hal.dll, etc. 
+It cannot find hidden/unlinked kernel drivers, however [modscan](Command Reference#modscan) serves that purpose. Also, since this plugin uses list walking techniques, you typically can assume that the order the modules are displayed in the output is the order they were loaded on the system. For example, below, ntoskrnl.exe was first to load, followed by hal.dll, etc. 
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 modules
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     Offset(V)          Name                 Base                             Size File
     ------------------ -------------------- ------------------ ------------------ ----
     0xfffffa80004a11a0 ntoskrnl.exe         0xfffff8000261a000           0x5dd000 \SystemRoot\system32\ntoskrnl.exe
@@ -1071,7 +1066,7 @@ It cannot find hidden/unlinked kernel drivers, however [modscan](Command-Referen
 The output shows the offset of the LDR_DATA_TABLE_ENTRY structure, which is a virtual address by default but can be specified as a physical address with the -P switch as shown below. In either case, the Base column is the virtual address of the module's base in kernel memory (where you'd expect to find the PE header). 
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 modules -P
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     Offset(P)          Name                 Base                             Size File
     ------------------ -------------------- ------------------ ------------------ ----
     0x0000000017fe01a0 ntoskrnl.exe         0xfffff8000261a000           0x5dd000 \SystemRoot\system32\ntoskrnl.exe
@@ -1085,10 +1080,10 @@ The output shows the offset of the LDR_DATA_TABLE_ENTRY structure, which is a vi
 
 ## modscan
 
-The modscan command finds LDR_DATA_TABLE_ENTRY structures by scanning physical memory for pool tags. This can pick up previously unloaded drivers and drivers that have been hidden/unlinked by rootkits. Unlike [modules](Command-Reference23#modules) the order of results has no relationship with the order in which the drivers loaded. As you can see below, DumpIt.sys was found at the lowest physical offset, but it was probably one of the last drivers to load (since it was used to acquire memory). 
+The modscan command finds LDR_DATA_TABLE_ENTRY structures by scanning physical memory for pool tags. This can pick up previously unloaded drivers and drivers that have been hidden/unlinked by rootkits. Unlike [modules](Command Reference#modules) the order of results has no relationship with the order in which the drivers loaded. As you can see below, DumpIt.sys was found at the lowest physical offset, but it was probably one of the last drivers to load (since it was used to acquire memory). 
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 modscan
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     Offset(P)          Name                 Base                             Size File
     ------------------ -------------------- ------------------ ------------------ ----
     0x00000000173b90b0 DumpIt.sys           0xfffff88003980000            0x11000 \??\C:\Windows\SysWOW64\Drivers\DumpIt.sys
@@ -1104,12 +1099,12 @@ The modscan command finds LDR_DATA_TABLE_ENTRY structures by scanning physical m
 
 ## moddump
 
-To extract a kernel driver to a file, use the moddump command. Supply the output directory with -D or --dump-dir=DIR. Without any additional parameters, all drivers identified by [modlist](Command-Reference23#modlist) will be dumped. If you want a specific driver, supply a regular expression of the driver's name with --regex=REGEX or the module's base address with --base=BASE. 
+To extract a kernel driver to a file, use the moddump command. Supply the output directory with -D or --dump-dir=DIR. Without any additional parameters, all drivers identified by [modlist](Command Reference#modlist) will be dumped. If you want a specific driver, supply a regular expression of the driver's name with --regex=REGEX or the module's base address with --base=BASE. 
 
 For more information, see BDG's [Plugin Post: Moddump](http://moyix.blogspot.com/2008/10/plugin-post-moddump.html).
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 moddump -D drivers/
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.3_alpha
     Module Base        Module Name          Result
     ------------------ -------------------- ------
     0xfffff8000261a000 ntoskrnl.exe         OK: driver.fffff8000261a000.sys
@@ -1121,7 +1116,7 @@ For more information, see BDG's [Plugin Post: Moddump](http://moyix.blogspot.com
     0xfffff88002c5d000 pacer.sys            OK: driver.fffff88002c5d000.sys
     [snip]
 
-Similar to [dlldump](Command-Reference23#dlldump), if critical parts of the PE header are not memory resident, then rebuilding/extracting the driver may fail. Additionally, for drivers that are mapped in different sessions (like win32k.sys), there is currently no way to specify which session to use when acquiring the driver sample. 
+Similar to [dlldump](Command Reference#dlldump), if critical parts of the PE header are not memory resident, then rebuilding/extracting the driver may fail. Additionally, for drivers that are mapped in different sessions (like win32k.sys), there is currently no way to specify which session to use when acquiring the driver sample. 
 
 ## ssdt
 
@@ -1131,7 +1126,7 @@ To list the functions in the Native and GUI SSDTs, use the ssdt command. This di
 
 - There are multiple ways to locate the SSDTs in memory. Most tools do it by finding the exported KeServiceDescriptorTable symbol in the NT module, but this is not the way Volatility works.
 
-- For x86 systems, Volatility scans for ETHREAD objects (see the [thrdscan](Command-Reference23#thrdscan) command) and gathers all unique ETHREAD.Tcb.ServiceTable pointers. This method is more robust and complete, because it can detect when rootkits make copies of the existing SSDTs and assign them to particular threads. Also see the [threads](Command-Reference23#threads) command.
+- For x86 systems, Volatility scans for ETHREAD objects (see the [thrdscan](Command Reference#thrdscan) command) and gathers all unique ETHREAD.Tcb.ServiceTable pointers. This method is more robust and complete, because it can detect when rootkits make copies of the existing SSDTs and assign them to particular threads. Also see the [threads](Command Reference#threads) command.
 
 - For x64 systems (which do not have an ETHREAD.Tcb.ServiceTable member) Volatility disassembles code in ntKeAddSystemServiceTable and finds its references to the KeServiceDescriptorTable and KeServiceDescriptorTableShadow symbols.
 
@@ -1140,7 +1135,7 @@ To list the functions in the Native and GUI SSDTs, use the ssdt command. This di
 - For more information, see BDG's [Auditing the System Call Table](http://moyix.blogspot.com/2008/08/auditing-system-call-table.html).
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 ssdt
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     [x64] Gathering all referenced SSDTs from KeAddSystemServiceTable...
     Finding appropriate address space for tables...
     SSDT[0] at fffff8000268cb00 with 401 entries
@@ -1179,12 +1174,12 @@ Note that the NT module on your system may be ntkrnlpa.exe or ntkrnlmp.exe - so 
 
 ## driverscan
 
-To find DRIVER_OBJECTs in physical memory using pool tag scanning, use the driverscan command. This is another way to locate kernel modules, although not all kernel modules have an associated DRIVER_OBJECT. The DRIVER_OBJECT is what contains the 28 IRP (Major Function) tables, thus the [driverirp](Command-Reference23#driverirp) command is based on the methodology used by driverscan. 
+To find DRIVER_OBJECTs in physical memory using pool tag scanning, use the driverscan command. This is another way to locate kernel modules, although not all kernel modules have an associated DRIVER_OBJECT. The DRIVER_OBJECT is what contains the 28 IRP (Major Function) tables, thus the [driverirp](Command Reference#driverirp) command is based on the methodology used by driverscan. 
 
 For more information, see Andreas Schuster's [Scanning for Drivers](http://computer.forensikblog.de/en/2009/04/scanning_for_drivers.html).
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 driverscan
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     Offset(P)          #Ptr #Hnd Start                            Size Service Key          Name         Driver Name
     ------------------ ---- ---- ------------------ ------------------ -------------------- ------------ -----------
     0x00000000174c6350    3    0 0xfffff880037e9000             0xd000 mouhid               mouhid       \Driver\mouhid
@@ -1206,7 +1201,7 @@ To find FILE_OBJECTs in physical memory using pool tag scanning, use the filesca
 For more information, see Andreas Schuster's [Scanning for File Objects](http://computer.forensikblog.de/en/2009/04/scanning_for_file_objects.html) and [Linking File Objects To Processes](http://computer.forensikblog.de/en/2009/04/linking_file_objects_to_processes.html). 
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 filescan
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     Offset(P)            #Ptr   #Hnd Access Name
     ------------------ ------ ------ ------ ----
     0x000000000126f3a0     14      0 R--r-d \Windows\System32\mswsock.dll
@@ -1232,7 +1227,7 @@ To scan physical memory for KMUTANT objects with pool tag scanning, use the muta
 For more information, see Andreas Schuster's [Searching for Mutants](http://computer.forensikblog.de/en/2009/04/searching_for_mutants.html).
 
     $ python -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 mutantscan --silent
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     Offset(P)          #Ptr #Hnd Signal Thread                   CID Name
     ------------------ ---- ---- ------ ------------------ --------- ----
     0x000000000f702630    2    1      1 0x0000000000000000           {A3BD3259-3E4F-428a-84C8-F0463A9D3EB5}
@@ -1259,7 +1254,7 @@ For more information, see Andreas Schuster's [Searching for Mutants](http://comp
 This plugin scans for symbolic link objects and outputs their information. In the past, this has been used to link drive letters (i.e. D:, E:, F:, etc) to true crypt volumes (i.e. \Device\TrueCryptVolume). For more information, see [Symbolic Link Objects](http://computer.forensikblog.de/en/2009/04/symbolic-link-objects.html) and [Identifying a Mounted True Crypt Volume from Artifacts in Volatile Memory](http://www.scribd.com/doc/103174530/Identifying-a-mounted-TrueCrypt-volume-from-artefacts-in-volatile-memory-using-Volatility-2-1). 
 
     $ python -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 symlinkscan
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     Offset(P)            #Ptr   #Hnd Creation time            From                 To                                                          
     ------------------ ------ ------ ------------------------ -------------------- ------------------------------------------------------------
     0x0000000000469780      1      0 2012-02-22 20:03:13      UMB#UMB#1...e1ba19f} \Device\00000048                                            
@@ -1280,10 +1275,10 @@ This plugin scans for symbolic link objects and outputs their information. In th
 
 ## thrdscan
 
-To find ETHREAD objects in physical memory with pool tag scanning, use the thrdscan command. Since an ETHREAD contains fields that identify its parent process, you can use this technique to find hidden processes. One such use case is documented in the [psxview](Command-ReferenceMal23#psxview) command. Also, for verbose details, try the [threads](Command-Reference23#threads) plugin. 
+To find ETHREAD objects in physical memory with pool tag scanning, use the thrdscan command. Since an ETHREAD contains fields that identify its parent process, you can use this technique to find hidden processes. One such use case is documented in the [psxview](Command-ReferenceMal23#psxview) command. Also, for verbose details, try the [threads](Command Reference#threads) plugin. 
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 thrdscan
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     Offset(P)             PID    TID      Start Address Create Time               Exit Time                
     ------------------ ------ ------ ------------------ ------------------------- -------------------------
     0x0000000008df68d0    280    392         0x77943260 2012-02-22 19:08:18                                
@@ -1415,7 +1410,7 @@ Please note the following:
 - There are at least 2 alternate ways to enumerate connections and sockets on Vista+ operating systems. One of them is using partitions and dynamic hash tables, which is how the netstat.exe utility on Windows systems works. The other involves bitmaps and port pools.
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 netscan
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     Offset(P)  Proto    Local Address                  Foreign Address      State            Pid      Owner          Created
     0xf882a30  TCPv4    0.0.0.0:135                    0.0.0.0:0            LISTENING        628      svchost.exe    
     0xfc13770  TCPv4    0.0.0.0:49154                  0.0.0.0:0            LISTENING        916      svchost.exe    
@@ -1465,10 +1460,10 @@ Volatility is the only memory forensics framework with the ability to carve regi
 
 To find the physical addresses of CMHIVEs (registry hives) in memory, use the hivescan command. For more information, see BDG's [Enumerating Registry Hives](http://moyix.blogspot.com/2008/02/enumerating-registry-hives.html). 
 
-This plugin isn't generally useful by itself. Its meant to be inherited by other plugins (such as [hivelist](Command-Reference23#hivelist) below) that build on and interpret the information found in CMHIVEs. 
+This plugin isn't generally useful by itself. Its meant to be inherited by other plugins (such as [hivelist](Command Reference#hivelist) below) that build on and interpret the information found in CMHIVEs. 
 
     $python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 hivescan
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     Offset(P)         
     ------------------
     0x0000000008c95010
@@ -1485,7 +1480,7 @@ This plugin isn't generally useful by itself. Its meant to be inherited by other
 To locate the virtual addresses of registry hives in memory, and the full paths to the corresponding hive on disk, use the hivelist command. If you want to print values from a certain hive, run this command first so you can see the address of the hives. 
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 hivelist
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     Virtual            Physical           Name
     ------------------ ------------------ ----
     0xfffff8a001053010 0x000000000b1a9010 \??\C:\System Volume Information\Syscache.hve
@@ -1510,7 +1505,7 @@ To display the subkeys, values, data, and data types contained within a specifie
 Say you want to traverse into the HKEY_LOCAL_MACHINE\Microsoft\Security Center\Svc key. You can do that in the following manner. Note: if you're running Volatility on Windows, enclose the key in double quotes (see [issue 166](https://github.com/gleeda/Volatility/issues#issue/166)).
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 printkey -K "Microsoft\Security Center\Svc"
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     Legend: (S) = Stable   (V) = Volatile
     
     ----------------------------
@@ -1529,7 +1524,7 @@ Say you want to traverse into the HKEY_LOCAL_MACHINE\Microsoft\Security Center\S
 Here you can see how the output appears when multiple hives (DEFAULT and ntuser.dat) contain the same key "Software\Microsoft\Windows NT\CurrentVersion". 
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 printkey -K "Software\Microsoft\Windows NT\CurrentVersion"
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     Legend: (S) = Stable   (V) = Volatile
     
     ----------------------------
@@ -1559,10 +1554,10 @@ Here you can see how the output appears when multiple hives (DEFAULT and ntuser.
     
     [snip]
 
-If you want to limit your search to a specific hive, printkey also accepts a virtual address to the hive. For example, to see the contents of HKEY_LOCAL_MACHINE, use the command below. Note: the offset is taken from the previous [hivelist](Command-Reference23#hivelist) output. 
+If you want to limit your search to a specific hive, printkey also accepts a virtual address to the hive. For example, to see the contents of HKEY_LOCAL_MACHINE, use the command below. Note: the offset is taken from the previous [hivelist](Command Reference#hivelist) output. 
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 printkey -o 0xfffff8a000a15010
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     Legend: (S) = Stable   (V) = Volatile
     
     ----------------------------
@@ -1587,7 +1582,7 @@ If you want to limit your search to a specific hive, printkey also accepts a vir
 To recursively list all subkeys in a hive, use the hivedump command and pass it the virtual address to the desired hive. 
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 hivedump -o 0xfffff8a000a15010
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     Last Written         Key
     2009-07-14 07:13:38  \CMI-CreateHive{199DAFC2-6F16-4946-BF90-5A3FC3A60902}
     2009-07-14 04:48:57  \CMI-CreateHive{199DAFC2-6F16-4946-BF90-5A3FC3A60902}\ATI Technologies
@@ -1625,7 +1620,7 @@ It is possible that a registry key is not available in memory.  When this happen
 You can try to see if the correct keys are available: "CurrentControlSet\Control\lsa" from SYSTEM and "SAM\Domains\Account" from SAM.  First you need to get the "CurrentControlSet", for this we can use volshell (replace `[REGISTRY ADDRESS](SYSTEM)` below with the offset you get from hivelist), for example:
 
     $ ./vol.py -f XPSP3.vmem --profile=WinXPSP3x86 volshell
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     Current context: process System, pid=4, ppid=0 DTB=0x319000
     Welcome to volshell Current memory image is: 
     file:///XPSP3.vmem
@@ -1657,7 +1652,7 @@ For more information, see BDG's [Decrypting LSA Secrets](http://moyix.blogspot.c
 To use lsadump, pass the virtual address of the SYSTEM hive as the -y parameter and the virtual address of the SECURITY hive as the -s parameter. 
 
     $ python vol.py -f laqma.vmem lsadump -y 0xe1035b60 -s 0xe16a6b60
-    Volatile Systems Volatility Framework 2.0
+    Volatility Foundation Volatility Framework 2.0
     L$RTMTIMEBOMB_1320153D-8DA3-4e8e-B27B-0D888223A588
     
     0000   00 92 8D 60 01 FF C8 01                            ...`....
@@ -1702,7 +1697,7 @@ To use lsadump, pass the virtual address of the SYSTEM hive as the -y parameter 
 To get the UserAssist keys from a sample you can use the userassist plugin.  For more information see Gleeda's [Volatility UserAssist plugin](http://gleeda.blogspot.com/2011/04/volatility-14-userassist-plugin.html) post.
 
     $ ./vol.py -f win7.vmem --profile=Win7SP0x86 userassist 
-    Volatile Systems Volatility Framework 2.0
+    Volatility Foundation Volatility Framework 2.0
     ----------------------------
     Registry: \??\C:\Users\admin\ntuser.dat
     Key name: Count
@@ -1762,7 +1757,7 @@ To get the UserAssist keys from a sample you can use the userassist plugin.  For
 This plugin parses and prints [Shellbag (pdf)](http://www.dfrws.org/2009/proceedings/p69-zhu.pdf) information obtained from the registry.  For more information see [Shellbags in Memory, SetRegTime, and TrueCrypt Volumes](http://volatility-labs.blogspot.com/2012/09/movp-32-shellbags-in-memory-setregtime.html).  There are two options for output: verbose (default) and bodyfile format.
 
     $ python vol.py -f win7.vmem --profile=Win7SP1x86 shellbags
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.3_alpha
     Scanning for registries....
     Gathering shellbag items and building path tree...
     ***************************************************************************
@@ -1816,10 +1811,10 @@ This plugin parses and prints [Shellbag (pdf)](http://www.dfrws.org/2009/proceed
     ***************************************************************************
     [snip]
 
-Another option is to use the `--output=body` option for [TSK 3.x bodyfile format](http://wiki.sleuthkit.org/index.php?title=Body_file).  You can use this output option when you want to combine output from `timeliner`, [mftparser](Command-Reference23#mftparser) and [timeliner](Command-Reference23#timeliner).  Only ITEMPOS and FILE_ENTRY items are output with the bodyfile format:
+Another option is to use the `--output=body` option for [TSK 3.x bodyfile format](http://wiki.sleuthkit.org/index.php?title=Body_file).  You can use this output option when you want to combine output from `timeliner`, [mftparser](Command Reference#mftparser) and [timeliner](Command Reference#timeliner).  Only ITEMPOS and FILE_ENTRY items are output with the bodyfile format:
 
     $ ./vol.py -f win7.vmem --profile=Win7SP1x86 shellbags --output=body
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.3_alpha
     Scanning for registries....
     Gathering shellbag items and building path tree...
     0|[SHELLBAGS ITEMPOS] Name: Adobe Reader X.lnk/Attrs: ARC/FullPath: Adobe Reader X.lnk/Registry: \??\C:\Users\user\ntuser.dat /Key: Software\Microsoft\Windows\Shell\Bags\1\Desktop/LW: 2011-10-20 15:24:46 UTC+0000|0|---------------|0|0|0|1319124004|1319124004|1319124004|1319124004
@@ -1835,7 +1830,7 @@ Another option is to use the `--output=body` option for [TSK 3.x bodyfile format
 This plugin parses the Application Compatibility Shim Cache registry key. 
 
     $ python vol.py -f win7.vmem --profile=Win7SP1x86 shimcache
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.3_alpha
     Last Modified                  Path
     ------------------------------ ----
     2009-07-14 01:14:22 UTC+0000   \??\C:\Windows\system32\LogonUI.exe
@@ -1859,7 +1854,7 @@ The `getservicesids` command calculates the SIDs for services on a machine and o
 The service names are taken from the registry ("SYSTEM\CurrentControlSet\Services").  For more information on how these SIDs are calculated, see [Timeliner Release Documentation (pdf)](http://jls-scripts.googlecode.com/files/Timeliner%20Release%20Documentation.pdf).  Example output can be seen below:
 
     $ ./vol.py -f WinXPSP1x64.vmem --profile=WinXPSP2x64 getservicesids
-    Volatile Systems Volatility Framework 2.2_alpha
+    Volatility Foundation Volatility Framework 2.2_alpha
     servicesids = {
         'S-1-5-80-2675092186-3691566608-1139246469-1504068187-1286574349':
     'Abiosdsk',
@@ -1885,7 +1880,7 @@ Volatility supports memory dumps in several different formats, to ensure the hig
 Information from the crashdump header can be printed using the crashinfo command.  You will see information like that of the Microsoft [dumpcheck](http://support.microsoft.com/kb/119490) utility. For more information, see the [[Crash Address Space]] page. 
 
     $ python vol.py -f win7_x64.dmp --profile=Win7SP0x64 crashinfo
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     _DMP_HEADER64:
      Majorversion:         0x0000000f (15)
      Minorversion:         0x00001db0 (7600)
@@ -1934,10 +1929,10 @@ The hibinfo command reveals additional information stored in the hibernation fil
 
 The imagecopy command allows you to convert any existing type of address space (such as a crashdump, hibernation file, virtualbox core dump, vmware snapshot, or live firewire session) to a raw memory image. This conversion be necessary if some of your other forensic tools only support reading raw memory dumps. 
 
-The profile should be specified for this command, so if you don't know it already, use the [or [Command-Reference23#kdbgscan kdbgscan](Command-Reference23#imageinfo]) commands first.  The output file is specified with the -O flag.  The progress is updated as the file is converted:
+The profile should be specified for this command, so if you don't know it already, use the [or [Command Reference#kdbgscan kdbgscan](Command Reference#imageinfo]) commands first.  The output file is specified with the -O flag.  The progress is updated as the file is converted:
 
     $ python vol.py -f win7_x64.dmp --profile=Win7SP0x64 imagecopy -O copy.raw
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     Writing data (5.00 MB chunks): |.......................................|
 
 ## raw2dmp
@@ -1945,7 +1940,7 @@ The profile should be specified for this command, so if you don't know it alread
 To convert a raw memory dump (for example from a win32dd acquisition or a VMware .vmem file) into a Microsoft crash dump, use the raw2dmp command. This is useful if you want to load the memory in the WinDbg kernel debugger for analysis. 
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 raw2dmp -O copy.dmp
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     Writing data (5.00 MB chunks): |..............................................................................|
 
 ## vboxinfo
@@ -1953,7 +1948,7 @@ To convert a raw memory dump (for example from a win32dd acquisition or a VMware
 To pull details from a virtualbox core dump, use the vboxinfo command. For more information, see the [[Virtual Box Core Dump]] page. 
 
     $ python vol.py -f ~/Desktop/win7sp1x64_vbox.elf --profile=Win7SP1x64 vboxinfo 
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.3_alpha
     
     Magic: 0xc01ac0de
     Format: 0x10000
@@ -2029,7 +2024,7 @@ In order to cut down on false positives there is a `-C/--check` option that chec
 There is also an option to change the offset for the start of the disassembly.  This can be useful for investigating machines (like Windows XP) that only copy the part of the MBR bootcode that has not yet executed.  For example, before changing the offset:
 
     $ python vol.py mbrparser -f AnalysisXPSP3.vmem -o 0x600 
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.3_alpha
     Potential MBR at physical offset: 0x600
     Disk Signature: d8-8f-d8-8f
     Bootcode md5: c1ca166a3417427890520bbb18911b1f
@@ -2056,7 +2051,7 @@ There is also an option to change the offset for the start of the disassembly.  
 After changing the starting offset:
 
     $ python vol.py mbrparser -f AnalysisXPSP3.vmem -o 0x600 -D 0x1b
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.3_alpha
     Potential MBR at physical offset: 0x600
     Disk Signature: d8-8f-d8-8f
     Bootcode md5: 961f3ad835d6fa9396e60ea9f825c393
@@ -2084,7 +2079,7 @@ This plugin may take a while to run before seeing output, since it scans first a
 Example (default output):
 
     $ python vol.py -f Bob.vmem mftparser
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.3_alpha
     Scanning for MFT entries and building directory, this can take a while
     [snip]
     ***************************************************************************
@@ -2144,7 +2139,7 @@ Example (default output):
 The bodyfile output is also an option.  The normal MD5 column is replaced with indicators for which attribute was found and its physical offset in memory:
 
     $ ./vol.py -f Bob.vmem mftparser --output=body
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.3_alpha
     Scanning for MFT entries and building directory, this can take a while
     (FN) 0x1d000|WINDOWS\Cache\Adobe Reader 6.0\ENUBIG\Setup.ini|11452|---a-----------|0|0|344|1267155960|1267155960|1267155960|1267155960
     (SI) 0x1d000|WINDOWS\Cache\Adobe Reader 6.0\ENUBIG\Setup.ini|11452|r--a-----------|0|0|344|1267155966|1053372834|1267155973|1267155960
@@ -2278,11 +2273,11 @@ We have to convert this to ANSI or UTF-8.  In Windows you can open the text file
 Now we can see a difference in how these two files are handled:
 
     $ ./vol.py -f Bob.vmem --profile=WinXPSP2x86 strings -s export.txt 
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     ERROR   : volatility.plugins.strings: String file format invalid.
     
     $ ./vol.py -f Bob.vmem --profile=WinXPSP2x86 strings -s export1.txt 
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     0001c0eb [kernel:2147598571] DHCP
     0001c117 [kernel:2147598615] DHCP
     0001c4b4 [kernel:2147599540] DHCP
@@ -2297,7 +2292,7 @@ Now we can see a difference in how these two files are handled:
 
     $ python vol.py --profile=Win7SP0x86 strings –f win7.dd –s win7_strings.txt --output-file=win7_vol_strings.txt
 
-By default `strings` will only provide output for processes found by walking the doubly linked list pointed to by PsActiveProcessHead (see [pslist](Command-Reference23#pslist)) in addition to kernel addresses.  `strings` can also provide output for hidden processes (see [psscan](Command-Reference23#psscan)) by using the (capital) -S switch:
+By default `strings` will only provide output for processes found by walking the doubly linked list pointed to by PsActiveProcessHead (see [pslist](Command Reference#pslist)) in addition to kernel addresses.  `strings` can also provide output for hidden processes (see [psscan](Command Reference#psscan)) by using the (capital) -S switch:
 
     $ python vol.py --profile=Win7SP0x86 strings –f win7.dd –s win7_strings.txt --output-file=win7_vol_strings.txt -S 
 
@@ -2378,7 +2373,7 @@ Note: volshell can take advantage of [IPython](http://ipython.org/) if you have 
 To break into a volshell:
 
     $ python vol.py --profile=Win7SP0x86 -f win7.dmp volshell
-    Volatile Systems Volatility Framework 2.0
+    Volatility Foundation Volatility Framework 2.0
     Current context: process System, pid=4, ppid=0 DTB=0x185000
     Welcome to volshell Current memory image is:
     file:///Users/M/Desktop/win7.dmp
@@ -2519,7 +2514,7 @@ Assuming the alleged false positive for an EPROCESS is at 0x433308, you would th
 Another neat trick is to use volshell in a non-interactive manner. For example, say you want to translate an address in kernel memory to its corresponding physical offset. 
 
     $ echo "hex(self.addrspace.vtop(0x823c8830))" | python vol.py -f stuxnet.vmem volshell
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     Current context: process System, pid=4, ppid=0 DTB=0x319000
     Welcome to volshell Current memory image is:
     file:///mem/stuxnet.vmem
@@ -2573,7 +2568,7 @@ The pagecheck plugin uses a kernel DTB (from the System/Idle process) and determ
 This plugin is not well-supported. It is in the contrib directory and currently only works with non-PAE x86 address spaces. 
 
     $ python vol.py --plugins=contrib/plugins/ -f pat-2009-11-16.mddramimage pagecheck
-    Volatile Systems Volatility Framework 2.1_rc1
+    Volatility Foundation Volatility Framework 2.1_rc1
     (V): 0x06a5a000 [PDE] 0x038c3067 [PTE] 0x1fe5e047 (P): 0x1fe5e000 Size: 0x00001000
     (V): 0x06c5f000 [PDE] 0x14d62067 [PTE] 0x1fe52047 (P): 0x1fe52000 Size: 0x00001000
     (V): 0x06cd5000 [PDE] 0x14d62067 [PTE] 0x1fe6f047 (P): 0x1fe6f000 Size: 0x00001000
@@ -2592,7 +2587,7 @@ This `timeliner` plugin creates a timeline from various artifacts in memory from
 In order to run the `timeliner` plugin, you must either move it from the contrib/plugins folder to volatility/plugins or use the `--plugins` option (seen below).  You might see some "Failed to import..." errors, these can simply be ignored since they are just due to a conflict in paths for some malware plugins that are in the `contrib/plugins` directory.  The default output can be redirected to a file or saved via the `--output-file=` option and imported to Excel.
 
     $ python vol.py --plugins=contrib/plugins -f XPSP3x86.vmem timeliner
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.3_alpha
     *** Failed to import volatility.plugins.malware.zeusscan (ImportError: No module named zeusscan)
     *** Failed to import volatility.plugins.malware.poisonivy (ImportError: No module named poisonivy)
     2011-05-16 15:29:52 UTC+0000|[END LIVE RESPONSE]
@@ -2613,7 +2608,7 @@ If you don't want to do the extra step of importing, you can use the `--output=x
 
     $ python vol.py --plugins=contrib/plugins -f XPSP3x86.vmem timeliner --output=xlsx --output-file=output.xlsx
 
-Another option is to use the `--output=body` option for [TSK 3.x bodyfile format](http://wiki.sleuthkit.org/index.php?title=Body_file).  You can use this output option when you want to combine output from `timeliner`, [mftparser](Command-Reference23#mftparser) and [shellbags](Command-Reference23#shellbags).
+Another option is to use the `--output=body` option for [TSK 3.x bodyfile format](http://wiki.sleuthkit.org/index.php?title=Body_file).  You can use this output option when you want to combine output from `timeliner`, [mftparser](Command Reference#mftparser) and [shellbags](Command Reference#shellbags).
 
 By default everything except the registry LastWrite timestamps are included in the output of `timeliner`, this is because obtaining the registry timestamps can take quite a long time.  In order to add them to the output, simply add the `-R` option when you run Volatility.  You can also limit your focus of registry timestamps by listing a specific registry name (like `--hive=SYSTEM`) or user (`--user=Jim`) or both (`--hive=UsrClass.dat   --user=jim`).  These options are case insensitive.  
 
