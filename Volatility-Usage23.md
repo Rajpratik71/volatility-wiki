@@ -37,7 +37,7 @@ There are several command-line options that are global (i.e. they apply to all p
 
 ## Displaying Help
 
-You can display the main help menu by passing -h or --help on command-line. This shows the global options and lists the plugins available to the currently specified profile. If you do not specify a profile, you'll be working with the default, WinXPSP2x86, thus you'll only see plugins that are valid for that operating system and architecture (for example, you won't see linux plugins or windows plugins that only work on Vista). To specify a profile other than the default, see Selecting a Profile below. Developer note: to restrict plugins per profile, see the [Restricting Plugins Per Profile](PluginInterface22#Restricting_Plugins_Per_Profile) page. 
+You can display the main help menu by passing -h or --help on command-line. This shows the global options and lists the plugins available to the currently specified profile. If you do not specify a profile, you'll be working with the default, WinXPSP2x86, thus you'll only see plugins that are valid for that operating system and architecture (for example, you won't see linux plugins or windows plugins that only work on Vista). To specify a profile other than the default, see Selecting a Profile below. 
 
 The remainder of this section will discuss the various options in greater detail. 
 
