@@ -1,7 +1,5 @@
 As described on the [[Linux Memory Forensics|Linux]] page, these are the available example linux profiles. Do not use these profiles with memory dumps from systems running different kernels than as specified in the profile description. 
 
-# Profiles
-
 |  Distribution and Kernel  |  Bash history_list  |  Profile  |  
 |-----|-----|-----|
 |  CentOS (DFRWS 2008 Challenge)  |  0x80fab1c  |  [dfrws-profile.zip](https://github.com/gleeda/Volatility/raw/downloads/LinuxProfiles/dfrws-profile.zip)  |  
