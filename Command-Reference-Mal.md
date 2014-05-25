@@ -1,26 +1,21 @@
 **Table of Contents**  
 
-- [A reference for malware commands](Command-Reference-Mal23#a-reference-for-malware-commands)
-- [malfind](Command-Reference-Mal23#malfind)
-- [yarascan](Command-Reference-Mal23#yarascan)
-- [svcscan](Command-Reference-Mal23#svcscan)
-- [ldrmodules](Command-Reference-Mal23#ldrmodules)
-- [impscan](Command-Reference-Mal23#impscan)
-- [apihooks](Command-Reference-Mal23#apihooks)
-- [idt](Command-Reference-Mal23#idt)
-- [gdt](Command-Reference-Mal23#gdt)
-- [threads](Command-Reference-Mal23#threads)
-- [callbacks](Command-Reference-Mal23#callbacks)
-- [driverirp](Command-Reference-Mal23#driverirp)
-- [devicetree](Command-Reference-Mal23#devicetree)
-- [psxview](Command-Reference-Mal23#psxview)
-- [timers](Command-Reference-Mal23#timers)
-
-# A reference for malware commands
+- [malfind](Command Reference Mal#malfind)
+- [yarascan](Command Reference Mal#yarascan)
+- [svcscan](Command Reference Mal#svcscan)
+- [ldrmodules](Command Reference Mal#ldrmodules)
+- [impscan](Command Reference Mal#impscan)
+- [apihooks](Command Reference Mal#apihooks)
+- [idt](Command Reference Mal#idt)
+- [gdt](Command Reference Mal#gdt)
+- [threads](Command Reference Mal#threads)
+- [callbacks](Command Reference Mal#callbacks)
+- [driverirp](Command Reference Mal#driverirp)
+- [devicetree](Command Reference Mal#devicetree)
+- [psxview](Command Reference Mal#psxview)
+- [timers](Command Reference Mal#timers)
 
 Although all Volatility commands can help you hunt malware in one way or another, there are a few designed specifically for hunting rootkits and malicious code. The most comprehensive documentation for these commands can be found in the [Malware Analyst's Cookbook and DVD: Tools and Techniques For Fighting Malicious Code](http://www.amazon.com/dp/0470613033).  
-
-<wiki:toc max_depth="3" />
 
 # malfind
 
@@ -35,7 +30,7 @@ The second memory segment (starting at 0x015D0000) was detected because it conta
 If you want to save extracted copies of the memory segments identified by malfind, just supply an output directory with -D or --dump-dir=DIR. In this case, an unpacked copy of the Zeus binary that was injected into explorer.exe would be written to disk. 
 
     $ python vol.py -f zeus.vmem malfind -p 1724
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     
     Process: explorer.exe Pid: 1724 Address: 0x1600000
     Vad Tag: VadS Protection: PAGE_EXECUTE_READWRITE
@@ -84,17 +79,17 @@ To search for a simple string in any process and dump the memory segments contai
 
     $ python vol.py -f zeus.vmem yarascan -D dump_files --yara-rules="simpleStringToFind"
 
-To search for a byte pattern in kernel memory, use the following technique. This searches through memory in 1MB chunks, in all sessions. The TDL3 malware applies a hard-patch to SCSI adaptors on disk (sometimes atapi.sys or vmscsi.sys). In particular, it adds some shell code to the .rsrc section of the file, and then modifies the AddressOfEntryPoint so that it points at the shell code. This is TDL3's main persistence method. One of the unique instructions in the shell code is `cmp dword ptr [‘3LDT’` so I made a YARA signature from those opcodes:
+To search for a byte pattern in kernel memory, use the following technique. This searches through memory in 1MB chunks, in all sessions. The TDL3 malware applies a hard-patch to SCSI adaptors on disk (sometimes atapi.sys or vmscsi.sys). In particular, it adds some shell code to the .rsrc section of the file, and then modifies the AddressOfEntryPoint so that it points at the shell code. This is TDL3's main persistence method. One of the unique instructions in the shell code is `cmp dword ptr ['3LDT']` so I made a YARA signature from those opcodes:
 
-6b8ed6e898c2a0fe18bc44fa5930d847
+    6b8ed6e898c2a0fe18bc44fa5930d847
 
 Search for a given byte pattern in a particular process:
 
-75f988c88179e7f4958a98304178b63d
+    75f988c88179e7f4958a98304178b63d
 
 Search for a regular expression in a particular process:
 
-bbb7c9cf81d2ae31100a0ce156ab738e
+    bbb7c9cf81d2ae31100a0ce156ab738e
 
 # svcscan
 
@@ -119,7 +114,7 @@ Since the PEB and the DLL lists that it contains all exist in user mode, its als
 For concrete examples, see [http://blogs.mcafee.com/mcafee-labs/zeroaccess-misleads-memory-file-link ZeroAccess Misleads Memory-File Link](eax],) and [QuickPost: Flame & Volatility](http://mnin.blogspot.com/2012/06/quickpost-flame-volatility.html).
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 ldrmodules -v
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     Pid      Process              Base               InLoad InInit InMem MappedPath
     -------- -------------------- ------------------ ------ ------ ----- ----------
          208 smss.exe             0x0000000047a90000 True   False  True  \Windows\System32\smss.exe
@@ -154,7 +149,7 @@ Previous versions of impscan automatically created a labeled IDB for use with ID
 Take Coreflood for example. This malware deleted its PE header once it loaded in the target process (by calling VirtualFree on the injected DLL's ImageBase). You can use [malfind](Command-ReferenceMal23#malfind) to detect the presence of Coreflood based on the typical criteria (page permissions, VAD tags, etc). Notice how the PE's base address doesn't contain the usual 'MZ' header:
 
     $ python vol.py -f coreflood.vmem -p 2044 malfind
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     
     Process: IEXPLORE.EXE Pid: 2044 Address: 0x7ff80000
     Vad Tag: VadS Protection: PAGE_EXECUTE_READWRITE
@@ -173,7 +168,7 @@ Take Coreflood for example. This malware deleted its PE header once it loaded in
 Let's assume you want to extract the unpacked copy of Coreflood and see its imported APIs. Use impscan by specifying the base address provided to you by malfind. In this case, we fixup the base address by 0x1000 to account for the missing page at the real ImageBase. 
 
     $ python vol.py -f coreflood.vmem -p 2044 impscan -b 0x7ff81000
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     IAT        Call       Module               Function
     ---------- ---------- -------------------- --------
     0x7ff9e000 0x77dd77b3 ADVAPI32.dll         SetSecurityDescriptorDacl
@@ -198,7 +193,7 @@ If you don't specify a base address with -b or --base, then you'll end up scanni
 Laqma loads a kernel driver named lanmandrv.sys. If you extract it with [moddump](Command-Reference23#moddump), the IAT will be corrupt. So use impscan to rebuild it:
 
     $ python vol.py -f laqma.vmem impscan -b 0xfca29000
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     IAT        Call       Module               Function
     ---------- ---------- -------------------- --------
     0xfca2a080 0x804ede90 ntoskrnl.exe         IofCompleteRequest
@@ -218,7 +213,7 @@ Laqma loads a kernel driver named lanmandrv.sys. If you extract it with [moddump
 The next example shows impscan on an x64 driver and using the render_idc output format. This gives you an IDC file you can import into IDA Pro to apply labels to the function calls. 
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 impscan -b 0xfffff88003980000 --output=idc --output-file=imps.idc
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     
     $ cat imps.idc 
     #include <idc.idc>
@@ -259,7 +254,7 @@ Here is an example of detecting IAT hooks installed by Coreflood. The hooking mo
 3. Use [vaddump](Command-Reference23#vaddump) to extract all code segments to individual files (named according to start and end address), then find the file that contains the 0x7ff82 ranges.
 
     $ python vol.py -f coreflood.vmem -p 2044 apihooks 
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     ************************************************************************
     Hook mode: Usermode
     Hook type: Import Address Table (IAT)
@@ -302,7 +297,7 @@ Here is an example of detecting IAT hooks installed by Coreflood. The hooking mo
 Here is an example of detecting the Inline hooks installed by Silentbanker. Note the multiple hop disassembly which is new in 2.1. It shows the first hop of the hook at 0x7c81caa2 jumps to 0xe50000. Then you also see a disassembly of the code at 0xe50000 which executes the rest of the trampoline. 
 
     $ python vol.py -f silentbanker.vmem -p 1884 apihooks
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     ************************************************************************
     Hook mode: Usermode
     Hook type: Inline/Trampoline
@@ -332,7 +327,7 @@ Here is an example of detecting the Inline hooks installed by Silentbanker. Note
 Here is an example of detecting the PUSH/RET Inline hooks installed by Laqma:
 
     $ python vol.py -f laqma.vmem -p 1624 apihooks
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     ************************************************************************
     Hook mode: Usermode
     Hook type: Inline/Trampoline
@@ -399,7 +394,7 @@ Here is an example of the duqu style API hooks which moves an immediate value in
 Here is an example of using apihooks to detect the syscall patches in ntdll.dll (using a Carberp sample):
 
     $ python vol.py -f carberp.vmem -p 1004 apihooks
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     ************************************************************************
     Hook mode: Usermode
     Hook type: NT Syscall
@@ -473,7 +468,7 @@ Here is an example of using apihooks to detect the Inline hook of a kernel mode 
 Here is an example of using apihooks to detect the calls to an unknown code page from a kernel driver. In this case, malware has patched tcpip.sys with some malicious redirections. 
 
     $ python vol.py -f rustock-c.vmem apihooks 
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     ************************************************************************
     Hook mode: Kernelmode
     Hook type: Unknown Code Page Call
@@ -508,7 +503,7 @@ To print the system's IDT (Interrupt Descriptor Table), use the idt command. If 
 Some rootkits hook the IDT entry for KiSystemService, but point it at a routine inside the NT module (where KiSystemService should point). However, at that address, there is an Inline hook. The following output shows an example of how Volatility can point this out for you. Notice how the 0x2E entry for KiSystemService is in the .rsrc section of ntoskrnl.exe instead of .text like all others. 
 
     $ python vol.py -f rustock.vmem idt 
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
        CPU  Index Selector Value      Module               Section     
     ------ ------ -------- ---------- -------------------- ------------
          0      0        8 0x8053e1cc ntoskrnl.exe         .text       
@@ -530,7 +525,7 @@ Some rootkits hook the IDT entry for KiSystemService, but point it at a routine 
 To get more details about the possible IDT modification, use --verbose:
 
     $ python vol.py -f rustock.vmem idt --verbose
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
        CPU  Index Selector Value      Module               Section     
     ------ ------ -------- ---------- -------------------- ------------
     [snip]
@@ -553,7 +548,7 @@ If your system has multiple CPUs, the GDT for each processor is shown.
 In the output below, you can see that selector 0x3e0 has been infected and used for the purposes of a 32-bit call gate. The call gate address is 0x8003f000, which is where execution continues. 
 
     $ python vol.py -f alipop.vmem gdt 
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
        CPU        Sel Base            Limit Type              DPL Gr   Pr  
     ------ ---------- ---------- ---------- -------------- ------ ---- ----
          0        0x0 0x00ffdf0a     0xdbbb TSS16 Busy          2 By   P   
@@ -577,7 +572,7 @@ In the output below, you can see that selector 0x3e0 has been infected and used 
 If you want to further investigate the infection, you can break into a [volshell](Command-Reference23#volshell) as shown below. Then disassemble code at the call gate address.
 
     $ python vol.py -f alipop.vmem volshell
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     Current context: process System, pid=4, ppid=0 DTB=0x320000
     Welcome to volshell Current memory image is:
     file:///Users/Michael/Desktop/alipop.vmem
@@ -625,7 +620,7 @@ The command gives you extensive details on threads, including the contents of ea
 To see a list of available tags/filters, use -L like this:
 
     $ python vol.py -f test.vmem threads -L
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     Tag                  Description
     --------------       --------------
     DkomExit             Detect inconsistencies wrt exit times and termination
@@ -640,7 +635,7 @@ To see a list of available tags/filters, use -L like this:
 If you don't specify any filters, then the command will output information on all threads. Otherwise, you can specify a single filter or multiple filters separated by commas. Here is an example of hunting for threads that are currently executing in the context of a process other than the process which owns the thread:
 
     $ python vol.py -f XPSP3.vmem threads -F AttachedProcess
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     ------
     ETHREAD: 0x81eda7a0 Pid: 4 Tid: 484
     Tags: SystemThread,AttachedProcess,HookedSSDT
@@ -692,7 +687,7 @@ Volatility is the only memory forensics platform with the ability to print an as
 Here's an example of detecting the thread creation callback installed by the BlackEnergy 2 malware. You can spot the malicious callback because the owner is 00004A2A - and BlackEnergy 2 uses a module name composed of eight hex characters. 
 
     $ python vol.py -f be2.vmem callbacks
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     Type                                 Callback   Owner
     PsSetCreateThreadNotifyRoutine       0xff0d2ea7 00004A2A
     PsSetCreateProcessNotifyRoutine      0xfc58e194 vmci.sys
@@ -705,7 +700,7 @@ Here's an example of detecting the thread creation callback installed by the Bla
 Here is an example of detecting the malicious process creation callback installed by the Rustock rootkit (points to memory owned by \Driver\pe386).
 
     $ python vol.py -f rustock.vmem callbacks
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     Type                                 Callback   Owner
     PsSetCreateProcessNotifyRoutine      0xf88bd194 vmci.sys
     PsSetCreateProcessNotifyRoutine      0xb17a27ed '\\Driver\\pe386'
@@ -722,7 +717,7 @@ Here is an example of detecting the malicious process creation callback installe
 Here is an example of detecting the malicious registry change callback installed by the Ascesso rootkit. There is one CmRegisterCallback pointing to 0x8216628f which does not have an owner. You also see two GenericKernelCallback with the same address. This is because notifyroutines finds callbacks in multiple ways. It combines list traversal and pool tag scanning. This way, if the list traversal fails, we can still find information with pool tag scanning. However, the Windows kernel uses the same types of pool tags for various callbacks, so we label those as generic. 
 
     $ python vol.py -f ascesso.vmem callbacks
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     Type                                 Callback   Owner
     IoRegisterShutdownNotification       0xf853c2be ftdisk.sys (\Driver\Ftdisk)
     IoRegisterShutdownNotification       0x805f5d66 ntoskrnl.exe (\Driver\WMIxWDM)
@@ -743,7 +738,7 @@ Many drivers forward their IRP functions to other drivers for legitimate purpose
 This command outputs information for all drivers, unless you specify a regular expression filter. 
 
     $ python vol.py -f tdl3.vmem driverirp -r vmscsi
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     --------------------------------------------------
     DriverName: vmscsi
     DriverStart: 0xf9db8000
@@ -762,7 +757,7 @@ This command outputs information for all drivers, unless you specify a regular e
 In the output, it is not apparent that the vmscsi.sys driver has been infected by the TDL3 rootkit. Although all IRPs point back into vmscsi.sys, they point at a stub staged in that region by TDL3 for the exact purpose of bypassing rootkit detection tools. To get extended information, use --verbose: 
 
     $ python vol.py -f tdl3.vmem driverirp -r vmscsi --verbose
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     --------------------------------------------------
     DriverName: vmscsi
     DriverStart: 0xf9db8000
@@ -792,7 +787,7 @@ Windows uses a layered driver architecture, or driver chain so that multiple dri
 In the example below, Stuxnet has infected `\FileSystem\Ntfs` by attaching a malicious unnamed device. Although the device itself is unnamed, the device object identifies its driver (\Driver\MRxNet). 
 
     $ python vol.py -f stuxnet.vmem devicetree
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     [snip]
     DRV 0x0253d180 '\\FileSystem\\Ntfs'
     ---| DEV 0x82166020 (unnamed) FILE_DEVICE_DISK_FILE_SYSTEM
@@ -809,7 +804,7 @@ The devicetree plugin uses "DRV" to indicate drivers, "DEV" to indicate devices,
 
 The x64 version looks very similar: 
 
-    $ /usr/bin/python2.6 vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 devicetreeVolatile Systems Volatility Framework 2.1_alpha
+    $ /usr/bin/python2.6 vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 devicetreeVolatility Foundation Volatility Framework 2.4
     DRV 0x174c6350 \Driver\mouhid
     ---| DEV 0xfffffa8000dfbc90  FILE_DEVICE_MOUSE
     ------| ATT 0xfffffa8000ec7060  - \Driver\mouclass FILE_DEVICE_MOUSE
@@ -859,7 +854,7 @@ On Windows Vista and Windows 7 the internal list of processes in csrss.exe is no
 Here is an example of detecting the Prolaco malware with psxview. A "False" in any column indicates that the respective process is missing. You can tell "1_doc_RCData_61" is suspicious since it shows up in every column except pslist (PsActiveProcessHead). 
 
     $ python vol.py -f prolaco.vmem psxview
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.3_alpha
     Offset(P)  Name                    PID pslist psscan thrdproc pspcid csrss session deskthrd
     ---------- -------------------- ------ ------ ------ -------- ------ ----- ------- --------
     0x06499b80 svchost.exe            1148 True   True   True     True   True  True    True    
@@ -893,7 +888,7 @@ Here is an example of detecting the Prolaco malware with psxview. A "False" in a
 The output looks similar for x64 systems:
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 psxview
-    Volatile Systems Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.3_alpha
     Offset(P)          Name                    PID pslist psscan thrdproc pspcid csrss session deskthrd
     ------------------ -------------------- ------ ------ ------ -------- ------ ----- ------- --------
     0x0000000017692300 wininit.exe             332 True   True   True     True   True  True    True    
@@ -911,7 +906,7 @@ This command prints installed kernel timers (KTIMER) and any associated DPCs (De
 Here's an example. Notice how one of the timers has an UNKNOWN module (the DPC points to an unknown region of kernel memory). This is ultimately where the rootkit is hiding. 
 
     $ python vol.py -f rustock-c.vmem timers
-    Volatile Systems Volatility Framework 2.1_alpha
+    Volatility Foundation Volatility Framework 2.4
     Offset(V)  DueTime                  Period(ms) Signaled   Routine    Module
     ---------- ------------------------ ---------- ---------- ---------- ------
     0xf730a790 0x00000000:0x6db0f0b4             0 -          0xf72fb385 srv.sys
