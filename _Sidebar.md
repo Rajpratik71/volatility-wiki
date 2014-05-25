@@ -15,11 +15,10 @@ Command References
 * [[Linux|Linux-Command-Reference23]]
 * [[Mac OSX|Mac-Command-Reference23]]
 
-[[Memory Samples]]
-
-[[Community Docs|Volatility-Documentation-Project]]
-
-[[Linux Profiles]]
+Miscellaneous
+* [[Memory Samples]]
+* [[Community Docs|Volatility-Documentation-Project]]
+* [[Linux Profiles]]
 
 Physical Address Spaces
 * [[Firewire|Firewire-Address-Space]]
