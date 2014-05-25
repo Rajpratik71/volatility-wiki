@@ -1,11 +1,3 @@
-**Table of Contents**  
-
-- [Introduction](Lime-Address-Space#introduction)
-- [Acquisition](Lime-Address-Space#acquisition)
-- [File Format](Lime-Address-Space#file-format)
-
-# Introduction
-
 LiME is a format created by Joe Sylve. From the tool's [website](http://code.google.com/p/lime-forensics/),  LiME (formerly DMD) is a Loadable Kernel Module (LKM), which allows the acquisition of volatile memory from Linux and Linux-based devices, such as those powered by Android. LiME...."minimizes its interaction between user and kernel space processes during acquisition, which allows it to produce memory captures that are more forensically sound than those of other tools designed for Linux memory acquisition."
 
 # Acquisition
