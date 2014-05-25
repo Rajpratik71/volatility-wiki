@@ -32,10 +32,10 @@ For the most comprehensive plugin support, you should install the following libr
           * callbacks
           * impscan
           * the disassemble command in volshell, linux_volshell, and mac_volshell
- * [Yara](http://code.google.com/p/yara-project/) - A malware identification and classification tool 
+ * [Yara](https://plusvic.github.io/yara/) - A malware identification and classification tool 
       * Dependent plugins
           * yarascan, linux_yarascan, mac_yarascan
-      * Note: get yara from the project's main website, do not install it with pip (see Issue #446)
+      * Note: get yara from the project's main website, do not install it with pip.
  * [PyCrypto](https://www.dlitz.net/software/pycrypto/) - The Python Cryptography Toolkit 
       * Dependent plugins
           * lsadump
@@ -54,7 +54,6 @@ The following libraries are optional. If they're installed, Volatility will find
 
   * [pytz](http://pytz.sourceforge.net/) for timezone conversion. Alternative: tzset (standard with Python)
   * [IPython](http://ipython.org/) for enhancing the volshell experience. Alternative: code (standard with Python)
-  * [pyxpress](http://code.google.com/p/volatility/source/browse/branches/scudette/contrib/pyxpress/pyxpress.c) for faster analysis of hibernation files. Alternative: the xpress.py (distributed with Volatility) 
   * [libforensic1394](https://freddie.witherden.org/tools/libforensic1394/) for live analysis over firewire. Alternative: [libraw1394](http://sourceforge.net/projects/libraw1394/)
 
 # Upgrade Volatility  
