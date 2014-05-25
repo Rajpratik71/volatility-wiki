@@ -1,13 +1,10 @@
 **Table of Contents**  
 
-- [Microsoft Hibernation Files](Hiber-Address-Space#microsoft-hibernation-files)
 - [Introduction](Hiber-Address-Space#introduction)
 - [Acquisition](Hiber-Address-Space#acquisition)
 - [Notes](Hiber-Address-Space#notes)
 - [File Format](Hiber-Address-Space#file-format)
 - [Meta Data](Hiber-Address-Space#meta-data)
-
-# Microsoft Hibernation Files
 
 # Introduction
 
