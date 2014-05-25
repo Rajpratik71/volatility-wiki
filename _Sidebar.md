@@ -5,11 +5,10 @@ Getting Started
 * [[Linux]]
 * [[Mac]]
 * [[Android]]
+* [[Basic Usage|Volatility-Usage23]]
 
-Releases
+Command References 
 * [[Volatility 2.3]]
-  * [[Basic Usage|Volatility-Usage23]]
-  * Command Reference
     * [[Windows Core|Command-Reference23]]
     * [[Windows GUI|Command-Reference-Gui23]]
     * [[Windows Malware|Command-Reference-Mal23]]
