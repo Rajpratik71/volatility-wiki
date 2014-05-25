@@ -29,7 +29,6 @@ Physical Address Spaces
 * [[Hibernation Files|Hiber-Address-Space]]
 * [[EWF Files|EWF-Address-Space]]
 * [[LiME (Linux)|Lime-Address-Space]]
-* [[Arm (x86)|Arm-Address-Space]]
 * [[VirtualBoxELF64|Virtual-Box-Core-Dump]]
 * [[VMWare Snapshot|VMware-Snapshot-File]]
 * [[Hpak (FDPro)|Hpak-Address-Space]]
