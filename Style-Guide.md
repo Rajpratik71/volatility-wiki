@@ -1,10 +1,3 @@
-**Table of Contents**  
-
-- [Introduction](Style-Guide#introduction)
-- [Details](Style-Guide#details)
-
-# Style Guide for coding on Volatility
-
 # Introduction
 
 Here's a brief guide to coding styles for adding to volatility.  They mostly follow [PEP 8](http://www.python.org/dev/peps/pep-0008), and also pylint (although with certain rules ignored including C0111, C0103, C0301, W0511, R0201, R0903 and W0142).  The reasoning behind each decision should be given after the guideline.
