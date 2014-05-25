@@ -17,15 +17,6 @@ Releases
     * [[Linux|Linux-Command-Reference23]]
     * [[Mac OSX|Mac-Command-Reference23]]
 
-* [[Volatility 2.2]]
-  * [[Basic Usage|Basic-Usage]]
-  * Command Reference
-    * [[Windows Core|Command-Reference22]]
-    * [[Windows GUI|Command-Reference-Gui22]]
-    * [[Windows Malware|Command-Reference-Mal22]]
-    * [[Windows Registry|Command-Reference-Registry-Api22]]
-    * [[Linux|Linux-Command-Reference22]]
-
 [[Memory Samples]]
 
 [[Community Docs|Volatility-Documentation-Project]]
