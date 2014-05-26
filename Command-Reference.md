@@ -383,7 +383,7 @@ You can also specify an EPROCESS offset if the DLL you want is in a hidden proce
 
 ## handles
 
-To display the open handles in a process, use the handles command. This applies to files, registry keys, mutexes, named pipes, events, window stations, desktops, threads, and all other types of securable executive objects. This command replaces the older "files" and "regobjkeys" commands from the Volatility 1.3 framework. As of 2.1, the output includes handle value and granted access for each object. 
+To display the open handles in a process, use the handles command. This applies to files, registry keys, mutexes, named pipes, events, window stations, desktops, threads, and all other types of securable executive objects. As of 2.1, the output includes handle value and granted access for each object. 
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 handles
     Volatility Foundation Volatility Framework 2.4
@@ -515,7 +515,7 @@ Additionally, this plugin prints the following:
 - Any aliases associated with the commands executed. For example, attackers can register an alias such that typing "hello" actually executes "cd system"
 - The screen coordinates of the cmd.exe console
 
-Here's an example of the consoles command. For more information and a single file with various example output from public images, see the [cmd_history.txt attachment to issue #147](http://bit.ly/LYEQOc). Below, you'll notice something quite funny. The forensic investigator seems to have lost his mind and cannot find the dd.exe tool for dumping memory. Nearly 20 typos later, he finds the tool and uses it. 
+Here's an example of the consoles command. Below, you'll notice something quite funny. The forensic investigator seems to have lost his mind and cannot find the dd.exe tool for dumping memory. Nearly 20 typos later, he finds the tool and uses it. 
 
     $ python vol.py -f xp-laptop-2005-07-04-1430.img consoles
     Volatility Foundation Volatility Framework 2.4
@@ -677,7 +677,7 @@ This plugin shows you which process privileges are present, enabled, and/or enab
 
 To display a process's environment variables, use the envars plugin. Typically this will show the number of CPUs installed and the hardware architecture (though the [kdbgscan](Command Reference#kdbgscan) output is a much more reliable source), the process's current directory, temporary directory, session name, computer name, user name, and various other interesting artifacts. 
 
-    $ /usr/bin/python2.6 vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 envars
+    $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 envars
     Volatility Foundation Volatility Framework 2.4
     Pid      Process              Block              Variable                       Value
     -------- -------------------- ------------------ ------------------------------ -----
@@ -703,9 +703,9 @@ To display a process's environment variables, use the envars plugin. Typically t
 
 To display the version information embedded in PE files, use the verinfo command. Not all PE files have version information, and many malware authors forge it to include false data, but nonetheless this command can be very helpful with identifying binaries and for making correlations with other files. 
 
-Note that this plugin resides in the contrib directory, therefore you'll need to tell Volatility to look there using the --plugins option. It currently only supports printing version information from process executables and DLLs, but later will be expanded to include kernel modules. If you want to filter by module name, use the --regex=REGEX and/or --ignore-case options. 
+This plugin only supports printing version information from process executables and DLLs, but later will be expanded to include kernel modules. If you want to filter by module name, use the --regex=REGEX and/or --ignore-case options. 
 
-    $ python vol.py --plugins=contrib/plugins/ -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 verinfo
+    $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 verinfo
     Volatility Foundation Volatility Framework 2.4
     \SystemRoot\System32\smss.exe
     C:\Windows\SYSTEM32\ntdll.dll
@@ -828,14 +828,16 @@ To conclude the demonstration we began in the [memmap](Command Reference#memmap)
     
     >>> PAGE_SIZE = 0x1000
     
-    >>> assert self.addrspace.read(0x0000000000058000, PAGE_SIZE) == \
-    ...        self.addrspace.base.read(0x00000000162ed000, PAGE_SIZE) == \
+    >>> assert addrspace().read(0x0000000000058000, PAGE_SIZE) == \
+    ...        addrspace().base.read(0x00000000162ed000, PAGE_SIZE) == \
     ...        open("dump/4.dmp", "rb").read()[0x8000:0x8000 + PAGE_SIZE]
     >>> 
 
-## procmemdump
+## procdump
 
-To dump a process's executable (including the slack space), use the procmemdump command. Optionally, pass the --unsafe or -u flags to bypass certain sanity checks used when parsing the PE header. Some malware will intentionally forge size fields in the PE header so that memory dumping tools fail. 
+To dump a process's executable, use the procdump command. Optionally, pass the --unsafe or -u flags to bypass certain sanity checks used when parsing the PE header. Some malware will intentionally forge size fields in the PE header so that memory dumping tools fail. 
+
+Use --memory to include slack space between the PE sections that aren't page aligned. Without --memory you'll get a file that more closely resembles the file on disk, before sections expanded. 
 
 For more information, see Andreas Schuster's 4-part series on [Reconstructing a Binary](http://computer.forensikblog.de/en/2006/04/reconstructing_a_binary.html#more). Also see [impscan](http://code.google.com/p/volatility/wiki/Command-Reference#impscan) for help rebuilding a binary's import address table.
 
@@ -846,10 +848,6 @@ For more information, see Andreas Schuster's 4-part series on [Reconstructing a 
     
     $ file dump/executable.296.exe 
     dump/executable.296.exe: PE32+ executable for MS Windows (native) Mono/.Net assembly
-
-## procexedump
-
-To dump a process's executable (**not** including the slack space), use the procexedump command. The syntax is identical to procmemdump.
 
 ## vadinfo
 
@@ -936,14 +934,14 @@ To display the VAD nodes in a visual tree form, use the vadtree command.
             0x0000000000200000 - 0x000000000020ffff
     [snip]
 
-If you want to view the balanced binary tree in Graphviz format, just add --output=dot --output-file=graph.dot to your command. Then you can open graph.dot in any Graphviz-compatible viewer. 
+If you want to view the balanced binary tree in Graphviz format, just add --output=dot --output-file=graph.dot to your command. Then you can open graph.dot in any Graphviz-compatible viewer. This plugin also supports color coding the output based on the regions that contain stacks, heaps, mapped files, DLLs, etc.
 
 ## vaddump
 
 To extract the range of pages described by a VAD node, use the vaddump command. This is similar to [memdump](Command Reference#memdump), except the pages belonging to each VAD node are placed in separate files (named according to the starting and ending addresses) instead of one large conglomerate file. If any pages in the range are not memory resident, they're padded with 0's using the address space's zread() method. 
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 vaddump -D vads
-    Volatility Foundation Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.4
     Pid        Process              Start              End                Result
     ---------- -------------------- ------------------ ------------------ ------
              4 System               0x0000000076d40000 0x0000000076eeafff vads/System.17fef9e0.0x0000000076d40000-0x0000000076eeafff.dmp
@@ -986,7 +984,7 @@ The reason the PhysicalOffset field exists is so you can distinguish between two
 The `evtlogs` command extracts and parses binary event logs from memory.  Binary event logs are found on Windows XP and 2003 machines, therefore this plugin only works on these architectures.  These files are extracted from VAD of the services.exe process, parsed and dumped to a specified location.
 
     $ python vol.py -f WinXPSP1x64.vmem --profile=WinXPSP2x64 evtlogs -D output
-    Volatility Foundation Volatility Framework 2.2_alpha
+    Volatility Foundation Volatility Framework 2.4
     Parsed data sent to appevent.txt
     Parsed data sent to secevent.txt
     Parsed data sent to sysevent.txt
@@ -995,7 +993,7 @@ There is also an option (`--save-evt`) to dump raw event logs for parsing with e
 
     $ python vol.py -f WinXPSP1x64.vmem --profile=WinXPSP2x64 evtlogs
     --save-evt -D output
-    Volatility Foundation Volatility Framework 2.2_alpha
+    Volatility Foundation Volatility Framework 2.4
     Saved raw .evt file to appevent.evt
     Parsed data sent to appevent.txt
     Saved raw .evt file to secevent.evt
@@ -1022,7 +1020,7 @@ If the `--verbose` flag is used, SIDs are also evaluated and placed in the parse
 This plugin recovers fragments of IE history index.dat cache files. It can find basic accessed links (via FTP or HTTP), redirected links (--REDR), and deleted entries (--LEAK). It applies to any process which loads and uses the wininet.dll library, not just Internet Explorer. Typically that includes Windows Explorer and even malware samples. For more information, see [HowTo: Scan for Internet Cache/History and URLs](http://volatility-labs.blogspot.com/2012/09/howto-scan-for-internet-cachehistory.html).
 
     $ python vol.py -f exemplar17_1.vmem iehistory
-    Volatility Foundation Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.4
     **************************************************
     Process: 1928 explorer.exe
     Cache type "URL " at 0xf25100
@@ -1104,7 +1102,7 @@ To extract a kernel driver to a file, use the moddump command. Supply the output
 For more information, see BDG's [Plugin Post: Moddump](http://moyix.blogspot.com/2008/10/plugin-post-moddump.html).
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 moddump -D drivers/
-    Volatility Foundation Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.4
     Module Base        Module Name          Result
     ------------------ -------------------- ------
     0xfffff8000261a000 ntoskrnl.exe         OK: driver.fffff8000261a000.sys
@@ -1323,7 +1321,7 @@ There are several options in the dumpfiles plugin, for example:
 By default, dumpfiles iterates through the VAD and extracts all files that are mapped as DataSectionObject, ImageSectionObject or SharedCacheMap.  As an investigator, however, you may want to perform a more targeted search.  You can use the `-r` and `-i` flags to specify a case-insensitive regex of a filename.  In the output below, you can see where the file was dumped from (DataSectionObject, ImageSectionObject or SharedCacheMap), the offset of the `_FILE_OBJECT`, the PID of the process whose VAD contained the file and the file path on disk:
 
     $ python vol.py -f mebromi.raw dumpfiles -D output/ -r evt$ -i -S summary.txt
-    Volatility Foundation Volatility Framework 2.3
+    Volatility Foundation Volatility Framework 2.4
     DataSectionObject 0x81ed6240   684    \Device\HarddiskVolume1\WINDOWS\system32\config\AppEvent.Evt
     SharedCacheMap 0x81ed6240   684    \Device\HarddiskVolume1\WINDOWS\system32\config\AppEvent.Evt
     DataSectionObject 0x8217beb0   684    \Device\HarddiskVolume1\WINDOWS\system32\config\SecEvent.Evt
@@ -1352,7 +1350,16 @@ Or you can use the `-n/--name` option in order to dump file the files with the o
 
 Not every file will be currently active or in the VAD, and such files will not be dumped when using the `-r/--regex` option.  For these files you can first scan for a `_FILE_OBJECT` and then use the `-Q/--physoffset` flag to extract the file.  Special NTFS files are examples of files that must be dumped specifically:
 
-20dafe5218cad53d96b8eff98b624c9e
+    $ python vol.py -f mebromi.raw filescan |grep -i mft
+    Volatility Foundation Volatility Framework 2.4
+    0x02410900      3      0 RWD--- \Device\HarddiskVolume1\$Mft
+    0x02539e30      3      0 RWD--- \Device\HarddiskVolume1\$Mft
+    0x025ac868      3      0 RWD--- \Device\HarddiskVolume1\$MftMirr
+
+    $ python vol.py -f mebromi.raw dumpfiles -D output/ -Q 0x02539e30
+    Volatility Foundation Volatility Framework 2.4
+    DataSectionObject 0x02539e30   None   \Device\HarddiskVolume1\$Mft
+    SharedCacheMap 0x02539e30   None   \Device\HarddiskVolume1\$Mft
 
 The `-f/--filter` option allows you to specify which view of the file you would like to dump (DataSectionObject, ImageSectionObject or SharedCacheMap).  For example, if you wanted to only see the state information for an executable file, you could specify `--filter=ImageSectionObject`.
 
@@ -1360,7 +1367,14 @@ The `-f/--filter` option allows you to specify which view of the file you would 
 
 Windows stores information on recently unloaded drivers for debugging purposes. This gives you an alternative way to determine what happened on a system, besides the well known modules and modscan plugins. 
 
-282126a3a3618f9af2f29c4666f3f1fe
+    $ python vol.py -f win7_trial_64bit.raw unloadedmodules --profile=Win7SP0x64
+    Volatility Foundation Volatility Framework 2.4
+    Name                 StartAddress       EndAddress         Time
+    -------------------- ------------------ ------------------ ----
+    dump_dumpfve.sys     0xfffff88001931000 0xfffff88001944000 2012-02-22 19:58:21 
+    dump_atapi.sys       0xfffff88001928000 0xfffff88001931000 2012-02-22 19:58:21 
+    dump_ataport.sys     0xfffff8800191c000 0xfffff88001928000 2012-02-22 19:58:21 
+    crashdmp.sys         0xfffff8800190e000 0xfffff8800191c000 2012-02-22 19:58:21
 
 # Networking
 
@@ -1370,7 +1384,20 @@ To view TCP connections that were active at the time of the memory acquisition, 
 
 This command is for x86 and x64 Windows XP and Windows 2003 Server only. 
 
-5e3eff269795b37a216abdd6d406f3b6
+    $ python vol.py -f Win2003SP2x64.vmem --profile=Win2003SP2x64 connections
+    Volatile Systems Volatility Framework 2.1_alpha
+    Offset(V)          Local Address             Remote Address               Pid
+    ------------------ ------------------------- ------------------------- ------
+    0xfffffadfe6f2e2f0 172.16.237.150:1408       72.246.25.25:80             2136
+    0xfffffadfe72e8080 172.16.237.150:1369       64.4.11.30:80               2136
+    0xfffffadfe622d010 172.16.237.150:1403       74.125.229.188:80           2136
+    0xfffffadfe62e09e0 172.16.237.150:1352       64.4.11.20:80               2136
+    0xfffffadfe6f2e630 172.16.237.150:1389       209.191.122.70:80           2136
+    0xfffffadfe5e7a610 172.16.237.150:1419       74.125.229.187:80           2136
+    0xfffffadfe7321bc0 172.16.237.150:1418       74.125.229.188:80           2136
+    0xfffffadfe5ea3c90 172.16.237.150:1393       216.115.98.241:80           2136
+    0xfffffadfe72a3a80 172.16.237.150:1391       209.191.122.70:80           2136
+    0xfffffadfe5ed8560 172.16.237.150:1402       74.125.229.188:80           2136
 
 Output includes the virtual offset of the `_TCPT_OBJECT` by default.  The physical offset can be obtained with the -P switch.
 
@@ -1380,7 +1407,29 @@ To find `_TCPT_OBJECT` structures using pool tag scanning, use the connscan comm
 
 This command is for x86 and x64 Windows XP and Windows 2003 Server only. 
 
-8c12b3e6690a3029fb5860096a557adf
+    $ python vol.py -f Win2K3SP0x64.vmem --profile=Win2003SP2x64 connscan
+    Volatility Foundation Volatility Framework 2.4
+    Offset(P)  Local Address             Remote Address            Pid   
+    ---------- ------------------------- ------------------------- ------ 
+    0x0ea7a610 172.16.237.150:1419       74.125.229.187:80           2136
+    0x0eaa3c90 172.16.237.150:1393       216.115.98.241:80           2136
+    0x0eaa4480 172.16.237.150:1398       216.115.98.241:80           2136
+    0x0ead8560 172.16.237.150:1402       74.125.229.188:80           2136
+    0x0ee2d010 172.16.237.150:1403       74.125.229.188:80           2136
+    0x0eee09e0 172.16.237.150:1352       64.4.11.20:80               2136
+    0x0f9f83c0 172.16.237.150:1425       98.139.240.23:80            2136
+    0x0f9fe010 172.16.237.150:1394       216.115.98.241:80           2136
+    0x0fb2e2f0 172.16.237.150:1408       72.246.25.25:80             2136
+    0x0fb2e630 172.16.237.150:1389       209.191.122.70:80           2136
+    0x0fb72730 172.16.237.150:1424       98.139.240.23:80            2136
+    0x0fea3a80 172.16.237.150:1391       209.191.122.70:80           2136
+    0x0fee8080 172.16.237.150:1369       64.4.11.30:80               2136
+    0x0ff21bc0 172.16.237.150:1418       74.125.229.188:80           2136
+    0x1019ec90 172.16.237.150:1397       216.115.98.241:80           2136
+    0x179099e0 172.16.237.150:1115       66.150.117.33:80            2856
+    0x2cdb1bf0 172.16.237.150:139        172.16.237.1:63369             4
+    0x339c2c00 172.16.237.150:1138       23.45.66.43:80              1332
+    0x39b10010 172.16.237.150:1148       172.16.237.138:139             0
 
 ## sockets
 
@@ -1388,7 +1437,25 @@ To detect listening sockets for any protocol (TCP, UDP, RAW, etc), use the socke
 
 This command is for x86 and x64 Windows XP and Windows 2003 Server only. 
 
-9d7d4ea72641872696d86a365d291920
+    $ python vol.py -f Win2K3SP0x64.vmem --profile=Win2003SP2x64 sockets
+    Volatility Foundation Volatility Framework 2.4
+    Offset(V)             PID   Port  Proto Protocol        Address         Create Time
+    ------------------ ------ ------ ------ --------------- --------------- -----------
+    0xfffffadfe71bbda0    432   1025      6 TCP             0.0.0.0         2012-01-23 18:20:01 
+    0xfffffadfe7350490    776   1028     17 UDP             0.0.0.0         2012-01-23 18:21:44 
+    0xfffffadfe6281120    804    123     17 UDP             127.0.0.1       2012-06-25 12:40:55 
+    0xfffffadfe7549010    432    500     17 UDP             0.0.0.0         2012-01-23 18:20:09 
+    0xfffffadfe5ee8400      4      0     47 GRE             0.0.0.0         2012-02-24 18:09:07 
+    0xfffffadfe606dc90      4    445      6 TCP             0.0.0.0         2012-01-23 18:19:38 
+    0xfffffadfe6eef770      4    445     17 UDP             0.0.0.0         2012-01-23 18:19:38 
+    0xfffffadfe7055210   2136   1321     17 UDP             127.0.0.1       2012-05-09 02:09:59 
+    0xfffffadfe750c010      4    139      6 TCP             172.16.237.150  2012-06-25 12:40:55 
+    0xfffffadfe745f610      4    138     17 UDP             172.16.237.150  2012-06-25 12:40:55 
+    0xfffffadfe6096560      4    137     17 UDP             172.16.237.150  2012-06-25 12:40:55 
+    0xfffffadfe7236da0    720    135      6 TCP             0.0.0.0         2012-01-23 18:19:51 
+    0xfffffadfe755c5b0   2136   1419      6 TCP             0.0.0.0         2012-06-25 12:42:37 
+    0xfffffadfe6f36510   2136   1418      6 TCP             0.0.0.0         2012-06-25 12:42:37       
+    [snip]
 
 Output includes the virtual offset of the `_ADDRESS_OBJECT` by default.  The physical offset can be obtained with the -P switch.
 
@@ -1398,7 +1465,24 @@ To find `_ADDRESS_OBJECT` structures using pool tag scanning, use the sockscan c
 
 This command is for x86 and x64 Windows XP and Windows 2003 Server only. 
 
-fbda6e47accbd98c8082fbb517f26a42
+    $ python vol.py -f Win2K3SP0x64.vmem --profile=Win2003SP2x64 sockscan
+    Volatility Foundation Volatility Framework 2.4
+    Offset(P)             PID   Port  Proto Protocol        Address         Create Time
+    ------------------ ------ ------ ------ --------------- --------------- -----------
+    0x0000000000608010    804    123     17 UDP             172.16.237.150  2012-05-08 22:17:44 
+    0x000000000eae8400      4      0     47 GRE             0.0.0.0         2012-02-24 18:09:07 
+    0x000000000eaf1240   2136   1403      6 TCP             0.0.0.0         2012-06-25 12:42:37 
+    0x000000000ec6dc90      4    445      6 TCP             0.0.0.0         2012-01-23 18:19:38 
+    0x000000000ec96560      4    137     17 UDP             172.16.237.150  2012-06-25 12:40:55 
+    0x000000000ecf7d20   2136   1408      6 TCP             0.0.0.0         2012-06-25 12:42:37 
+    0x000000000ed5a010   2136   1352      6 TCP             0.0.0.0         2012-06-25 12:42:18 
+    0x000000000ed84ca0    804    123     17 UDP             172.16.237.150  2012-06-25 12:40:55 
+    0x000000000ee2d380   2136   1393      6 TCP             0.0.0.0         2012-06-25 12:42:37 
+    0x000000000ee81120    804    123     17 UDP             127.0.0.1       2012-06-25 12:40:55 
+    0x000000000eeda8c0    776   1363     17 UDP             0.0.0.0         2012-06-25 12:42:20 
+    0x000000000f0be1a0   2136   1402      6 TCP             0.0.0.0         2012-06-25 12:42:37 
+    0x000000000f0d0890      4   1133      6 TCP             0.0.0.0         2012-02-24 18:09:07
+    [snip]
 
 ## netscan
 
@@ -1652,7 +1736,7 @@ For more information, see BDG's [Decrypting LSA Secrets](http://moyix.blogspot.c
 To use lsadump, pass the virtual address of the SYSTEM hive as the -y parameter and the virtual address of the SECURITY hive as the -s parameter. 
 
     $ python vol.py -f laqma.vmem lsadump -y 0xe1035b60 -s 0xe16a6b60
-    Volatility Foundation Volatility Framework 2.0
+    Volatility Foundation Volatility Framework 2.4
     L$RTMTIMEBOMB_1320153D-8DA3-4e8e-B27B-0D888223A588
     
     0000   00 92 8D 60 01 FF C8 01                            ...`....
@@ -1697,7 +1781,7 @@ To use lsadump, pass the virtual address of the SYSTEM hive as the -y parameter 
 To get the UserAssist keys from a sample you can use the userassist plugin.  For more information see Gleeda's [Volatility UserAssist plugin](http://gleeda.blogspot.com/2011/04/volatility-14-userassist-plugin.html) post.
 
     $ ./vol.py -f win7.vmem --profile=Win7SP0x86 userassist 
-    Volatility Foundation Volatility Framework 2.0
+    Volatility Foundation Volatility Framework 2.4
     ----------------------------
     Registry: \??\C:\Users\admin\ntuser.dat
     Key name: Count
@@ -1757,7 +1841,7 @@ To get the UserAssist keys from a sample you can use the userassist plugin.  For
 This plugin parses and prints [Shellbag (pdf)](http://www.dfrws.org/2009/proceedings/p69-zhu.pdf) information obtained from the registry.  For more information see [Shellbags in Memory, SetRegTime, and TrueCrypt Volumes](http://volatility-labs.blogspot.com/2012/09/movp-32-shellbags-in-memory-setregtime.html).  There are two options for output: verbose (default) and bodyfile format.
 
     $ python vol.py -f win7.vmem --profile=Win7SP1x86 shellbags
-    Volatility Foundation Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.4
     Scanning for registries....
     Gathering shellbag items and building path tree...
     ***************************************************************************
@@ -1814,7 +1898,7 @@ This plugin parses and prints [Shellbag (pdf)](http://www.dfrws.org/2009/proceed
 Another option is to use the `--output=body` option for [TSK 3.x bodyfile format](http://wiki.sleuthkit.org/index.php?title=Body_file).  You can use this output option when you want to combine output from `timeliner`, [mftparser](Command Reference#mftparser) and [timeliner](Command Reference#timeliner).  Only ITEMPOS and FILE_ENTRY items are output with the bodyfile format:
 
     $ ./vol.py -f win7.vmem --profile=Win7SP1x86 shellbags --output=body
-    Volatility Foundation Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.4
     Scanning for registries....
     Gathering shellbag items and building path tree...
     0|[SHELLBAGS ITEMPOS] Name: Adobe Reader X.lnk/Attrs: ARC/FullPath: Adobe Reader X.lnk/Registry: \??\C:\Users\user\ntuser.dat /Key: Software\Microsoft\Windows\Shell\Bags\1\Desktop/LW: 2011-10-20 15:24:46 UTC+0000|0|---------------|0|0|0|1319124004|1319124004|1319124004|1319124004
@@ -1830,7 +1914,7 @@ Another option is to use the `--output=body` option for [TSK 3.x bodyfile format
 This plugin parses the Application Compatibility Shim Cache registry key. 
 
     $ python vol.py -f win7.vmem --profile=Win7SP1x86 shimcache
-    Volatility Foundation Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.4
     Last Modified                  Path
     ------------------------------ ----
     2009-07-14 01:14:22 UTC+0000   \??\C:\Windows\system32\LogonUI.exe
@@ -1854,7 +1938,7 @@ The `getservicesids` command calculates the SIDs for services on a machine and o
 The service names are taken from the registry ("SYSTEM\CurrentControlSet\Services").  For more information on how these SIDs are calculated, see [Timeliner Release Documentation (pdf)](http://jls-scripts.googlecode.com/files/Timeliner%20Release%20Documentation.pdf).  Example output can be seen below:
 
     $ ./vol.py -f WinXPSP1x64.vmem --profile=WinXPSP2x64 getservicesids
-    Volatility Foundation Volatility Framework 2.2_alpha
+    Volatility Foundation Volatility Framework 2.4
     servicesids = {
         'S-1-5-80-2675092186-3691566608-1139246469-1504068187-1286574349':
     'Abiosdsk',
@@ -1877,7 +1961,7 @@ Volatility supports memory dumps in several different formats, to ensure the hig
 
 ## crashinfo
 
-Information from the crashdump header can be printed using the crashinfo command.  You will see information like that of the Microsoft [dumpcheck](http://support.microsoft.com/kb/119490) utility. For more information, see the [[Crash Address Space]] page. 
+Information from the crashdump header can be printed using the crashinfo command.  You will see information like that of the Microsoft [dumpcheck](http://support.microsoft.com/kb/119490) utility. 
 
     $ python vol.py -f win7_x64.dmp --profile=Win7SP0x64 crashinfo
     Volatility Foundation Volatility Framework 2.4
@@ -1908,7 +1992,7 @@ Information from the crashdump header can be printed using the crashinfo command
 
 ## hibinfo
 
-The hibinfo command reveals additional information stored in the hibernation file, including the state of the Control Registers, such as CR0, etc.  It also identifies the time at which the hibernation file was created, the state of the hibernation file, and the version of windows being hibernated.  Example output for the function is shown below. For more information, see the [[Hiber Address Space]] page. 
+The hibinfo command reveals additional information stored in the hibernation file, including the state of the Control Registers, such as CR0, etc.  It also identifies the time at which the hibernation file was created, the state of the hibernation file, and the version of windows being hibernated.  Example output for the function is shown below.
 
     $ python vol.py -f hiberfil.sys --profile=Win7SP1x64 hibinfo
     IMAGE_HIBER_HEADER:
@@ -1945,10 +2029,10 @@ To convert a raw memory dump (for example from a win32dd acquisition or a VMware
 
 ## vboxinfo
 
-To pull details from a virtualbox core dump, use the vboxinfo command. For more information, see the [[Virtual Box Core Dump]] page. 
+To pull details from a virtualbox core dump, use the vboxinfo command. 
 
     $ python vol.py -f ~/Desktop/win7sp1x64_vbox.elf --profile=Win7SP1x64 vboxinfo 
-    Volatility Foundation Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.4
     
     Magic: 0xc01ac0de
     Format: 0x10000
@@ -1966,13 +2050,37 @@ To pull details from a virtualbox core dump, use the vboxinfo command. For more 
 
 ## vmwareinfo
 
-Use this plugin to analyze header information from vmware saved state (vmss) or vmware snapshot (vmsn) files. The metadata contains CPU registers, the entire VMX configuration file, memory run information, and PNG screenshots of the guest VM. For more information, see the [page. 
+Use this plugin to analyze header information from vmware saved state (vmss) or vmware snapshot (vmsn) files. The metadata contains CPU registers, the entire VMX configuration file, memory run information, and PNG screenshots of the guest VM.
 
-72701dc772530b06ce7ec0a4209911d2
+    $ python vol.py -f ~/Desktop/Win7SP1x64-d8737a34.vmss vmwareinfo --verbose | less
+
+    Magic: 0xbad1bad1 (Version 1)
+    Group count: 0x5c
+
+    File Offset PhysMem Offset Size      
+    ----------- -------------- ----------
+    0x000010000 0x000000000000 0xc0000000
+    0x0c0010000 0x000100000000 0xc0000000
+
+    DataOffset   DataSize Name                                               Value
+    ---------- ---------- -------------------------------------------------- -----
+    0x00001cd9        0x4 Checkpoint/fileversion                             0xa
+    0x00001cfc      0x100 Checkpoint/ProductName                             
+    0x00001cfc  56 4d 77 61 72 65 20 45 53 58 00 00 00 00 00 00   VMware.ESX......
+    0x00001d0c  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00   ................
+    [snip]
+    0x00001e1d      0x100 Checkpoint/VersionNumber                           
+    0x00001e1d  34 2e 31 2e 30 00 00 00 00 00 00 00 00 00 00 00   4.1.0...........
+    0x00001e2d  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00   ................
+    [snip]
+    0x00002046        0x4 Checkpoint/Platform                                0x1
+    0x00002055        0x4 Checkpoint/usageMode                               0x1
+    0x00002062        0x4 Checkpoint/memSize                                 0x1800
+    ......
 
 ## hpakinfo
 
-This plugin shows info from an hpak formatted memory dump created by FDPro.exe. For more information, see the e0f2be072ffddd5b25d75ec6ea7beeb9 page. 
+This plugin shows info from an hpak formatted memory dump created by FDPro.exe. 
 
     $ python vol.py -f memdump.hpak hpakinfo
     Header:     HPAKSECTHPAK_SECTION_PHYSDUMP
@@ -1991,13 +2099,13 @@ This plugin shows info from an hpak formatted memory dump created by FDPro.exe. 
 
 ## hpakextract
 
-If you have an hpak file whose contents are compressed, you can extract and decompress the physical memory image using this plugin. For more information, see the [[Hpak-Address-Space]] page.
+If you have an hpak file whose contents are compressed, you can extract and decompress the physical memory image using this plugin. 
 
 # File System
 
 ## mbrparser
 
-Scans for and parses potential Master Boot Records (MBRs).  There are different options for finding MBRs and filtering output.  For more information please see [http://volatility-labs.blogspot.com/2012/10/movp-43-recovering-master-boot-records.html Recovering Master Boot Records (MBRs) from Memory](VMwareSnapshotFile]).  While this plugin was written with Windows bootkits in mind, it can also be used with memory samples from other systems.
+Scans for and parses potential Master Boot Records (MBRs).  There are different options for finding MBRs and filtering output.  For more information please see [Recovering Master Boot Records from Memory](http://volatility-labs.blogspot.com/2012/10/movp-43-recovering-master-boot-records.html).  While this plugin was written with Windows bootkits in mind, it can also be used with memory samples from other systems.
 
 When run without any extra options, `mbrparser` scans for and returns information all potential MBRs defined by signature ('\x55\xaa') found in memory.  Information includes: disassembly of bootcode (must have [distorm3](http://code.google.com/p/distorm/) installed) and partition information.  This will most likely have false positives.
 
@@ -2024,7 +2132,7 @@ In order to cut down on false positives there is a `-C/--check` option that chec
 There is also an option to change the offset for the start of the disassembly.  This can be useful for investigating machines (like Windows XP) that only copy the part of the MBR bootcode that has not yet executed.  For example, before changing the offset:
 
     $ python vol.py mbrparser -f AnalysisXPSP3.vmem -o 0x600 
-    Volatility Foundation Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.4
     Potential MBR at physical offset: 0x600
     Disk Signature: d8-8f-d8-8f
     Bootcode md5: c1ca166a3417427890520bbb18911b1f
@@ -2051,7 +2159,7 @@ There is also an option to change the offset for the start of the disassembly.  
 After changing the starting offset:
 
     $ python vol.py mbrparser -f AnalysisXPSP3.vmem -o 0x600 -D 0x1b
-    Volatility Foundation Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.4
     Potential MBR at physical offset: 0x600
     Disk Signature: d8-8f-d8-8f
     Bootcode md5: 961f3ad835d6fa9396e60ea9f825c393
@@ -2079,7 +2187,7 @@ This plugin may take a while to run before seeing output, since it scans first a
 Example (default output):
 
     $ python vol.py -f Bob.vmem mftparser
-    Volatility Foundation Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.4
     Scanning for MFT entries and building directory, this can take a while
     [snip]
     ***************************************************************************
@@ -2139,7 +2247,7 @@ Example (default output):
 The bodyfile output is also an option.  The normal MD5 column is replaced with indicators for which attribute was found and its physical offset in memory:
 
     $ ./vol.py -f Bob.vmem mftparser --output=body
-    Volatility Foundation Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.4
     Scanning for MFT entries and building directory, this can take a while
     (FN) 0x1d000|WINDOWS\Cache\Adobe Reader 6.0\ENUBIG\Setup.ini|11452|---a-----------|0|0|344|1267155960|1267155960|1267155960|1267155960
     (SI) 0x1d000|WINDOWS\Cache\Adobe Reader 6.0\ENUBIG\Setup.ini|11452|r--a-----------|0|0|344|1267155966|1053372834|1267155973|1267155960
@@ -2188,8 +2296,6 @@ The Sleuthkit `mactime` utility can then be used to output the bodyfile in a rea
                                   736 ...b ---a----------- 0        0        12099    WINDOWS\system32\lowsec\user.ds.lll
                                   336 ...b ---a----------- 0        0        12101    WINDOWS\system32\lowsec\user.ds
     [snip]
-
-
 
 # Miscellaneous
 
@@ -2513,7 +2619,7 @@ Assuming the alleged false positive for an EPROCESS is at 0x433308, you would th
 
 Another neat trick is to use volshell in a non-interactive manner. For example, say you want to translate an address in kernel memory to its corresponding physical offset. 
 
-    $ echo "hex(self.addrspace.vtop(0x823c8830))" | python vol.py -f stuxnet.vmem volshell
+    $ echo "hex(addrspace().vtop(0x823c8830))" | python vol.py -f stuxnet.vmem volshell
     Volatility Foundation Volatility Framework 2.4
     Current context: process System, pid=4, ppid=0 DTB=0x319000
     Welcome to volshell Current memory image is:
@@ -2568,7 +2674,7 @@ The pagecheck plugin uses a kernel DTB (from the System/Idle process) and determ
 This plugin is not well-supported. It is in the contrib directory and currently only works with non-PAE x86 address spaces. 
 
     $ python vol.py --plugins=contrib/plugins/ -f pat-2009-11-16.mddramimage pagecheck
-    Volatility Foundation Volatility Framework 2.1_rc1
+    Volatility Foundation Volatility Framework 2.4
     (V): 0x06a5a000 [PDE] 0x038c3067 [PTE] 0x1fe5e047 (P): 0x1fe5e000 Size: 0x00001000
     (V): 0x06c5f000 [PDE] 0x14d62067 [PTE] 0x1fe52047 (P): 0x1fe52000 Size: 0x00001000
     (V): 0x06cd5000 [PDE] 0x14d62067 [PTE] 0x1fe6f047 (P): 0x1fe6f000 Size: 0x00001000
@@ -2587,9 +2693,7 @@ This `timeliner` plugin creates a timeline from various artifacts in memory from
 In order to run the `timeliner` plugin, you must either move it from the contrib/plugins folder to volatility/plugins or use the `--plugins` option (seen below).  You might see some "Failed to import..." errors, these can simply be ignored since they are just due to a conflict in paths for some malware plugins that are in the `contrib/plugins` directory.  The default output can be redirected to a file or saved via the `--output-file=` option and imported to Excel.
 
     $ python vol.py --plugins=contrib/plugins -f XPSP3x86.vmem timeliner
-    Volatility Foundation Volatility Framework 2.3_alpha
-    *** Failed to import volatility.plugins.malware.zeusscan (ImportError: No module named zeusscan)
-    *** Failed to import volatility.plugins.malware.poisonivy (ImportError: No module named poisonivy)
+    Volatility Foundation Volatility Framework 2.4
     2011-05-16 15:29:52 UTC+0000|[END LIVE RESPONSE]
     2011-05-16 14:33:25 UTC+0000|[PROCESS]|TPAutoConnect.e|1492|1084||0x01f0bda0||
     2011-05-16 14:33:21 UTC+0000|[PROCESS]|TPAutoConnSvc.e|1084|692||0x01f1a898||
