@@ -21,7 +21,7 @@ Although all Volatility commands can help you hunt malware in one way or another
 
 The malfind command helps find hidden or injected code/DLLs in user mode memory, based on characteristics such as VAD tag and page permissions. 
 
-Note: malfind does not detect DLLs injected into a process using CreateRemoteThread->LoadLibrary. DLLs injected with this technique are not hidden and thus you can view them with [dlllist](Command-Reference23#dlllist). The purpose of malfind is to locate DLLs that standard methods/tools do not see. For more information see Issue #178. 
+Note: malfind does not detect DLLs injected into a process using CreateRemoteThread->LoadLibrary. DLLs injected with this technique are not hidden and thus you can view them with [dlllist](Command-Reference#dlllist). The purpose of malfind is to locate DLLs that standard methods/tools do not see. For more information see Issue #178. 
 
 Here is an example of using it to detect the presence of Zeus. The first memory segment (starting at 0x01600000) was detected because its executable, marked as private (not shared between processes) and has a VadS tag...which means there is no memory mapped file already occupying the space. Based on a disassembly of the data found at this address, it seems to contain some API hook trampoline stubs. 
 
@@ -81,25 +81,81 @@ To search for a simple string in any process and dump the memory segments contai
 
 To search for a byte pattern in kernel memory, use the following technique. This searches through memory in 1MB chunks, in all sessions. The TDL3 malware applies a hard-patch to SCSI adaptors on disk (sometimes atapi.sys or vmscsi.sys). In particular, it adds some shell code to the .rsrc section of the file, and then modifies the AddressOfEntryPoint so that it points at the shell code. This is TDL3's main persistence method. One of the unique instructions in the shell code is `cmp dword ptr ['3LDT']` so I made a YARA signature from those opcodes:
 
-    6b8ed6e898c2a0fe18bc44fa5930d847
+    $ python vol.py -f tdl3.vmem yarascan --yara-rules="{8B 00 81 38 54 44 4C 33 75 5A}" -K 
+    Volatility Foundation Volatility Framework 2.4
+    Rule: r1
+    Owner: (Unknown Kernel Memory)
+    0x8138dcc0  8b 00 81 38 54 44 4c 33 75 5a 8b 45 f4 05 fd 29   ...8TDL3uZ.E...)
+    0x8138dcd0  b7 f0 50 b8 08 03 00 00 8b 80 00 00 df ff ff b0   ..P.............
+    0x8138dce0  00 01 00 00 b8 08 03 00 00 8b 80 00 00 df ff 8b   ................
+    0x8138dcf0  40 04 8b 4d ec 03 41 20 ff d0 ff 75 e0 b8 08 03   @..M..A....u....
+    Rule: r1
+    Owner: dump_vmscsi.sys
+    0xf94bb4c3  8b 00 81 38 54 44 4c 33 75 5a 8b 45 f4 05 fd 29   ...8TDL3uZ.E...)
+    0xf94bb4d3  b7 f0 50 b8 08 03 00 00 8b 80 00 00 df ff ff b0   ..P.............
+    0xf94bb4e3  00 01 00 00 b8 08 03 00 00 8b 80 00 00 df ff 8b   ................
+    0xf94bb4f3  40 04 8b 4d ec 03 41 20 ff d0 ff 75 e0 b8 08 03   @..M..A....u....
+    Rule: r1
+    Owner: vmscsi.sys
+    0xf9dba4c3  8b 00 81 38 54 44 4c 33 75 5a 8b 45 f4 05 fd 29   ...8TDL3uZ.E...)
+    0xf9dba4d3  b7 f0 50 b8 08 03 00 00 8b 80 00 00 df ff ff b0   ..P.............
+    0xf9dba4e3  00 01 00 00 b8 08 03 00 00 8b 80 00 00 df ff 8b   ................
+    0xf9dba4f3  40 04 8b 4d ec 03 41 20 ff d0 ff 75 e0 b8 08 03   @..M..A....u....
 
 Search for a given byte pattern in a particular process:
 
-    75f988c88179e7f4958a98304178b63d
+    $ python vol.py -f zeus.vmem yarascan --yara-rules="{eb 90 ff e4 88 32 0d}" --pid=624
 
 Search for a regular expression in a particular process:
 
-    bbb7c9cf81d2ae31100a0ce156ab738e
+    $ python vol.py -f zeus.vmem yarascan --yara-rules="/my(regular|expression{0,2})/" --pid=624
 
 # svcscan
 
 Volatility is the only memory forensics framework with the ability to list services without using the Windows API on a live machine. To see which services are registered on your memory image, use the svcscan command. The output shows the process ID of each service (if its active and pertains to a usermode process), the service name, service display name, service type, and current status. It also shows the binary path for the registered service - which will be an EXE for usermode services and a driver name for services that run from kernel mode. 
 
-f2a87fc8c73de92ffa19b6f1122d671b
+    $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 svcscan
+    Volatility Foundation Volatility Framework 2.4
+    Offset: 0xa26e70
+    Order: 71
+    Process ID: 1104
+    Service Name: DPS
+    Display Name: Diagnostic Policy Service
+    Service Type: SERVICE_WIN32_SHARE_PROCESS
+    Service State: SERVICE_RUNNING
+    Binary Path: C:\Windows\system32\svchost.exe -k LocalServiceNoNetwork
+
+    Offset: 0xa25620
+    Order: 70
+    Process ID: -
+    Service Name: dot3svc
+    Display Name: Wired AutoConfig
+    Service Type: SERVICE_WIN32_SHARE_PROCESS
+    Service State: SERVICE_STOPPED
+    Binary Path: -
+
+    Offset: 0xa25440
+    Order: 68
+    Process ID: -
+    Service Name: Disk
+    Display Name: Disk Driver
+    Service Type: SERVICE_KERNEL_DRIVER
+    Service State: SERVICE_RUNNING
+    Binary Path: \Driver\Disk
 
 A new option (--verbose) is available starting with Volatility 2.3. This option checks the ServiceDll registry key and reports which DLL is hosting the service. This is a critical capability since malware very commonly installs services using svchost.exe (the shared host service process) and implements the actual malicious code in a DLL. 
 
-eba42e204229c06d720a4476e042f273
+    $ python vol.py -f win7_trial_64bit.raw svcscan --verbose --profile=Win7SP0x64
+    Volatility Foundation Volatility Framework 2.4
+    Offset: 0xa26e70
+    Order: 71
+    Process ID: 1104
+    Service Name: DPS
+    Display Name: Diagnostic Policy Service
+    Service Type: SERVICE_WIN32_SHARE_PROCESS
+    Service State: SERVICE_RUNNING
+    Binary Path: C:\Windows\system32\svchost.exe -k LocalServiceNoNetwork
+    ServiceDll: %SystemRoot%\system32\dps.dll <----- This is the component you recover from disk
 
 # ldrmodules
 
@@ -107,7 +163,26 @@ There are many ways to hide a DLL. One of the ways involves unlinking the DLL fr
 
 For each memory mapped PE file, the ldrmodules command prints True or False if the PE exists in the PEB lists. 
 
-6131d17fa09b5a660191b4940b3e4e86
+    $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 ldrmodules
+    Volatility Foundation Volatility Framework 2.4
+    Pid      Process              Base               InLoad InInit InMem MappedPath
+    -------- -------------------- ------------------ ------ ------ ----- ----------
+         208 smss.exe             0x0000000047a90000 True   False  True  \Windows\System32\smss.exe
+         296 csrss.exe            0x0000000049700000 True   False  True  \Windows\System32\csrss.exe
+         344 csrss.exe            0x0000000000390000 False  False  False \Windows\Fonts\vgasys.fon
+         344 csrss.exe            0x00000000007a0000 False  False  False \Windows\Fonts\vgaoem.fon
+         344 csrss.exe            0x00000000020e0000 False  False  False \Windows\Fonts\ega40woa.fon
+         344 csrss.exe            0x0000000000a60000 False  False  False \Windows\Fonts\dosapp.fon
+         344 csrss.exe            0x0000000000a70000 False  False  False \Windows\Fonts\cga40woa.fon
+         344 csrss.exe            0x00000000020d0000 False  False  False \Windows\Fonts\cga80woa.fon
+         428 services.exe         0x0000000000020000 False  False  False \Windows\System32\en-US\services.exe.mui
+         428 services.exe         0x00000000ff670000 True   False  True  \Windows\System32\services.exe
+         444 lsass.exe            0x0000000000180000 False  False  False \Windows\System32\en-US\crypt32.dll.mui
+         444 lsass.exe            0x0000000076b20000 True   True   True  \Windows\System32\kernel32.dll
+         444 lsass.exe            0x0000000076c40000 True   True   True  \Windows\System32\user32.dll
+         444 lsass.exe            0x0000000074a70000 True   True   True  \Windows\System32\msprivs.dll
+         444 lsass.exe            0x0000000076d40000 True   True   True  \Windows\System32\ntdll.dll
+         568 svchost.exe          0x00000000001e0000 False  False  False \Windows\System32\en-US\umpnpmgr.dll.mui
 
 Since the PEB and the DLL lists that it contains all exist in user mode, its also possible for malware to hide (or obscure) a DLL by simply overwriting the path. Tools that only look for unlinked entries may miss the fact that malware could overwrite C:\bad.dll to show C:\windows\system32\kernel32.dll. So you can also pass -v or --verbose to ldrmodules to see the full path of all entries. 
 
@@ -142,11 +217,11 @@ For concrete examples, see [http://blogs.mcafee.com/mcafee-labs/zeroaccess-misle
 
 # impscan
 
-In order to fully reverse engineer code that you find in memory dumps, its necessary to see which functions the code imports. In other words, which API functions it calls. When you dump binaries with [dlldump](Command-Reference23#dlldump), [moddump](Command-Reference23#moddump), or [procexedump](Command-Reference23#procexedump), the IAT (Import Address Table) may not properly be reconstructed due to the high likelihood that one or more pages in the PE header or IAT are not memory resident (paged). Thus, we created impscan. Impscan identifies calls to APIs without parsing a PE's IAT. It even works if malware completely erases the PE header, and it works on kernel drivers. 
+In order to fully reverse engineer code that you find in memory dumps, its necessary to see which functions the code imports. In other words, which API functions it calls. When you dump binaries with [dlldump](Command-Reference#dlldump), [moddump](Command-Reference#moddump), or [procdump](Command-Reference#procdump), the IAT (Import Address Table) may not properly be reconstructed due to the high likelihood that one or more pages in the PE header or IAT are not memory resident (paged). Thus, we created impscan. Impscan identifies calls to APIs without parsing a PE's IAT. It even works if malware completely erases the PE header, and it works on kernel drivers. 
 
 Previous versions of impscan automatically created a labeled IDB for use with IDA Pro. This functionality has temporarily been disabled, but will return sometime in the future when other similar functionality is introduced. 
 
-Take Coreflood for example. This malware deleted its PE header once it loaded in the target process (by calling VirtualFree on the injected DLL's ImageBase). You can use [malfind](Command-ReferenceMal23#malfind) to detect the presence of Coreflood based on the typical criteria (page permissions, VAD tags, etc). Notice how the PE's base address doesn't contain the usual 'MZ' header:
+Take Coreflood for example. This malware deleted its PE header once it loaded in the target process (by calling VirtualFree on the injected DLL's ImageBase). You can use [malfind](Command-Reference-Mal#malfind) to detect the presence of Coreflood based on the typical criteria (page permissions, VAD tags, etc). Notice how the PE's base address doesn't contain the usual 'MZ' header:
 
     $ python vol.py -f coreflood.vmem -p 2044 malfind
     Volatility Foundation Volatility Framework 2.4
@@ -190,7 +265,7 @@ Let's assume you want to extract the unpacked copy of Coreflood and see its impo
 
 If you don't specify a base address with -b or --base, then you'll end up scanning the process's main module (i.e. IEXPLORE.EXE since that's -p 2044) for imported functions. You can also specify the base address of a kernel driver to scan the driver for imported kernel-mode functions. 
 
-Laqma loads a kernel driver named lanmandrv.sys. If you extract it with [moddump](Command-Reference23#moddump), the IAT will be corrupt. So use impscan to rebuild it:
+Laqma loads a kernel driver named lanmandrv.sys. If you extract it with [moddump](Command-Reference#moddump), the IAT will be corrupt. So use impscan to rebuild it:
 
     $ python vol.py -f laqma.vmem impscan -b 0xfca29000
     Volatility Foundation Volatility Framework 2.4
@@ -247,11 +322,11 @@ As of Volatility 2.1, apihooks also detects hooked winsock procedure tables, inc
 
 Here is an example of detecting IAT hooks installed by Coreflood. The hooking module is unknown because there is no module (DLL) associated with the memory in which the rootkit code exists. If you want to extract the code containing the hooks, you have a few options:
 
-1. See if [malfind](Command-ReferenceMal23#malfind) can automatically find and extract it. 
+1. See if [malfind](Command-Reference-Mal#malfind) can automatically find and extract it. 
 
-2. Use [volshell](Command-Reference23#volshell) dd/db commands to scan backwards and look for an MZ header. Then pass that address to [dlldump](Command-Reference#dlldump) as the --base value. 
+2. Use [volshell](Command-Reference#volshell) dd/db commands to scan backwards and look for an MZ header. Then pass that address to [dlldump](Command-Reference#dlldump) as the --base value. 
 
-3. Use [vaddump](Command-Reference23#vaddump) to extract all code segments to individual files (named according to start and end address), then find the file that contains the 0x7ff82 ranges.
+3. Use [vaddump](Command-Reference#vaddump) to extract all code segments to individual files (named according to start and end address), then find the file that contains the 0x7ff82 ranges.
 
     $ python vol.py -f coreflood.vmem -p 2044 apihooks 
     Volatility Foundation Volatility Framework 2.4
@@ -569,7 +644,7 @@ In the output below, you can see that selector 0x3e0 has been infected and used 
          0      0x3f0 0x00008003     0xf3f8 <Reserved>          0 By   Np  
          0      0x3f8 0x00000000        0x0 <Reserved>          0 By   Np 
 
-If you want to further investigate the infection, you can break into a [volshell](Command-Reference23#volshell) as shown below. Then disassemble code at the call gate address.
+If you want to further investigate the infection, you can break into a [volshell](Command-Reference#volshell) as shown below. Then disassemble code at the call gate address.
 
     $ python vol.py -f alipop.vmem volshell
     Volatility Foundation Volatility Framework 2.4
@@ -804,7 +879,9 @@ The devicetree plugin uses "DRV" to indicate drivers, "DEV" to indicate devices,
 
 The x64 version looks very similar: 
 
-    $ /usr/bin/python2.6 vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 devicetreeVolatility Foundation Volatility Framework 2.4
+    $ /usr/bin/python2.6 vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 devicetree
+
+    Volatility Foundation Volatility Framework 2.4
     DRV 0x174c6350 \Driver\mouhid
     ---| DEV 0xfffffa8000dfbc90  FILE_DEVICE_MOUSE
     ------| ATT 0xfffffa8000ec7060  - \Driver\mouclass FILE_DEVICE_MOUSE
@@ -854,7 +931,7 @@ On Windows Vista and Windows 7 the internal list of processes in csrss.exe is no
 Here is an example of detecting the Prolaco malware with psxview. A "False" in any column indicates that the respective process is missing. You can tell "1_doc_RCData_61" is suspicious since it shows up in every column except pslist (PsActiveProcessHead). 
 
     $ python vol.py -f prolaco.vmem psxview
-    Volatility Foundation Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.4
     Offset(P)  Name                    PID pslist psscan thrdproc pspcid csrss session deskthrd
     ---------- -------------------- ------ ------ ------ -------- ------ ----- ------- --------
     0x06499b80 svchost.exe            1148 True   True   True     True   True  True    True    
@@ -888,7 +965,7 @@ Here is an example of detecting the Prolaco malware with psxview. A "False" in a
 The output looks similar for x64 systems:
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 psxview
-    Volatility Foundation Volatility Framework 2.3_alpha
+    Volatility Foundation Volatility Framework 2.4
     Offset(P)          Name                    PID pslist psscan thrdproc pspcid csrss session deskthrd
     ------------------ -------------------- ------ ------ ------ -------- ------ ----- ------- --------
     0x0000000017692300 wininit.exe             332 True   True   True     True   True  True    True    
