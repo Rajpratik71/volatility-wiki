@@ -147,7 +147,7 @@ This command is similar to `atomscan` above, but it allows us to associate atom 
 
 # clipboard
 
-This command recovers data from users' clipboards. It walks the array of `tagCLIP` objects pointed to by `tagWINDOWSTATION.pClipBase` and takes the format (i.e. unicode, ansi, ole, bmp) and the handle value. Then it walks the USER handle table (also see the [userhandles](Command-ReferenceGui22#userhandles) plugin) and filters for TYPE_CLIPDATA objects. It matches the handle value of those objects with the handles from `tagCLIP` so that a format can be associated with the raw data. For more information, see [MoVP 3.4: Recovering tagCLIPDATA What's In Your Clipboard?](http://volatility-labs.blogspot.com/2012/09/movp-34-recovering-tagclipdata-whats-in.html). 
+This command recovers data from users' clipboards. It walks the array of `tagCLIP` objects pointed to by `tagWINDOWSTATION.pClipBase` and takes the format (i.e. unicode, ansi, ole, bmp) and the handle value. Then it walks the USER handle table (also see the [userhandles](Command Reference Gui#userhandles) plugin) and filters for TYPE_CLIPDATA objects. It matches the handle value of those objects with the handles from `tagCLIP` so that a format can be associated with the raw data. For more information, see [MoVP 3.4: Recovering tagCLIPDATA What's In Your Clipboard?](http://volatility-labs.blogspot.com/2012/09/movp-34-recovering-tagclipdata-whats-in.html). 
 
 The output below shows an extracted unicode command that a user had copied to the clipboard:
 
@@ -163,7 +163,7 @@ The output below shows an extracted unicode command that a user had copied to th
 The next example is a format type CF_HDROP which is a copy & paste operating of a file from windows explorer. Notice the entire file's content isn't copied to the clipboard, just the full path. 
 
     $ python vol.py -f xpsp3.vmem clipboard -v
-    Volatility Foundation Volatility Framework 2.1_rc3
+    Volatility Foundation Volatility Framework 2.4
     [snip]
     
        0    WinSta0       CF_HDROP           0x10230131 0xe1fa6590
@@ -355,7 +355,7 @@ This command enumerates all windows (visible or not) in all desktops of the syst
 
 # wintree
 
-This command enumerates windows in the same way as the `windows` command above, but it prints less verbose details so that the parent/child relationshop can be easily expressed in a tree form. Instead of a "flat" view, you can see which windows are contained within other windows. 
+This command enumerates windows in the same way as the `windows` command above, but it prints less verbose details so that the parent/child relationship can be easily expressed in a tree form. Instead of a "flat" view, you can see which windows are contained within other windows. 
 
     $ python vol.py -f win7x64.dd --profile=Win7SP1x64 wintree
     [snip]
