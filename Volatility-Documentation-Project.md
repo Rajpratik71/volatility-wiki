@@ -2,6 +2,7 @@ This is a catalog of research, documentation, analysis, and tutorials generated 
 
 |Year | Month | Type | Title | Author|
 |-----|-------|------|-------|-------|
+|2014|May|Blog|[Targeted Forensics: Mapping a Process to a Malicious Command and Control](https://blogs.rsa.com/targeted-forensics-mapping-process-malicious-command-control/)|Justin Grosfelt|
 |2014|May|Blog|[Mr Silverlight Drive-by Meet Volatility Timelines](http://journeyintoir.blogspot.com/2014/05/mr-silverlight-drive-by-meet-volatility.html)|Corey Harrell (@corey_harrell)|
 |2014|May|Blog|[GETTING STARTED WITH MEMORY FORENSICS](http://salimawad.com/2014/05/12/getting-started-with-memory-forensics/)|Salim Awad|
 |2014|May|Code|[Volatility USN Journal Parser](https://github.com/tomspencer/volatility)|Tom Spencer|
