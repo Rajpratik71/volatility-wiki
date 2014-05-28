@@ -83,6 +83,7 @@ This is a catalog of research, documentation, analysis, and tutorials generated 
 |2013 | February | Blog | [Using OSForensics with Volatility](http://www.osforensics.com/faqs-and-tutorials/using-with-volatility.html) | `@PassMarkInc`|
 |2013 | February | Blog | [Volatility – Memory Analysis Tool](http://www.senet-int.com/2013/02/volatility-memory-analysis-tool/) | Rehan Bashir (@rehan2001)|
 |2013 | February | Blog | [Set up your keylogger to report by email? Bad idea! (The case of Ardamax)](http://labs.alienvault.com/labs/index.php/2013/set-up-your-keylogger-to-report-by-email-bad-idea-the-case-of-ardamax/) | Alberto Ortega (@a0rtega)|
+|2013 | January | Paper | [Live Memory Forensics on Android with Volatility](https://www1.informatik.uni-erlangen.de/filepool/publications/Live_Memory_Forensics_on_Android_with_Volatility.pdf)| Holger Macht|
 |2013 | January | Slides | [Defeating Windows Memory Forensics](http://events.ccc.de/congress/2012/Fahrplan/attachments/2231_Defeating%20Windows%20memory%20forensics.ppt) | Luka Milkovic|
 |2013 | January | Blog | [Volatility vs Citadel 1.3.4.5](http://invisson.blogspot.com.es/2013/01/volatility-vs-citadel-1345.html) | Santiago Vicente @smvicente|
 |2013 | January | Blog | [Stabuniq Financial Infostealer Trojan Analysis](http://quequero.org/2013/01/stabuniq-financial-infostealer-trojan-analysis/) | Quequero & Evilcry|
