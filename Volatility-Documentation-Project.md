@@ -2,6 +2,8 @@ This is a catalog of research, documentation, analysis, and tutorials generated 
 
 |Year | Month | Type | Title | Author|
 |-----|-------|------|-------|-------|
+|2014|May|Blog|[Acquiring Linux Memory from a Server Far Far Away](http://blog.opensecurityresearch.com/2014/05/acquiring-linux-memory-from-server-far.html)|Dan Caban|
+|2014|May|Slides|[Mo' Memory No' Problem](http://www.tekdefense.com/news/2014/5/29/memory-forensics-presentation-from-bsidesnola.html)|Glenn P. Edwards, Jr. (@HiddenIllusion) and Ian Ahl (@TekDefense)|
 |2014|May|Blog|[Targeted Forensics: Mapping a Process to a Malicious Command and Control](https://blogs.rsa.com/targeted-forensics-mapping-process-malicious-command-control/)|Justin Grosfelt|
 |2014|May|Blog|[Mr Silverlight Drive-by Meet Volatility Timelines](http://journeyintoir.blogspot.com/2014/05/mr-silverlight-drive-by-meet-volatility.html)|Corey Harrell (@corey_harrell)|
 |2014|May|Blog|[GETTING STARTED WITH MEMORY FORENSICS](http://salimawad.com/2014/05/12/getting-started-with-memory-forensics/)|Salim Awad|
