@@ -42,10 +42,16 @@ At this point any of the RegistryApi functions may be used.
 
 Gets and saves all hive offsets so we don't have to scan again.  This is called when the RegistryApi object is instantiated. 
 
-## set_current
+### set_current
 
     set_current(self, hive_name = None, user = None)
 
 If we find a hive that fits the given criteria, save its offset so we don't have to scan again. This can be reset using reset_current if context changes
 - `hive_name` can be None, hklm or a specific registry name (like SYSTEM)
 - `user` is optional if you want to find keys in a user's NTUSER.DAT registry file
+
+### reset_current
+
+    reset_current(self)
+
+This function allows one to switch to a different hive/user/context
