@@ -79,6 +79,42 @@ See [basic usage](Volatility-Usage)
 
 ### How can I run external plugins with the standalone executable
 
+With the standalone executable you have to specify the location of external plugins directory or zipfile using the "--plugins" switch. In general you can specify the path of the item "--plugins=<path to directory/zipfile>". An example using a directory called "plugins" can be seen below:
+```
+C:\vol>volatility.exe --plugins=..\plugins malfind -f c:\memory_images\win7.dd --profile=Win7SP0x86 -D output
+Volatile Systems Volatility Framework 2.0 
+Name                 Pid    Start      End        Tag      Hits   Protect
+svchost.exe          740    0x005b0000 0x5f0fff00 Vad      0      PAGE_EXECUTE_WRITECOPY
+Dumped to: output\svchost.exe.3e3949d0.005b0000-005f0fff.dmp
+0x005b0000   4d 5a 90 00 03 00 00 00 04 00 00 00 ff ff 00 00    MZ..............
+0x005b0010   b8 00 00 00 00 00 00 00 40 00 00 00 00 00 00 00    ........@.......
+0x005b0020   00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00    ................
+0x005b0030   00 00 00 00 00 00 00 00 00 00 00 00 d8 00 00 00    ................
+0x005b0040   0e 1f ba 0e 00 b4 09 cd 21 b8 01 4c cd 21 54 68    ........!..L.!Th
+0x005b0050   69 73 20 70 72 6f 67 72 61 6d 20 63 61 6e 6e 6f    is program canno
+0x005b0060   74 20 62 65 20 72 75 6e 20 69 6e 20 44 4f 53 20    t be run in DOS
+0x005b0070   6d 6f 64 65 2e 0d 0d 0a 24 00 00 00 00 00 00 00    mode....$.......
+[snip]
+```
+You can also give Volatility a zipfile containing plugins:
+```
+C:\vol>volatility.exe --plugins=malfind.zip malfind -f c:\memory_images\win7.dd --profile=Win7SP0x86 -D output
+Volatile Systems Volatility Framework 2.0 
+Name                 Pid    Start      End        Tag      Hits   Protect
+svchost.exe          740    0x005b0000 0x5f0fff00 Vad      0      PAGE_EXECUTE_WRITECOPY
+Dumped to: output\svchost.exe.3e3949d0.005b0000-005f0fff.dmp
+0x005b0000   4d 5a 90 00 03 00 00 00 04 00 00 00 ff ff 00 00    MZ..............
+0x005b0010   b8 00 00 00 00 00 00 00 40 00 00 00 00 00 00 00    ........@.......
+0x005b0020   00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00    ................
+0x005b0030   00 00 00 00 00 00 00 00 00 00 00 00 d8 00 00 00    ................
+0x005b0040   0e 1f ba 0e 00 b4 09 cd 21 b8 01 4c cd 21 54 68    ........!..L.!Th
+0x005b0050   69 73 20 70 72 6f 67 72 61 6d 20 63 61 6e 6e 6f    is program canno
+0x005b0060   74 20 62 65 20 72 75 6e 20 69 6e 20 44 4f 53 20    t be run in DOS
+0x005b0070   6d 6f 64 65 2e 0d 0d 0a 24 00 00 00 00 00 00 00    mode....$.......
+[snip]
+```
+Note: Due to the way plugins are loaded, the external plugins directory or zipfile must be specified before any plugin-specific arguments (including the name of the plugin). 
+
 ### Where can I find additional documentation on Volatility
 
  
