@@ -19,10 +19,10 @@
     - [Where can I find additional documentation on Volatility](FAQ#where-can-i-find-additional-documentation-on-volatility)
 
 - *Troubleshooting*
-    - [I'm getting an error: `[..] ( ImportError : No module named Crypto.Hash)`]
-    - Volatility thinks my image is invalid
-    - No address space mapping, No valid DTB found
-    - Scanning commands report false positives
+    - [I'm getting an error: `[..] ( ImportError : No module named Crypto.Hash)`](FAQ#im-getting-an-error---importerror--no-module-named-cryptohash)
+    - [Volatility thinks my image is invalid](FAQ#volatility-thinks-my-image-is-invalid)
+    - [No address space mapping, No valid DTB found](FAQ#no-address-space-mapping--no-valid-dtb-found)
+    - [Scanning commands report false positives](FAQ#scanning-commands-report-false-positives)
     - How can I report a bug or feature request
 
 - *Contact*
@@ -122,4 +122,10 @@ See the following resources:
 - The [Volatility Documentation Project Wiki](Volatility-Documentation-Project) contains links to external web sites.
 - [Malware Analyst's Cookbook](http://www.malwarecookbook.com/) devotes 4 chapters to using Volatility for malware analysis. 
 
- ### I'm getting an error: `[..] ( ImportError : No module named Crypto.Hash)`
+### I'm getting an error: `[..] ( ImportError : No module named Crypto.Hash)`
+
+### Volatility thinks my image is invalid
+
+### No address space mapping, No valid DTB found
+
+### Scanning commands report false positives
