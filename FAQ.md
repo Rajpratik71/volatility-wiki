@@ -126,6 +126,56 @@ See the following resources:
 
 ### Volatility thinks my image is invalid
 
+If you run into the message "Could not list tasks, please verify the --profile option and whether this image is valid" there are a few things you should know. First, the --profile parameter should be set to the name of a Volatility profile that matches the OS and architecture of the memory dump. If you don't know which OS your memory dump came from, try using the imageinfo plugin for suggestions. If you use those suggestions and still see the error message, the most likely cause is multiple KDBG signatures. Volatility finds and uses the first KDBG signature it finds, which in the case of multiple KDBG signatures - the first one may not be the correct one. In this case, you should use the kdgbscan plugin and select an alternate KDBG address. When you run commands, also supply the --kdbg parameter. Here's an example walk-through:
+```
+$ python vol.py -f mem.dmp --profile=Win2003SP2x64 pslist 
+Volatile Systems Volatility Framework 2.1_alpha
+ Offset(V)  Name                 PID    PPID   Thds   Hnds   Time 
+---------- -------------------- ------ ------ ------ ------ -------------------
+Could not list tasks, please verify the --profile option and whether this image is valid
+```
+Now let's confirm the profile we're using is one that Volatility suggests:
+```
+$ python vol.py -f mem.dmp imageinfo 
+Volatile Systems Volatility Framework 2.1_alpha
+Determining profile based on KDBG search...
+
+          Suggested Profile(s) : Win2003SP2x64, WinXPSP1x64
+                     AS Layer1 : AMD64PagedMemory (Kernel AS)
+                     AS Layer2 : FileAddressSpace (/Users/Michael/mem.dmp)
+                      PAE type : PAE
+                           DTB : 0x529000
+                          KDBG : 0xf80001172cb0
+                          KPCR : 0xffdff000
+             KUSER_SHARED_DATA : 0xfffff78000000000L
+           Image date and time : 2012-01-30 18:55:54 
+     Image local date and time : 2012-01-30 18:55:54 
+Could not list tasks, please verify the --profile option and whether this image is valid
+```
+Volatility suggested two profiles, the first and thus most likely profile is Win2003SP2x64 (which is the one we originally used). The KDBG signature was found at 0xf80001172cb0. Now let's double check if there are multiple KDBG signatures.
+```
+$ python vol.py -f mem.dmp kdbgscan --profile=Win2003SP2x64
+Volatile Systems Volatility Framework 2.1_alpha
+Potential KDBG structure addresses (P = Physical, V = Virtual):
+ _KDBG: V 0xf80001172cb0  (Win2003SP2x64)
+ _KDBG: P 0x01172cb0  (Win2003SP2x64)
+ _KDBG: V 0xf80001175cf0  (Win2003SP2x64)
+ _KDBG: P 0x01175cf0  (Win2003SP2x64)
+```
+Near the end you can see there's an alternate KDBG signature found at 0xf80001175cf0. Supply this one to --kdbg with using pslist and see if that solves the problem:
+```
+$ python vol.py -f mem.dmp --profile=Win2003SP2x64 --kdbg=0xf80001175cf0
+Volatile Systems Volatility Framework 2.1_alpha
+ Offset(V)  Name                 PID    PPID   Thds   Hnds   Time 
+---------- -------------------- ------ ------ ------ ------ ------------------- 
+0xfffffadfe7a7dc20 System                    4      0     60    341 1970-01-01 00:00:00       
+0xfffffadfe736b040 smss.exe                300      4      3     19 2012-01-23 18:19:44       
+0xfffffadfe6fe0c20 csrss.exe               348    300     13    449 2012-01-23 18:19:46       
+0xfffffadfe7054c20 winlogon.exe            372    300     23    618 2012-01-23 18:19:47       
+0xfffffadfe7115c20 services.exe            420    372     16    277 2012-01-23 18:19:50     
+....
+```
+
 ### No address space mapping, No valid DTB found
 
 If you see the message "No suitable address space mapping found" and/or "No valid DTB found" most likely you've selected an invalid profile for the memory image you're analyzing. For example:
