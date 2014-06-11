@@ -8,7 +8,7 @@
     - [What about reading crash dumps and hibernation files](FAQ#what-about-reading-crash-dumps-and-hibernation-files)
     - [Can Volatility acquire physical memory](FAQ#can-volatility-acquire-physical-memory)
     - [What's the largest memory dump Volatility can read](FAQ#whats-the-largest-memory-dump-volatility-can-read)
-    - [Are there any public memory samples available that I can use for testing](FAQ#are-there-any-public-memory-samples-available-that-I-can-use-for-testing)
+    - [Are there any public memory samples available that I can use for testing](FAQ#are-there-any-public-memory-samples-available-that-i-can-use-for-testing)
 
 - *Installation*
     - What are the dependencies for running Volatility
@@ -44,5 +44,7 @@ The latest development version is 2.4 which you can get by checking out the main
 ### What about reading crash dumps and hibernation files
 
 ### Can Volatility acquire physical memory
+
+### What's the largest memory dump Volatility can read
 
 ### Are there any public memory samples available that I can use for testing
