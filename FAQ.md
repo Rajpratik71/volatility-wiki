@@ -117,4 +117,10 @@ Note: Due to the way plugins are loaded, the external plugins directory or zipfi
 
 ### Where can I find additional documentation on Volatility
 
+See the following resources:
+
+- There are a few installation guides and how-to's provided by the community which you can find on the Downloads Page
+- The [Volatility Documentation Project Wiki](Volatility-Documentation-Project) contains links to external web sites.
+- [Malware Analyst's Cookbook](http://www.malwarecookbook.com/) devotes 4 chapters to using Volatility for malware analysis. 
+
  
