@@ -35,7 +35,7 @@ The latest stable version is 2.4. You can grab the source code, Python installer
 
 ### What is the latest development version of Volatility
 
-The latest development version is 2.4 which you can get by checking out the main branch using git ($ git clone git@github.com:volatilityfoundation/volatility.git). 
+The latest development version is 2.4 which you can get by checking out the main branch using git (`$ git clone git@github.com:volatilityfoundation/volatility.git`). 
 
 ### What's new in 2.4
 
