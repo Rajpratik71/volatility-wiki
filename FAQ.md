@@ -43,7 +43,13 @@ The latest development version is 2.4 which you can get by checking out the main
 
 ### What about reading crash dumps and hibernation files
 
+Volatility should automatically determine whether you've asked it to analyze a crash dump file or a hiberation file, and allow you to run plugins against them just like normal.
+
+If you'd like to save these files as raw dd files, you can use the imagecopy plugin to convert them to raw memory images. The raw memory images can also be analyzed using the normal Volatility commands. 
+
 ### Can Volatility acquire physical memory
+
+Short answer: No. Long Answer: The imagecopy plugin can be used to copy one address space to a file (allowing acquisition from address spaces such as IEEE 1394), but in general no, to acquire memory, you must use another tool. For a list of possibilities, see: [The Forensics Wiki](http://www.forensicswiki.org/wiki/Tools:Memory_Imaging)
 
 ### What's the largest memory dump Volatility can read
 
