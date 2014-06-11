@@ -26,7 +26,7 @@
     - [How can I report a bug or feature request](FAQ#how-can-i-report-a-bug-or-feature-request)
 
 - *Contact*
-    - [Who wrote/is writing Volatility](FAQ#who-wrote/is-writing-volatility)
+    - [Who wrote/is writing Volatility](FAQ#who-wroteis-writing-volatility)
     - [How can I contribute to Volatility](FAQ#how-can-i-contribute-to-volatility)
 
 ### What is the latest stable version of Volatility
@@ -130,6 +130,20 @@ See the following resources:
 
 ### Scanning commands report false positives
 
+Commands like psscan, modscan, connscan, etc. use pool tag scanning to find objects (either active or residual) in physical memory. Thus Volatility scans over your entire memory dump looking for 4 byte pool tag signatures and then applies a serious of sanity checks (specific per object type). If you believe one of the scanners has found a false positive, you can investigate the reason using volshell (look for the section that describes how to use the dt() command with a physical address space). You also may want to view the source code for the plugin you're running and examine the sanity checks Volatility uses. In particular, look for classes that subclass scan.ScannerCheck? and view the list of checks in classes that subclass scan.PoolScanner. For more information on the scanning framework, see Scanners. 
+
 ### How can I report a bug or feature request
 
+See [contact](FAQ#how-can-i-contribute-to-volatility)
+
 ### Who wrote/is writing Volatility
+
+See the AUTHORS.txt and CREDITS.txt files provided with the Volatility source code.
+
+### How can I contribute to Volatility
+
+If you have documentation, code or ideas to contribute, use one of the following methods:
+
+- Through the [Github interface](https://github.com/volatilityfoundation/volatility/issues)
+- Through IRC: #volatility on freenode
+- Through the Volatility Mailing List 
