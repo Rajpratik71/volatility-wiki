@@ -11,7 +11,7 @@
     - [Are there any public memory samples available that I can use for testing](FAQ#are-there-any-public-memory-samples-available-that-i-can-use-for-testing)
 
 - *Installation*
-    - What are the dependencies for running Volatility
+    - [What are the dependencies for running Volatility](FAQ#what-are-the-dependencies-for-running-volatility)
 
 - *Usage*
     - How do I run Volatility
@@ -58,3 +58,19 @@ There is technically no limit. We've heard reports of Volatility handling 30-40 
 ### Are there any public memory samples available that I can use for testing
 
 Yes.  Check the [memory samples wiki](https://github.com/volatilityfoundation/volatility/wiki/Memory-Samples)
+
+### What are the dependencies for running Volatility
+
+Note: once the installers are released, update this section since some installers come pre-packaged with python and the dependencies.
+
+- Here is what you need for the core functionality:
+    - A Windows, Linux, or Mac OS X machine
+    - Python version 2.6 or greater (but not 3.x) 
+
+- Some plugins require third party libraries which you can get here:
+    - [Distorm3](https://code.google.com/p/distorm/) (Malware Plugins, Volshell)
+    - [Yara](http://plusvic.github.io/yara/) (Malware Plugins)
+    - [PyCrypto](https://www.dlitz.net/software/pycrypto/) (Core)
+    - [OpenPyxl](http://pythonhosted.org/openpyxl/) (Timeliner)
+
+ 
