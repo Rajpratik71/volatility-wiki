@@ -124,6 +124,8 @@ See the following resources:
 
 ### I'm getting an error: `[..] ( ImportError : No module named Crypto.Hash)`
 
+This error occurs when [PyCrypto](https://www.dlitz.net/software/pycrypto/) is not installed. This is a library that is used by some of the registry plugins like lsadump. You will see this error message when using any of the plugins, however. If you are not using lsadump, hashdump or any other registry plugin that uses PyCrypto, then you can safely ignore the error message. Otherwise, install PyCrypto and the message will disappear. 
+
 ### Volatility thinks my image is invalid
 
 If you run into the message "Could not list tasks, please verify the --profile option and whether this image is valid" there are a few things you should know. First, the --profile parameter should be set to the name of a Volatility profile that matches the OS and architecture of the memory dump. If you don't know which OS your memory dump came from, try using the imageinfo plugin for suggestions. If you use those suggestions and still see the error message, the most likely cause is multiple KDBG signatures. Volatility finds and uses the first KDBG signature it finds, which in the case of multiple KDBG signatures - the first one may not be the correct one. In this case, you should use the kdgbscan plugin and select an alternate KDBG address. When you run commands, also supply the --kdbg parameter. Here's an example walk-through:
