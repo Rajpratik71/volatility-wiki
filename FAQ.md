@@ -3,12 +3,12 @@
 - *General* 
     - [What is the latest stable version of Volatility](FAQ#what-is-the-latest-stable-version-of-volatility)
     - [What is the latest development version of Volatility](FAQ#what-is-the-latest-development-version-of-volatility)
-    - [What's new in 2.4](what's-new-in-2.4)
-    - What operating systems does Volatility support
-    - What about reading crash dumps and hibernation files
-    - Can Volatility acquire physical memory
-    - What's the largest memory dump Volatility can read
-    - Are there any public memory samples available that I can use for testing
+    - [What's new in 2.4](FAQ#whats-new-in-24)
+    - [What operating systems does Volatility support](FAQ#what-operating-systems-does-volatility-support)
+    - [What about reading crash dumps and hibernation files](FAQ#what-about-reading-crash-dumps-and-hibernation-files)
+    - [Can Volatility acquire physical memory](FAQ#can-volatility-acquire-physical-memory)
+    - [What's the largest memory dump Volatility can read](FAQ#whats-the-largest-memory-dump-volatility-can-read)
+    - [Are there any public memory samples available that I can use for testing](FAQ#are-there-any-public-memory-samples-available-that-I-can-use-for-testing)
 
 - *Installation*
     - What are the dependencies for running Volatility
@@ -38,3 +38,11 @@ The latest stable version is 2.4. You can grab the source code, Python installer
 The latest development version is 2.4 which you can get by checking out the main branch using git ($ git clone git@github.com:volatilityfoundation/volatility.git). 
 
 ### What's new in 2.4
+
+### What operating systems does Volatility support
+
+### What about reading crash dumps and hibernation files
+
+### Can Volatility acquire physical memory
+
+### Are there any public memory samples available that I can use for testing
