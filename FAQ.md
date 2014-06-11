@@ -14,9 +14,9 @@
     - [What are the dependencies for running Volatility](FAQ#what-are-the-dependencies-for-running-volatility)
 
 - *Usage*
-    - How do I run Volatility
-    - How can I run external plugins with the standalone executable
-    - Where can I find additional documentation on Volatility
+    - [How do I run Volatility](FAQ#how-do-i-run-volatility)
+    - [How can I run external plugins with the standalone executable](FAQ#how-can-i-run-external-plugins-with-the-standalone-executable)
+    - [Where can I find additional documentation on Volatility](FAQ#where-can-i-find-additional-documentation-on-volatility)
 
 - *Troubleshooting*
     - I'm getting an error: `[..] ( ImportError : No module named Crypto.Hash)`
@@ -72,5 +72,13 @@ Note: once the installers are released, update this section since some installer
     - [Yara](http://plusvic.github.io/yara/) (Malware Plugins)
     - [PyCrypto](https://www.dlitz.net/software/pycrypto/) (Core)
     - [OpenPyxl](http://pythonhosted.org/openpyxl/) (Timeliner)
+
+### How do I run Volatility
+
+See [basic usage](Volatility-Usage)
+
+### How can I run external plugins with the standalone executable
+
+### Where can I find additional documentation on Volatility
 
  
