@@ -1,7 +1,7 @@
 # Frequently Asked Questions
 
 - *General* 
-    - [What is the latest stable version of Volatility](FAQ#What_is_the_latest_stable_version_of_Volatility)
+    - [What is the latest stable version of Volatility](FAQ#What-is-the-latest-stable-version-of-Volatility)
     - What is the latest development version of Volatility
     - What's new in 2.4
     - What operating systems does Volatility support
