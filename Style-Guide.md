@@ -22,7 +22,7 @@ Volatility currently requires python-2.6 or greater.
 - Module names should be lower case, Class names should be CamelCase, function names should be lower_case_with_underscores).
 - PEP8 using most historically common style (hence function names aren't mixedCase).
 - Whitespace on either side of all operators, and a space after all commas.
-- This includes the = in method(arg = default).
+- This includes the `=` in method(`arg = default`).
 - PEP8, clarity.
 - No whitespace at the end of a line
 - clarity, easier diffs.
