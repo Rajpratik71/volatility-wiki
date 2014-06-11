@@ -2,8 +2,8 @@
 
 - *General* 
     - [What is the latest stable version of Volatility](FAQ#what-is-the-latest-stable-version-of-volatility)
-    - What is the latest development version of Volatility
-    - What's new in 2.4
+    - [What is the latest development version of Volatility](FAQ#what-is-the-latest-development-version-of-volatility)
+    - [What's new in 2.4](what's-new-in-2.4)
     - What operating systems does Volatility support
     - What about reading crash dumps and hibernation files
     - Can Volatility acquire physical memory
@@ -32,3 +32,9 @@
 ### What is the latest stable version of Volatility
 
 The latest stable version is 2.4. You can grab the source code, Python installer, or Windows standalone executable from the [downloads page](http://www.volatilityfoundation.org/#!releases/component_71401)
+
+### What is the latest development version of Volatility
+
+The latest development version is 2.4 which you can get by checking out the main branch using git ($ git clone git@github.com:volatilityfoundation/volatility.git). 
+
+### What's new in 2.4
