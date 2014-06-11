@@ -19,7 +19,7 @@
     - [Where can I find additional documentation on Volatility](FAQ#where-can-i-find-additional-documentation-on-volatility)
 
 - *Troubleshooting*
-    - I'm getting an error: `[..] ( ImportError : No module named Crypto.Hash)`
+    - [I'm getting an error: `[..] ( ImportError : No module named Crypto.Hash)`]
     - Volatility thinks my image is invalid
     - No address space mapping, No valid DTB found
     - Scanning commands report false positives
@@ -119,8 +119,7 @@ Note: Due to the way plugins are loaded, the external plugins directory or zipfi
 
 See the following resources:
 
-- There are a few installation guides and how-to's provided by the community which you can find on the Downloads Page
 - The [Volatility Documentation Project Wiki](Volatility-Documentation-Project) contains links to external web sites.
 - [Malware Analyst's Cookbook](http://www.malwarecookbook.com/) devotes 4 chapters to using Volatility for malware analysis. 
 
- 
+ ### I'm getting an error: `[..] ( ImportError : No module named Crypto.Hash)`
