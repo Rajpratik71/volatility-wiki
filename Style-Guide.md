@@ -17,7 +17,7 @@ Volatility currently requires python-2.6 or greater.
 - Note that if you want to test for validity you should use if x: ....  This is because x might be an actual real object (i.e. not equivalent to None) but actually invalid. For example it might be an invalid pointer.
 - Importing specific objects or functions is discouraged.
 - It pollutes the namespace and causes confusion.  Previous versions of volatility allowed people to import functions from files they weren't defined in.
-- "from blah import `*`" is **strongly** discouraged.
+- "`from blah import *`" is **strongly** discouraged.
 - Again, namespace pollution and inappropriate imports.
 - Module names should be lower case, Class names should be CamelCase, function names should be lower_case_with_underscores).
 - PEP8 using most historically common style (hence function names aren't mixedCase).
