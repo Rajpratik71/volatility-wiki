@@ -21,13 +21,13 @@
 - *Troubleshooting*
     - [I'm getting an error: `[..] ( ImportError : No module named Crypto.Hash)`](FAQ#im-getting-an-error---importerror--no-module-named-cryptohash)
     - [Volatility thinks my image is invalid](FAQ#volatility-thinks-my-image-is-invalid)
-    - [No address space mapping, No valid DTB found](FAQ#no-address-space-mapping--no-valid-dtb-found)
+    - [No address space mapping, No valid DTB found](FAQ#no-address-space-mapping-no-valid-dtb-found)
     - [Scanning commands report false positives](FAQ#scanning-commands-report-false-positives)
-    - How can I report a bug or feature request
+    - [How can I report a bug or feature request](FAQ#how-can-i-report-a-bug-or-feature-request)
 
 - *Contact*
-    - Who wrote/is writing Volatility
-    - How can I contribute to Volatility
+    - [Who wrote/is writing Volatility](FAQ#who-wrote/is-writing-volatility)
+    - [How can I contribute to Volatility](FAQ#how-can-i-contribute-to-volatility)
 
 ### What is the latest stable version of Volatility
 
@@ -129,3 +129,7 @@ See the following resources:
 ### No address space mapping, No valid DTB found
 
 ### Scanning commands report false positives
+
+### How can I report a bug or feature request
+
+### Who wrote/is writing Volatility
