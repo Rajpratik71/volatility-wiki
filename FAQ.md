@@ -53,4 +53,8 @@ Short answer: No. Long Answer: The imagecopy plugin can be used to copy one addr
 
 ### What's the largest memory dump Volatility can read
 
+There is technically no limit. We've heard reports of Volatility handling 30-40 GB images on both Windows and Linux host operating systems. If you routinely analyze large memory dumps and would like to supply some performance benchmarks for the FAQ, please let us know. 
+
 ### Are there any public memory samples available that I can use for testing
+
+Yes.  Check the [memory samples wiki](https://github.com/volatilityfoundation/volatility/wiki/Memory-Samples)
