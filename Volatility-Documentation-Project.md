@@ -72,7 +72,7 @@ This is a catalog of research, documentation, analysis, and tutorials generated 
 |2013 | April | Blog | [Cyber Defense Exercise 2013: Extracting cached passphrases in Truecrypt](http://delogrand.blogspot.com/2013/04/cyber-defense-exercise-2013-extracting.html?m=1) | syreal|
 |2013 | April | Blog | [Hunting D-Trace Rootkits with The Volatility Framework](http://siliconblade.blogspot.com/2013/04/hunting-d-trace-rootkits-with.html) | Cem Gurkok (@CGurkok)|
 |2013 | April | Blog | [Android Application (Dalvik) Memory Analysis & the Chuli Malware](http://www.504ensics.com/android-application-dalvik-memory-analysis-the-chuli-malware/) | Joe Sylve (@jtsylve) and Vico Marziale (@vicomarziale)|
-|2013|March|Slides|Memory Forensics - Helping to Find What's Not There|Melissa Augustine (@sk3tchymoos3)|
+|2013|March|Slides|[Memory Forensics - Helping to Find What's Not There](https://docs.google.com/file/d/0Bwk1o9BiBoyvNkcyVFBkQk55R0U/edit)|Melissa Augustine (@sk3tchymoos3)|
 |2013 | March | Blog | [Live Linux forensics in a KVM based environment](http://5x5sec.blogspot.com/2013/03/live-linux-forensics-in-kvm-based.html) | charley pfaff (@bl4ck_0ut)|
 |2013 | March | Paper | [Indicators of Compromise in Memory Forensics](http://www.sans.org/reading_room/whitepapers/forensics/indicators-compromise-memory-forensics_34162) | Chad Robertson (@chrooted)|
 |2013 | March | Blog | [OSX Live Memory Forensics with Volatility](https://sickbits.net/osx-live-memory-forensics-w-volatility-and-macmemoryze/) | Jon Schipp (@jonschipp)|
