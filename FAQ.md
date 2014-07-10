@@ -121,6 +121,7 @@ See the following resources:
 
 - The [Volatility Documentation Project Wiki](Volatility-Documentation-Project) contains links to external web sites.
 - [Malware Analyst's Cookbook](http://www.malwarecookbook.com/) devotes 4 chapters to using Volatility for malware analysis. 
+- The book [The Art of Memory Forensics](http://www.memoryanalysis.net/#!amf/cmg5) extensively covers the topic of memory analysis as well as Volatility internals.
 
 ### I'm getting an error: `[..] ( ImportError : No module named Crypto.Hash)`
 
