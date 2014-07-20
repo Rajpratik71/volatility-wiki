@@ -18,10 +18,11 @@ Current Courses:
 * [Dec 2014 in Austin, TX](http://www.memoryanalysis.net/#!New-Event-in-Austin-TX-December-8th---12th-2014/c1zo4/EF551588-9E8A-4036-B5B5-4E4B5D4A4D66)
 * [Oct 2014 in Reston, VA](http://www.memoryanalysis.net/#!New-Event-in-Reston-VA-October-6th---10th-2014/c1zo4/FE9134FC-B2E4-47AF-A2F1-D3899840A4B7)
 * [Aug 2014 in Canberra, AU](http://www.memoryanalysis.net/#!New-Event-in-Canberra-AU-August-25th---29th-2014/c1zo4/5F514FDF-F43B-415D-9053-84E9A5E3FE3A)
-* [Jun 2014 in London, UK](http://www.memoryanalysis.net/#!New-Event-in-London-UK-June-9th---13th-2014/c1zo4/0BB86C58-D266-4A49-B503-5EA917057394)
+
 
 Past Courses:
 
+* [Jun 2014 in London, UK](http://www.memoryanalysis.net/#!New-Event-in-London-UK-June-9th---13th-2014/c1zo4/0BB86C58-D266-4A49-B503-5EA917057394)
 * [May 2014 in New York, NY](http://www.memoryanalysis.net/#!New-Event-in-New-York-NY-May-5th---9th-2014/c1zo4/1)
 * [Jan 2014 in San Diego CA](http://volatility-labs.blogspot.com/2013/09/2014-malware-and-memory-forensics.html)
 * [Nov 2013 in Reston VA](http://volatility-labs.blogspot.com/2013/06/memory-forensics-training-reston-va.html)
