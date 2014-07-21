@@ -15,6 +15,7 @@ For more information, click the link for the event you're interested in or read 
 
 Current Courses:
 
+* [Jan 2015 in San Francisco, CA](http://www.memoryanalysis.net/#!New-Event-in-San-Francisco-CA-January-12th---16th-2015/c1zo4/CFA6C04F-F874-4FA5-A9CF-087E3141BB2A)
 * [Dec 2014 in Austin, TX](http://www.memoryanalysis.net/#!New-Event-in-Austin-TX-December-8th---12th-2014/c1zo4/EF551588-9E8A-4036-B5B5-4E4B5D4A4D66)
 * [Oct 2014 in Reston, VA](http://www.memoryanalysis.net/#!New-Event-in-Reston-VA-October-6th---10th-2014/c1zo4/FE9134FC-B2E4-47AF-A2F1-D3899840A4B7)
 * [Aug 2014 in Canberra, AU](http://www.memoryanalysis.net/#!New-Event-in-Canberra-AU-August-25th---29th-2014/c1zo4/5F514FDF-F43B-415D-9053-84E9A5E3FE3A)
