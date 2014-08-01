@@ -23,7 +23,6 @@ Development
 Miscellaneous
 * [[Memory Samples]]
 * [[Community Docs|Volatility-Documentation-Project]]
-* [[Linux Profiles]]
 
 Physical Address Spaces
 * [[Firewire|Firewire-Address-Space]]
