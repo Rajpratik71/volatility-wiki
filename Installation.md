@@ -8,9 +8,9 @@
 
 # Install Volatility 
 
-If you're using the standalone Windows executable, no installation is necessary - just run it from a command prompt. No dependencies are required, because they're already packaged inside the exe.
+If you're using the standalone Windows, Linux, or Mac executable, no installation is necessary - just run it from a command prompt. No dependencies are required, because they're already packaged inside the exe.
 
-If you're using the Pyinstaller (Windows-only) executable, double click and follow through with the installation instructions (which basically consists of clicking Next a few times and then Finish). You must already have a working Python 2.6 or 2.7. Also see below for the dependency libraries. 
+If you're using the Pyinstaller (Windows-only) executable, double click and follow through with the installation instructions (which basically consists of clicking Next a few times and then Finish). You must already have a working Python 2.7. Also see below for the dependency libraries. 
 
 If you downloaded the zip or tar source code archive (Windows, Linux, OSX) there are two ways to "install" the code: 
 
@@ -77,7 +77,6 @@ If you used setup.py to install Volatility, the files will be placed in a few st
     copying contrib/plugins/addrspaces/ewf-python.py -> /usr/local/contrib/plugins/addrspaces
     running install_egg_info
     Writing /usr/local/lib/python2.6/dist-packages/volatility-2.1.egg-info
-
 
 Unfortunately there is no uninstaller, and if you simply try to run setup.py for a new version of Volatility, you may end up with some mixed source files which will surely lead to trouble. So before you install a new version of Volatility, remove everything the previous setup.py created:
 
