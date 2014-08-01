@@ -126,7 +126,7 @@ and find the name of your profile. This is what you will use to the --profile op
 
 # Acquiring memory 
 
-Volatility does not provide the ability to acquire memory. We recommend using [Mac Memory Reader](http://www.cybermarshal.com/index.php/cyber-marshal-utilities/mac-memory-reader) from ATC-NY for this purpose. It supports 32 and 64 bit captures from native hardware, parallels, and virtual box. It currently does not support VMware fusion guests.
+Volatility does not provide the ability to acquire memory. We recommend using Mac Memory Reader from ATC-NY, Mac Memoryze, or OSXPmem for this purpose. 
 
 # Plugins 
 
