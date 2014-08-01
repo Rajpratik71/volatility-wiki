@@ -7,6 +7,7 @@ Getting Started
 * [[Mac]]
 * [[Android]]
 * [[Basic Usage|Volatility Usage]]
+* [[Windows 8 and 2012|Windows 8/2012]]
 
 Command References 
 * [[Windows Core|Command Reference]]
