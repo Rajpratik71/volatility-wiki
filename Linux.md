@@ -1,7 +1,7 @@
 **Table of Contents**  
 
-- [Prerequisites](Linux#prerequisites)
-- [Creating a profile](Linux#creating-a-profile)
+- [Linux Profiles](Linux#Linux-Profiles)
+- [Creating a new profile](Linux#creating-a-new-profile)
 	- [Creating vtypes](Linux#creating-vtypes)
 	- [Getting Symbols](Linux#getting-symbols)
 	- [Making the profile](Linux#making-the-profile)
