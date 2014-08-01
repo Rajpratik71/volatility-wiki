@@ -328,6 +328,7 @@ Here is an example of detecting IAT hooks installed by Coreflood. The hooking mo
 
 3. Use [vaddump](Command-Reference#vaddump) to extract all code segments to individual files (named according to start and end address), then find the file that contains the 0x7ff82 ranges.
 
+```
     $ python vol.py -f coreflood.vmem -p 2044 apihooks 
     Volatility Foundation Volatility Framework 2.4
     ************************************************************************
@@ -368,6 +369,7 @@ Here is an example of detecting IAT hooks installed by Coreflood. The hooking mo
     0x7ff82a67 50               PUSH EAX
     
     [snip]
+```
 
 Here is an example of detecting the Inline hooks installed by Silentbanker. Note the multiple hop disassembly which is new in 2.1. It shows the first hop of the hook at 0x7c81caa2 jumps to 0xe50000. Then you also see a disassembly of the code at 0xe50000 which executes the rest of the trampoline. 
 
