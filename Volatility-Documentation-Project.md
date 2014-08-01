@@ -4,6 +4,7 @@ This is a catalog of research, documentation, analysis, and tutorials generated 
 |-----|-------|------|-------|-------|
 |2014|June|Paper|[In lieu of swap: Analyzing compressed RAM in Mac OS X and Linux](http://dfir.org/research/DFRWS-2014-compressed-swap.pdf)|Golden G. Richard III and Andrew Case|
 |2014|June|Paper|[Applying Memory Forensics to Rootkit Detection](https://www.academia.edu/7380266/Applying_Memory_Forensics_to_Rootkit_Detection)|Igor Korkin and Ivan Nesterov|
+|2014|May|Video|[TWC: Recalling Windows Memories](http://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DCIM-B350#fbid=)|Paula Januszkiewicz|
 |2014|May|Blog|[Acquiring Linux Memory from a Server Far Far Away](http://blog.opensecurityresearch.com/2014/05/acquiring-linux-memory-from-server-far.html)|Dan Caban|
 |2014|May|Slides|[Mo' Memory No' Problem](http://www.tekdefense.com/news/2014/5/29/memory-forensics-presentation-from-bsidesnola.html)|Glenn P. Edwards, Jr. (@HiddenIllusion) and Ian Ahl (@TekDefense)|
 |2014|May|Blog|[Targeted Forensics: Mapping a Process to a Malicious Command and Control](https://blogs.rsa.com/targeted-forensics-mapping-process-malicious-command-control/)|Justin Grosfelt|
