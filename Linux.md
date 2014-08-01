@@ -12,17 +12,21 @@
 
 # Prerequisites 
 
-First check the [Release Documentation](http://www.volatilityfoundation.org/#!releases/component_71401) page for the supported Linux kernels, distributions, and architectures. Then ensure you have the following tools:
+First check the [Release Documentation](http://www.volatilityfoundation.org/#!releases/component_71401) page for the supported Linux kernels, distributions, and architectures. You'll then need to obtain a profile that matches the kernel version of the system you want to analyze. A Linux Profile is essentially a zip file with information on the kernel's data structures and debug symbols. This is what Volatility uses to locate critical information and how to parse it once found. If a pre-built profile does not exist, you'll need to build your own. 
+
+## Downloading existing profiles
+
+You can find a repository of pre-built profiles at the [volatilityfoundation/profiles Github](https://github.com/volatilityfoundation/profiles).
+
+# Creating a new profile 
+
+First, ensure you have the following tools:
 
   * dwarfdump: apt-get install dwarfdump on Debian/Ubuntu or the libdwarf-tools package on OpenSuSE, Fedora, and other distributions. If you can't find it in your OS's package manager, build it from the latest [source package](http://reality.sgiweb.org/davea/dwarf.html). Make sure to build libdwarf first and then dwarfdump. Do not build dwarfdump2. Users building profiles on CentOS have also reported success using libdwarf from the [Fedora repository](http://pkgs.fedoraproject.org/repo/pkgs/libdwarf/) and getting the ELF utilities via "yum install elfutils-libelf-devel"
   * GCC/make: apt-get install build-essential on Debial/Ubuntu.
   * headers for building kernel modules: this is the kernel-devel or linux-headers-generic package. sometimes you may need to uname -a to find your kernel version and then be specific like apt-get install linux-headers-2.6.24-16.server
 
 By far, the most common mistake regarding Linux memory forensics is building a profile for a system other than the machine you want to analyze. For example, you cannot build a profile for a Debian 2.6.32 system to analyze a memory dump from Mandrake 2.6.32. Likewise you cannot build a profile for SuSE 2.5.35 system to analyze a memory dump from SuSE 2.6.42. You must ensure the profile you build matches the target system in 1) Linux distribution 2) exact kernel version 3) CPU architecture (32-bit, 64-bit, etc).
-
-# Creating a profile 
-
-A Linux Profile is essentially a zip file with information on the kernel's data structures and debug symbols. This is what Volatility uses to locate critical information and how to parse it once found. In the near future, Volatility will include profiles for the most common Linux kernels. Until then, you'll need to create your own profile. 
 
 NOTE: There are known problems building profiles with the dwarfdump distributed with Fedora. If you must use Fedora to build profiles, please see the build procedures in this issue:
 
@@ -83,7 +87,7 @@ If you _do not_ want to write to the core volatility directories (which may be o
     LinuxOpenSuSE12x86   - A Profile for Linux OpenSuSE12 x86
     LinuxUbuntu1204x64   - A Profile for Linux Ubuntu1204 x64
 
-## Using the Profile 
+# Using the Profile 
 
 To find the name of your profile, run:
 
