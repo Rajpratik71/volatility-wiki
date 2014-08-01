@@ -11,7 +11,7 @@
 
 We've put together an exhaustive course covering everything you need to know about memory forensics for malware investigations, incident response, and digital forensics. The material is "field tested" and has been executed in front of hundreds of students.
 
-For more information, click the link for the event you're interested in or read [student feedback on our blog](http://www.memoryanalysis.net/#!testimonials/c1dos).
+For more information, click the link for the event you're interested in or read [student testimonials](http://www.memoryanalysis.net/#!testimonials/c1dos).
 
 Current Courses:
 
@@ -20,7 +20,6 @@ Current Courses:
 * [Dec 2014 in Austin, TX](http://www.memoryanalysis.net/#!New-Event-in-Austin-TX-December-8th---12th-2014/c1zo4/EF551588-9E8A-4036-B5B5-4E4B5D4A4D66)
 * [Oct 2014 in Reston, VA](http://www.memoryanalysis.net/#!New-Event-in-Reston-VA-October-6th---10th-2014/c1zo4/FE9134FC-B2E4-47AF-A2F1-D3899840A4B7)
 * [Aug 2014 in Canberra, AU](http://www.memoryanalysis.net/#!New-Event-in-Canberra-AU-August-25th---29th-2014/c1zo4/5F514FDF-F43B-415D-9053-84E9A5E3FE3A)
-
 
 Past Courses:
 
