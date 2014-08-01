@@ -41,7 +41,7 @@ Assuming you wanted to switch to a different mode, for testing purposes, you can
 
 # Download pre-built profiles 
 
-Click to download an [archive of 42 Mac OSX profiles](http://downloads.volatilityfoundation.org/profiles/mac/MacProfiles.zip). Extract the main zip and copy/move the individual profiles that you want to activate into your volatility/plugins/overlays/mac folder.  
+Pre-built Mac OS X profiles are available from [volatilityfoundation/profiles Github repository](https://github.com/volatilityfoundation/profiles). Copy the individual profiles that you want to activate into your volatility/plugins/overlays/mac folder.  
 
   * Leopard 10.5 (32-bit)
   * Leopard 10.5.3 (32-bit)
@@ -68,6 +68,7 @@ Click to download an [archive of 42 Mac OSX profiles](http://downloads.volatilit
   * Mavericks 10.9.1 (64-bit)
   * Mavericks 10.9.2 (64-bit)
   * Mavericks 10.9.3 (64-bit)
+  * Mavericks 10.9.4 (64-bit)
 
 # Building a Profile  
 
