@@ -10,11 +10,9 @@
 - [Acquiring memory](Linux#acquiring-memory)
 - [Enterprise Linux Memory Forensics](Linux#enterprise-linux-memory-forensics)
 
-# Prerequisites 
+# Linux Profiles 
 
 First check the [Release Documentation](http://www.volatilityfoundation.org/#!releases/component_71401) page for the supported Linux kernels, distributions, and architectures. You'll then need to obtain a profile that matches the kernel version of the system you want to analyze. A Linux Profile is essentially a zip file with information on the kernel's data structures and debug symbols. This is what Volatility uses to locate critical information and how to parse it once found. If a pre-built profile does not exist, you'll need to build your own. 
-
-## Downloading existing profiles
 
 You can find a repository of pre-built profiles at the [volatilityfoundation/profiles Github](https://github.com/volatilityfoundation/profiles).
 
