@@ -106,7 +106,7 @@ This is a catalog of research, documentation, analysis, and tutorials generated 
 | 2012 | October | Blog | [Backdoors are Forever: Hacking Team and the Targeting of Dissent?](https://citizenlab.org/2012/10/backdoors-are-forever-hacking-team-and-the-targeting-of-dissent/) | Morgan Marquis-Boire (@headhntr) | 
 | 2012 | October | Blog | [Blackhole & Cridex: Season 2 Episode 1: Intuit Spam & SSL traffic analysis](http://www.deependresearch.org/2012/10/blackhole-cridex-season-2-episode-1.html) | Andre' Di Mino (@sempersecurus) | 
 | 2012 | September | Paper | [Acquiring Digital Evidence from Botnet Attacks](http://aut.researchgateway.ac.nz/bitstream/handle/10292/1482/JunewonP.pdf?sequence=3) | Junewon Park | 
-| 2012 | September | Blog | [cr0security rootkit analysis](http://blog.egeektronic.com/post/31460846365) | Teguh (@egeektronic) | 
+| 2012 | September | Blog | [cr0security rootkit analysis](http://blog.rop.io/cr0security-rootkit-analysis.html) | Teguh P. Alko (@egeektronic) | 
 | 2012 | September | Blog | [Linux, Volatility, and Profiles](http://neosysforensics.blogspot.com.es/2012/08/linux-volatility-y-sus-perfiles.html) | neofito (@neosysforensics) | 
 | 2012 | August | Paper/Slides | [Virtual Machine Introspection in a Hybrid Honeypot Architecture](https://www.usenix.org/conference/cset12/virtual-machine-introspection-hybrid-honeypot-architecture) | Lengyel, et. al. | 
 | 2012 | August | Blog | [Using Volatility Framework as a Library](http://dsocon.blogspot.com/2012/08/using-volatility-framework-as-library.html) | Adam Pridgen | 
