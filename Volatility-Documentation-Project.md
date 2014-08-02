@@ -263,13 +263,22 @@ This is a catalog of research, documentation, analysis, and tutorials generated 
 | 2008 | August | Blog | [Linking Processes to Users](http://moyix.blogspot.com/2008/08/linking-processes-to-users.html) | Brendan Dolan-Gavitt (@moyix) | 
 | 2008 | August | Paper | [Digital Forensics Research Workshop 2008 - Submission for Forensic Challenge](https://docs.google.com/document/pub?id=1ZGrBppBveDkNf3RTp0pMdd19VGI09y8GgErzlDA7aMc) | M. I. Cohen, D. J. Collett, A. Walters | 
 | 2008 | August | Slides | [Volatility 1.3 Open Memory Forensics Workshop](https://www.volatilesystems.com/volatility/omfw/Walters_OMFW_2008.pdf) | AAron Walters | 
-| 2008 | May | Blog | [DFRWS 2008 - Registry Forensics in Memory](http://moyix.blogspot.com/2008/05/dfrws-2008-registry-forensics-in-memory.html) | Brendan Dolan-Gavitt (@moyix) | 
+| 2008 | May | Blog | [DFRWS 2008 - Registry Forensics in Memory](http://moyix.blogspot.com/2008/05/dfrws-2008-registry-forensics-in-memory.html) | Brendan Dolan-Gavitt (@moyix) |
+| 2007 | February | Blog | [64bit Crash Dumps](http://computer.forensikblog.de/en/2008/02/64bit-crash-dumps.html) | Andreas Schuster (@forensikblog) |  
 | 2008 | February | Paper | [Using Hashing to Improve Volatile Memory Forensic Analysis](http://www.4tphi.net/fatkit/papers/aw_AAFS_pubv2.pdf) | AAron Walters | 
+| 2007 | December | Blog | [Searching for Page Directories 3](http://computer.forensikblog.de/en/2007/12/searching-for-page-directories-3.html) | Andreas Schuster (@forensikblog) | 
+| 2007 | October | Blog | [Hashing of Program Files](http://computer.forensikblog.de/en/2007/10/hashing-of-program-files.html) | Andreas Schuster (@forensikblog) | 
 | 2007 | September | Paper | [The VAD Tree: A process-eye view of physical memory](http://dfrws.org/2007/proceedings/p62-dolan-gavitt.pdf) | Brendan Dolan-Gavitt (@moyix) | 
 | 2007 | August | Blog | [From Volatools to Volatility](http://computer.forensikblog.de/en/2007/08/from-volatools-to-volatility.html) | Andreas Schuster (@forensikblog) | 
+| 2007 | May | Blog | [Copies of Page Directories](http://computer.forensikblog.de/en/2007/05/copies-of-page-directories.html) | Andreas Schuster (@forensikblog) | 
+| 2007 | May | Blog | [Searching for Page Directories 2](http://computer.forensikblog.de/en/2007/05/searching-for-page-directories-2.html) | Andreas Schuster (@forensikblog) | 
+| 2007 | May | Blog | [Searching for Page Directories 1](http://computer.forensikblog.de/en/2007/05/searching-for-page-directories-1.html) | Andreas Schuster (@forensikblog) | 
 | 2007 | May | Blog | [Walking the VAD Tree](http://computer.forensikblog.de/en/2007/05/walking-the-vad-tree.html) | Andreas Schuster (@forensikblog) | 
 | 2007 | March | Blog | [Volatools](http://computer.forensikblog.de/en/2007/03/volatools.html) | Andreas Schuster (@forensikblog) | 
 | 2007 | February | Paper | [Volatools: Integrating Volatile Memory Forensics into the Digital Investigation Process](https://www.blackhat.com/presentations/bh-dc-07/Walters/Paper/bh-dc-07-Walters-WP.pdf) | A. Walters and N. Petroni | 
+| 2007 | January | Blog | [How trustworthy is hardware-based memory acquisition?](http://computer.forensikblog.de/en/2007/01/how-trustworthy-is-hardware-based-memory-acquisition.html) | Andreas Schuster (@forensikblog) |
+| 2006 | December | Blog | [Crash without CtrlScroll](http://computer.forensikblog.de/en/2006/12/crash-without-ctrlscroll.html) | Andreas Schuster (@forensikblog) |
+| 2006 | October | Blog | [Searching in Pool Allocations](http://computer.forensikblog.de/en/2006/10/searching-in-pool-allocations.html) | Andreas Schuster (@forensikblog) |
 | 2006 | September | Blog | [Memory dumping over FireWire - UMA issues](http://ntsecurity.nu/onmymind/2006/2006-09-02.html) | Arne Vidstrom |
 | 2006 | July | Slides | [FATKit: Detecting Malicious Library Injection and Upping the “Anti”](http://www.4tphi.net/fatkit/papers/fatkit_dll_rc3.pdf) | AAron Walters | 
 | 2006 | June | Blog | [DFRWS 2006 Paper](http://computer.forensikblog.de/en/2006/06/dfrws-2006-paper.html) | Andreas Schuster (@forensikblog) |
