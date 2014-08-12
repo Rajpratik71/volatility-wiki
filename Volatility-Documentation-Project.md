@@ -172,7 +172,7 @@ This is a catalog of research, documentation, analysis, and tutorials generated 
 | 2011 | September | Blog | [MORTO – From a Memory-Dump Point of View](http://p4r4n0id.com/?p=821) |  p4r4n0id | 
 | 2011 | September | Blog | [Shylock In-Depth Malware Analysis](http://malwarereversing.wordpress.com/2011/09/30/shylock-in-depth-malware-analysis/) | Brad Arndt (@bradarndt) | 
 | 2011 | September | Blog | [toolsmith: Memory Analysis with DumpIt and Volatility](http://holisticinfosec.blogspot.com/2011/09/toolsmith-memory-analysis-with-dumpit.html) | Russ !McRee (@holisticinfosec) | 
-| 2011 | September | Blog | [Volatility Memory Forensics | Basic Usage for Malware Analysis](http://www.evild3ad.com/956/volatility-memory-forensics-basic-usage-for-malware-analysis/) | Evild3ad (@Evild3ad79) | 
+| 2011 | September | Blog | [Volatility Memory Forensics Basic Usage for Malware Analysis](http://www.evild3ad.com/956/volatility-memory-forensics-basic-usage-for-malware-analysis/) | Evild3ad (@Evild3ad79) | 
 | 2011 | September | Blog | [Zeus Analysis in Volatility 2.0](http://malwarereversing.wordpress.com/2011/09/23/zeus-analysis-in-volatility-2-0/) | Brad Arndt (@bradarndt) | 
 | 2011 | September | Blog | [Volatility 2.0 Plugin Vscan](http://malwarereversing.wordpress.com/2011/09/17/volatility-2-0-plugin-vscan/) | Brad Arndt (@bradarndt) | 
 | 2011 | September | Blog | [Volatility 2.0: Timeliner, RegistryAPI, evtlogs and more](http://gleeda.blogspot.com/2011_09_01_archive.html) | Jamie Levy (@gleeda) | 
