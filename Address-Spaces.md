@@ -31,7 +31,7 @@ The diagram below shows a simple example of how the AS layers work together.
     *****************************
     |          Plugins          | 1) request to read 0xffdf0000
     *****************************
-    |  IA32PagedMemoryPae AS  | 2) translates address to 0x41000 using DTB
+    |  IA32PagedMemoryPae AS    | 2) translates address to 0x41000 using DTB
     *****************************
     |       Crash Dump AS       | 3) pass down the request to read 0x41000 
     *****************************
