@@ -1701,7 +1701,7 @@ It is possible that a registry key is not available in memory.  When this happen
 
 You can try to see if the correct keys are available: "CurrentControlSet\Control\lsa" from SYSTEM and "SAM\Domains\Account" from SAM.  First you need to get the "CurrentControlSet", for this we can use volshell (replace `[REGISTRY ADDRESS](SYSTEM)` below with the offset you get from hivelist), for example:
 
-    $ ./vol.py -f XPSP3.vmem --profile=WinXPSP3x86 volshell
+    $ python vol.py -f XPSP3.vmem --profile=WinXPSP3x86 volshell
     Volatility Foundation Volatility Framework 2.4
     Current context: process System, pid=4, ppid=0 DTB=0x319000
     Welcome to volshell Current memory image is: 
@@ -1717,9 +1717,9 @@ You can try to see if the correct keys are available: "CurrentControlSet\Control
 
 Then you can use the printkey plugin to make sure the keys and their data are there.  Since the "CurrentControlSet" is 1 in our previous example, we use "ControlSet001" in the first command:
 
-    $ ./vol.py -f XPSP3.vmem --profile=WinXPSP3x86 printkey -K "ControlSet001\Control\lsa" 
+    $ python vol.py -f XPSP3.vmem --profile=WinXPSP3x86 printkey -K "ControlSet001\Control\lsa" 
     
-    $ ./vol.py -f XPSP3.vmem --profile=WinXPSP3x86 printkey -K "SAM\Domains\Account"
+    $ python vol.py -f XPSP3.vmem --profile=WinXPSP3x86 printkey -K "SAM\Domains\Account"
 
 If the key is missing you should see an error message:
 
@@ -1778,7 +1778,7 @@ To use lsadump, pass the virtual address of the SYSTEM hive as the -y parameter 
 
 To get the UserAssist keys from a sample you can use the userassist plugin.  For more information see Gleeda's [Volatility UserAssist plugin](http://gleeda.blogspot.com/2011/04/volatility-14-userassist-plugin.html) post.
 
-    $ ./vol.py -f win7.vmem --profile=Win7SP0x86 userassist 
+    $ python vol.py -f win7.vmem --profile=Win7SP0x86 userassist 
     Volatility Foundation Volatility Framework 2.4
     ----------------------------
     Registry: \??\C:\Users\admin\ntuser.dat
@@ -1836,7 +1836,7 @@ To get the UserAssist keys from a sample you can use the userassist plugin.  For
 
 ## shellbags
 
-This plugin parses and prints [Shellbag (pdf)](http://www.dfrws.org/2009/proceedings/p69-zhu.pdf) information obtained from the registry.  For more information see [Shellbags in Memory, SetRegTime, and TrueCrypt Volumes](http://volatility-labs.blogspot.com/2012/09/movp-32-shellbags-in-memory-setregtime.html).  There are two options for output: verbose (default) and bodyfile format.  You can also include a machine identifier in the bodyfile header with the `--machine` flag (this is useful when combining timelines from multiple machines).
+This plugin parses and prints [Shellbag (pdf)](http://www.dfrws.org/2009/proceedings/p69-zhu.pdf) information obtained from the registry.  For more information see [Shellbags in Memory, SetRegTime, and TrueCrypt Volumes](http://volatility-labs.blogspot.com/2012/09/movp-32-shellbags-in-memory-setregtime.html).  There are two options for output: verbose (default) and bodyfile format.  
 
     $ python vol.py -f win7.vmem --profile=Win7SP1x86 shellbags
     Volatility Foundation Volatility Framework 2.4
@@ -1893,9 +1893,9 @@ This plugin parses and prints [Shellbag (pdf)](http://www.dfrws.org/2009/proceed
     ***************************************************************************
     [snip]
 
-Another option is to use the `--output=body` option for [TSK 3.x bodyfile format](http://wiki.sleuthkit.org/index.php?title=Body_file).  You can use this output option when you want to combine output from `timeliner`, [mftparser](Command Reference#mftparser) and [timeliner](Command Reference#timeliner).  Only ITEMPOS and FILE_ENTRY items are output with the bodyfile format:
+Another option is to use the `--output=body` option for [TSK 3.x bodyfile format](http://wiki.sleuthkit.org/index.php?title=Body_file).  You can use this output option when you want to combine output from `timeliner`, [mftparser](Command Reference#mftparser) and [timeliner](Command Reference#timeliner).  You can also include a machine identifier in the bodyfile header with the `--machine` flag (this is useful when combining timelines from multiple machines).  Only ITEMPOS and FILE_ENTRY items are output with the bodyfile format:
 
-    $ ./vol.py -f win7.vmem --profile=Win7SP1x86 shellbags --output=body
+    $ python vol.py -f win7.vmem --profile=Win7SP1x86 shellbags --output=body
     Volatility Foundation Volatility Framework 2.4
     Scanning for registries....
     Gathering shellbag items and building path tree...
@@ -1935,7 +1935,7 @@ This plugin parses the Application Compatibility Shim Cache registry key.
 The `getservicesids` command calculates the SIDs for services on a machine and outputs them in Python dictionary format for future use.
 The service names are taken from the registry ("SYSTEM\CurrentControlSet\Services").  For more information on how these SIDs are calculated, see [Timeliner Release Documentation (pdf)](http://jls-scripts.googlecode.com/files/Timeliner%20Release%20Documentation.pdf).  Example output can be seen below:
 
-    $ ./vol.py -f WinXPSP1x64.vmem --profile=WinXPSP2x64 getservicesids
+    $ python vol.py -f WinXPSP1x64.vmem --profile=WinXPSP2x64 getservicesids
     Volatility Foundation Volatility Framework 2.4
     servicesids = {
         'S-1-5-80-2675092186-3691566608-1139246469-1504068187-1286574349':
@@ -2381,11 +2381,11 @@ We have to convert this to ANSI or UTF-8.  In Windows you can open the text file
 
 Now we can see a difference in how these two files are handled:
 
-    $ ./vol.py -f Bob.vmem --profile=WinXPSP2x86 strings -s export.txt 
+    $ python vol.py -f Bob.vmem --profile=WinXPSP2x86 strings -s export.txt 
     Volatility Foundation Volatility Framework 2.4
     ERROR   : volatility.plugins.strings: String file format invalid.
     
-    $ ./vol.py -f Bob.vmem --profile=WinXPSP2x86 strings -s export1.txt 
+    $ python vol.py -f Bob.vmem --profile=WinXPSP2x86 strings -s export1.txt 
     Volatility Foundation Volatility Framework 2.4
     0001c0eb [kernel:2147598571] DHCP
     0001c117 [kernel:2147598615] DHCP
