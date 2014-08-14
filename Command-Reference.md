@@ -2703,12 +2703,12 @@ This `timeliner` plugin creates a timeline from various artifacts in memory from
 * Sockets (Socket)
   * Create time
 * Event logs (XP and 2003 only) (EvtLog)
-* IEHistory
+* IE History (IEHistory)
 * Registry hives (_CMHIVE and _HBASE_BLOCK)
 * Registry keys 
   * LastWriteTime of registry keys in _CMHIVE (Registry)
   * LastWriteTime of registry key objects referenced in the handle table (_CM_KEY_BODY)
-* Embedded registry
+* Embedded registry (filters below)
   * Userassist
   * Shimcache  
 * Timers (Timer)
