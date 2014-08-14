@@ -2686,32 +2686,78 @@ This plugin is not well-supported. It is in the contrib directory and currently 
 
 ## timeliner
 
-This `timeliner` plugin creates a timeline from various artifacts in memory from the following sources: processes, DLLs, modules, sockets, registry keys and embedded registry data such as UserAssist and AppCompatCache (shimcache).  There are three options for output: default verbose output, bodyfile format and an Excel 2007 file.  For more details see [Timeliner Release Documentation (pdf)](http://jls-scripts.googlecode.com/files/Timeliner%20Release%20Documentation.pdf) and the OMFW 2011 presentation [Time is on My Side](https://docs.google.com/leaf?id=0B7mg0ZBnpGuOZjVlYjJmMWMtYTgyYy00OGVlLTkxNmYtZWM2YmJjNzc1Zjc0&hl=en_US).  
+This `timeliner` plugin creates a timeline from various artifacts in memory from the following sources (items in parenthesis are filters that may be used with the `--type` flag in order to obtain only items of that artifact): 
 
-In order to run the `timeliner` plugin, you must either move it from the contrib/plugins folder to volatility/plugins or use the `--plugins` option (seen below).  You might see some "Failed to import..." errors, these can simply be ignored since they are just due to a conflict in paths for some malware plugins that are in the `contrib/plugins` directory.  The default output can be redirected to a file or saved via the `--output-file=` option and imported to Excel.
+* System time (ImageDate)
+* Processes (Process)
+  * Create and Exit times 
+  * LastTrimTime (XP and 2003 only) 
+* DLLs (Process, LoadTime)
+  * LoadTime (Windows 7 and 8 only)
+* PE Timestamps (TimeDateStamp) 
+  * Modules/Processes/DLLs
+  * _IMAGE_FILE_HEADER
+  * _IMAGE_DEBUG_DIRECTORY
+* Threads (Thread)
+  * Create and Exit times
+* Sockets (Socket)
+  * Create time
+* Event logs (XP and 2003 only) (EvtLog)
+* IEHistory
+* Registry hives (_CMHIVE and _HBASE_BLOCK)
+* Registry keys 
+  * LastWriteTime of registry keys in _CMHIVE (Registry)
+  * LastWriteTime of registry key objects referenced in the handle table (_CM_KEY_BODY)
+* Embedded registry
+  * Userassist
+  * Shimcache  
+* Timers (Timer)
+* Symbolic links (Symlink)
 
-    $ python vol.py --plugins=contrib/plugins -f XPSP3x86.vmem timeliner
-    Volatility Foundation Volatility Framework 2.4
-    2011-05-16 15:29:52 UTC+0000|[END LIVE RESPONSE]
-    2011-05-16 14:33:25 UTC+0000|[PROCESS]|TPAutoConnect.e|1492|1084||0x01f0bda0||
-    2011-05-16 14:33:21 UTC+0000|[PROCESS]|TPAutoConnSvc.e|1084|692||0x01f1a898||
-    2011-05-16 14:10:23 UTC+0000|[PROCESS]|alg.exe|2016|672||0x01f73708||
-    2011-05-16 14:10:23 UTC+0000|[PROCESS]|TPAutoConnSvc.e|1856|672|2011-05-16 14:32:53 UTC+0000|0x01f79ad8||
-    2011-05-16 14:33:06 UTC+0000|[PROCESS]|winlogon.exe|648|360||0x01fc2260||
-    2011-05-16 14:33:07 UTC+0000|[PROCESS]|svchost.exe|956|692||0x0200f020||
-    2011-05-16 14:33:07 UTC+0000|[PROCESS]|svchost.exe|1096|692||0x0202c658||
-    2011-05-16 14:33:04 UTC+0000|[PROCESS]|csrss.exe|616|360||0x02089978||
-    2011-05-16 15:29:22 UTC+0000|[PROCESS]|IEXPLORE.EXE|1428|1688||0x020c45c8||
-    2011-05-16 14:33:13 UTC+0000|[PROCESS]|explorer.exe|1688|1668||0x020edb88||
-    2011-05-16 14:33:08 UTC+0000|[PROCESS]|svchost.exe|1156|692||0x020f55c0||
-    [snip]
+You can filter for any of the above options in order to have more focused output using the `--type` flag:
+
+```
+$ python vol.py -f Win2k12x64-Snapshot3.vmsn --profile=Win2012R2x64 --kdbg=0xf800f17dd9b0 timeliner --type=_CMHIVE
+Volatility Foundation Volatility Framework 2.4
+1970-01-01 00:00:00 UTC+0000|[_CMHIVE LastWriteTime]| [no name]| 
+1970-01-01 00:00:00 UTC+0000|[_CMHIVE LastWriteTime]| \REGISTRY\MACHINE\SYSTEM| 
+2014-06-20 06:31:29 UTC+0000|[_CMHIVE LastWriteTime]| \SystemRoot\System32\Config\SOFTWARE| 
+2014-06-20 06:31:29 UTC+0000|[_CMHIVE LastWriteTime]| \SystemRoot\System32\Config\DEFAULT| 
+2014-06-20 06:31:29 UTC+0000|[_CMHIVE LastWriteTime]| \REGISTRY\MACHINE\SAM| 
+2014-06-20 06:31:05 UTC+0000|[_CMHIVE LastWriteTime]| \??\C:\Users\Administrator\AppData\Local\Microsoft\Windows\UsrClass.dat| 
+2013-09-15 03:33:22 UTC+0000|[_CMHIVE LastWriteTime]| \SystemRoot\System32\Config\BBI| 
+2014-06-20 06:31:29 UTC+0000|[_CMHIVE LastWriteTime]| \??\C:\Windows\ServiceProfiles\NetworkService\NTUSER.DAT| 
+2014-06-20 06:31:29 UTC+0000|[_CMHIVE LastWriteTime]| \REGISTRY\MACHINE\SECURITY| 
+2014-06-20 06:31:05 UTC+0000|[_CMHIVE LastWriteTime]| \??\C:\Users\Administrator\ntuser.dat| 
+2014-06-20 06:31:29 UTC+0000|[_CMHIVE LastWriteTime]| \??\C:\Windows\ServiceProfiles\LocalService\NTUSER.DAT| 
+2014-06-20 06:31:29 UTC+0000|[_CMHIVE LastWriteTime]| \Device\HarddiskVolume1\Boot\BCD| 
+1970-01-01 00:00:00 UTC+0000|[_CMHIVE LastWriteTime]| \REGISTRY\MACHINE\HARDWARE| 
+```
+
+There are three options for output: default verbose output, bodyfile format and an Excel 2007 file.  For more details see [Timeliner Release Documentation (pdf)](http://jls-scripts.googlecode.com/files/Timeliner%20Release%20Documentation.pdf) and the OMFW 2011 presentation [Time is on My Side](https://docs.google.com/leaf?id=0B7mg0ZBnpGuOZjVlYjJmMWMtYTgyYy00OGVlLTkxNmYtZWM2YmJjNzc1Zjc0&hl=en_US).  
+
+```
+$ python vol.py -f XPSP3x86.vmem timeliner
+Volatility Foundation Volatility Framework 2.4
+2011-10-13 04:29:21 UTC+0000|[LIVE RESPONSE]| (System time)
+2010-08-22 17:38:12 UTC+0000|[IEHISTORY]| explorer.exe->Visited: Administrator@about:Home| PID: 1196/Cache type "URL " at 0x17f5100 End: 2010-08-22 17:38:12 UTC+0000
+2010-10-31 13:48:47 UTC+0000|[IEHISTORY]| explorer.exe->Visited: Administrator@file:///C:/Documents%20and%20Settings/Administrator/Desktop/Sparkling_Swiss-4288x2848.jpg| PID: 1196/Cache type "URL " at 0x17f5300 End: 2010-10-31 13:48:47 UTC+0000
+2010-10-31 13:49:00 UTC+0000|[IEHISTORY]| explorer.exe->Visited: Administrator@file:///C:/Documents%20and%20Settings/Administrator/My%20Documents/My%20Pictures/Sparkling_Swiss-4288x2848.jpg| PID: 1196/Cache type "URL " at 0x17f6000 End: 2010-10-31 13:49:00 UTC+0000
+2011-10-13 04:20:23 UTC+0000|[PROCESS]| wuauclt.exe| PID: 332/PPID: 1032/POffset: 0x0226d580
+2011-10-13 04:20:23 UTC+0000|[PROCESS LastTrimTime]| wuauclt.exe| PID: 332/PPID: 1032/POffset: 0x0226d580
+2010-10-29 17:08:54 UTC+0000|[Handle (Key)]| MACHINE| wuauclt.exe PID: 332/PPID: 1032/POffset: 0x0226d580
+2010-08-22 17:35:38 UTC+0000|[Handle (Key)]| MACHINE\SOFTWARE\MICROSOFT\WINDOWS NT\CURRENTVERSION\DRIVERS32| wuauclt.exe PID: 332/PPID: 1032/POffset: 0x0226d580
+2010-08-22 17:35:38 UTC+0000|[Handle (Key)]| MACHINE\SOFTWARE\MICROSOFT\WINDOWS NT\CURRENTVERSION\DRIVERS32| wuauclt.exe PID: 332/PPID: 1032/POffset: 0x0226d580
+2010-10-29 16:50:27 UTC+0000|[Handle (Key)]| MACHINE\SOFTWARE\CLASSES| wuauclt.exe PID: 332/PPID: 1032/POffset: 0x0226d580
+[snip]
+```
 
 If you don't want to do the extra step of importing, you can use the `--output=xlsx` option with `--output-file=[FILE](OUTPUT)` to save directly an Excel 2007 file.  **Note:** You must have [OpenPyxl](https://bitbucket.org/ericgazoni/openpyxl/wiki/Home) installed for this.
 
-    $ python vol.py --plugins=contrib/plugins -f XPSP3x86.vmem timeliner --output=xlsx --output-file=output.xlsx
+    $ python vol.py -f XPSP3x86.vmem timeliner --output=xlsx --output-file=output.xlsx
 
 Another option is to use the `--output=body` option for [TSK 3.x bodyfile format](http://wiki.sleuthkit.org/index.php?title=Body_file).  You can use this output option when you want to combine output from `timeliner`, [mftparser](Command Reference#mftparser) and [shellbags](Command Reference#shellbags).
 
-By default everything except the registry LastWrite timestamps are included in the output of `timeliner`, this is because obtaining the registry timestamps can take quite a long time.  In order to add them to the output, simply add the `-R` option when you run Volatility.  You can also limit your focus of registry timestamps by listing a specific registry name (like `--hive=SYSTEM`) or user (`--user=Jim`) or both (`--hive=UsrClass.dat   --user=jim`).  These options are case insensitive.  
+By default everything except the registry LastWrite timestamps are included in the output of `timeliner`, this is because obtaining the registry timestamps is quite labor intensive.  In order to add them to the output, simply add the `--type=Registry` option when you run Volatility.  You can also limit your focus of registry timestamps by listing a specific registry name (like `--hive=SYSTEM`) or user (`--user=Jim`) or both (`--hive=UsrClass.dat   --user=jim`).  These options are case insensitive.  
 
-    $ python vol.py --plugins=contrib/plugins -f win7SP1x86.vmem --profile=Win7SP1x86 timeliner --output=body --output-file=output.body -R --user=Jim --hive=UsrClass.dat
+    $ python vol.py -f win7SP1x86.vmem --profile=Win7SP1x86 timeliner --output=body --output-file=output.body --type=Registry --user=Jim --hive=UsrClass.dat
