@@ -2175,10 +2175,14 @@ After changing the starting offset:
 
 ## mftparser
 
-This plugin scans for potential Master File Table (MFT) entries in memory (using "FILE" and "BAAD" signatures) and prints out information for certain attributes, currently: `$FILE_NAME` (`$FN`), `$STANDARD_INFORMATION` (`$SI`), `$FN` and `$SI` attributes from the `$ATTRIBUTE_LIST`, `$OBJECT_ID` (default output only) and resident `$DATA` (default output only).  This plugin has room for expansion, however and vtypes for other attributes are already included.  For more information please see [Reconstructing the MBR and MFT from Memory (OMFW 2012 slides)](http://volatility-labs.blogspot.com/2012/10/omfw-2012-reconstructing-mbr-and-mft.html).  Options of interest include: 
+This plugin scans for potential Master File Table (MFT) entries in memory (using "FILE" and "BAAD" signatures) and prints out information for certain attributes, currently: `$FILE_NAME` (`$FN`), `$STANDARD_INFORMATION` (`$SI`), `$FN` and `$SI` attributes from the `$ATTRIBUTE_LIST`, `$OBJECT_ID` (default output only) and resident `$DATA`.  This plugin has room for expansion, however, and VTypes for other attributes are already included.  For more information please see [Reconstructing the MBR and MFT from Memory (OMFW 2012 slides)](http://volatility-labs.blogspot.com/2012/10/omfw-2012-reconstructing-mbr-and-mft.html).  Options of interest include: 
 
-- `-C/--check` - only print out attributes with non-null timestamps
+- `--machine` - Machine name to add to timeline header (useful when combining timelines from multiple machines)
+- `-D/--dump-dir` - Output directory to which resident data files are dumped
 - `--output=body` - print output in [Sleuthkit 3.X body format](http://wiki.sleuthkit.org/index.php?title=Body_file)
+- `--no-check` - Prints out all entries including those with null timestamps
+- `-E/--entry-size` - Changes the default 1024 byte MFT entry size.
+- `-O/--offset` - Prints out the MFT entry at a give offset (comma delimited)
 
 This plugin may take a while to run before seeing output, since it scans first and then builds the directory tree for full file paths.
 
@@ -2242,58 +2246,59 @@ Example (default output):
     ***************************************************************************
     [snip]
 
-The bodyfile output is also an option.  The normal MD5 column is replaced with indicators for which attribute was found and its physical offset in memory:
+The bodyfile output is also an option.  It is recommended that the output be stored in a file using the `--output-file` option, since it is quite lengthy. The following shows creating a bodyfile using `mftparser` while dumping resident files.  You can also see a file of interest that is created on the system (`f.txt`) which happens to be recovered in the `output` directory:
 
-    $ ./vol.py -f Bob.vmem mftparser --output=body
-    Volatility Foundation Volatility Framework 2.4
-    Scanning for MFT entries and building directory, this can take a while
-    (FN) 0x1d000|WINDOWS\Cache\Adobe Reader 6.0\ENUBIG\Setup.ini|11452|---a-----------|0|0|344|1267155960|1267155960|1267155960|1267155960
-    (SI) 0x1d000|WINDOWS\Cache\Adobe Reader 6.0\ENUBIG\Setup.ini|11452|r--a-----------|0|0|344|1267155966|1053372834|1267155973|1267155960
-    (FN) 0x1d400|Documents and Settings\Administrator\Local Settings\Temp\PERFLI~1.DAT|11453|---a--t--------|0|0|488|1267155973|1267155973|1267155973|1267155973
-    (SI) 0x1d400|Documents and Settings\Administrator\Local Settings\Temp\PERFLI~1.DAT|11453|---a--t--------|0|0|488|1267155973|1267155973|1267155973|1267155973
-    (FN) 0x1d400|Documents and Settings\Administrator\Local Settings\Temp\Perflib_Perfdata_f4.dat|11453|---a--t--------|0|0|488|1267155973|1267155973|1267155973|1267155973
-    (FN) 0x1d800|WINDOWS\Prefetch\SETUPE~2.PF|11454|---a-------I---|0|0|480|1267155973|1267155973|1267155973|1267155973
-    (SI) 0x1d800|WINDOWS\Prefetch\SETUPE~2.PF|11454|---a-------I---|0|0|480|1267155973|1267155973|1267155973|1267155973
-    (FN) 0x1d800|WINDOWS\Prefetch\SETUP.EXE-07EE9DA4.pf|11454|---a-------I---|0|0|480|1267155973|1267155973|1267155973|1267155973
-    (FN) 0x1dc00|System Volume Information\_restore{834817DC-A3FD-4C6D-B5EC-0713C53C7E4B}\RP3|11455|-----------I-D-|0|0|464|1267155974|1267155974|1267155974|1267155974
-    (SI) 0x1dc00|System Volume Information\_restore{834817DC-A3FD-4C6D-B5EC-0713C53C7E4B}\RP3|11455|-----------I---|0|0|464|1267300267|1267300267|1267300267|1267155974
-    [snip]
+```
+$ python vol.py -f grrcon.img mftparser --output=body -D output --output-file=grrcon_mft.body
+Volatility Foundation Volatility Framework 2.4
+Scanning for MFT entries and building directory, this can take a while
 
-It is recommended that the output be stored in a file using the `--output-file` option, since it is quite lengthy. For example:
+$ cat grrcon_mft.body
+[snip]
+0|[MFT STD_INFO] WINDOWS\system32\systems (Offset: 0x15938400)|12029|---------------|0|0|0|1335579320|1335579320|1335579320|1335578463
+0|[MFT FILE_NAME] WINDOWS\system32\systems\f.txt (Offset: 0x15938800)|12030|---a-----------|0|0|0|1335578503|1335578503|1335578503|1335578503
+0|[MFT STD_INFO] WINDOWS\system32\systems\f.txt (Offset: 0x15938800)|12030|---a-----------|0|0|0|1335578503|1335578503|1335578503|1335578503
+0|[MFT FILE_NAME] WINDOWS\system32\systems\g.exe (Offset: 0x15938c00)|12031|---a-----------|0|0|0|1335578514|1335578514|1335578514|1335578514
+0|[MFT STD_INFO] WINDOWS\system32\systems\g.exe (Offset: 0x15938c00)|12031|---a-----------|0|0|0|1335579014|1335578514|1335578514|1335578514
+0|[MFT FILE_NAME] WINDOWS\inf\divasrv.inf (Offset: 0x15c83000)|2192|---a-----------|0|0|22554|1332601266|1332601266|1332601266|1332601235
+[snip]
 
-    $ python vol.py -f Bob.vmem mftparser --output=body --output-file=bob_body.txt
+$ ls output/*15938800*
+output/file.0x15938800.data0.dmp
+
+$ cat output/*15938800*
+open 66.32.119.38
+jack
+2awes0me
+lcd c:\WINDOWS\System32\systems
+cd  /home/jack
+binary
+mput "*.txt"
+disconnect
+bye
+```
+
+
 
 The Sleuthkit `mactime` utility can then be used to output the bodyfile in a readable manner:
 
-    $ mactime -b bob_body.txt > bob_mactime.txt
-    $ cat bob_mactime.txt
-    [snip]
-    
-    Sat Feb 27 2010 15:12:32      480 ..c. ---a----------- 0        0        10268    
-    [snip]
-                                  456 macb ---a----------- 0        0        12091    Documents and Settings\Administrator\Cookies\ADMINI~1.TXT
-                                  480 macb ---a----------- 0        0        12091    Documents and Settings\Administrator\Cookies\administrator@search-network-plus[1].txt
-                                  480 macb ---a----------- 0        0        12092                                  
-                                  488 macb ---a----------- 0        0        12092    Documents and Settings\Administrator\Local Settings\Temporary Internet Files\Content.IE5\Y9UHCP2P\FILE_1~1.EXE                              
-                                  488 macb ---a----------- 0        0        12092    Documents and Settings\Administrator\Local Settings\Temporary Internet Files\Content.IE5\Y9UHCP2P\file[1].exe                              
-                                  488 macb ---a----------- 0        0        12093    Documents and Settings\Administrator\Local Settings\Temporary Internet Files\Content.IE5\Y9UHCP2P\FILE_2~1.EXE                              
-                                  488 macb ---a----------- 0        0        12093    Documents and Settings\Administrator\Local Settings\Temporary Internet Files\Content.IE5\Y9UHCP2P\file[2].exe                              
-                                  288 macb ---a----------- 0        0        12094    Documents and Settings\Administrator\Local Settings\Temp\e.exe
-    [snip]
-    Sat Feb 27 2010 15:12:33      480 mac. ---a----------- 0        0        10229    
-    [snip]                              
-                                  488 macb ---a-------I--- 0        0        12095    WINDOWS\Prefetch\ACRORD32.EXE-20C463C1.pf                              
-                                  488 macb ---a-------I--- 0        0        12095    WINDOWS\Prefetch\ACRORD~1.PF
-    Sat Feb 27 2010 15:12:34      480 m... ---a----------- 0        0        10119    
-    [snip]                              
-                                  344 macb ---a----------- 0        0        12096    WINDOWS\system32\sdra64.exe                              
-                                  344 macb -------------D- 0        0        12097    WINDOWS\system32\lowsec
-                                  296 macb ---a----------- 0        0        12098    WINDOWS\system32\lowsec\local.ds
-                                  736 ...b ---a----------- 0        0        12099    WINDOWS\system32\lowsec\USERDS~1.LLL
-                                  336 macb ---a----------- 0        0        12099    WINDOWS\system32\lowsec\user.ds
-                                  736 ...b ---a----------- 0        0        12099    WINDOWS\system32\lowsec\user.ds.lll
-                                  336 ...b ---a----------- 0        0        12101    WINDOWS\system32\lowsec\user.ds
-    [snip]
+```
+$ mactime -b grrcon_mft.body -d -z UTC |less
+[snip]
+Sat Apr 28 2012 02:01:43,0,macb,---a-----------,0,0,12030,"[MFT FILE_NAME] WINDOWS\system32\systems\f.txt (Offset: 0x15938800)"
+Sat Apr 28 2012 02:01:43,0,macb,---a-----------,0,0,12030,"[MFT STD_INFO] WINDOWS\system32\systems\f.txt (Offset: 0x15938800)"
+Sat Apr 28 2012 02:01:54,0,macb,---a-----------,0,0,12031,"[MFT FILE_NAME] WINDOWS\system32\systems\g.exe (Offset: 0x15938c00)"
+Sat Apr 28 2012 02:01:54,0,m.cb,---a-----------,0,0,12031,"[MFT STD_INFO] WINDOWS\system32\systems\g.exe (Offset: 0x15938c00)"
+Sat Apr 28 2012 02:02:05,0,macb,---a-----------,0,0,12032,"[MFT FILE_NAME] WINDOWS\system32\systems\p.exe (Offset: 0x18229000)"
+Sat Apr 28 2012 02:02:05,0,...b,---a-----------,0,0,12032,"[MFT STD_INFO] WINDOWS\system32\systems\p.exe (Offset: 0x18229000)"
+Sat Apr 28 2012 02:02:06,0,m...,---a-----------,0,0,12032,"[MFT STD_INFO] WINDOWS\system32\systems\p.exe (Offset: 0x18229000)"
+Sat Apr 28 2012 02:02:17,0,macb,---a-----------,0,0,12033,"[MFT FILE_NAME] WINDOWS\system32\systems\r.exe (Offset: 0x18229400)"
+Sat Apr 28 2012 02:02:17,0,m.cb,---a-----------,0,0,12033,"[MFT STD_INFO] WINDOWS\system32\systems\r.exe (Offset: 0x18229400)"
+Sat Apr 28 2012 02:02:26,0,macb,---a-----------,0,0,12034,"[MFT FILE_NAME] WINDOWS\system32\systems\sysmon.exe (Offset: 0x18229800)"
+Sat Apr 28 2012 02:02:26,0,...b,---a-----------,0,0,12034,"[MFT STD_INFO] WINDOWS\system32\systems\sysmon.exe (Offset: 0x18229800)"
+Sat Apr 28 2012 02:02:27,0,m.c.,---a-----------,0,0,12034,"[MFT STD_INFO] WINDOWS\system32\systems\sysmon.exe (Offset: 0x18229800)"
+[snip]
+```
 
 # Miscellaneous
 
