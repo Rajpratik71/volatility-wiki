@@ -2734,7 +2734,7 @@ Volatility Foundation Volatility Framework 2.4
 1970-01-01 00:00:00 UTC+0000|[_CMHIVE LastWriteTime]| \REGISTRY\MACHINE\HARDWARE| 
 ```
 
-There are three options for output: default verbose output, bodyfile format and an Excel 2007 file.  For more details see [Timeliner Release Documentation (pdf)](http://jls-scripts.googlecode.com/files/Timeliner%20Release%20Documentation.pdf) and the OMFW 2011 presentation [Time is on My Side](https://docs.google.com/leaf?id=0B7mg0ZBnpGuOZjVlYjJmMWMtYTgyYy00OGVlLTkxNmYtZWM2YmJjNzc1Zjc0&hl=en_US).  
+There are three options for output: default text output, bodyfile format and an Excel 2007 file.  For more details see [Timeliner Release Documentation (pdf)](http://jls-scripts.googlecode.com/files/Timeliner%20Release%20Documentation.pdf) and the OMFW 2011 presentation [Time is on My Side](https://docs.google.com/leaf?id=0B7mg0ZBnpGuOZjVlYjJmMWMtYTgyYy00OGVlLTkxNmYtZWM2YmJjNzc1Zjc0&hl=en_US).  The following shows the default text output:
 
 ```
 $ python vol.py -f XPSP3x86.vmem timeliner
