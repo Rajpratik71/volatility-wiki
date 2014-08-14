@@ -1836,7 +1836,7 @@ To get the UserAssist keys from a sample you can use the userassist plugin.  For
 
 ## shellbags
 
-This plugin parses and prints [Shellbag (pdf)](http://www.dfrws.org/2009/proceedings/p69-zhu.pdf) information obtained from the registry.  For more information see [Shellbags in Memory, SetRegTime, and TrueCrypt Volumes](http://volatility-labs.blogspot.com/2012/09/movp-32-shellbags-in-memory-setregtime.html).  There are two options for output: verbose (default) and bodyfile format.
+This plugin parses and prints [Shellbag (pdf)](http://www.dfrws.org/2009/proceedings/p69-zhu.pdf) information obtained from the registry.  For more information see [Shellbags in Memory, SetRegTime, and TrueCrypt Volumes](http://volatility-labs.blogspot.com/2012/09/movp-32-shellbags-in-memory-setregtime.html).  There are two options for output: verbose (default) and bodyfile format.  You can also include a machine identifier in the bodyfile header with the `--machine` flag (this is useful when combining timelines from multiple machines).
 
     $ python vol.py -f win7.vmem --profile=Win7SP1x86 shellbags
     Volatility Foundation Volatility Framework 2.4
@@ -2739,7 +2739,7 @@ Volatility Foundation Volatility Framework 2.4
 1970-01-01 00:00:00 UTC+0000|[_CMHIVE LastWriteTime]| \REGISTRY\MACHINE\HARDWARE| 
 ```
 
-There are three options for output: default text output, bodyfile format and an Excel 2007 file.  For more details see [Timeliner Release Documentation (pdf)](http://jls-scripts.googlecode.com/files/Timeliner%20Release%20Documentation.pdf) and the OMFW 2011 presentation [Time is on My Side](https://docs.google.com/leaf?id=0B7mg0ZBnpGuOZjVlYjJmMWMtYTgyYy00OGVlLTkxNmYtZWM2YmJjNzc1Zjc0&hl=en_US).  The following shows the default text output:
+There are three options for output: default text output, bodyfile format and an Excel 2007 file.  For more details see [Timeliner Release Documentation (pdf)](http://jls-scripts.googlecode.com/files/Timeliner%20Release%20Documentation.pdf) and the OMFW 2011 presentation [Time is on My Side](https://docs.google.com/leaf?id=0B7mg0ZBnpGuOZjVlYjJmMWMtYTgyYy00OGVlLTkxNmYtZWM2YmJjNzc1Zjc0&hl=en_US).  You can also include a machine identifier in the header with the `--machine` flag (this is useful when combining timelines from multiple machines).  The following shows the default text output:
 
 ```
 $ python vol.py -f XPSP3x86.vmem timeliner
