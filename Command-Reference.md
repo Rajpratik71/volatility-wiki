@@ -103,7 +103,7 @@ For a high level summary of the memory sample you're analyzing, use the imageinf
 
 The imageinfo output tells you the suggested profile that you should pass as the parameter to --profile=PROFILE when using other plugins. There may be more than one profile suggestion if profiles are closely related. It also prints the address of the KDBG (short for `_KDDEBUGGER_DATA64`) structure that will be used by plugins like [pslist](Command Reference#pslist) and [modules](Command Reference#modules) to find the process and module list heads, respectively. In some cases, especially larger memory samples, there may be multiple KDBG structures. Similarly, if there are multiple processors, you'll see the KPCR address and CPU number for each one. 
 
-Plugins automatically scan for the KPCR and KDBG values when they need them. However, you can specify the values directly for any plugin by providing --kpcr=ADDRESS or --kdbg=ADDRESS. By supplying the profile and KDBG (or failing that KPCR) to other Volatility commands, you'll get the most accurate and fastest results possible.
+Plugins automatically scan for the KPCR and KDBG values when they need them. However, you can specify the values directly for any plugin by providing `--kpcr=ADDRESS` or `--kdbg=ADDRESS`. By supplying the profile and KDBG (or failing that KPCR) to other Volatility commands, you'll get the most accurate and fastest results possible.
 
 **Note:** The `imageinfo` plugin will not work on hibernation files unless the correct profile is given in advance.  This is because important structure definitions vary between different operating systems.
 
@@ -111,9 +111,9 @@ Plugins automatically scan for the KPCR and KDBG values when they need them. How
 
 As opposed to [imageinfo](Command Reference#imageinfo) which simply provides profile suggestions, kdbgscan is designed to positively identify the correct profile and the correct KDBG address (if there happen to be multiple). This plugin scans for the KDBGHeader signatures linked to Volatility profiles and applies sanity checks to reduce false positives. The verbosity of the output and number of sanity checks that can be performed depends on whether Volatility can find a DTB, so if you already know the correct profile (or if you have a profile suggestion from [imageinfo](Command Reference#imageinfo)), then make sure you use it. 
 
-Here's an example scenario of when this plugin can be useful. You have a memory sample that you believe to be Windows 2003 SP2 x64, but [pslist](Command Reference#pslist) doesn't show any processes. The pslist plugin relies on finding the process list head which is pointed to by KDBG. However, the plugin takes the *first* KDBG found in the memory sample, which is not always the *best* one. You may run into this problem if a KDBG with an invalid PsActiveProcessHead pointer is found earlier in a sample (i.e. at a lower physical offset) than the valid KDBG.
+Here's an example scenario of when this plugin can be useful. You have a memory sample that you believe to be Windows 2003 SP2 x64, but [pslist](Command Reference#pslist) doesn't show any processes. The `pslist` plugin relies on finding the process list head which is pointed to by KDBG. However, the plugin takes the *first* KDBG found in the memory sample, which is not always the *best* one. You may run into this problem if a KDBG with an invalid PsActiveProcessHead pointer is found earlier in a sample (i.e. at a lower physical offset) than the valid KDBG.
 
-Notice below how kdbgscan picks up two KDBG structures: an invalid one (with 0 processes and 0 modules) is found first at 0xf80001172cb0 and a valid one (with 37 processes and 116 modules) is found next at 0xf80001175cf0. In order to "fix" [pslist](Command Reference#pslist) for this sample, you would simply need to supply the --kdbg=0xf80001175cf0 to the plist plugin.
+Notice below how `kdbgscan` picks up two KDBG structures: an invalid one (with 0 processes and 0 modules) is found first at `0xf80001172cb0` and a valid one (with 37 processes and 116 modules) is found next at `0xf80001175cf0`. In order to "fix" [pslist](Command Reference#pslist) for this sample, you would simply need to supply the `--kdbg=0xf80001175cf0` to the `plist` plugin.
 
     $ python vol.py -f Win2K3SP2x64-6f1bedec.vmem --profile=Win2003SP2x64 kdbgscan
     Volatility Foundation Volatility Framework 2.4
@@ -177,19 +177,19 @@ Use this command to scan for potential KPCR structures by checking for the self-
     Details                       : CPU 1 (GenuineIntel @ 2220 MHz)
     CR3/DTB                       : 0x1dcec000
 
-If the KdVersionBlock is not null, then it may be possible to find the machine's KDBG address via the KPCR. In fact, the backup method of finding KDBG used by plugins such as [pslist](Command Reference#pslist) is to leverage kpcrscan and then call the KPCR.get_kdbg() API function. 
+If the `KdVersionBlock` is not null, then it may be possible to find the machine's KDBG address via the KPCR. In fact, the backup method of finding KDBG used by plugins such as [pslist](Command Reference#pslist) is to leverage `kpcrscan` and then call the `KPCR.get_kdbg()` API function. 
 
 # Processes and DLLs
 
 ## pslist
 
-To list the processes of a system, use the pslist command. This walks the doubly-linked list pointed to by PsActiveProcessHead and shows the offset, process name, process ID, the parent process ID, number of threads, number of handles, and date/time when the process started and exited. As of 2.1 it also shows the Session ID and if the process is a Wow64 process (it uses a 32 bit address space on a 64 bit kernel).
+To list the processes of a system, use the `pslist` command. This walks the doubly-linked list pointed to by `PsActiveProcessHead` and shows the offset, process name, process ID, the parent process ID, number of threads, number of handles, and date/time when the process started and exited. As of 2.1 it also shows the Session ID and if the process is a Wow64 process (it uses a 32 bit address space on a 64 bit kernel).
 
 This plugin does not detect hidden or unlinked processes (but [psscan](Command Reference#psscan) can do that).
 
-If you see processes with 0 threads, 0 handles, and/or a non-empty exit time, the process may not actually still be active. For more information, see [The Missing Active in PsActiveProcessHead](http://mnin.blogspot.com/2011/03/mis-leading-active-in.html). Below, you'll notice regsvr32.exe has terminated even though its still in the "active" list. 
+If you see processes with 0 threads, 0 handles, and/or a non-empty exit time, the process may not actually still be active. For more information, see [The Missing Active in PsActiveProcessHead](http://mnin.blogspot.com/2011/03/mis-leading-active-in.html). Below, you'll notice `regsvr32.exe` has terminated even though its still in the "active" list. 
 
-Also note the two processes System and smss.exe will not have a Session ID, because System starts before sessions are established and smss.exe is the session manager itself. 
+Also note the two processes `System` and `smss.exe` will not have a Session ID, because System starts before sessions are established and `smss.exe` is the session manager itself. 
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 pslist
     Volatility Foundation Volatility Framework 2.4
@@ -243,7 +243,7 @@ By default, pslist shows virtual offsets for the EPROCESS but the physical offse
 
 ## pstree
 
-To view the process listing in tree form, use the pstree command. This enumerates processes using the same technique as pslist, so it will also not show hidden or unlinked processes. Child process are indicated using indention and periods. 
+To view the process listing in tree form, use the `pstree` command. This enumerates processes using the same technique as `pslist`, so it will also not show hidden or unlinked processes. Child process are indicated using indention and periods. 
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 pstree
     Volatility Foundation Volatility Framework 2.4
@@ -266,7 +266,7 @@ To view the process listing in tree form, use the pstree command. This enumerate
 
 ## psscan
 
-To enumerate processes using pool tag scanning (POOL_HEADER), use the psscan command. This can find processes that previously terminated (inactive) and processes that have been hidden or unlinked by a rootkit. The downside is that rootkits can still hide by overwriting the pool tag values (though not commonly seen in the wild).
+To enumerate processes using pool tag scanning (`POOL_HEADER`), use the psscan command. This can find processes that previously terminated (inactive) and processes that have been hidden or unlinked by a rootkit. The downside is that rootkits can still hide by overwriting the pool tag values (though not commonly seen in the wild).
 
     $ python vol.py --profile=Win7SP0x86 -f win7.dmp psscan
     Volatility Foundation Volatility Framework 2.0
