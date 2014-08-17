@@ -840,7 +840,7 @@ Use --memory to include slack space between the PE sections that aren't page ali
 
 For more information, see Andreas Schuster's 4-part series on [Reconstructing a Binary](http://computer.forensikblog.de/en/2006/04/reconstructing_a_binary.html#more). Also see [impscan](http://code.google.com/p/volatility/wiki/Command-Reference#impscan) for help rebuilding a binary's import address table.
 
-    $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 procmemdump -D dump/ -p 296
+    $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 procdump -D dump/ -p 296
     Volatility Foundation Volatility Framework 2.4
     ************************************************************************
     Dumping csrss.exe, pid:    296 output: executable.296.exe
