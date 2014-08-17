@@ -101,7 +101,7 @@ For a high level summary of the memory sample you're analyzing, use the imageinf
                Image date and time : 2012-02-22 11:29:02 UTC+0000
          Image local date and time : 2012-02-22 03:29:02 -0800
 
-The imageinfo output tells you the suggested profile that you should pass as the parameter to --profile=PROFILE when using other plugins. There may be more than one profile suggestion if profiles are closely related. It also prints the address of the KDBG (short for `_KDDEBUGGER_DATA64`) structure that will be used by plugins like [pslist](Command Reference#pslist) and [modules](Command Reference#modules) to find the process and module list heads, respectively. In some cases, especially larger memory samples, there may be multiple KDBG structures. Similarly, if there are multiple processors, you'll see the KPCR address and CPU number for each one. 
+The imageinfo output tells you the suggested profile that you should pass as the parameter to `--profile=PROFILE` when using other plugins. There may be more than one profile suggestion if profiles are closely related. It also prints the address of the KDBG (short for `_KDDEBUGGER_DATA64`) structure that will be used by plugins like [pslist](Command Reference#pslist) and [modules](Command Reference#modules) to find the process and module list heads, respectively. In some cases, especially larger memory samples, there may be multiple KDBG structures. Similarly, if there are multiple processors, you'll see the KPCR address and CPU number for each one. 
 
 Plugins automatically scan for the KPCR and KDBG values when they need them. However, you can specify the values directly for any plugin by providing `--kpcr=ADDRESS` or `--kdbg=ADDRESS`. By supplying the profile and KDBG (or failing that KPCR) to other Volatility commands, you'll get the most accurate and fastest results possible.
 
@@ -266,7 +266,7 @@ To view the process listing in tree form, use the `pstree` command. This enumera
 
 ## psscan
 
-To enumerate processes using pool tag scanning (`POOL_HEADER`), use the psscan command. This can find processes that previously terminated (inactive) and processes that have been hidden or unlinked by a rootkit. The downside is that rootkits can still hide by overwriting the pool tag values (though not commonly seen in the wild).
+To enumerate processes using pool tag scanning (`POOL_HEADER`), use the `psscan` command. This can find processes that previously terminated (inactive) and processes that have been hidden or unlinked by a rootkit. The downside is that rootkits can still hide by overwriting the pool tag values (though not commonly seen in the wild).
 
     $ python vol.py --profile=Win7SP0x86 -f win7.dmp psscan
     Volatility Foundation Volatility Framework 2.0
@@ -294,15 +294,15 @@ To enumerate processes using pool tag scanning (`POOL_HEADER`), use the psscan c
     0x3eb10030 SearchFilterHo     1812   1168 0x3ecf1480 2010-06-16 23:31:02      2010-06-16 23:33:14 
     [snip]
 
-If a process has previously terminated, the Time exited field will show the exit time. If you want to investigate a hidden process (such as displaying its DLLs), then you'll need physical offset of the EPROCESS object, which is shown in the far left column. Almost all process-related plugins take a --OFFSET parameter so that you can work with hidden processes. 
+If a process has previously terminated, the Time exited field will show the exit time. If you want to investigate a hidden process (such as displaying its DLLs), then you'll need physical offset of the `_EPROCESS` object, which is shown in the far left column. Almost all process-related plugins take a `--OFFSET` parameter so that you can work with hidden processes. 
 
 ## psdispscan
 
-This plugin is similar to psscan, except it enumerates processes by scanning for DISPATCHER_HEADER instead of pool tags. This gives you an alternate way to carve EPROCESS objects in the event an attacker tried to hide by altering pool tags. This plugin is not well maintained and only supports XP x86. To use it, you must type --plugins=contrib/plugins on command-line. 
+This plugin is similar to psscan, except it enumerates processes by scanning for `DISPATCHER_HEADER` instead of pool tags. This gives you an alternate way to carve `_EPROCESS` objects in the event an attacker tried to hide by altering pool tags. This plugin is not well maintained and only supports XP x86. To use it, you must type `--plugins=contrib/plugins` on command-line. 
 
 ## dlllist
 
-To display a process's loaded DLLs, use the dlllist command. It walks the doubly-linked list of LDR_DATA_TABLE_ENTRY structures which is pointed to by the PEB's InLoadOrderModuleList. DLLs are automatically added to this list when a process calls LoadLibrary (or some derivative such as LdrLoadDll) and they aren't removed until FreeLibrary is called and the reference count reaches zero. The load count column tells you if a DLL was statically loaded (i.e. as a result of being in the exe or another DLL's import table) or dynamically loaded. 
+To display a process's loaded DLLs, use the `dlllist` command. It walks the doubly-linked list of `_LDR_DATA_TABLE_ENTRY` structures which is pointed to by the PEB's `InLoadOrderModuleList`. DLLs are automatically added to this list when a process calls LoadLibrary (or some derivative such as LdrLoadDll) and they aren't removed until FreeLibrary is called and the reference count reaches zero. The load count column tells you if a DLL was statically loaded (i.e. as a result of being in the exe or another DLL's import table) or dynamically loaded. 
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 dlllist 
     ************************************************************************
