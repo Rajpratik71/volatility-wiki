@@ -1345,6 +1345,35 @@ You can look at the `-S/--summary-file` in order to map the file back to its ori
 
     {"name": "\\Device\\HarddiskVolume1\\WINDOWS\\system32\\config\\AppEvent.Evt", "ofpath": "dumpfiles/file.684.0x82256e48.dat", "pid": 684,...
 
+You can also use the [parsesummary.py script](https://raw.githubusercontent.com/gleeda/misc-scripts/master/misc_python/parsesummary.py) to parse out the json output of the summary file.  The following shows an example of using this script.  In addition to the original file name, PID of the process that had the file open and size, you can see which pages were present and which pages were missing and padded with zeros in the parsed summary output:
+
+```
+$ python vol.py -f grrcon.img dumpfiles --summary=grrcon_summary.json -D output/ 
+Volatility Foundation Volatility Framework 2.4
+
+$ python parsesummary.py grrcon_summary.json |less
+[snip]
+File: \Device\HarddiskVolume1\Documents and Settings\administrator\NTUSER.DAT -> output/file.4.0x82245008.vacb
+        PID: 4
+        _FILE_OBJECT offset: 0x821cd9e8
+        Type: SharedCacheMap
+        Size: 262144
+        Present Pages:
+                Offset(V): 0xde5c0000, Length: 4096
+                Offset(V): 0xde5c1000, Length: 4096
+                Offset(V): 0xde5c2000, Length: 4096
+                Offset(V): 0xde5c3000, Length: 4096
+[snip]
+        Padding:
+                FileOffset: 0xde62e000 x 0x1000
+                FileOffset: 0xde62f000 x 0x1000
+                FileOffset: 0xde630000 x 0x1000
+                FileOffset: 0xde631000 x 0x1000
+                FileOffset: 0xde632000 x 0x1000
+[snip]
+```
+
+
 Or you can use the `-n/--name` option in order to dump file the files with the original filename.
 
 Not every file will be currently active or in the VAD, and such files will not be dumped when using the `-r/--regex` option.  For these files you can first scan for a `_FILE_OBJECT` and then use the `-Q/--physoffset` flag to extract the file.  Special NTFS files are examples of files that must be dumped specifically:
