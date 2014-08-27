@@ -298,11 +298,12 @@ This function yields all values for a requested registry key.
 ...     print value, data
 ... 
 BOB-DCADFEDC55C
+BagMRU Size 5000
 ```
 
 We can see that this is correct using `printkey`:
 
-    $ ./vol.py -f Bob.vmem printkey -K "Software\Microsoft\Windows\ShellNoRoam"
+    $ python vol.py -f Bob.vmem printkey -K "Software\Microsoft\Windows\ShellNoRoam"
     [snip]
     ----------------------------
     Registry: \Device\HarddiskVolume1\Documents and Settings\Administrator\NTUSER.DAT
