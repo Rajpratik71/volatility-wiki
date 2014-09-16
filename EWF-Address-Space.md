@@ -40,7 +40,7 @@ You must have libewf installed for the EWF address space to work correctly.  The
 
 If you are using the compiled version of Volatility (exe), the address space is not available by default. In this case you can do one of the following: 
 
-* Install libewf and use the address space by supplying the --plugins location as previous described. 
+* Install libewf and use the address space by supplying the `--plugins` location as previous described. 
 * Mount the memory sample with EnCase and run Volatility over the exposed device (see [Sampling RAM Across the Enterprise](http://volatility-labs.blogspot.com/2013/10/sampling-ram-across-encase-enterprise.html)). 
 * Mount the memory sample with FTK Imager as "Physical & Logical" and then use an admin prompt to run Volatility on the exposed device. 
     * If the "drive" that was mounted is E:\ the proper command would be vol.exe -f "E:\unallocated space" ... etc. An example of this can be seen below: 
