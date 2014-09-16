@@ -36,6 +36,17 @@ You must have libewf installed for the EWF address space to work correctly.  The
 	0x86fdbda0 svchost.exe            1368   1108     16      208      0      0 2011-04-08 17:31:12    
 	[snip] 
 
+# Alternative Methods
+
+If you are using the compiled version of Volatility (exe), the address space is not available by default. In this case you can do one of the following: 
+
+* Install libewf and use the address space by supplying the --plugins location as previous described. 
+* Mount the memory sample with EnCase and run Volatility over the exposed device (see [Sampling RAM Across the Enterprise](http://volatility-labs.blogspot.com/2013/10/sampling-ram-across-encase-enterprise.html)). 
+* Mount the memory sample with FTK Imager as "Physical & Logical" and then use an admin prompt to run Volatility on the exposed device. 
+    * If the "drive" that was mounted is E:\ the proper command would be vol.exe -f "E:\unallocated space" ... etc. An example of this can be seen below: 
+
+[[images/FTK.png]]
+
 # File Format
 
 File format details can be found in [Joachim Metz's EWF documentation](http://code.google.com/p/libewf/downloads/detail?name=Expert%20Witness%20Compression%20Format%20%28EWF%29.pdf).
