@@ -21,7 +21,7 @@ To acquire the sample, right-click, click on "Acquire"  and follow the acquisiti
 
 # Notes
 
-You must have libewf installed for the EWF address space to work correctly.  The address space can be found in the `contrib/plugins/aspaces` folder.  You can use the `--plugins=` parameter in order to use the ewf.py address space without moving it.  The `--plugins=` parameter must come before any other parameters for `vol.py`.  You can see an example below:
+You must have [libewf](https://code.google.com/p/libewf/) installed for the EWF address space to work correctly.  The address space can be found in the `contrib/plugins/aspaces` folder.  You can use the `--plugins=` parameter in order to use the ewf.py address space without moving it.  The `--plugins=` parameter must come before any other parameters for `vol.py`.  You can see an example below:
 
 	$ python vol.py --plugins=contrib/plugins -f WinXPSP3x86.E01 --profile=WinXPSP3x86 pslist
 	Volatility Foundation Volatility Framework 2.4
@@ -40,7 +40,7 @@ You must have libewf installed for the EWF address space to work correctly.  The
 
 If you are using the compiled version of Volatility (exe), the address space is not available by default. In this case you can do one of the following: 
 
-* Install libewf and use the address space by supplying the `--plugins` location as previous described. 
+* Install [libewf](https://code.google.com/p/libewf/) and use the address space by supplying the `--plugins` location as previous described. 
 * Mount the memory sample with EnCase and run Volatility over the exposed device (see [Sampling RAM Across the Enterprise](http://volatility-labs.blogspot.com/2013/10/sampling-ram-across-encase-enterprise.html)). 
 * Mount the memory sample with [FTK Imager](http://www.accessdata.com/support/product-downloads) as "Physical & Logical" and then use an admin prompt to run Volatility on the exposed device. 
     * If the "drive" that was mounted is E:\ the proper command would be `vol.exe -f "E:\unallocated space" ...` etc. An example of this can be seen below: 
