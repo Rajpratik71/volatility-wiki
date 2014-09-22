@@ -2,7 +2,7 @@ This is a catalog of research, documentation, analysis, and tutorials generated 
 
 |Year | Month | Type | Title | Author|
 |-----|-------|------|-------|-------|
-|2014|Septemeber|Blog|[How to remotely acquire physical memory using @fresponse and @volatility](http://grayhat.ninja/f-response-volatility-3/)|Ryan Bentz (@grayhatninja)|
+|2014|September|Blog|[How to remotely acquire physical memory using @fresponse and @volatility](http://grayhat.ninja/f-response-volatility-3/)|Ryan Bentz (@grayhatninja)|
 |2014|August|Blog|[Fast Malware Triage Using Openioc_scan Volatility Plugin](http://takahiroharuyama.github.io/blog/2014/08/15/fast-malware-triage-using-openioc-scan-volatility-plugin/)| Takahiro Haruyama (@cci_forensics)|
 |2014|June|Paper|[In lieu of swap: Analyzing compressed RAM in Mac OS X and Linux](http://dfir.org/research/DFRWS-2014-compressed-swap.pdf)|Golden G. Richard III and Andrew Case|
 |2014|June|Paper|[Applying Memory Forensics to Rootkit Detection](https://www.academia.edu/7380266/Applying_Memory_Forensics_to_Rootkit_Detection)|Igor Korkin and Ivan Nesterov|
