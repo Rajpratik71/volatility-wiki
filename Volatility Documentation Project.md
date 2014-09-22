@@ -97,6 +97,7 @@ This is a catalog of research, documentation, analysis, and tutorials generated 
 |2013 | January | Blog | [Stabuniq Financial Infostealer Trojan Analysis](http://quequero.org/2013/01/stabuniq-financial-infostealer-trojan-analysis/) | Quequero & Evilcry|
 |2012 | Decemnber | Blog | [Hunting Malware with Memory Analysis](http://www.solutionary.com/resource-center/blog/2012/12/hunting-malware-with-memory-analysis/) | Jeremy Scott (@Solutionary)|
 |2012 | December | Paper | [@Jackcr Forensic Challenge](https://t.co/0xqvDa2m) | Bryan Nolen (@!BryanNolen)|
+|2012| December | Paper | [Hunting Mac OS X Rootkits with Memory Forensics](http://forensic.n0fate.com/wp-content/uploads/2012/12/Hunting-Mac-OS-X-rootkit-with-Memory-Forensics.pdf)| K. Lee, J. Kim, H. Koo|
 | 2012 | November | Blog | [jackr forensic challenge 2](http://thelulzkittens.blogspot.com/2012/11/jackcr-forensic-challenge-2-forensics.html) | @infoseckitten, @magicked, @alwaysreit |  
 | 2012 | November | Video | [DFIROnline: Android Forensics with Volatility and LiME](http://www.youtube.com/watch?v=Khnas55TV0w)  | Andrew Case (@attrc) | 
 | 2012 | November | Blog | [APTish Attack via Metasploit - Part III - Memory Analysis](http://www.sysforensics.org/2012/11/aptish-attack-via-metasploit-part-iii.html) | Patrick Olsen (@patrickrolsen) | 
