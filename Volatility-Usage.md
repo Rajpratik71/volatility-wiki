@@ -235,8 +235,9 @@ Volatility's plugin architecture can load plugin files from multiple directories
 
 * Subdirectories will also be traversed as long as there is an `__init__.py` file (which can be empty) within them.
 * The parameter to `--plugins` can also be a zip file containing the plugins such as `--plugins=myplugins.zip`. *Due to the way plugins are loaded, the external plugins directory or zip file must be specified before any plugin-specific arguments (including the name of the plugin).*  Example:
-
-    $ python vol.py --plugins=contrib/plugins -f XPSP3x86.vmem example 
+```
+$ python vol.py --plugins=contrib/plugins -f XPSP3x86.vmem example 
+```
 
 
 ## Choosing an Output Format
