@@ -242,7 +242,7 @@ $ python vol.py --plugins=contrib/plugins -f XPSP3x86.vmem example
 
 ## Choosing an Output Format
 
-By default, plugins use text renderers to standard output.  If you want to redirect to a file, you can of course use the console's redirection (i.e. > out.txt) or you could use `--output-file=out.txt`. The reason you can also choose `--output=FORMAT` is for allowing plugins to also render output as HTML, JSON, SQL, or whatever you choose. However, there are no plugins with those alternate output formats pre-configured for use, so you'll need to add a function named `render_html`, `render_json`, `render_sql`, respectively to each plugin before using `--output=HTML`. 
+By default, plugins use text renderers to standard output.  If you want to redirect to a file, you can of course use the console's redirection (i.e. `> out.txt`) or you could use `--output-file=out.txt`. The reason you can also choose `--output=FORMAT` is for allowing plugins to also render output as HTML, JSON, SQL, or whatever you choose. However, there are no plugins with those alternate output formats pre-configured for use, so you'll need to add a function named `render_html`, `render_json`, `render_sql`, respectively to each plugin before using `--output=HTML`. 
 
 # Plugin Specific Options
 
