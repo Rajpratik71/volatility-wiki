@@ -138,8 +138,8 @@ On a Linux or OS X system you can set options by exporting them in your shell, a
     $ export VOLATILITY_PROFILE=Win7SP0x86
     $ export VOLATILITY_LOCATION=file:///tmp/myimage.img
     $ export VOLATILITY_KDBG=0x82944c28
-    $ ./vol.py pslist
-    $ ./vol.py files
+    $ python vol.py pslist
+    $ python vol.py files
 
 ### Configuration Files
 
