@@ -127,7 +127,7 @@ If you want to see a list of supported profile names, do the following:
 
 ## Alternatives to Command Line Options
 
-If you're about to enter a lengthy engagement and don't want to type the path to your memory dump and the corresponding profile name each time, there are two alternatives: environment variables and configuration files. If an option is not supplied on command-line, Volatility will try to get it from an environment variable and if that fails - from a configuration file. 
+If you're about to enter a lengthy engagement and don't want to type common plugin flags, there are two alternatives: environment variables and configuration files. If an option is not supplied on command-line, Volatility will try to get it from an environment variable and if that fails - from a configuration file. 
 
 Note also that to avoid confusion, the (-h/--help) option also lists the current value of each parameter so you can easily check what value is being used (from the environment or the config files). 
 
@@ -137,6 +137,7 @@ On a Linux or OS X system you can set options by exporting them in your shell, a
 
     $ export VOLATILITY_PROFILE=Win7SP0x86
     $ export VOLATILITY_LOCATION=file:///tmp/myimage.img
+    $ export VOLATILITY_KDBG=0x82944c28
     $ ./vol.py pslist
     $ ./vol.py files
 
@@ -147,6 +148,9 @@ Configuration files are typically "volatilityrc" in the current directory or ~/.
     [DEFAULT]
     PROFILE=Win7SP0x86
     LOCATION=file:///tmp/myimage.img
+    KDBG=0x82944c28
+
+* *Note:* Other plugin flags may be utilized in this way, for example `KPCR`, `DTB` or `PLUGINS`.  When exporting variables, simply prefix `VOLATILITY_` before the flag name (e.g. `VOLATILITY_KPCR`).  Otherwise, the flag name remains the same when adding it to the configuration file.
 
 ## Enabling Debug Messages
 
