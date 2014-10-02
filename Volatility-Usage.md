@@ -37,7 +37,7 @@ There are several command-line options that are global (i.e. they apply to all p
 
 ## Displaying Help
 
-You can display the main help menu by passing -h or --help on command-line. This shows the global options and lists the plugins available to the currently specified profile. If you do not specify a profile, you'll be working with the default, WinXPSP2x86, thus you'll only see plugins that are valid for that operating system and architecture (for example, you won't see linux plugins or windows plugins that only work on Vista). To specify a profile other than the default, see Selecting a Profile below. 
+You can display the main help menu by passing `-h` or `--help` on command-line. This shows the global options and lists the plugins available to the currently specified profile. If you do not specify a profile, you'll be working with the default, `WinXPSP2x86`, thus you'll only see plugins that are valid for that operating system and architecture (for example, you won't see linux plugins or windows plugins that only work on Vista). To specify a profile other than the default, see Selecting a Profile below. 
 
 The remainder of this section will discuss the various options in greater detail. 
 
@@ -87,7 +87,7 @@ The remainder of this section will discuss the various options in greater detail
 
 ## Selecting a Profile
 
-Volatility needs to know what type of system your memory dump came from, so it knows which data structures, algorithms, and symbols to use. A default profile of WinXPSP2x86 is set internally, so if you're analyzing a Windows XP SP2 x86 memory dump, you do not need to supply --profile at all. However, for all others, you must specify the proper profile name. 
+Volatility needs to know what type of system your memory dump came from, so it knows which data structures, algorithms, and symbols to use. A default profile of `WinXPSP2x86` is set internally, so if you're analyzing a Windows XP SP2 x86 memory dump, you do not need to supply `--profile` at all. However, for all others, you must specify the proper profile name. 
 
 Note: If you do not know what type of system the memory dump is from, use the [imageinfo](Command Reference23#imageinfo) or [kdbgscan](Command Reference23#kdbgscan) plugins for a suggestion. These plugins are Windows-only. 
 
@@ -129,7 +129,7 @@ If you want to see a list of supported profile names, do the following:
 
 If you're about to enter a lengthy engagement and don't want to type common plugin flags, there are two alternatives: environment variables and configuration files. If an option is not supplied on command-line, Volatility will try to get it from an environment variable and if that fails - from a configuration file. 
 
-Note also that to avoid confusion, the (-h/--help) option also lists the current value of each parameter so you can easily check what value is being used (from the environment or the config files). 
+Note also that to avoid confusion, the (`-h/--help`) option also lists the current value of each parameter so you can easily check what value is being used (from the environment or the config files). 
 
 ### Environment Variables
 
@@ -143,26 +143,28 @@ On a Linux or OS X system you can set options by exporting them in your shell, a
 
 ### Configuration Files
 
-Configuration files are typically "volatilityrc" in the current directory or ~/.volatilityrc (user's home directory), or at user specified path (using the --conf-file option). An example of the file contents is shown below: 
+Configuration files are typically "`volatilityrc`" in the current directory or `~/.volatilityrc` (user's home directory), or at user specified path (using the `--conf-file` option). An example of the file contents is shown below: 
 
     [DEFAULT]
     PROFILE=Win7SP0x86
     LOCATION=file:///tmp/myimage.img
     KDBG=0x82944c28
 
-* *Note:* Other plugin flags may be utilized in this way, for example `KPCR`, `DTB` or `PLUGINS`.  When exporting variables, simply prefix `VOLATILITY_` before the flag name (e.g. `VOLATILITY_KPCR`).  Otherwise, the flag name remains the same when adding it to the configuration file.
+**Note:** Other plugin flags may be utilized in this way, for example `KPCR`, `DTB` or `PLUGINS`.  When exporting variables, simply prefix `VOLATILITY_` before the flag name (e.g. `VOLATILITY_KPCR`).  Otherwise, the flag name remains the same when adding it to the configuration file.
 
 ## Enabling Debug Messages
 
-If something isn't happening in Volatility the way you'd expect, try running the command with -d/--debug. This will enable the printing of debug messages to standard error. If you **really** need to debug Volatility (as in using pdb debugger), then add -d -d -d to your commands. 
+If something isn't happening in Volatility the way you'd expect, try running the command with `-d/--debug`. This will enable the printing of debug messages to standard error. If you **really** need to debug Volatility (as in using `pdb` debugger), then add `-d -d -d` to your commands. 
 
 ## Using the Cache
 
-The cache allows Volatility to store arbitrary objects and constants for later retrieval. This can include, DTB, KDBG, or KPCR addresses, entire x86 page translation tables, or even hibernation decompression data structures. To enable use of the cache, add --cache to your commands. This feature pickles (serializes) the data in files on your disk, so if you want to choose the location of cache files, use --cache-directory. For more information, see the caching system page in the developer guide for your release version.
+**Note:** *Caching has been disabled at this time.*
+
+The cache allows Volatility to store arbitrary objects and constants for later retrieval. This can include, DTB, KDBG, or KPCR addresses, entire x86 page translation tables, or even hibernation decompression data structures. To enable use of the cache, add `--cache` to your commands. This feature pickles (serializes) the data in files on your disk, so if you want to choose the location of cache files, use `--cache-directory`. For more information, see the caching system page in the developer guide for your release version.
 
 ## Setting the Timezone
 
-Timestamps extracted from memory can either be in system-local time, or in Universal Time Coordinates (UTC).  If they're in UTC, Volatility can be instructed to display them in a time zone of the analyst's choosing.  To choose a timezone, use one of the standard timezone names (such as Europe/London, US/Eastern or most [Olson timezones](http://en.wikipedia.org/wiki/List_of_tz_database_time_zones)) with the --tz=TIMEZONE flag.  Volatility attempts to use  [pytz](http://pytz.sourceforge.net/) if installed, otherwise it uses [tzset](http://docs.python.org/2/library/time.html#time.tzset). 
+Timestamps extracted from memory can either be in system-local time, or in Universal Time Coordinates (UTC).  If they're in UTC, Volatility can be instructed to display them in a time zone of the analyst's choosing.  To choose a timezone, use one of the standard timezone names (such as Europe/London, US/Eastern or most [Olson timezones](http://en.wikipedia.org/wiki/List_of_tz_database_time_zones)) with the `--tz=TIMEZONE` flag.  Volatility attempts to use  [pytz](http://pytz.sourceforge.net/) if installed, otherwise it uses [tzset](http://docs.python.org/2/library/time.html#time.tzset). 
 
 Please note that specifying a timezone will not affect how system-local times are displayed.  If you identify a time that you know is UTC-based, please file it as an issue in the issue tracker.
 
@@ -207,39 +209,39 @@ Below is the same output above, but without the `pytz` library installed:
 
 ## Setting the DTB
 
-The DTB (Directory Table Base) is what Volatility uses to translate virtual addresses to physical addresses. By default, a kernel DTB is used (from the Idle/System process). If you want to use a different process's DTB when accessing data, supply the address to --dtb=ADDRESS. 
+The DTB (Directory Table Base) is what Volatility uses to translate virtual addresses to physical addresses. By default, a kernel DTB is used (from the Idle/System process). If you want to use a different process's DTB when accessing data, supply the address to `--dtb=ADDRESS`. 
 
 ## Setting the KDBG Address
 
 **This is a Windows-only option**
 
-Volatility scans for the KDDEBUGGER_DATA64 structure using hard-coded signatures "KDBG" and a series of sanity checks. These signatures are not critical for the operating system to function properly, thus malware can overwrite them in attempt to throw off tools that **do** rely on the signature. Additionally, in some cases there may be more than one KDDEBUGGER_DATA64 (for example if you apply a major OS update and don't reboot), which can cause confusion and lead to incorrect process and module listings, among other problems. If you know the address add KDDEBUGGER_DATA64, you can specify it with --kdbg=ADDRESS and this override the automated scans. For more information, see the [kdbgscan](Command Reference#kdbgscan) plugin. 
+Volatility scans for the `_KDDEBUGGER_DATA64` structure using hard-coded signatures "KDBG" and a series of sanity checks. These signatures are not critical for the operating system to function properly, thus malware can overwrite them in attempt to throw off tools that **do** rely on the signature. Additionally, in some cases there may be more than one `_KDDEBUGGER_DATA64` (for example if you apply a major OS update and don't reboot), which can cause confusion and lead to incorrect process and module listings, among other problems. If you know the address add `_KDDEBUGGER_DATA64`, you can specify it with `--kdbg=ADDRESS` and this override the automated scans. For more information, see the [kdbgscan](Command Reference#kdbgscan) plugin. 
 
 ## Setting the KPCR Address
 
 **This is a Windows-only option**
 
-There is one KPCR (Kernel Processor Control Region) for each CPU on a system. Some Volatility plugins display per-processor information. Thus if you want to display data for a specific CPU, for example CPU 3 instead of CPU 1, you can pass the address of that CPU's KPCR with --kpcr=ADDRESS. To locate the KPCRs for all CPUs, see the [kpcrscan](Command Reference#kpcrscan) plugin. Also note that starting in Volatility 2.2, many of the plugins such as [idt](Command Reference#idt) and [gdt](Command Reference#gdt) automatically iterate through the list of KPCRs.
+There is one KPCR (Kernel Processor Control Region) for each CPU on a system. Some Volatility plugins display per-processor information. Thus if you want to display data for a specific CPU, for example CPU 3 instead of CPU 1, you can pass the address of that CPU's KPCR with `--kpcr=ADDRESS`. To locate the KPCRs for all CPUs, see the [kpcrscan](Command Reference#kpcrscan) plugin. Also note that starting in Volatility 2.2, many of the plugins such as [idt](Command Reference#idt) and [gdt](Command Reference#gdt) automatically iterate through the list of KPCRs.
 
 ## Enabling Write Support
 
-Write support in Volatility should be used with caution. Therefore, to actually enable it, you must not only type --write on command-line but you must type a "password" in response to a question that you'll be prompted with. In most cases you will not want to use write support since it can lead to corruption or modification of data in your memory dump. However, special cases exist that make this feature really interesting. For example, you could cleanse a live system of certain malware by writing to RAM over firewire, or you could break into a locked workstation by patching bytes in the winlogon DLLs. 
+Write support in Volatility should be used with caution. Therefore, to actually enable it, you must not only type `--write` on command-line but you must type a "password" in response to a question that you'll be prompted with. In most cases you will not want to use write support since it can lead to corruption or modification of data in your memory dump. However, special cases exist that make this feature really interesting. For example, you could cleanse a live system of certain malware by writing to RAM over firewire, or you could break into a locked workstation by patching bytes in the winlogon DLLs. 
 
 ## Specifying Additional Plugin Directories
 
-Volatility's plugin architecture can load plugin files from multiple directories at once. In the Volatility source code, most plugins are located in volatility/plugins. However, there is another directory (volatility/contrib) which is reserved for contributions from third party developers, or weakly supported plugins that simply aren't enabled by default. To access these plugins you just type --plugins=contrib/plugins on command-line. It also enables you to create a separate directory of your own plugins that you can manage without having to add/remove/modify files in the core volatility directories. 
+Volatility's plugin architecture can load plugin files from multiple directories at once. In the Volatility source code, most plugins are located in `volatility/plugins`. However, there is another directory (`volatility/contrib`) which is reserved for contributions from third party developers, or weakly supported plugins that simply aren't enabled by default. To access these plugins you just type `--plugins=contrib/plugins` on command-line. It also enables you to create a separate directory of your own plugins that you can manage without having to add/remove/modify files in the core volatility directories. 
 
-**Note:** the parameter to --plugins can also be a zip file containing the plugins such as --plugins=myplugins.zip. *Due to the way plugins are loaded, the external plugins directory or zip file must be specified before any plugin-specific arguments (including the name of the plugin).*  Example:
+**Note:** the parameter to `--plugins` can also be a zip file containing the plugins such as `--plugins=myplugins.zip`. *Due to the way plugins are loaded, the external plugins directory or zip file must be specified before any plugin-specific arguments (including the name of the plugin).*  Example:
 
-    $ python vol.py --plugins=contrib/plugins -f XPSP3x86.vmem timeliner 
+    $ python vol.py --plugins=contrib/plugins -f XPSP3x86.vmem example 
 
 ## Choosing an Output Format
 
-By default, plugins use text renderers to standard output.  If you want to redirect to a file, you can of course use the console's redirection (i.e. > out.txt) or you could use --output-file=out.txt. The reason you can also choose --output=FORMAT is for allowing plugins to also render output as HTML, JSON, SQL, or whatever you choose. However, there are no plugins with those alternate output formats pre-configured for use, so you'll need to add a function named render_html, render_json, render_sql, respectively to each plugin before using --output=HTML. 
+By default, plugins use text renderers to standard output.  If you want to redirect to a file, you can of course use the console's redirection (i.e. > out.txt) or you could use `--output-file=out.txt`. The reason you can also choose `--output=FORMAT` is for allowing plugins to also render output as HTML, JSON, SQL, or whatever you choose. However, there are no plugins with those alternate output formats pre-configured for use, so you'll need to add a function named `render_html`, `render_json`, `render_sql`, respectively to each plugin before using `--output=HTML`. 
 
 # Plugin Specific Options
 
-Many plugins accept arguments of their own, which are independent of the global options.  To see the list of available options, type both the plugin name and -h/--help on command-line. 
+Many plugins accept arguments of their own, which are independent of the global options.  To see the list of available options, type both the plugin name and `-h/--help` on command-line. 
 
     $ python vol.py dlllist -h
 
