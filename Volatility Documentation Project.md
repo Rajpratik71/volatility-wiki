@@ -3,7 +3,10 @@ This is a catalog of research, documentation, analysis, and tutorials generated 
 |Year | Month | Type | Title | Author|
 |-----|-------|------|-------|-------|
 |2014|September|Blog|[How to remotely acquire physical memory using @fresponse and @volatility](http://grayhat.ninja/f-response-volatility-3/)|Ryan Bentz (@grayhatninja)|
+|2014|August|Blog|[Volatility Plugin – SQLite Helper](http://blog.superponible.com/2014/08/31/volatility-plugin-sqlite-helper/)|Dave Lassalle (@superponible)|
+|2014|August|Blog|[Volatility Plugin – Firefox History](http://blog.superponible.com/2014/08/31/volatility-plugin-firefox-history/)|Dave Lassalle (@superponible)|
 |2014|August|Blog|[Volatility Plugin – Java IDX Parser](http://blog.superponible.com/2014/08/31/volatility-plugin-java-idx-parser/)|Dave Lassalle (@superponible)|
+|2014|August|Blog|[Volatility Plugin – Chrome History](http://blog.superponible.com/2014/08/31/volatility-plugin-chrome-history/)|Dave Lassalle (@superponible)|
 |2014|August|Blog|[Volatility Plugin – Office Trust Records](http://blog.superponible.com/2014/08/30/volatility-plugin-office-trust-records/)|Dave Lassalle (@superponible)|
 |2014|August|Blog|[Volatility Plugin – SSDeep for malfind and apihooks](http://blog.superponible.com/2014/08/30/volatility-plugin-ssdeep-for-malfind-and-apihooks/)|Dave Lassalle (@superponible)|
 |2014|August|Blog|[Fast Malware Triage Using Openioc_scan Volatility Plugin](http://takahiroharuyama.github.io/blog/2014/08/15/fast-malware-triage-using-openioc-scan-volatility-plugin/)| Takahiro Haruyama (@cci_forensics)|
