@@ -2,6 +2,7 @@ This is a catalog of research, documentation, analysis, and tutorials generated 
 
 |Year | Month | Type | Title | Author|
 |-----|-------|------|-------|-------|
+|2014|October|Blog|[Vol-MsDecompress (plugin contest)](http://jamaaldev.blogspot.com/2014/10/vol-msdecompress.html)|Jamaal Speights (@jamaalspeights)|
 |2014|September|Blog|[How to remotely acquire physical memory using @fresponse and @volatility](http://grayhat.ninja/f-response-volatility-3/)|Ryan Bentz (@grayhatninja)|
 |2014|September|Blog|[Announcing the BETA release of DAMM](http://www.504ensics.com/announcing-the-beta-release-of-damm/)|Vico Marziale (@vicomarziale)|
 |2014|September|Blog|[Volatility autoruns plugin](http://tomchop.me/volatility-autoruns-plugin/)|Thomas Chopitea (@tomchop_)|
