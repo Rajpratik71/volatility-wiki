@@ -42,7 +42,7 @@ If you are using the compiled version of Volatility (exe), the address space is 
 
 * Install [libewf](https://code.google.com/p/libewf/) and use the address space by supplying the `--plugins` location as previous described. 
 * Mount the memory sample with EnCase and run Volatility over the exposed device (see [Sampling RAM Across the Enterprise](http://volatility-labs.blogspot.com/2013/10/sampling-ram-across-encase-enterprise.html)). 
-* Mount the memory sample with [FTK Imager](http://www.accessdata.com/support/product-downloads) as "Physical & Logical" and then use an admin prompt to run Volatility on the exposed device. **This method also works for the newer `EWF2-EX01` for EnCase v7.**
+* Mount the memory sample with [FTK Imager](http://www.accessdata.com/support/product-downloads) as "Physical & Logical" and then use an admin prompt to run Volatility on the exposed device. **This method also works for the newer `EWF2-EX01` format for EnCase v7.**
     * If the "drive" that was mounted is E:\ the proper command would be `vol.exe -f "E:\unallocated space" ...` etc. An example of this can be seen below: 
 
 [[images/FTK.png]]
