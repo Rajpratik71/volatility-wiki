@@ -2,6 +2,10 @@ This is a catalog of research, documentation, analysis, and tutorials generated 
 
 |Year | Month | Type | Title | Author|
 |-----|-------|------|-------|-------|
+|2014|November|Blog|[Viewing Thread Information in Mac Memory](http://siliconblade.blogspot.com/2014/11/viewing-thread-information-in-mac-memory.html) |Cem Gurkok (@CGurkok)|
+|2014|November|Blog|[Tracing Bits of Coins in Mac Memory](http://siliconblade.blogspot.com/2014/11/tracing-bits-of-coins-in-mac-memory.html) |Cem Gurkok (@CGurkok)|
+|2014|November|Blog|[Finding Call Reference Hooks in Mac Memory](http://siliconblade.blogspot.com/2014/11/finding-call-reference-hooks-in-mac.html) |Cem Gurkok (@CGurkok)|
+|2014|November|Blog|[Detecting Shadow TrustedBSD Policy Tables In Mac Memory](http://siliconblade.blogspot.com/2014/11/detecting-shadow-trustedbsd-policy.html) |Cem Gurkok (@CGurkok)|
 |2014|November| Presentation | [Memory Forensics for IR- Leveraging Volatility to Hunt Advanced Actors]  (http://www.slideshare.net/jared703/vol-ir-jgss114) |  Jared Greenhill (@jared703) |
 |2014|October|Blog|[Vol-MsDecompress (plugin contest)](http://jamaaldev.blogspot.com/2014/10/vol-msdecompress.html)|Jamaal Speights (@jamaalspeights)|
 |2014|September|Blog|[How to remotely acquire physical memory using @fresponse and @volatility](http://grayhat.ninja/f-response-volatility-3/)|Ryan Bentz (@grayhatninja)|
