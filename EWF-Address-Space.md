@@ -36,6 +36,10 @@ You must have [libewf](https://code.google.com/p/libewf/) installed for the EWF 
 	0x86fdbda0 svchost.exe            1368   1108     16      208      0      0 2011-04-08 17:31:12    
 	[snip] 
 
+## Compression
+
+If you have issues with compressed images, you may have to recompile `libewf` with `--enable-v1-api`.  See (https://code.google.com/p/volatility/issues/detail?id=472#c11)[https://code.google.com/p/volatility/issues/detail?id=472#c11]
+
 # Alternative Methods
 
 If you are using the compiled version of Volatility (exe), the address space is not available by default. In this case you can do one of the following: 
