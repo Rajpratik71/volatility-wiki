@@ -38,7 +38,7 @@ You must have [libewf](https://code.google.com/p/libewf/) installed for the EWF 
 
 ## Compression
 
-If you have issues with compressed images, you may have to recompile `libewf` with `--enable-v1-api`.  See (https://code.google.com/p/volatility/issues/detail?id=472#c11)[https://code.google.com/p/volatility/issues/detail?id=472#c11]
+If you have issues with compressed images, you may have to recompile `libewf` with `--enable-v1-api`.  See [https://code.google.com/p/volatility/issues/detail?id=472#c11](https://code.google.com/p/volatility/issues/detail?id=472#c11)
 
 # Alternative Methods
 
