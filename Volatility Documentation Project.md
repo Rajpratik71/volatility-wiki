@@ -2,6 +2,7 @@ This is a catalog of research, documentation, analysis, and tutorials generated 
 
 |Year | Month | Type | Title | Author|
 |-----|-------|------|-------|-------|
+|2014|November|Blog|[9447 2014 CTF Write Up: coor coor (using Volatility to extract OTR keys)](http://w00tsec.blogspot.com/2014/11/9447-2014-ctf-write-up-coor-coor.html)| Bernardo Rodrigues| 
 |2014|November|Blog|[Viewing Thread Information in Mac Memory](http://siliconblade.blogspot.com/2014/11/viewing-thread-information-in-mac-memory.html) |Cem Gurkok (@CGurkok)|
 |2014|November|Blog|[Tracing Bits of Coins in Mac Memory](http://siliconblade.blogspot.com/2014/11/tracing-bits-of-coins-in-mac-memory.html) |Cem Gurkok (@CGurkok)|
 |2014|November|Blog|[Finding Call Reference Hooks in Mac Memory](http://siliconblade.blogspot.com/2014/11/finding-call-reference-hooks-in-mac.html) |Cem Gurkok (@CGurkok)|
