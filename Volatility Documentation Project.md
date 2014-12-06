@@ -3,8 +3,8 @@ This is a catalog of research, documentation, analysis, and tutorials generated 
 |Year | Month | Type | Title | Author|
 |-----|-------|------|-------|-------|
 |2014|December|Book|[Black Hat Python (Chapter 11 Automating Offensive Forensics)](http://www.nostarch.com/blackhatpython)|Justin Seitz (@jms_dot_py) |
-|2014|November|Presentation|[Memory Forensics for IR – Leveraging Volatility to Hunt Advanced Actors](http://www.slideshare.net/jared703/vol-ir-jgss114)|Jared Greenhill (@jared703)|
 |2014|November|Code|[Detekt - Malware Triaging Tool](https://github.com/botherder/detekt)|Claudio Guarnieri (@botherder)|
+|2014|November|Presentation|[Science, Sharing, and Repeatability in Memory Forensics](http://www.cs.columbia.edu/~brendan/OMFW2014.pdf)|Brendan Dolan-Gavitt (@moyix)|
 |2014|November|Presentation|[Next Generation Memory Forensics](http://t.co/ijyIq67zHO)|The @volatility developers|
 |2014|November|Blog|[9447 2014 CTF Write Up: coor coor (using Volatility to extract OTR keys)](http://w00tsec.blogspot.com/2014/11/9447-2014-ctf-write-up-coor-coor.html)| Bernardo Rodrigues| 
 |2014|November|Blog|[Viewing Thread Information in Mac Memory](http://siliconblade.blogspot.com/2014/11/viewing-thread-information-in-mac-memory.html) |Cem Gurkok (@CGurkok)|
