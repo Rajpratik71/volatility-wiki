@@ -13,6 +13,7 @@ This is a catalog of research, documentation, analysis, and tutorials generated 
 |2014|November|Blog|[Detecting Shadow TrustedBSD Policy Tables In Mac Memory](http://siliconblade.blogspot.com/2014/11/detecting-shadow-trustedbsd-policy.html) |Cem Gurkok (@CGurkok)|
 |2014|November| Presentation | [Memory Forensics for IR- Leveraging Volatility to Hunt Advanced Actors]  (http://www.slideshare.net/jared703/vol-ir-jgss114) |  Jared Greenhill (@jared703) |
 |2014|October|Blog|[Vol-MsDecompress (plugin contest)](http://jamaaldev.blogspot.com/2014/10/vol-msdecompress.html)|Jamaal Speights (@jamaalspeights)|
+|2014|October|Video|[SecTor 2014 - Unmasking Careto through Memory Analysis](http://2014.video.sector.ca/video/110388398)|Andrew Case (@attrc)|
 |2014|September|Blog|[How to remotely acquire physical memory using @fresponse and @volatility](http://grayhat.ninja/f-response-volatility-3/)|Ryan Bentz (@grayhatninja)|
 |2014|September|Blog|[Announcing the BETA release of DAMM](http://www.504ensics.com/announcing-the-beta-release-of-damm/)|Vico Marziale (@vicomarziale)|
 |2014|September|Blog|[Volatility autoruns plugin](http://tomchop.me/volatility-autoruns-plugin/)|Thomas Chopitea (@tomchop_)|
