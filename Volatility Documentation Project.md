@@ -2,6 +2,7 @@ This is a catalog of research, documentation, analysis, and tutorials generated 
 
 |Year | Month | Type | Title | Author|
 |-----|-------|------|-------|-------|
+|2014|December|Blog|[Parsing the hiberfil.sys, searching for slack space](https://diablohorn.wordpress.com/2014/12/10/parsing-the-hiberfil-sys-searching-for-slack-space/)|DiabloHorn|
 |2014|December|Book|[Black Hat Python (Chapter 11 Automating Offensive Forensics)](http://www.nostarch.com/blackhatpython)|Justin Seitz (@jms_dot_py) |
 |2014|November|Code|[Detekt - Malware Triaging Tool](https://github.com/botherder/detekt)|Claudio Guarnieri (@botherder)|
 |2014|November|Presentation|[Science, Sharing, and Repeatability in Memory Forensics](http://www.cs.columbia.edu/~brendan/OMFW2014.pdf)|Brendan Dolan-Gavitt (@moyix)|
