@@ -4,6 +4,7 @@ This is a catalog of research, documentation, analysis, and tutorials generated 
 |-----|-------|------|-------|-------|
 |2014|December|Blog|[Parsing the hiberfil.sys, searching for slack space](https://diablohorn.wordpress.com/2014/12/10/parsing-the-hiberfil-sys-searching-for-slack-space/)|DiabloHorn|
 |2014|December|Book|[Black Hat Python (Chapter 11 Automating Offensive Forensics)](http://www.nostarch.com/blackhatpython)|Justin Seitz (@jms_dot_py) |
+|2014|November|Video Presentation|[Reverse All the Things with PANDA](http://vimeo.com/113442048)|Brendan Dolan-Gavitt (@moyix)|
 |2014|November|Code|[Detekt - Malware Triaging Tool](https://github.com/botherder/detekt)|Claudio Guarnieri (@botherder)|
 |2014|November|Presentation|[Science, Sharing, and Repeatability in Memory Forensics](http://www.cs.columbia.edu/~brendan/OMFW2014.pdf)|Brendan Dolan-Gavitt (@moyix)|
 |2014|November|Presentation|[Next Generation Memory Forensics](http://www.basistech.com/wp-content/uploads/OSDFCon2014/Volatility-OSDFC2014.pdf)|The @volatility developers|
