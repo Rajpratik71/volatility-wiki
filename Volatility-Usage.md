@@ -231,12 +231,15 @@ Write support in Volatility should be used with caution. Therefore, to actually 
 
 ## Specifying Additional Plugin Directories
 
-Volatility's plugin architecture can load plugin files from multiple directories at once. In the Volatility source code, most plugins are located in `volatility/plugins`. However, there is another directory (`volatility/contrib`) which is reserved for contributions from third party developers, or weakly supported plugins that simply aren't enabled by default. To access these plugins you just type `--plugins=contrib/plugins` on command-line. It also enables you to create a separate directory of your own plugins that you can manage without having to add/remove/modify files in the core volatility directories. 
+Volatility's plugin architecture can load plugin files and profiles from multiple directories at once. In the Volatility source code, most plugins are located in `volatility/plugins`. However, there is another directory (`volatility/contrib`) which is reserved for contributions from third party developers, or weakly supported plugins that simply aren't enabled by default. To access these plugins you just type `--plugins=contrib/plugins` on command-line. It also enables you to create a separate directory of your own plugins that you can manage without having to add/remove/modify files in the core volatility directories. 
 
 **Notes:** 
 
 * Subdirectories will also be traversed as long as there is an `__init__.py` file (which can be empty) within them.
-* The parameter to `--plugins` can also be a zip file containing the plugins such as `--plugins=myplugins.zip`. *Due to the way plugins are loaded, the external plugins directory or zip file must be specified before any plugin-specific arguments (including the name of the plugin).*  Example:
+* The parameter to `--plugins` can also be a zip file containing the plugins such as `--plugins=myplugins.zip`. 
+* If the specified directory contains profiles, these will also be loaded.  This is convenient for using generated Linux/Android/Mac profiles with the standalone executable of Volatility.
+
+*Due to the way plugins are loaded, the external plugins directory or zip file must be specified before any plugin-specific arguments (including the name of the plugin).*  Example:
 ```
 $ python vol.py --plugins=contrib/plugins -f XPSP3x86.vmem example 
 ```
