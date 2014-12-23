@@ -735,7 +735,7 @@ This plugin mimics the output of reading /proc/slabinfo on a running Linux syste
 
 ## linux_mount
 
-This plugins mimics of the output of /proc/mouns on a running Linux system. For each mountpoint it prints the flags, mounted source (drive, network share, etc) and the director it is mounted on.
+This plugins mimics of the output of /proc/mounts on a running Linux system. For each mountpoint it prints the flags, mounted source (drive, network share, etc) and the director it is mounted on.
 
     # python vol.py -f centos.lime --profile=LinuxCentos63Newx64 linux_mount
     Volatility Foundation Volatility Framework 2.3_alpha
