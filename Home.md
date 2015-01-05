@@ -18,12 +18,11 @@ Current Courses:
 * [Aug 2015 in Amsterdam](http://www.memoryanalysis.net/#!New-Event-in-Amsterdam-NL-August-31th-September-4th-2015/c1zo4/B15D35AD-3494-4C1A-800E-2BE2FC2E13A5)
 * [Apr 2015 in Reston, VA](http://www.memoryanalysis.net/#!New-Event-in-Reston-VA-April-13th-17th-2015/c1zo4/CA11AC8A-BE94-4976-878B-282616917551)
 * [May 2015 in New York, NY](http://www.memoryanalysis.net/#!New-Event-in-New-York-NY-May-11th-15th-2015/c1zo4/55C3C18A-776E-464F-97CB-9D44FCBD4E55)
-* [Feb 2015 in São Paulo, Brazil](http://www.memoryanalysis.net/#!New-Event-in-So-Paulo-Brazil-Feburary-2nd---6th-2015/c1zo4/BFB221C1-986F-4839-BD6A-D61FFAAFFFD0)
 * [Jan 2015 in San Francisco, CA](http://www.memoryanalysis.net/#!New-Event-in-San-Francisco-CA-January-12th---16th-2015/c1zo4/CFA6C04F-F874-4FA5-A9CF-087E3141BB2A)
-* [Dec 2014 in Austin, TX](http://www.memoryanalysis.net/#!New-Event-in-Austin-TX-December-8th---12th-2014/c1zo4/EF551588-9E8A-4036-B5B5-4E4B5D4A4D66)
 
 Past Courses:
 
+* [Dec 2014 in Austin, TX](http://www.memoryanalysis.net/#!New-Event-in-Austin-TX-December-8th---12th-2014/c1zo4/EF551588-9E8A-4036-B5B5-4E4B5D4A4D66)
 * [Oct 2014 in Reston, VA](http://www.memoryanalysis.net/#!New-Event-in-Reston-VA-October-6th---10th-2014/c1zo4/FE9134FC-B2E4-47AF-A2F1-D3899840A4B7)
 * [Aug 2014 in Canberra, AU](http://www.memoryanalysis.net/#!New-Event-in-Canberra-AU-August-25th---29th-2014/c1zo4/5F514FDF-F43B-415D-9053-84E9A5E3FE3A)
 * [Jun 2014 in London, UK](http://www.memoryanalysis.net/#!New-Event-in-London-UK-June-9th---13th-2014/c1zo4/0BB86C58-D266-4A49-B503-5EA917057394)
