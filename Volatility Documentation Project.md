@@ -2,6 +2,7 @@ This is a catalog of research, documentation, analysis, and tutorials generated 
 
 |Year | Month | Type | Title | Author|
 |-----|-------|------|-------|-------|
+|2015|January|Blog|[Triaging a System Infected with Poweliks](http://journeyintoir.blogspot.com/2015/01/triaging-system-infected-with-poweliks.html)|Corey Harrell (@corey_harrell)|
 |2015|January|Blog|[Hunting and Decrypting Communications of Gh0st RAT in Memory](http://malware-unplugged.blogspot.com/2015/01/hunting-and-decrypting-communications.html)|Monnappa (@monnappa22)|
 |2014|December|Blog|[Parsing the hiberfil.sys, searching for slack space](https://diablohorn.wordpress.com/2014/12/10/parsing-the-hiberfil-sys-searching-for-slack-space/)|DiabloHorn|
 |2014|December|Book|[Black Hat Python (Chapter 11 Automating Offensive Forensics)](http://www.nostarch.com/blackhatpython)|Justin Seitz (@jms_dot_py) |
