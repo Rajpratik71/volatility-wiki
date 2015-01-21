@@ -2332,24 +2332,32 @@ Sat Apr 28 2012 02:02:27,0,m.c.,---a-----------,0,0,12034,"[MFT STD_INFO] WINDOW
 
 ## strings
 
-For a given image and a file with lines of the form `<decimal_offset>:<string>`,
+For a given image and a file with lines of the form `<decimal_offset>:<string>`, or `<decimal_offset> <string>`,
 output the corresponding process and virtual addresses where that
 string can be found. Expected input for this tool is the output of
 [Microsoft Sysinternals' Strings utility](http://technet.microsoft.com/en-us/sysinternals/bb897439), or another utility that
 provides similarly formatted offset:string mappings. Note that the 
 input offsets are physical offsets from the start of the file/image. 
 
-Sysinternals Strings can be used on Linux/Mac using [Wine](http://www.winehq.org/).  Output should be redirected to a file to be fed to the Volatility strings plugin. If you're using GNU strings command, use the -td flags to produce offsets in decimal (the plugin does not accept hex offsets). Some example usages are as follows:
+Sysinternals Strings can be used on Linux/Mac using [Wine](http://www.winehq.org/).  Output should be redirected to a file to be fed to the Volatility strings plugin. If you're using GNU strings command, use the `-td` flags to produce offsets in decimal (the plugin does not accept hex offsets). Some example usages are as follows:
 
 **Windows**
 
     C:\> strings.exe –q –o -accepteula win7.dd > win7_strings.txt
 
+It can take a while for the Sysinternals strings program to finish. The `–q` and `–o` switches are imperative, since they make sure the header is not output (`-q`) and that there is an offset for each line (`-o`).
+
 **Linux/Mac**
+
+You can use the Sysinternals strings program with wine:
 
     $ wine strings.exe –q –o -accepteula win7.dd > win7_strings.txt
 
-It can take a while for the Sysinternals strings program to finish. The –q and –o switches are imperative, since they make sure the header is not output (-q) and that there is an offset for each line (-o).
+You can also use the GNU `strings` utility that comes with Linux and Mac (**Note:** the default `strings` utility on Mac does not have Unicode support.  You can install the GNU `binutils` package in order to get a `strings` utility that does).  You should use the `-td` flags to get the decimal offset and will have to make a second pass with the `-el` flags in order to get (little endian) Unicode strings.  Notice that the second pass appends (`>>`) to the existing file:
+
+    $ strings -a -td win7.dd > win7_strings.txt
+    $ strings -a -td -el win7.dd >> win7_strings.txt
+
 The result should be a text file that contains the offset and strings from the image for example:
 
     16392:@@@
