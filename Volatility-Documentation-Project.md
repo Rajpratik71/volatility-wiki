@@ -2,6 +2,7 @@ This is a catalog of research, documentation, analysis, and tutorials generated 
 
 |Year | Month | Type | Title | Author|
 |-----|-------|------|-------|-------|
+|2015|February|Blog|[Volatility plugin for Dyre](http://cybermashup.com/2015/02/11/volatility-plugin-for-dyre/)|Kudelski Security|
 |2015|January|Blog|[Triaging a System Infected with Poweliks](http://journeyintoir.blogspot.com/2015/01/triaging-system-infected-with-poweliks.html)|Corey Harrell (@corey_harrell)|
 |2015|January|Blog|[Hunting and Decrypting Communications of Gh0st RAT in Memory](http://malware-unplugged.blogspot.com/2015/01/hunting-and-decrypting-communications.html)|Monnappa (@monnappa22)|
 |2014|December|Blog|[Pattern-Based Approach for In-Memory ShellCodes Detection](http://resources.infosecinstitute.com/pattern-based-approach-memory-shellcodes-detection/)|Emanuele De Lucia|
