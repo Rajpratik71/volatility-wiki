@@ -1984,7 +1984,7 @@ In order to save output to a file, use the `--output-file` option.
 
 ## dumpregistry
 
-The `dumpregistry` plugin allows you to dump a registry hive to disk.  It works on all supported Windows versions (Windows XP-8.1).  By default the plugin will dump all registry files (including virtual registries like HARDWARE) found to disk, however you may specify the virtual offset for a specific hive in order to only dump one registry at a time.  One caveat about using this plugin (or the [dumpfiles](Command Reference#dumpfiles) plugin) is that there may be holes in the dumped registry file, so offline registry tools may crash if they are not made robustly to handle "corrupt" files.  Example output is shown below:
+The `dumpregistry` plugin allows you to dump a registry hive to disk.  It works on all supported Windows versions (Windows XP-8.1).  By default the plugin will dump all registry files (including virtual registries like `HARDWARE`) found to disk, however you may specify the virtual offset for a specific hive in order to only dump one registry at a time.  One caveat about using this plugin (or the [dumpfiles](Command Reference#dumpfiles) plugin) is that there may be holes in the dumped registry file, so offline registry tools may crash if they are not made robustly to handle "corrupt" files.  Example output is shown below:
 
 ```
 $ python vol.py -f voltest.dmp --profile=Win7SP1x86 dumpregistry -D output
@@ -2033,6 +2033,7 @@ output/registry.0xa019c9d0.Syscachehve.reg: MS Windows registry file, NT/2000 or
 Notice that the `HARDWARE` registry has "Data" as the type.  This is because the first few cells of the registry are zeroed out.  If you examine the registry with a hex editor, you will see valid keys and values:
 
 ```
+$ xxd output/registry.0x8883c7d0.HARDWARE.reg |grep -v "0000 0000 0000 0000 0000 0000 0000 0000" |less
 0001000: 6862 696e 0000 0000 0010 0000 0000 0000  hbin............
 0001020: a8ff ffff 6e6b 2c00 c1be 7203 3eba cf01  ....nk,...r.>...
 0001030: 0000 0000 d002 0000 0300 0000 0100 0000  ................
