@@ -316,7 +316,7 @@ This is a catalog of research, documentation, analysis, and tutorials generated 
 | 2006 | April | Blog | [Reconstructing a Binary 2](http://computer.forensikblog.de/en/2006/04/reconstructing-a-binary-2.html) | Andreas Schuster (@forensikblog) |
 | 2006 | April | Blog | [Reconstructing a Binary 1](http://computer.forensikblog.de/en/2006/04/reconstructing-a-binary-1.html) | Andreas Schuster (@forensikblog) |
 | 2006 | April | Blog | [Reconstructing the Process Memory](http://computer.forensikblog.de/en/2006/04/reconstructing-the-process-memory.html) | Andreas Schuster (@forensikblog) |
-| 2006 | March | Blog | [DMP File Structurehttp://computer.forensikblog.de/en/2006/03/dmp-file-structure.html]() | Andreas Schuster (@forensikblog) |
+| 2006 | March | Blog | [DMP File Structure](http://computer.forensikblog.de/en/2006/03/dmp-file-structure.html) | Andreas Schuster (@forensikblog) |
 | 2006 | March | Blog | [Converting Virtual into Physical Addresses](http://computer.forensikblog.de/en/2006/03/converting-virtual-into-physical-addresses.html) | Andreas Schuster (@forensikblog) |
 | 2006 | March | Blog | [Search for Processes and Threads](http://computer.forensikblog.de/en/2006/03/searching-for-processes-and-threads.html) | Andreas Schuster (@forensikblog) |
 | 2006 | February | Blog | [Dating the execution of certain routines](http://computer.forensikblog.de/en/2006/02/dating-the-execution-of-certain-routines.html) | Andreas Schuster (@forensikblog) |
