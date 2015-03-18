@@ -138,6 +138,7 @@ This is a catalog of research, documentation, analysis, and tutorials generated 
 | 2012 | September | Blog | [cr0security rootkit analysis](http://blog.rop.io/cr0security-rootkit-analysis.html) | Teguh P. Alko | 
 | 2012 | September | Blog | [Linux, Volatility, and Profiles](http://neosysforensics.blogspot.com.es/2012/08/linux-volatility-y-sus-perfiles.html) | neofito (@neosysforensics) | 
 | 2012 | August | Paper/Slides | [Virtual Machine Introspection in a Hybrid Honeypot Architecture](https://www.usenix.org/conference/cset12/virtual-machine-introspection-hybrid-honeypot-architecture) | Lengyel, et. al. | 
+| 2012 | August | Code | [userspace.py](https://github.com/a-white/Userspace/blob/master/userspace.py) | Andrew White|
 | 2012 | August | Blog | [Using Volatility Framework as a Library](http://dsocon.blogspot.com/2012/08/using-volatility-framework-as-library.html) | Adam Pridgen | 
 | 2012 | August | Blog | [Identifying a mounted TrueCrypt volume from artifacts in volatile memory](http://www.scribd.com/doc/103174530/Identifying-a-mounted-TrueCrypt-volume-from-artefacts-in-volatile-memory-using-Volatility-2-1) | Adam Bridge (bridgeythegeek) | 
 | 2012 | August | Blog | [Pen Test Privilege Escalation Through Suspended Virtual Machines](http://pen-testing.sans.org/blog/2012/08/03/pen-test-privilege-escalation-through-suspended-virtual-machines) | Mark Baggett (@markbaggett) | 
