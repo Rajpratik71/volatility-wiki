@@ -121,7 +121,7 @@ This is a catalog of research, documentation, analysis, and tutorials generated 
 |2013 | January | Slides | [Defeating Windows Memory Forensics](http://events.ccc.de/congress/2012/Fahrplan/attachments/2231_Defeating%20Windows%20memory%20forensics.ppt) | Luka Milkovic|
 |2013 | January | Blog | [Volatility vs Citadel 1.3.4.5](http://invisson.blogspot.com.es/2013/01/volatility-vs-citadel-1345.html) | Santiago Vicente @smvicente|
 |2013 | January | Blog | [Stabuniq Financial Infostealer Trojan Analysis](http://quequero.org/2013/01/stabuniq-financial-infostealer-trojan-analysis/) | Quequero & Evilcry|
-|2012 | Decemnber | Blog | [Hunting Malware with Memory Analysis](http://www.solutionary.com/resource-center/blog/2012/12/hunting-malware-with-memory-analysis/) | Jeremy Scott (@Solutionary)|
+|2012 | December | Blog | [Hunting Malware with Memory Analysis](http://www.solutionary.com/resource-center/blog/2012/12/hunting-malware-with-memory-analysis/) | Jeremy Scott (@Solutionary)|
 |2012 | December | Paper | [@Jackcr Forensic Challenge](https://t.co/0xqvDa2m) | Bryan Nolen (@!BryanNolen)|
 |2012| December | Paper | [Hunting Mac OS X Rootkits with Memory Forensics](http://forensic.n0fate.com/wp-content/uploads/2012/12/Hunting-Mac-OS-X-rootkit-with-Memory-Forensics.pdf)| K. Lee, J. Kim, H. Koo|
 | 2012 | November | Blog | [jackr forensic challenge 2](http://thelulzkittens.blogspot.com/2012/11/jackcr-forensic-challenge-2-forensics.html) | @infoseckitten, @magicked, @alwaysreit |  
