@@ -76,6 +76,7 @@ This is a catalog of research, documentation, analysis, and tutorials generated 
 |2013 | October | Blog | [Dumping Malware Configuration Data from Memory with Volatility](http://www.ghettoforensics.com/2013/10/dumping-malware-configuration-data-from.html) | Brian Baskin (@bbaskin)|
 |2013 | October | Blog | [VOLSHELL FOR THE WEB!](http://forensec.wordpress.com/2013/10/08/volshell-for-the-web/) | Martijn Veken (@martijnveken)|
 |2013 | September | Blog | [The Hunt for Memory Malware](http://resources.infosecinstitute.com/the-hunt-for-memory-malwares/) | Albert Fruz|
+| 2013 | August | Code | [Hashtest](https://github.com/a-white/Hashtest) |Andy White |
 |2013 | August | Blog | [Total Recall Script Released](http://sketchymoose.blogspot.com.es/2013/09/total-recall-script-released.html) | Melissa (@sk3tchymoos3)|
 |2013 | August | Code | [Some scripts/plugins for Volatility](https://github.com/hiddenillusion/volatility) | Glenn P. Edwards Jr (@hiddenillusion)|
 |2013 | August | Code | [Volatility Interface to the Binary Analysis Platform](https://bitbucket.org/carlpulley/libbap/wiki/Home) | Carl Pulley|
