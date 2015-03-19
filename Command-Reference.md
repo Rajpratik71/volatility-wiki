@@ -1984,7 +1984,7 @@ In order to save output to a file, use the `--output-file` option.
 
 ## dumpregistry
 
-The `dumpregistry` plugin allows you to dump a registry hive to disk.  It works on all supported Windows versions (Windows XP-8.1).  By default the plugin will dump all registry files (including virtual registries like `HARDWARE`) found to disk, however you may specify the virtual offset for a specific hive in order to only dump one registry at a time.  One caveat about using this plugin (or the [dumpfiles](Command Reference#dumpfiles) plugin) is that there may be holes in the dumped registry file, so offline registry tools may crash if they are not made robustly to handle "corrupt" files.  Example output is shown below:
+The `dumpregistry` plugin allows you to dump a registry hive to disk.  It works on all supported Windows versions (Windows XP-8.1).  By default the plugin will dump all registry files (including virtual registries like `HARDWARE`) found to disk, however you may specify the virtual offset for a specific hive in order to only dump one registry at a time.  One caveat about using this plugin (or the [dumpfiles](Command Reference#dumpfiles) plugin) is that there may be holes in the dumped registry file, so offline registry tools may crash if they are not made robustly to handle "corrupt" files.  These holes are denoted in the text output with lines like `Physical layer returned None for index 2000, filling with NULL`.  Example output is shown below:
 
 ```
 $ python vol.py -f voltest.dmp --profile=Win7SP1x86 dumpregistry -D output
@@ -2080,20 +2080,33 @@ $ xxd output/registry.0x8883c7d0.HARDWARE.reg |grep -v "0000 0000 0000 0000 0000
 You may also dump only one registry at a time by using the virtual offset of the hive:
 
 ```
-$ python vol.py -f sample.bin hivelist
+$ python vol.py -f voltest.dmp --profile=Win7SP1x86 hivelist
 Volatility Foundation Volatility Framework 2.4
 Virtual    Physical   Name
 ---------- ---------- ----
 [snip]
-0xe15b2b60 0x049abb60 \Device\HarddiskVolume1\WINDOWS\system32\config\SECURITY
+0x8cec09d0 0x0d1f19d0 \??\C:\Users\test\ntuser.dat
 [snip]
 
-$ python vol.py -f sample.bin dumpregistry -o 0xe15b2b60 -D output/
+$ python vol.py -f voltest.dmp --profile=Win7SP1x86 dumpregistry -o 0x8cec09d0 -D output/
 Volatility Foundation Volatility Framework 2.4
 **************************************************
-Writing out registry: registry.0xe15b2b60.SECURITY.reg
+Writing out registry: registry.0x8cec09d0.ntuserdat.reg
 
-**************************************************
+Physical layer returned None for index 9000, filling with NULL
+Physical layer returned None for index a000, filling with NULL
+Physical layer returned None for index b000, filling with NULL
+Physical layer returned None for index c000, filling with NULL
+Physical layer returned None for index d000, filling with NULL
+Physical layer returned None for index e000, filling with NULL
+Physical layer returned None for index f000, filling with NULL
+Physical layer returned None for index 10000, filling with NULL
+Physical layer returned None for index 11000, filling with NULL
+Physical layer returned None for index 20000, filling with NULL
+Physical layer returned None for index 21000, filling with NULL
+
+$ file output/*
+output/registry.0x8cec09d0.ntuserdat.reg: MS Windows registry file, NT/2000 or above
 ```
 
 # Crash Dumps, Hibernation, and Conversion
