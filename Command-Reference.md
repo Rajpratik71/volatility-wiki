@@ -2077,6 +2077,25 @@ $ xxd output/registry.0x8883c7d0.HARDWARE.reg |grep -v "0000 0000 0000 0000 0000
 [snip]
 ```
 
+You may also dump only one registry at a time by using the virtual offset of the hive:
+
+```
+$ python vol.py -f sample.bin hivelist
+Volatility Foundation Volatility Framework 2.4
+Virtual    Physical   Name
+---------- ---------- ----
+[snip]
+0xe15b2b60 0x049abb60 \Device\HarddiskVolume1\WINDOWS\system32\config\SECURITY
+[snip]
+
+$ python vol.py -f sample.bin dumpregistry -o 0xe15b2b60 -D output/
+Volatility Foundation Volatility Framework 2.4
+**************************************************
+Writing out registry: registry.0xe15b2b60.SECURITY.reg
+
+**************************************************
+```
+
 # Crash Dumps, Hibernation, and Conversion
 
 Volatility supports memory dumps in several different formats, to ensure the highest compatibility with different acquisition tools. You can analyze hibernation files, crash dumps, virtualbox core dumps, etc in the same way as any raw memory dump and Volatility will detect the underlying file format and apply the appropriate address space. You can also convert between file formats. 
