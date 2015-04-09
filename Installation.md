@@ -1,6 +1,6 @@
 **Table of Contents**  
 
-- [Install Volatility](Installation#install-volatility)
+- [Installing Volatility](Installation#installing-volatility)
 	- [Dependencies](Installation#dependencies)
 		- [Recommended packages](Installation#recommended-packages)
 		- [Optional packages](Installation#optional-packages)
