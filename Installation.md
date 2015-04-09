@@ -1,6 +1,6 @@
 **Table of Contents**  
 
-- [Getting Volatility(Installation#getting-volatility)
+- [Getting Volatility](Installation#getting-volatility)
 - [Installing Volatility](Installation#installing-volatility)
 	- [Dependencies](Installation#dependencies)
 		- [Recommended packages](Installation#recommended-packages)
