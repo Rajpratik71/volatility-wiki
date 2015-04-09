@@ -6,6 +6,16 @@
 		- [Optional packages](Installation#optional-packages)
 - [Upgrade Volatility](Installation#upgrade-volatility)
 
+# Getting Volatility
+
+You can get the source code by either [downloading a stable release](http://www.volatilityfoundation.org/#!releases/component_71401) or cloning from github.  To do the latter, type:
+
+```
+$ git clone https://github.com/volatilityfoundation/volatility.git
+```
+
+This will create a `volatility` folder that contains the source code and you can run Volatility directory from there.
+
 # Install Volatility 
 
 If you're using the standalone Windows, Linux, or Mac executable, no installation is necessary - just run it from a command prompt. No dependencies are required, because they're already packaged inside the exe.
