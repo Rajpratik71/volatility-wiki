@@ -55,7 +55,7 @@ For the most comprehensive plugin support, you should install the following libr
  * [PIL](http://www.pythonware.com/products/pil/) - Python Imaging Library 
       * Dependent plugins
           * screenshots
- *  [OpenPyxl](https://bitbucket.org/ericgazoni/openpyxl/wiki/Home) - Python library to read/write Excel 2007 xlsx/xlsm files 
+ *  [OpenPyxl](https://pypi.python.org/pypi/openpyxl) - Python library to read/write Excel 2007 xlsx/xlsm files 
       * Dependent plugins
           * timeliner (with --output=xlsx option)
 
