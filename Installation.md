@@ -42,6 +42,7 @@ For the most comprehensive plugin support, you should install the following libr
           * apihooks
           * callbacks
           * impscan
+          * kdbgscan, pslist, modules etc for Windows 8/2012 machines
           * the disassemble command in volshell, linux_volshell, and mac_volshell
  * [Yara](https://plusvic.github.io/yara/) - A malware identification and classification tool 
       * Dependent plugins
