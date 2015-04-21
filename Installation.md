@@ -57,7 +57,7 @@ For the most comprehensive plugin support, you should install the following libr
           * screenshots
  *  [OpenPyxl](https://pypi.python.org/pypi/openpyxl) - Python library to read/write Excel 2007 xlsx/xlsm files 
       * Dependent plugins
-          * timeliner (with --output=xlsx option)
+          * Any plugin that has been converted to unified format (with --output=xlsx option)
 
 ### Optional packages
 
