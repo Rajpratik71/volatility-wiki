@@ -150,6 +150,8 @@ Configuration files are typically "`volatilityrc`" in the current directory or `
     LOCATION=file:///tmp/myimage.img
     KDBG=0x82944c28
 
+Configuration files are particularly useful when processing several memory samples in one sitting.
+
 **Notes:** 
 * Other plugin flags may be utilized in this way, for example `KPCR`, `DTB` or `PLUGINS`.  When exporting variables, simply prefix `VOLATILITY_` before the flag name (e.g. `VOLATILITY_KPCR`).  Otherwise, the flag name remains the same when adding it to the configuration file.
 * If you have a path with a space or more in the name, spaces should be replaced with `%20` instead (e.g. `LOCATION=file:///tmp/my%20image.img`).
