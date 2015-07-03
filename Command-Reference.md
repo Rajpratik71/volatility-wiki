@@ -939,10 +939,10 @@ If you want to view the balanced binary tree in Graphviz format, just add --outp
 ![VADTree with Dot output](http://gleeda.github.io/images/vadtree.png)
 
 Fillcolor Legend: 
-* Red: Heap
-* Gray: Modules
+* Red: Heaps
+* Gray: DLLs
 * Green: Stacks
-* Yellow: FileObject
+* Yellow: Mapped Files
 
 ## vaddump
 
