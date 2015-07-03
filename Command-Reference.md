@@ -934,7 +934,15 @@ To display the VAD nodes in a visual tree form, use the vadtree command.
             0x0000000000200000 - 0x000000000020ffff
     [snip]
 
-If you want to view the balanced binary tree in Graphviz format, just add --output=dot --output-file=graph.dot to your command. Then you can open graph.dot in any Graphviz-compatible viewer. This plugin also supports color coding the output based on the regions that contain stacks, heaps, mapped files, DLLs, etc.
+If you want to view the balanced binary tree in Graphviz format, just add --output=dot --output-file=graph.dot to your command. Then you can open graph.dot in any Graphviz-compatible viewer. This plugin also supports color coding the output based on the regions that contain stacks, heaps, mapped files, DLLs, etc.  A partial example is shown below using Omnigraffle:
+
+![VADTree with Dot output](http://gleeda.github.io/images/vadtree.png)
+
+Fillcolor Legend: 
+* Red: Heap
+* Gray: Modules
+* Green: Stacks
+* Yellow: FileObject
 
 ## vaddump
 
