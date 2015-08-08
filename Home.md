@@ -16,12 +16,14 @@ For more information, click the link for the event you're interested in or read 
 Current Courses:
 
 * [Aug 2015 in Amsterdam](http://www.memoryanalysis.net/#!New-Event-in-Amsterdam-NL-August-31th-September-4th-2015/c1zo4/B15D35AD-3494-4C1A-800E-2BE2FC2E13A5)
-* [May 2015 in New York, NY](http://www.memoryanalysis.net/#!New-Event-in-New-York-NY-May-11th-15th-2015/c1zo4/55C3C18A-776E-464F-97CB-9D44FCBD4E55)
-* [Apr 2015 in Reston, VA](http://www.memoryanalysis.net/#!New-Event-in-Reston-VA-April-13th-17th-2015/c1zo4/CA11AC8A-BE94-4976-878B-282616917551)
-
+* [Oct 2015 in Reston](http://www.memoryanalysis.net/#!New-Event-in-Reston-VA-October-5th-9th-2015/c1zo4/5532c7400cf29b0040890e62)
+* [Feb 2016 in San Diego](http://www.memoryanalysis.net/#!New-Event-in-San-Diego-CA-Feb-1st-5th-2016/c1zo4/55b7c73c0cf253981fc9b82c)
+* [Apr 2016 in Reston](http://www.memoryanalysis.net/#!New-Event-in-Reston-VA-April-4th-8th-2016/c1zo4/55aa87960cf286eab026093f)
 
 Past Courses:
 
+* [May 2015 in New York, NY](http://www.memoryanalysis.net/#!New-Event-in-New-York-NY-May-11th-15th-2015/c1zo4/55C3C18A-776E-464F-97CB-9D44FCBD4E55)
+* [Apr 2015 in Reston, VA](http://www.memoryanalysis.net/#!New-Event-in-Reston-VA-April-13th-17th-2015/c1zo4/CA11AC8A-BE94-4976-878B-282616917551)
 * [Jan 2015 in San Francisco, CA](http://www.memoryanalysis.net/#!New-Event-in-San-Francisco-CA-January-12th---16th-2015/c1zo4/CFA6C04F-F874-4FA5-A9CF-087E3141BB2A)
 * [Dec 2014 in Austin, TX](http://www.memoryanalysis.net/#!New-Event-in-Austin-TX-December-8th---12th-2014/c1zo4/EF551588-9E8A-4036-B5B5-4E4B5D4A4D66)
 * [Oct 2014 in Reston, VA](http://www.memoryanalysis.net/#!New-Event-in-Reston-VA-October-6th---10th-2014/c1zo4/FE9134FC-B2E4-47AF-A2F1-D3899840A4B7)
