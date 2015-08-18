@@ -4,7 +4,7 @@ This is a catalog of research, documentation, analysis, and tutorials generated 
 |-----|-------|------|-------|-------|
 |2015|August|Blog|[Memory Forensics – Detecting Galileo RCS on Windows](https://www.4armed.com/blog/memory-forensics-detecting-galileo-rcs-windows/)|Joe Greenwood (@SeawolfRN)|
 |2015|August|Blog|[Python script to combine psscan and pslist Output ](http://thepcn3rd.blogspot.com/2015/08/python-script-to-combine-psscan-and.html)|thepcn3rd (@lokut)|
-|2015|July|Code|[ksfinder: Retrieve exported kernel symbols from physical memory dumps ](https://github.com/emdel/ksfinder)|@emdel|
+|2015|July|Code|[ksfinder: Retrieve exported kernel symbols from physical memory dumps ](https://github.com/emdel/ksfinder)|@emd3l|
 |2015|June|Blog|[Memory Analysis of DarkComet using VolDiff](https://github.com/aim4r/VolDiff/wiki/Memory-Analysis-of-DarkComet-using-VolDiff)|@aim4r|
 |2015|May|Video|[Evolve - Running multiple plugins at the start](https://www.youtube.com/watch?v=mqMuQQowqMI)|James Habben (@JamesHabben)|
 |2015|April|Code|[linux_python_strings](https://github.com/cyli/volatility_plugins/blob/master/python_strings.py)| Ying Li (@cyli)|
