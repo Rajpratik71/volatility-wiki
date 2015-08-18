@@ -2,6 +2,7 @@ This is a catalog of research, documentation, analysis, and tutorials generated 
 
 |Year | Month | Type | Title | Author|
 |-----|-------|------|-------|-------|
+|2015|June|Blog|[Memory Analysis of DarkComet using VolDiff](https://github.com/aim4r/VolDiff/wiki/Memory-Analysis-of-DarkComet-using-VolDiff)|@aim4r|
 |2015|April|Code|[linux_python_strings](https://github.com/cyli/volatility_plugins/blob/master/python_strings.py)| Ying Li (@cyli)|
 |2015|April|Presentation|[Where in your RAM is "python san_diego.py"? - PyCon 2015](https://www.youtube.com/watch?v=tMKXcc2-xO8)| Ying Li (@cyli)|
 |2015|February|Blog|[Volatility plugin for Dyre](http://cybermashup.com/2015/02/11/volatility-plugin-for-dyre/)|Kudelski Security|
