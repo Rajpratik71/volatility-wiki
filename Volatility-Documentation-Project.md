@@ -9,6 +9,7 @@ This is a catalog of research, documentation, analysis, and tutorials generated 
 |2015|April|Code|[Evolve](https://github.com/JamesHabben/evolve)|James Habben (@JamesHabben)|
 |2015|April|Video|[EVolve Teaser](https://www.youtube.com/watch?v=55G2oGPQHF8)|James Habben (@JamesHabben)|
 |2015|April|Video Presentation|[Where in your RAM is "python san_diego.py"? - PyCon 2015](https://www.youtube.com/watch?v=tMKXcc2-xO8)| Ying Li (@cyli)|
+|2015|February|Code|[Dyrescan](https://github.com/kudelskisecurity/Volatility-plugins/blob/master/dyrescan.py)|Kudelski Security|
 |2015|February|Blog|[Volatility plugin for Dyre](http://cybermashup.com/2015/02/11/volatility-plugin-for-dyre/)|Kudelski Security|
 |2015|January|Blog|[Triaging a System Infected with Poweliks](http://journeyintoir.blogspot.com/2015/01/triaging-system-infected-with-poweliks.html)|Corey Harrell (@corey_harrell)|
 |2015|January|Blog|[Hunting and Decrypting Communications of Gh0st RAT in Memory](http://malware-unplugged.blogspot.com/2015/01/hunting-and-decrypting-communications.html)|Monnappa (@monnappa22)|
