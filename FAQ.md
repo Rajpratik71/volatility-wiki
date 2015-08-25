@@ -72,6 +72,7 @@ Note: once the installers are released, update this section since some installer
     - [Yara](http://plusvic.github.io/yara/) (Malware Plugins)
     - [PyCrypto](https://www.dlitz.net/software/pycrypto/) (Core)
     - [OpenPyxl](http://pythonhosted.org/openpyxl/) (xlsx rendering for all plugins)
+    - [Pil](http://www.pythonware.com/products/pil/) (Screenshot plugin)
 
 ### How do I run Volatility
 
