@@ -71,7 +71,7 @@ Note: once the installers are released, update this section since some installer
     - [Distorm3](https://code.google.com/p/distorm/) (Malware Plugins, Volshell)
     - [Yara](http://plusvic.github.io/yara/) (Malware Plugins)
     - [PyCrypto](https://www.dlitz.net/software/pycrypto/) (Core)
-    - [OpenPyxl](http://pythonhosted.org/openpyxl/) (Timeliner)
+    - [OpenPyxl](http://pythonhosted.org/openpyxl/) (xlsx rendering for all plugins)
 
 ### How do I run Volatility
 
