@@ -6,7 +6,7 @@ In order to have complete support, you should install the following:
 * [Pyinstaller](https://github.com/pyinstaller/pyinstaller)
 * [Distorm](https://github.com/gdabah/distorm)
 * [PyCrypto](https://www.dlitz.net/software/pycrypto/) ([Windows Binaries](http://www.voidspace.org.uk/python/modules.shtml#pycrypto))
-* [Yara](http://plusvic.github.io/yara/)
+* [Yara](http://plusvic.github.io/yara/) ([Windows Binaries](https://b161268c3bf5a87bc67309e7c870820f5f39f672.googledrive.com/host/0BznOMqZ9f3VUek8yN3VvSGdhRFU/))
 * [OpenPyxl](https://bitbucket.org/openpyxl/openpyxl)
 * [PIL](http://www.pythonware.com/products/pil/)
 
