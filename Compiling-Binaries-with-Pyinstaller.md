@@ -176,3 +176,29 @@ Options:
                         Default values may be set in the configuration file
 [snip]
 ```
+
+# Problems
+
+You may or may not get the following error:
+
+`WARNING: file already exists but should not: C:\Users\username\AppData\Local\Temp\_MEI86402\Include\pyconfig.h`
+
+If you do, you can modify the `pyinstaller.spec` file to remove the extra `pyconfig.h` reference.  The following is a patch for that:
+
+```
+diff --git a/pyinstaller.spec b/pyinstaller.spec
+index b38e9e5..1860063 100644
+--- a/pyinstaller.spec
++++ b/pyinstaller.spec
+@@ -11,6 +11,10 @@ exeext = ".exe" if sys.platform.startswith("win") else ""
+ a = Analysis([os.path.join(projpath, 'vol.py')],
+               pathex = [HOMEPATH],
+               hookspath = [os.path.join(projpath, 'pyinstaller')])
++for d in a.datas:
++    if 'pyconfig' in d[0]: 
++        a.datas.remove(d)
++        break
+ pyz = PYZ(a.pure)
+ plugins = Tree(os.path.join(projpath, 'volatility', 'plugins'),
+                os.path.join('plugins'))
+```
