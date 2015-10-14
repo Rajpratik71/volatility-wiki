@@ -225,6 +225,8 @@ The DTB (Directory Table Base) is what Volatility uses to translate virtual addr
 
 Volatility scans for the `_KDDEBUGGER_DATA64` structure using hard-coded signatures "KDBG" and a series of sanity checks. These signatures are not critical for the operating system to function properly, thus malware can overwrite them in attempt to throw off tools that **do** rely on the signature. Additionally, in some cases there may be more than one `_KDDEBUGGER_DATA64` (for example if you apply a major OS update and don't reboot), which can cause confusion and lead to incorrect process and module listings, among other problems. If you know the address add `_KDDEBUGGER_DATA64`, you can specify it with `--kdbg=ADDRESS` and this override the automated scans. For more information, see the [kdbgscan](Command Reference#kdbgscan) plugin. 
 
+For Windows 8 and above, the `--kdbg` parameter should be the address of `KdCopyDataBlock` instead. For more information, see [Windows 8 Memory Forensics](https://github.com/volatilityfoundation/volatility/wiki/Windows-8-2012).
+
 ## Setting the KPCR Address
 
 **This is a Windows-only option**
