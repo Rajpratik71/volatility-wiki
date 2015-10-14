@@ -860,6 +860,7 @@ The vadinfo command displays extended information about a process's VAD nodes. I
 - The name of the memory mapped file (if one exists)
 - The memory protection constant (permissions). Note there is a difference between the original protection and current protection. The original protection is derived from the flProtect parameter to VirtualAlloc. For example you can reserve memory (MEM_RESERVE) with protection PAGE_NOACCESS (original protection). Later, you can call VirtualAlloc again to commit (MEM_COMMIT) and specify PAGE_READWRITE (becomes current protection). The vadinfo command shows the original protection only. Thus, just because you see PAGE_NOACCESS here, it doesn't mean code in the region cannot be read, written, or executed.
 
+```
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 vadinfo -p 296
     Volatility Foundation Volatility Framework 2.4
     ************************************************************************
@@ -884,8 +885,7 @@ The vadinfo command displays extended information about a process's VAD nodes. I
     FileObject @fffffa8000c074d0, Name: \Windows\System32\basesrv.dll
     First prototype PTE: fffff8a000c45c58 Last contiguous PTE: fffffffffffffffc
     Flags2: Inherit: 1
-    
-    [snip]
+```
 
 For more information on the VAD, see BDG's [The VAD Tree: A Process-Eye View of Physical Memory](http://www.dfrws.org/2007/proceedings/p62-dolan-gavitt.pdf).
 
