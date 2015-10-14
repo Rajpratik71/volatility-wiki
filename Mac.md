@@ -127,7 +127,7 @@ and find the name of your profile. This is what you will use to the --profile op
 
 # Acquiring memory 
 
-Volatility does not provide the ability to acquire memory. We recommend using Mac Memory Reader from ATC-NY, Mac Memoryze, or OSXPmem for this purpose. 
+Volatility does not provide the ability to acquire memory. We recommend using Mac Memory Reader from ATC-NY, Mac Memoryze, or OSXPmem for this purpose. Remember to check the list of supported OS versions for each tool before using them. 
 
 # Plugins 
 
