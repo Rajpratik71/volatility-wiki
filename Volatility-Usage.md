@@ -41,6 +41,7 @@ You can display the main help menu by passing `-h` or `--help` on command-line. 
 
 The remainder of this section will discuss the various options in greater detail. 
 
+```
   $ python vol.py -h 
 
   -h, --help            list all available options and their default values.
@@ -78,7 +79,7 @@ The remainder of this section will discuss the various options in greater detail
   -k KPCR, --kpcr=KPCR  Specify a specific KPCR address
   --cookie=COOKIE       Specify the address of nt!ObHeaderCookie (valid for
                         Windows 10 only)
-    [snip]
+```
 
 ## Selecting a Profile
 
