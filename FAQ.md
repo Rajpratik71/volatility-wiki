@@ -30,15 +30,15 @@
 
 ### What is the latest stable version of Volatility
 
-The latest stable version is 2.4. You can grab the source code, Python installer, or Windows standalone executable from the [downloads page](http://www.volatilityfoundation.org/#!releases/component_71401)
+The latest stable version is 2.5. You can grab the source code, Python installer, or Windows standalone executable from the [downloads page](http://www.volatilityfoundation.org/#!releases/component_71401)
 
 ### What is the latest development version of Volatility
 
-The latest development version is 2.4 which you can get by checking out the main branch using git (`$ git clone git@github.com:volatilityfoundation/volatility.git`). 
-
-### What's new in 2.4
+The latest development version is 2.5 which you can get by checking out the main branch using git (`$ git clone git@github.com:volatilityfoundation/volatility.git`). 
 
 ### What operating systems does Volatility support
+
+See the full details on the [Release Page](http://www.volatilityfoundation.org/#!releases/component_71401)
 
 ### What about reading crash dumps and hibernation files
 
