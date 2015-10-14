@@ -52,7 +52,7 @@ Short answer: No. Long Answer: The [imagecopy](Command Reference#imagecopy) plug
 
 ### What's the largest memory dump Volatility can read
 
-There is technically no limit. We've heard reports of Volatility handling 30-40 GB images on both Windows and Linux host operating systems. If you routinely analyze large memory dumps and would like to supply some performance benchmarks for the FAQ, please let us know. 
+There is technically no limit. We've heard reports of Volatility handling > 200 GB images on both Windows and Linux host operating systems. If you routinely analyze large memory dumps and would like to supply some performance benchmarks for the FAQ, please let us know. 
 
 ### Are there any public memory samples available that I can use for testing
 
@@ -226,7 +226,7 @@ Volatile Systems Volatility Framework 2.1_alpha
 
 ### Scanning commands report false positives
 
-Commands like psscan, modscan, connscan, etc. use pool tag scanning to find objects (either active or residual) in physical memory. Thus Volatility scans over your entire memory dump looking for 4 byte pool tag signatures and then applies a serious of sanity checks (specific per object type). If you believe one of the scanners has found a false positive, you can investigate the reason using volshell (look for the section that describes how to use the dt() command with a physical address space). You also may want to view the source code for the plugin you're running and examine the sanity checks Volatility uses. In particular, look for classes that subclass scan.ScannerCheck? and view the list of checks in classes that subclass scan.PoolScanner. For more information on the scanning framework, see Scanners. 
+Commands like psscan, modscan, connscan, etc. use pool tag scanning to find objects (either active or residual) in physical memory. Thus Volatility scans over your entire memory dump looking for 4 byte pool tag signatures and then applies a serious of sanity checks (specific per object type). If you believe one of the scanners has found a false positive, you can investigate the reason using volshell (look for the section that describes how to use the dt() command with a physical address space). You also may want to view the source code for the plugin you're running and examine the sanity checks Volatility uses. In particular, look for classes that subclass scan.ScannerCheck and view the list of checks in classes that subclass scan.PoolScanner.
 
 ### How can I report a bug or feature request
 
