@@ -4,7 +4,6 @@ This page documents some of the recent changes in the Windows kernel that affect
 
 * The distorm3 python module is a requirement for analyzing 64-bit Windows 8 and 2012 raw memory images
 * Previously, the parameter to --kdbg was the virtual address of the KDBG structure. On 64-bit Windows 8 and 2012, you pass the virtual address of KdCopyDataBlock. Both addresses are displayed in the output of the kdbgscan plugin. 
-* We support 8.1 but at least some commands (the registry ones, in particular) have reported issues on 8.1 update 1 
 
 # Changes in the kernel 
 
