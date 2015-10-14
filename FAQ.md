@@ -230,7 +230,7 @@ Commands like psscan, modscan, connscan, etc. use pool tag scanning to find obje
 
 ### How can I report a bug or feature request
 
-See [contact](FAQ#how-can-i-contribute-to-volatility)
+See [Issue Tracker](https://github.com/volatilityfoundation/volatility/issues)
 
 ### Who wrote/is writing Volatility
 
