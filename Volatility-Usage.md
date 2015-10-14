@@ -89,37 +89,45 @@ Note: If you do not know what type of system the memory dump is from, use the [i
 
 If you want to see a list of supported profile names, do the following:
 
-    $ python vol.py --info
+```
+$ python vol.py --info
     
-    [snip]
-    
-    Profiles
-    --------
-    VistaSP0x64     - A Profile for Windows Vista SP0 x64
-    VistaSP0x86     - A Profile for Windows Vista SP0 x86
-    VistaSP1x64     - A Profile for Windows Vista SP1 x64
-    VistaSP1x86     - A Profile for Windows Vista SP1 x86
-    VistaSP2x64     - A Profile for Windows Vista SP2 x64
-    VistaSP2x86     - A Profile for Windows Vista SP2 x86
-    Win2003SP0x86   - A Profile for Windows 2003 SP0 x86
-    Win2003SP1x64   - A Profile for Windows 2003 SP1 x64
-    Win2003SP1x86   - A Profile for Windows 2003 SP1 x86
-    Win2003SP2x64   - A Profile for Windows 2003 SP2 x64
-    Win2003SP2x86   - A Profile for Windows 2003 SP2 x86
-    Win2008R2SP0x64 - A Profile for Windows 2008 R2 SP0 x64
-    Win2008R2SP1x64 - A Profile for Windows 2008 R2 SP1 x64
-    Win2008SP1x64   - A Profile for Windows 2008 SP1 x64
-    Win2008SP1x86   - A Profile for Windows 2008 SP1 x86
-    Win2008SP2x64   - A Profile for Windows 2008 SP2 x64
-    Win2008SP2x86   - A Profile for Windows 2008 SP2 x86
-    Win7SP0x64      - A Profile for Windows 7 SP0 x64
-    Win7SP0x86      - A Profile for Windows 7 SP0 x86
-    Win7SP1x64      - A Profile for Windows 7 SP1 x64
-    Win7SP1x86      - A Profile for Windows 7 SP1 x86
-    WinXPSP1x64     - A Profile for Windows XP SP1 x64
-    WinXPSP2x64     - A Profile for Windows XP SP2 x64
-    WinXPSP2x86     - A Profile for Windows XP SP2 x86
-    WinXPSP3x86     - A Profile for Windows XP SP3 x86
+VistaSP0x64                - A Profile for Windows Vista SP0 x64
+VistaSP0x86                - A Profile for Windows Vista SP0 x86
+VistaSP1x64                - A Profile for Windows Vista SP1 x64
+VistaSP1x86                - A Profile for Windows Vista SP1 x86
+VistaSP2x64                - A Profile for Windows Vista SP2 x64
+VistaSP2x86                - A Profile for Windows Vista SP2 x86
+Win10x64                   - A Profile for Windows 10 x64
+Win10x86                   - A Profile for Windows 10 x86
+Win2003SP0x86              - A Profile for Windows 2003 SP0 x86
+Win2003SP1x64              - A Profile for Windows 2003 SP1 x64
+Win2003SP1x86              - A Profile for Windows 2003 SP1 x86
+Win2003SP2x64              - A Profile for Windows 2003 SP2 x64
+Win2003SP2x86              - A Profile for Windows 2003 SP2 x86
+Win2008R2SP0x64            - A Profile for Windows 2008 R2 SP0 x64
+Win2008R2SP1x64            - A Profile for Windows 2008 R2 SP1 x64
+Win2008SP1x64              - A Profile for Windows 2008 SP1 x64
+Win2008SP1x86              - A Profile for Windows 2008 SP1 x86
+Win2008SP2x64              - A Profile for Windows 2008 SP2 x64
+Win2008SP2x86              - A Profile for Windows 2008 SP2 x86
+Win2012R2x64               - A Profile for Windows Server 2012 R2 x64
+Win2012x64                 - A Profile for Windows Server 2012 x64
+Win7SP0x64                 - A Profile for Windows 7 SP0 x64
+Win7SP0x86                 - A Profile for Windows 7 SP0 x86
+Win7SP1x64                 - A Profile for Windows 7 SP1 x64
+Win7SP1x86                 - A Profile for Windows 7 SP1 x86
+Win81U1x64                 - A Profile for Windows 8.1 Update 1 x64
+Win81U1x86                 - A Profile for Windows 8.1 Update 1 x86
+Win8SP0x64                 - A Profile for Windows 8 x64
+Win8SP0x86                 - A Profile for Windows 8 x86
+Win8SP1x64                 - A Profile for Windows 8.1 x64
+Win8SP1x86                 - A Profile for Windows 8.1 x86
+WinXPSP1x64                - A Profile for Windows XP SP1 x64
+WinXPSP2x64                - A Profile for Windows XP SP2 x64
+WinXPSP2x86                - A Profile for Windows XP SP2 x86
+WinXPSP3x86                - A Profile for Windows XP SP3 x86
+```
 
 ## Alternatives to Command Line Options
 
