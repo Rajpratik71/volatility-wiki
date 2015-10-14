@@ -69,6 +69,7 @@ Pre-built Mac OS X profiles are available from [volatilityfoundation/profiles Gi
   * Mavericks 10.9.2 (64-bit)
   * Mavericks 10.9.3 (64-bit)
   * Mavericks 10.9.4 (64-bit)
+  * For Yosemite, El Capitan, and other releases, see the profile repository listing
 
 # Building a Profile  
 
