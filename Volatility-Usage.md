@@ -41,48 +41,43 @@ You can display the main help menu by passing `-h` or `--help` on command-line. 
 
 The remainder of this section will discuss the various options in greater detail. 
 
-    $ python vol.py -h
-    Volatility Foundation Volatility Framework 2.4
-    
-    Usage: Volatility - A memory forensics analysis platform.
-    
-    Options:
-      -h, --help            list all available options and their default values.
-                            Default values may be set in the configuration file
-                            (/etc/volatilityrc)
-      --conf-file=/Users/Michael/.volatilityrc
-                            User based configuration file
-      -d, --debug           Debug volatility
-      --plugins=PLUGINS     Additional plugin directories to use (colon separated)
-      --info                Print information about all registered objects
-      --cache-directory=/Users/Michael/.cache/volatility
-                            Directory where cache files are stored
-      --cache               Use caching
-      --tz=TZ               Sets the timezone for displaying timestamps
-      -f FILENAME, --filename=FILENAME
-                            Filename to use when opening an image
-      --profile=WinXPSP2x86
-                            Name of the profile to load
-      -l LOCATION, --location=LOCATION
-                            A URN location from which to load an address space
-      -w, --write           Enable write support
-      --use-old-as          Use the legacy address spaces
-      --dtb=DTB             DTB Address
-      --output=text         Output in this format (format support is module
-                            specific)
-      --output-file=OUTPUT_FILE
-                            write output in this file
-      -v, --verbose         Verbose information
-      -k KPCR, --kpcr=KPCR  Specify a specific KPCR address
-      -g KDBG, --kdbg=KDBG  Specify a specific KDBG virtual address
-    
-    	Supported Plugin Commands:
-    
-    		apihooks       	Detect API hooks in process and kernel memory
-    		bioskbd        	Reads the keyboard buffer from Real Mode memory
-    		callbacks      	Print system-wide notification routines
-    		cmdscan        	Extract command history by scanning for _COMMAND_HISTORY
-    		connections    	Print list of open connections [Windows XP and 2003 Only]
+  $ python vol.py -h 
+
+  -h, --help            list all available options and their default values.
+                        Default values may be set in the configuration file
+                        (/etc/volatilityrc)
+  --conf-file=/Users/mhl/.volatilityrc
+                        User based configuration file
+  -d, --debug           Debug volatility
+  --plugins=PLUGINS     Additional plugin directories to use (colon separated)
+  --info                Print information about all registered objects
+  --cache-directory=/Users/mhl/.cache/volatility
+                        Directory where cache files are stored
+  --cache               Use caching
+  --tz=TZ               Sets the (Olson) timezone for displaying timestamps
+                        using pytz (if installed) or tzset
+  -f FILENAME, --filename=FILENAME
+                        Filename to use when opening an image
+  --profile=WinXPSP2x86
+                        Name of the profile to load (use --info to see a list
+                        of supported profiles)
+  -l LOCATION, --location=LOCATION
+                        A URN location from which to load an address space
+  -w, --write           Enable write support
+  --dtb=DTB             DTB Address
+  --output=text         Output in this format (support is module specific, see
+                        the Module Output Options below)
+  --output-file=OUTPUT_FILE
+                        Write output in this file
+  -v, --verbose         Verbose information
+  --shift=SHIFT         Mac KASLR shift address
+  -g KDBG, --kdbg=KDBG  Specify a KDBG virtual address (Note: for 64-bit
+                        Windows 8 and above this is the address of
+                        KdCopyDataBlock)
+  --force               Force utilization of suspect profile
+  -k KPCR, --kpcr=KPCR  Specify a specific KPCR address
+  --cookie=COOKIE       Specify the address of nt!ObHeaderCookie (valid for
+                        Windows 10 only)
     [snip]
 
 ## Selecting a Profile
