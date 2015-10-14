@@ -1140,6 +1140,7 @@ To list the functions in the Native and GUI SSDTs, use the ssdt command. This di
 
 - For more information, see BDG's [Auditing the System Call Table](http://moyix.blogspot.com/2008/08/auditing-system-call-table.html).
 
+```
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 ssdt
     Volatility Foundation Volatility Framework 2.4
     [x64] Gathering all referenced SSDTs from KeAddSystemServiceTable...
@@ -1169,8 +1170,7 @@ To list the functions in the Native and GUI SSDTs, use the ssdt command. This di
       Entry 0x1007: 0xfffff960000dfbec (NtUserMessageCall) owned by win32k.sys
       Entry 0x1008: 0xfffff960001056c4 (NtGdiBitBlt) owned by win32k.sys
       Entry 0x1009: 0xfffff960001fd750 (NtGdiGetCharSet) owned by win32k.sys
-    
-    [snip]
+```
 
 To filter all functions which point to ntoskrnl.exe and win32k.sys, you can use egrep on command-line. This will only show hooked SSDT functions. 
 
