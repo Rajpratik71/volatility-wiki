@@ -3,7 +3,6 @@
 - *General* 
     - [What is the latest stable version of Volatility](FAQ#what-is-the-latest-stable-version-of-volatility)
     - [What is the latest development version of Volatility](FAQ#what-is-the-latest-development-version-of-volatility)
-    - [What's new in 2.4](FAQ#whats-new-in-24)
     - [What operating systems does Volatility support](FAQ#what-operating-systems-does-volatility-support)
     - [What about reading crash dumps and hibernation files](FAQ#what-about-reading-crash-dumps-and-hibernation-files)
     - [Can Volatility acquire physical memory](FAQ#can-volatility-acquire-physical-memory)
