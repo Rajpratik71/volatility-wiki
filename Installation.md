@@ -59,6 +59,8 @@ For the most comprehensive plugin support, you should install the following libr
  *  [OpenPyxl](https://pypi.python.org/pypi/openpyxl) - Python library to read/write Excel 2007 xlsx/xlsm files 
       * Dependent plugins
           * Any plugin that has been converted to unified format (with --output=xlsx option)
+ *  [ujson](https://pypi.python.org/pypi/ujson) - Ultra fast JSON parsing library
+      * Dependent plugins: anything using --output=html 
 
 ### Optional packages
 
