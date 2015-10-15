@@ -1,8 +1,14 @@
 **Table of Contents**  
 
 - [Standard Renderers](Unified-Output#standard-renderers)
-- [Installing Volatility](Installation#installing-volatility)
-	- [Dependencies](Installation#dependencies)
+- [Command Line Users](Unified-Output#command-line-users)
+	- [Using the dot renderer](Unified-Output#using-the-dot-renderer)
+        - [Using the html renderer](Unified-Output#using-the-html-renderer)
+        - [Using the xlsx renderer](Unified-Output#using-the-xlsx-renderer)
+        - [Using the json renderer](Unified-Output#using-the-json-renderer)
+        - [Using the sqlite renderer](Unified-Output#using-the-sqlite-renderer)
+- [Plugin Developers](Unified-Output#plugin-developers)
+- [Framework Designers](Unified-Output#framework-designers)
 
 The unified output in Volatility (available since 2.5) aims to give users the flexibility of asking for their output in a specific format (text, json, sqlite, html, etc) while simplifying things for developers. In particular, the "body" of a plugin can be written once and its return values can be re-used by multiple renderers. In short (no puns intended) less code leads to more functionality. Also on the developer side, since plugins can output json or sqlite, it makes building frameworks, GUIs, and libraries on top of Volatility much easier. 
 
