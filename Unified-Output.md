@@ -218,4 +218,12 @@ class MyPlugin(common.AbstractWindowsCommand):
             yield (0, [Address(offset), str(name), int(id), Hex(count)])
 ```
 
-# Plugin Consumers
+# Framework Designers 
+
+If you're designing a framework around Volatility that harvests/collects plugin output and then processes, morphs, and/or saves it according to your goals, we highly recommend using the JSON renderer as an API. This lets you directly access the results and do as you wish, rather than forking a Volatility process, getting the results as plain text, splitting the columns with regular expressions, and then converting fields back to numbers as needed, etc. 
+
+See the two files in our [Library Example](https://github.com/volatilityfoundation/volatility/tree/master/contrib/library_example) for a demonstration of how this is possible. The [libapi.py](https://github.com/volatilityfoundation/volatility/blob/master/contrib/library_example/libapi.py) file exposes `get_config` and `get_json` APIs. You should not have to modify `libapi.py` at all for basic usage purposes. 
+
+Also in the directory is [pslist_json.py](https://github.com/volatilityfoundation/volatility/blob/master/contrib/library_example/pslist_json.py) which shows how to leverage `libapi.py` for acquiring JSON output from the PSList plugin. 
+
+ 
