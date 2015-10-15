@@ -2,7 +2,7 @@
 
 - [Standard Renderers](Unified-Output#standard-renderers)
 - [Command Line Users](Unified-Output#command-line-users)
-	- [Using the dot renderer](Unified-Output#using-the-dot-renderer)
+        - [Using the dot renderer](Unified-Output#using-the-dot-renderer)
         - [Using the html renderer](Unified-Output#using-the-html-renderer)
         - [Using the xlsx renderer](Unified-Output#using-the-xlsx-renderer)
         - [Using the json renderer](Unified-Output#using-the-json-renderer)
