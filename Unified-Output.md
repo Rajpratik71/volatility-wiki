@@ -11,7 +11,6 @@ Here's a summary of the existing standard renderers:
 | html | Uses HTML to render data | 
 | json | Outputs results as JSON - useful for APIs | 
 | sqlite | Populates an sqlite3 database |
-| quicksqlite | Faster version of sqlite (uses executemany) | 
 | quick | Faster version of text, but pipe separated values | 
 | xlsx | Outputs results as an Excel spreadsheet (requires openpyxl) |
 
@@ -127,9 +126,9 @@ $ python -m json.tool < pslist.json
 [snip]
 ```
 
-## Using the sqlite/quicksqlite renderers
+## Using the sqlite renderer
 
-Here's an example of using the sqlite (or quicksqlite) renderer: 
+Here's an example of using the sqlite renderer: 
 
 ```
 $ python vol.py -f grrcon.img pslist --output=sqlite --output-file=pslist.db 
