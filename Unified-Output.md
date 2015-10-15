@@ -2,6 +2,23 @@ The unified output in Volatility (available since 2.5) aims to give users the fl
 
 # Command Line Users
 
+A plugin's supported formats are displayed in the `-h` output:
+
+```
+$ python vol.py pslist -h
+Volatility Foundation Volatility Framework 2.5
+Usage: Volatility - A memory forensics analysis platform.
+
+[snip]
+
+Module Output Options: dot, html, json, quick, quicksqlite, sqlite, text, xlsx
+
+---------------------------------
+Module PSList
+---------------------------------
+Print all running processes by following the EPROCESS lists
+```
+
 # Plugin Developers
 
 # Plugin Consumers
