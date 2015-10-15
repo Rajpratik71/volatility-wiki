@@ -8,7 +8,8 @@ Getting Started
 * [[Android]]
 * [[Basic Usage|Volatility Usage]]
 * [[Windows 8 and 2012|Windows 8/2012]]
-* [[Compiling Binaries with Pyinstaller|Compiling-Binaries-with-Pyinstaller]]
+* [[Pyinstaller Builds|Compiling-Binaries-with-Pyinstaller]]
+* [[Unified Output|Unified-Output]]
 
 Command References 
 * [[Windows Core|Command Reference]]
