@@ -5,7 +5,7 @@
  * *Target OS specific setup* - the Linux, Mac, and Android support may require accessing symbols and building your own profiles before using Volatility. If you plan to analyze these operating systems, please see [Linux](Linux), [Mac](Mac), or [Android](Android).
  * *Read usage and plugins* - command-line parameters, options, and plugins may differ between releases. For the most recent information, see [[Volatility Usage]] and [[Command Reference]]. 
  * *Communicate* - If you have documentation, patches, ideas, or bug reports, you can communicate them through the  [github interface](https://github.com/volatilityfoundation/volatility/issues), the [Volatility Mailing List](http://lists.volatilesystems.com/mailman/listinfo) or Twitter ([@volatility](https://twitter.com/volatility)). 
- * *Develop* - For advanced users who want to develop their own plugins, address spaces, and other components of volatility, there is a recommended [StyleGuide](https://github.com/volatilityfoundation/volatility/wiki/Style-Guide).
+ * *Develop* - For advanced users who want to develop their own plugins, address spaces, and other components of volatility, there is a recommended [StyleGuide](https://github.com/volatilityfoundation/volatility/wiki/Style-Guide). We also have some Development docs on the wiki, but its somewhat outdated. A good place to learn is by looking through existing [Community](https://github.com/volatilityfoundation/community) plugins.
 
 ### Malware and Memory Forensics Training 
 
