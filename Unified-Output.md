@@ -224,6 +224,17 @@ If you're designing a framework around Volatility that harvests/collects plugin 
 
 See the two files in our [Library Example](https://github.com/volatilityfoundation/volatility/tree/master/contrib/library_example) for a demonstration of how this is possible. The [libapi.py](https://github.com/volatilityfoundation/volatility/blob/master/contrib/library_example/libapi.py) file exposes `get_config` and `get_json` APIs. You should not have to modify `libapi.py` at all for basic usage purposes. 
 
-Also in the directory is [pslist_json.py](https://github.com/volatilityfoundation/volatility/blob/master/contrib/library_example/pslist_json.py) which shows how to leverage `libapi.py` for acquiring JSON output from the PSList plugin. 
+Also in the directory is [pslist_json.py](https://github.com/volatilityfoundation/volatility/blob/master/contrib/library_example/pslist_json.py) which shows how to leverage `libapi.py` for acquiring JSON output from the PSList plugin. It boils down to calling `get_config` to create the configuration from a given memory dump file location and Volatility profile:
 
+```
+config = libapi.get_config("/path/to/mem.dmp", "Win7SP1x64")
+```
+
+Then you would pass the config object and the desired plugin to `get_json` which returns the JSON data:
+
+```
+data = libapi.get_json(config, taskmods.PSList)
+```
+
+This `data` variable now contains what you see in the example above (using the json renderer) with the columns and rows dictionary keys. 
  
