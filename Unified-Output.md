@@ -73,6 +73,60 @@ When you open the resulting file in a spreadsheet viewer:
 
 [[images/pslist_xlsx.png]]
 
+## Using the json renderer 
+
+Here's an example of using the json renderer: 
+
+```
+$ python vol.py -f grrcon.img pslist --output=json --output-file=pslist.json 
+Volatility Foundation Volatility Framework 2.5
+```
+
+You can now consume the pslist.json file however you like. Note that the json contains two dictionary keys: columns and rows. Columns tells you the column header names and there's one row per result (with values ordered according to the column header positions). 
+
+```
+$ python -m json.tool < pslist.json 
+{
+    "columns": [
+        "Offset(V)",
+        "Name",
+        "PID",
+        "PPID",
+        "Thds",
+        "Hnds",
+        "Sess",
+        "Wow64",
+        "Start",
+        "Exit"
+    ],
+    "rows": [
+        [
+            2185005104,
+            "System",
+            4,
+            0,
+            51,
+            269,
+            -1,
+            0,
+            "",
+            ""
+        ],
+        [
+            2182193184,
+            "smss.exe",
+            360,
+            4,
+            3,
+            19,
+            -1,
+            0,
+            "2012-04-28 01:56:37 UTC+0000",
+            ""
+        ],
+[snip]
+```
+
 # Plugin Developers
 
 # Plugin Consumers
