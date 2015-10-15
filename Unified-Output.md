@@ -156,4 +156,66 @@ sqlite> .quit
 
 # Plugin Developers
 
+The plugin template below identifies the necessary components for building a plugin with unified output. The key is defining the data you want to display in your plugin (i.e. the column headers) and their data types (strings, integers, addresses, etc). 
+
+The sample plugin also shows how you would override a default renderer and how to register a new one. 
+
+```
+import volatility.plugins.common as common 
+import volatility.utils as utils 
+
+from volatility.renderers import TreeGrid
+from volatility.renderers.basic import Address, Hex
+
+class MyPlugin(common.AbstractWindowsCommand):
+    """My test plugin"""
+
+    def calculate(self):
+        """Body of the plugin goes here"""
+
+        addr_space = utils.load_as(self._config)
+    
+        ## gather some data from the memory dump using the address space 
+        ## then yield each result to the generator/render functions
+
+        data = [
+            [0xFFFFFFFF80004210, "testing123", 400, 6500],
+            [0xFFFFFFFF80008726, "testing345", 800, 124400],
+            ]
+
+        for result in data:
+            yield result 
+
+    def render_dot(self, outfd, data):
+        """Here we can override the default dot renderer"""
+
+        ...
+
+    def render_test(self, outfd, data):
+        """Here we register a new handler invoked with --output=test"""
+
+        ...
+
+    def unified_output(self, data):
+        """This standardizes the output formatting"""
+        
+        ## make sure the number of columns (4) and their data types match
+        ## what calculate() and generator() yields 
+
+        return TreeGrid([("Offset", Address),
+                        ("Name", str),
+                        ("ID", int),
+                        ("Count", Hex),
+                        self.generator(data))
+
+    def generator(self, data):
+        """This yields data according to the unified output format"""
+
+        ## the variables "unpacked" here must match what calculate() yields 
+        for offset, name, id, count in data:
+
+            ## make sure to wrap each variable according to its data type 
+            yield (0, [Address(offset), str(name), int(id), Hex(count)])
+```
+
 # Plugin Consumers
