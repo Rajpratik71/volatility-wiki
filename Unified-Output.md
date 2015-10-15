@@ -60,6 +60,19 @@ When you open the resulting file in a browser, you should be able to sort column
 
 [[images/pslist_html.png]]
 
+## Using the xlsx renderer 
+
+Here's an example of using the xlsx renderer: 
+
+```
+$ python vol.py -f grrcon.img pslist --output=xlsx --output-file=pslist.xlsx 
+Volatility Foundation Volatility Framework 2.5
+```
+
+When you open the resulting file in a spreadsheet viewer:
+
+[[images/pslist_xlsx.png]]
+
 # Plugin Developers
 
 # Plugin Consumers
