@@ -127,6 +127,33 @@ $ python -m json.tool < pslist.json
 [snip]
 ```
 
+## Using the sqlite/quicksqlite renderers
+
+Here's an example of using the sqlite (or quicksqlite) renderer: 
+
+```
+$ python vol.py -f grrcon.img pslist --output=sqlite --output-file=pslist.db 
+Volatility Foundation Volatility Framework 2.5
+```
+
+You can then explore and query the database:
+
+```
+$ sqlite3 pslist.db 
+SQLite version 3.7.13 2012-07-17 17:46:21
+Enter ".help" for instructions
+Enter SQL statements terminated with a ";"
+sqlite> .schema
+CREATE TABLE PSList( id INTEGER, rowparent INTEGER, "Offset(V)" TEXT, "Name" TEXT, "PID" TEXT, "PPID" TEXT, "Thds" TEXT, "Hnds" TEXT, "Sess" TEXT, "Wow64" TEXT, "Start" TEXT, "Exit" TEXT);
+sqlite> select * from PSList limit 5;
+1|0|2185005104|System|4|0|51|269|-1|0||
+2|0|2182193184|smss.exe|360|4|3|19|-1|0|2012-04-28 01:56:37 UTC+0000|
+3|0|2182255136|csrss.exe|596|360|11|340|0|0|2012-04-28 01:56:38 UTC+0000|
+4|0|2182692896|winlogon.exe|624|360|17|535|0|0|2012-04-28 01:56:39 UTC+0000|
+5|0|2182374496|services.exe|672|624|15|238|0|0|2012-04-28 01:56:39 UTC+0000|
+sqlite> .quit
+```
+
 # Plugin Developers
 
 # Plugin Consumers
