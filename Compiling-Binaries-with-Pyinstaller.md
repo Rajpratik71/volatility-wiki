@@ -12,7 +12,7 @@ In order to have complete support, you should install the following:
 
 # Dependency Fixes
 
-Distorm and OpenPyxl must be patched in order to allow Pyinstaller to find necessary files.  
+OpenPyxl must be patched in order to allow Pyinstaller to find necessary files.  
 
 ## Installing and Fixing after `easy_install`
 
@@ -23,37 +23,6 @@ The easiest way to install Distorm3 and OpenPyxl are by using `easy_install`, wh
 [snip]
 > easy_install openpyxl
 [snip]
-```
-
-### Distorm3 Modification
-
-Modify the `C:\Python27\Lib\site-packages\distorm3-3.3.0-py2.7-win32.egg\distorm3\__init__.py` file.  Around line 29, you'll see the following:
-
-```
-from ctypes import *
-from os.path import split, join
-
-#==============================================================================
-# Load the diStorm DLL
-
-# Guess the DLL filename and load the library.
-_distorm_path = split(__file__)[0]
-```
-
-Modify this like so, new lines denoted by the unneeded comments "# this is new":
-
-```
-from ctypes import *
-from os.path import split, join
-import sys                         # this is new
-
-#==============================================================================
-# Load the diStorm DLL
-
-# Guess the DLL filename and load the library.
-_distorm_path = split(__file__)[0]
-if hasattr(sys, '_MEIPASS'):       # this is new
-    _distorm_path = sys._MEIPASS   # this is new
 ```
 
 ### OpenPyxl Modification
@@ -82,33 +51,6 @@ if hasattr(sys, '_MEIPASS'):     # this is new
 ## Installing/Fixing from Source
 
 You may install these libraries from source instead, using their own `setup.py` scripts.  Below are patches to the `__init__.py` scripts for Distorm and OpenPyxl:
-
-### Distorm3 Source Modification
-
-```
-diff --git a/python/distorm3/__init__.py b/python/distorm3/__init__.py
-index 734c7c8..2345c1e 100644
---- a/python/distorm3/__init__.py
-+++ b/python/distorm3/__init__.py
-@@ -27,12 +27,15 @@ __all__ = [
- 
- from ctypes import *
- from os.path import split, join
-+import sys
- 
- #==============================================================================
- # Load the diStorm DLL
- 
- # Guess the DLL filename and load the library.
- _distorm_path = split(__file__)[0]
-+if hasattr(sys, '_MEIPASS'):
-+    _distorm_path = sys._MEIPASS
- potential_libs = ['distorm3.dll', 'libdistorm3.dll', 'libdistorm3.so', 'libdistorm3.dylib']
- lib_was_found = False
- for i in potential_libs:
-```
-
-*Note:* You may also clone the following repository, which has the appropriate changes: [https://github.com/gleeda/distorm](https://github.com/gleeda/distorm)
 
 ### OpenPyxl Source Modification
 
