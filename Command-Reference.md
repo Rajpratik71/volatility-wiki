@@ -1342,13 +1342,15 @@ By default, dumpfiles iterates through the VAD and extracts all files that are m
 
 The dumped filename is in the format of:
 
-`file.[The OFFSET is the offset of the SharedCacheMap or the `_CONTROL_AREA`, not the `_FILE_OBJECT`.
+`file.[PID].[OFFSET].ext`
+
+The OFFSET is the offset of the `SharedCacheMap` or the `_CONTROL_AREA`, not the `_FILE_OBJECT`.
 
 The extension (EXT) can be:
 
-- img – ImageSectionObject
-- dat - DataSectionObject
-- vacb – SharedCacheMap
+- img – `ImageSectionObject`
+- dat - `DataSectionObject`
+- vacb – `SharedCacheMap`
 
 You can look at the `-S/--summary-file` in order to map the file back to its original filename:
 
