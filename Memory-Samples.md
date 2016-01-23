@@ -19,6 +19,7 @@ This is a list of publicly available memory samples for testing purposes.
 | [Malware - Cridex](http://files.sempersecurus.org/dumps/cridex_memdump.zip)  |  Windows XP SP2 x86 |
 | [Malware - Shylock](http://various-things.googlecode.com/files/vmem2.zip)  |  Windows XP SP3 x86 |
 | [Malware - R2D2](http://www.mediafire.com/file/yxqodp1p2aca91x/0zapftis.rar) (pw: infected)  |  Windows XP SP2 x86 |
+| [Windows 7 x64](http://jessekornblum.livejournal.com/293291.html) | Windows 7 SP1 x64 |
 | [NIST](http://www.cfreds.nist.gov/mem/memory-images.rar) (5 samples) |  Windows XP SP2, 2003 SP0, and Vista Beta 2 (all x86)|
 | [Hogfly's skydrive](http://cid-5694a755c9c6a175.skydrive.live.com/browse.aspx/Public) (13 samples) |  Assorted (mostly Windows XP x86) |
 | [Moyix's Fuzzy Hidden Process Sample](http://amnesia.gtisc.gatech.edu/~moyix/ds_fuzz_hidden_proc.img.bz2) |  Windows XP SP3 x86 |
