@@ -1813,6 +1813,18 @@ To use lsadump, pass the virtual address of the SYSTEM hive as the -y parameter 
     0010   B4 BB 90 5B 9A BF 60 7D 3E 96 72 CD 9A F6 F8 BE    ...[..`}>.r.....
     0020   D3 91 5C FA A5 8B E6 B4 81 0D B6 D4                ............
 
+Possible items are:
+
+* $MACHINE.ACC: Domain authentication [Microsoft](http://support.microsoft.com/kb/175468).
+* DefaultPassword: Password used to log on to Windows when auto-login is enabled.
+* NL$KM: Secret key used to encrypt cached domain passwords [Decrypting LSA Secrets](http://moyix
+.blogspot.com/2008/02/cached-domain-credentials.html).
+* L$RTMTIMEBOMB_*: Timestamp giving the date when an unactivated copy of
+Windows will stop working.
+* L$HYDRAENCKEY_*: Private key used for Remote Desktop Protocol (RDP). If you also
+have a packet capture from a system that was attacked via RDP, you can extract the client’s public key from the packet capture and the server’s private key from memory; then decrypt the traffic.
+
+
 ## userassist
 
 To get the UserAssist keys from a sample you can use the userassist plugin.  For more information see Gleeda's [Volatility UserAssist plugin](http://gleeda.blogspot.com/2011/04/volatility-14-userassist-plugin.html) post.
