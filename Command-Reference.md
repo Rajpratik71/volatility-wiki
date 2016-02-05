@@ -1817,8 +1817,7 @@ Possible items are:
 
 * $MACHINE.ACC: Domain authentication [Microsoft](http://support.microsoft.com/kb/175468).
 * DefaultPassword: Password used to log on to Windows when auto-login is enabled.
-* NL$KM: Secret key used to encrypt cached domain passwords [Decrypting LSA Secrets](http://moyix
-.blogspot.com/2008/02/cached-domain-credentials.html).
+* NL$KM: Secret key used to encrypt cached domain passwords [Decrypting LSA Secrets](http://moyix.blogspot.com/2008/02/decrypting-lsa-secrets.html).
 * L$RTMTIMEBOMB_*: Timestamp giving the date when an unactivated copy of
 Windows will stop working.
 * L$HYDRAENCKEY_*: Private key used for Remote Desktop Protocol (RDP). If you also
