@@ -1770,9 +1770,7 @@ To dump LSA secrets from the registry, use the lsadump command. This exposes inf
 
 For more information, see BDG's [Decrypting LSA Secrets](http://moyix.blogspot.com/2008/02/decrypting-lsa-secrets.html).
 
-To use lsadump, pass the virtual address of the SYSTEM hive as the -y parameter and the virtual address of the SECURITY hive as the -s parameter. 
-
-    $ python vol.py -f laqma.vmem lsadump -y 0xe1035b60 -s 0xe16a6b60
+    $ python vol.py -f laqma.vmem lsadump
     Volatility Foundation Volatility Framework 2.4
     L$RTMTIMEBOMB_1320153D-8DA3-4e8e-B27B-0D888223A588
     
