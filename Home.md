@@ -15,11 +15,12 @@ For more information, click the link for the event you're interested in or read 
 
 Current Courses:
 
-* [Feb 2016 in San Diego](http://www.memoryanalysis.net/#!New-Event-in-San-Diego-CA-Feb-1st-5th-2016/c1zo4/55b7c73c0cf253981fc9b82c)
+* [Jun 2016 in New York](http://www.memoryanalysis.net/#!New-Event-in-New-York-June-27th-July-1st-2016/c1zo4/56c414fc0cf272fb57b773e2)
 * [Apr 2016 in Reston](http://www.memoryanalysis.net/#!New-Event-in-Reston-VA-April-4th-8th-2016/c1zo4/55aa87960cf286eab026093f)
 
 Past Courses:
 
+* [Feb 2016 in San Diego](http://www.memoryanalysis.net/#!New-Event-in-San-Diego-CA-Feb-1st-5th-2016/c1zo4/55b7c73c0cf253981fc9b82c)
 * [Aug 2015 in Amsterdam](http://www.memoryanalysis.net/#!New-Event-in-Amsterdam-NL-August-31th-September-4th-2015/c1zo4/B15D35AD-3494-4C1A-800E-2BE2FC2E13A5)
 * [Oct 2015 in Reston](http://www.memoryanalysis.net/#!New-Event-in-Reston-VA-October-5th-9th-2015/c1zo4/5532c7400cf29b0040890e62)
 * [May 2015 in New York, NY](http://www.memoryanalysis.net/#!New-Event-in-New-York-NY-May-11th-15th-2015/c1zo4/55C3C18A-776E-464F-97CB-9D44FCBD4E55)
