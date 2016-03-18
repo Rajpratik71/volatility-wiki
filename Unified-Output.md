@@ -216,7 +216,7 @@ class MyPlugin(common.AbstractWindowsCommand):
         return TreeGrid([("Offset", Address),
                         ("Name", str),
                         ("ID", int),
-                        ("Count", Hex),
+                        ("Count", Hex)],
                         self.generator(data))
 
     def generator(self, data):
