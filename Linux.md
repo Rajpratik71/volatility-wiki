@@ -20,9 +20,9 @@ You can find a repository of pre-built profiles at the [volatilityfoundation/pro
 
 First, ensure you have the following tools:
 
-  * dwarfdump: apt-get install dwarfdump on Debian/Ubuntu or the libdwarf-tools package on OpenSuSE, Fedora, and other distributions. If you can't find it in your OS's package manager, build it from the latest [source package](http://reality.sgiweb.org/davea/dwarf.html). Make sure to build libdwarf first and then dwarfdump. Do not build dwarfdump2. Users building profiles on CentOS have also reported success using libdwarf from the [Fedora repository](http://pkgs.fedoraproject.org/repo/pkgs/libdwarf/) and getting the ELF utilities via "yum install elfutils-libelf-devel"
-  * GCC/make: apt-get install build-essential on Debial/Ubuntu.
-  * headers for building kernel modules: this is the kernel-devel or linux-headers-generic package. sometimes you may need to uname -a to find your kernel version and then be specific like apt-get install linux-headers-2.6.24-16.server
+  * dwarfdump: `apt-get install dwarfdump` on Debian/Ubuntu or the `libdwarf-tools` package on OpenSuSE, Fedora, and other distributions. If you can't find it in your OS's package manager, build it from the latest [source package](http://reality.sgiweb.org/davea/dwarf.html). Make sure to build `libdwarf` first and then `dwarfdump`. Do not build `dwarfdump2`. Users building profiles on CentOS have also reported success using `libdwarf` from the [Fedora repository](http://pkgs.fedoraproject.org/repo/pkgs/libdwarf/) and getting the ELF utilities via "yum install elfutils-libelf-devel"
+  * GCC/make: `apt-get install build-essential` on Debial/Ubuntu.
+  * headers for building kernel modules: this is the `kernel-devel` or `linux-headers-generic` package. sometimes you may need to `uname -a` to find your kernel version and then be specific like `apt-get install linux-headers-2.6.24-16.server`
 
 By far, the most common mistake regarding Linux memory forensics is building a profile for a system other than the machine you want to analyze. For example, you cannot build a profile for a Debian 2.6.32 system to analyze a memory dump from Mandrake 2.6.32. Likewise you cannot build a profile for SuSE 2.5.35 system to analyze a memory dump from SuSE 2.6.42. You must ensure the profile you build matches the target system in 1) Linux distribution 2) exact kernel version 3) CPU architecture (32-bit, 64-bit, etc).
 
