@@ -26,9 +26,17 @@ First, ensure you have the following tools:
 
 By far, the most common mistake regarding Linux memory forensics is building a profile for a system other than the machine you want to analyze. For example, you cannot build a profile for a Debian 2.6.32 system to analyze a memory dump from Mandrake 2.6.32. Likewise you cannot build a profile for SuSE 2.5.35 system to analyze a memory dump from SuSE 2.6.42. You must ensure the profile you build matches the target system in 1) Linux distribution 2) exact kernel version 3) CPU architecture (32-bit, 64-bit, etc).
 
-NOTE: There are known problems building profiles with the `dwarfdump` distributed with Fedora. If you must use Fedora to build profiles, please see the build procedures in this issue:
+NOTE: There are known problems building profiles with the `dwarfdump` distributed with Fedora. If you must use Fedora to build profiles, please see the build procedures in this issue, supplied by Sabastien:
 
 https://code.google.com/p/volatility/issues/detail?id=355
+
+The example build procedure is shown below:
+
+```
+$ sudo make -C /lib/modules/2.6.38.8-35.fc15.i686.PAE/build CONFIG_DEBUG_INFO=y M=$PWD modules
+$ dwarfdump -di ./module.o > module.dwarf
+$ sudo zip Fedora15-32bit.zip module.dwarf /boot/System.map-2.6.38.8-35.fc15.i686.PAE
+```
 
 ## Creating vtypes 
 
