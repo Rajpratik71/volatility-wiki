@@ -31,7 +31,7 @@ If you downloaded the zip or tar source code archive (Windows, Linux, OSX) there
 
 ## Dependencies
 
-This section does not apply to the standalone Windows executable, because the dependent libraries are already included in the exe. Also please note the majority of core Volatility functionality will work without any additional dependencies as well. You will only need to install packages if you plan on using specific plugins that leverage those packages (see recommended dependencies), or if you want to enhance your experience (see optional dependencies). 
+This section does not apply to the standalone Windows executable, because the dependent libraries are already included in the exe. Also please note the majority of core Volatility functionality will work without any additional dependencies as well. You will only need to install packages if you plan on using specific plugins that leverage those packages (see recommended dependencies), or if you want to enhance your experience (see optional dependencies). Note: for Linux you may have to install a few other packages/libraries as prerequisites for the following recommended packages (Example: `apt-get install pcregrep libpcre++-dev python-dev -y`)
 
 ### Recommended packages
 
