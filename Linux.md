@@ -56,11 +56,11 @@ You can also compile against any kernel by simply pointing make to the directory
 
 ## Getting Symbols 
 
-The symbols are contained in the System.map file (i.e. System.map-3.5.2-3.fc17.x86_64) for the kernel you want to analyze. This can almost always be found in the /boot directory of the installation or you can generate this file yourself by running "nm" on the vmlinux file of the kernel. If you have updated the kernel on your system in the past, the /boot directory may contain multiple System.map files - so make sure to choose the right one.
+The symbols are contained in the System.map file (i.e. System.map-3.5.2-3.fc17.x86_64) for the kernel you want to analyze. This can almost always be found in the /boot directory of the installation or you can generate this file yourself by running "`nm`" on the vmlinux file of the kernel. If you have updated the kernel on your system in the past, the /boot directory may contain multiple System.map files - so make sure to choose the right one.
 
 ## Making the profile 
 
-To create the profile, place both the module.dwarf and the system.map file into a zip file. Then move this zip file under 'volatility/plugins/overlays/linux/'. Or to do it all in one step:
+To create the profile, place both the module.dwarf and the system.map file into a zip file. Then move this zip file under '`volatility/plugins/overlays/linux/`'. Or to do it all in one step:
 
     $ sudo zip volatility/volatility/plugins/overlays/linux/Ubuntu1204.zip volatility/tools/linux/module.dwarf /boot/System.map-3.2.0-23-generic 
         adding: volatility/tools/linux/module.dwarf (deflated 89%)
@@ -68,7 +68,7 @@ To create the profile, place both the module.dwarf and the system.map file into 
 
 There are technically no naming rules for your zip file, but we recommend you choose a name that's descriptive of your Linux distribution and version. 
 
-If you _do not_ want to write to the core volatility directories (which may be overwritten during upgrades/uninstalls, or may not even exist if you're using the standalone windows executable), then just place your profiles in a directory on disk and use the --plugins=/path/to/profiles to get them loaded by volatility. Here is an example:
+If you _do not_ want to write to the core volatility directories (which may be overwritten during upgrades/uninstalls, or may not even exist if you're using the standalone windows executable), then just place your profiles in a directory on disk and use the `--plugins=/path/to/profiles` option to get them loaded by volatility. Here is an example:
 
     C:\Users\Jake\Desktop>volatility-2.4.standalone.exe --info | findstr Linux
     Volatility Foundation Volatility Framework 2.4
