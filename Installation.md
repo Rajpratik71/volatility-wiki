@@ -53,7 +53,7 @@ For the most comprehensive plugin support, you should install the following libr
       * Dependent plugins
           * lsadump
           * hashdump
-      * Note: this requires python-dev to build (unless you get [pre-built binaries](http://www.voidspace.org.uk/python/modules.shtml#pycrypto))
+      * Note: this requires `python-dev` to build (unless you get [pre-built binaries](http://www.voidspace.org.uk/python/modules.shtml#pycrypto))
  * [PIL](http://www.pythonware.com/products/pil/) - Python Imaging Library 
       * Dependent plugins
           * screenshots
