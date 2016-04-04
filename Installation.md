@@ -48,6 +48,7 @@ For the most comprehensive plugin support, you should install the following libr
       * Dependent plugins
           * yarascan, linux_yarascan, mac_yarascan
       * Note: get yara from the project's main website, do not install it with pip.
+      * Note: if you are on Linux, you may have to issue the following command: `echo "/usr/local/lib" >> /etc/ld.so.conf && ldconfig`
  * [PyCrypto](https://www.dlitz.net/software/pycrypto/) - The Python Cryptography Toolkit 
       * Dependent plugins
           * lsadump
