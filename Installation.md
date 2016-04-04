@@ -25,7 +25,7 @@ If you're using the Pyinstaller (Windows-only) executable, double click and foll
 
 If you downloaded the zip or tar source code archive (Windows, Linux, OSX) there are two ways to "install" the code: 
 
-1) Extract the archive and run setup.py. This will take care of copying files to the right locations on your disk. Running setup.py is only necessary if you want to have access to the Volatility namespace from other Python scripts, for example if you plan on importing Volatility as a library. Pros: easy use as a library. Cons: more difficult to upgrade or uninstall. 
+1) Extract the archive and run `setup.py`. This will take care of copying files to the right locations on your disk. Running `setup.py` is only necessary if you want to have access to the Volatility namespace from other Python scripts, for example if you plan on importing Volatility as a library. Pros: easy use as a library. Cons: more difficult to upgrade or uninstall. 
 
 2) Extract the archive to a directory of your choice. When you want to use Volatility just do python `/path/to/directory/vol.py`. This is a cleaner method since no files are ever moved outside of your chosen directory, which makes it easier to upgrade to new versions when they're released. Also, you can easily have multiple versions of Volatility installed at the same time, by just keeping them in separate directories (like `/home/me/vol2.0` and `/home/me/vol2.1`). Pros: clean, easy to run multiple versions, easy to upgrade or uninstall. Cons: more difficult to use as a library. 
 
@@ -73,7 +73,7 @@ The following libraries are optional. If they're installed, Volatility will find
 
 # Upgrade Volatility  
 
-If you used setup.py to install Volatility, the files will be placed in a few standard locations. For example:
+If you used `setup.py` to install Volatility, the files will be placed in a few standard locations. For example:
 
     $ sudo python setup.py install
     ....
@@ -93,10 +93,10 @@ If you used setup.py to install Volatility, the files will be placed in a few st
     running install_egg_info
     Writing /usr/local/lib/python2.6/dist-packages/volatility-2.1.egg-info
 
-Unfortunately there is no uninstaller, and if you simply try to run setup.py for a new version of Volatility, you may end up with some mixed source files which will surely lead to trouble. So before you install a new version of Volatility, remove everything the previous setup.py created:
+Unfortunately there is no uninstaller, and if you simply try to run `setup.py` for a new version of Volatility, you may end up with some mixed source files which will surely lead to trouble. So before you install a new version of Volatility, remove everything the previous `setup.py` created:
 
     $ sudo rm -rf /usr/local/lib/python2.6/dist-packages/volatility
     $ sudo rm `which vol.py`
     $ sudo rm -rf /usr/local/contrib/plugins 
 
-Now you can run the setup.py for your new Volatility version. As stated above, please remember setup.py is only necessary if you plan on importing Volatility as a library from other Python scripts. If you just want to use Volatility, no installation is necessary (just extract the archive and run vol.py inside). 
+Now you can run the `setup.py` for your new Volatility version. As stated above, please remember `setup.py` is only necessary if you plan on importing Volatility as a library from other Python scripts. If you just want to use Volatility, no installation is necessary (just extract the archive and run `vol.py` inside). 
