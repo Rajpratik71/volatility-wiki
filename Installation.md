@@ -27,7 +27,7 @@ If you downloaded the zip or tar source code archive (Windows, Linux, OSX) there
 
 1) Extract the archive and run setup.py. This will take care of copying files to the right locations on your disk. Running setup.py is only necessary if you want to have access to the Volatility namespace from other Python scripts, for example if you plan on importing Volatility as a library. Pros: easy use as a library. Cons: more difficult to upgrade or uninstall. 
 
-2) Extract the archive to a directory of your choice. When you want to use Volatility just do python /path/to/directory/vol.py. This is a cleaner method since no files are ever moved outside of your chosen directory, which makes it easier to upgrade to new versions when they're released. Also, you can easily have multiple versions of Volatility installed at the same time, by just keeping them in separate directories (like /home/me/vol2.0 and /home/me/vol2.1). Pros: clean, easy to run multiple versions, easy to upgrade or uninstall. Cons: more difficult to use as a library. 
+2) Extract the archive to a directory of your choice. When you want to use Volatility just do python `/path/to/directory/vol.py`. This is a cleaner method since no files are ever moved outside of your chosen directory, which makes it easier to upgrade to new versions when they're released. Also, you can easily have multiple versions of Volatility installed at the same time, by just keeping them in separate directories (like `/home/me/vol2.0` and `/home/me/vol2.1`). Pros: clean, easy to run multiple versions, easy to upgrade or uninstall. Cons: more difficult to use as a library. 
 
 ## Dependencies
 
