@@ -40,7 +40,7 @@ $ sudo zip Fedora15-32bit.zip module.dwarf /boot/System.map-2.6.38.8-35.fc15.i68
 
 ## Creating vtypes 
 
-The current method to create vtypes (kernel's data structures) is to check out the source code and compile 'module.c' against the kernel that you want to analyze. See below for an example of creating vtypes - just cd to 'tools/linux' in the Volatility source directory and type make. This will create a file named 'module.dwarf'. 
+The current method to create vtypes (kernel's data structures) is to check out the source code and compile '`module.c`' against the kernel that you want to analyze. See below for an example of creating vtypes - just cd to '`tools/linux`' in the Volatility source directory and type make. This will create a file named '`module.dwarf`'. 
 
     $ cd volatility/tools/linux
     $ make
@@ -52,15 +52,15 @@ The current method to create vtypes (kernel's data structures) is to check out t
 
     <1><45><DW_TAG_typedef> DW_AT_name<__s8> DW_AT_decl_file<1 include/asm-generic/int-ll64.h>.....
 
-You can also compile against any kernel by simply pointing make to the directory with the kernel headers and .config file. 
+You can also compile against any kernel by simply pointing make to the directory with the kernel headers and `.config` file. 
 
 ## Getting Symbols 
 
-The symbols are contained in the System.map file (i.e. System.map-3.5.2-3.fc17.x86_64) for the kernel you want to analyze. This can almost always be found in the /boot directory of the installation or you can generate this file yourself by running "`nm`" on the vmlinux file of the kernel. If you have updated the kernel on your system in the past, the /boot directory may contain multiple System.map files - so make sure to choose the right one.
+The symbols are contained in the `System.map` file (i.e. System.map-3.5.2-3.fc17.x86_64) for the kernel you want to analyze. This can almost always be found in the `/boot` directory of the installation or you can generate this file yourself by running "`nm`" on the `vmlinux` file of the kernel. If you have updated the kernel on your system in the past, the `/boot` directory may contain multiple `System.map` files - so make sure to choose the right one.
 
 ## Making the profile 
 
-To create the profile, place both the module.dwarf and the system.map file into a zip file. Then move this zip file under '`volatility/plugins/overlays/linux/`'. Or to do it all in one step:
+To create the profile, place both the `module.dwarf` and the `system.map` file into a zip file. Then move this zip file under '`volatility/plugins/overlays/linux/`'. Or to do it all in one step:
 
     $ sudo zip volatility/volatility/plugins/overlays/linux/Ubuntu1204.zip volatility/tools/linux/module.dwarf /boot/System.map-3.2.0-23-generic 
         adding: volatility/tools/linux/module.dwarf (deflated 89%)
