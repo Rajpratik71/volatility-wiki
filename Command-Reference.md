@@ -229,7 +229,7 @@ Also note the two processes `System` and `smss.exe` will not have a Session ID, 
     0xfffffa8001016060 DumpIt.exe             2860   1652      2       42      1      1 2012-02-22 11:28:59                      
     0xfffffa8000acab30 conhost.exe            2236    344      2       51      1      0 2012-02-22 11:28:59 
 
-By default, pslist shows virtual offsets for the EPROCESS but the physical offset can be obtained with the -P switch:
+By default, `pslist` shows virtual offsets for the `_EPROCESS` but the physical offset can be obtained with the `-P` switch:
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 pslist -P 
     Volatility Foundation Volatility Framework 2.4
@@ -267,7 +267,7 @@ To view the process listing in tree form, use the `pstree` command. This enumera
 
 ## psscan
 
-To enumerate processes using pool tag scanning (`POOL_HEADER`), use the `psscan` command. This can find processes that previously terminated (inactive) and processes that have been hidden or unlinked by a rootkit. The downside is that rootkits can still hide by overwriting the pool tag values (though not commonly seen in the wild).
+To enumerate processes using pool tag scanning (`_POOL_HEADER`), use the `psscan` command. This can find processes that previously terminated (inactive) and processes that have been hidden or unlinked by a rootkit. The downside is that rootkits can still hide by overwriting the pool tag values (though not commonly seen in the wild).
 
     $ python vol.py --profile=Win7SP0x86 -f win7.dmp psscan
     Volatility Foundation Volatility Framework 2.0
@@ -303,7 +303,7 @@ This plugin is similar to psscan, except it enumerates processes by scanning for
 
 ## dlllist
 
-To display a process's loaded DLLs, use the `dlllist` command. It walks the doubly-linked list of `_LDR_DATA_TABLE_ENTRY` structures which is pointed to by the PEB's `InLoadOrderModuleList`. DLLs are automatically added to this list when a process calls LoadLibrary (or some derivative such as LdrLoadDll) and they aren't removed until FreeLibrary is called and the reference count reaches zero. The load count column tells you if a DLL was statically loaded (i.e. as a result of being in the exe or another DLL's import table) or dynamically loaded. 
+To display a process's loaded DLLs, use the `dlllist` command. It walks the doubly-linked list of `_LDR_DATA_TABLE_ENTRY` structures which is pointed to by the PEB's `InLoadOrderModuleList`. DLLs are automatically added to this list when a process calls LoadLibrary (or some derivative such as LdrLoadDll) and they aren't removed until `FreeLibrary` is called and the reference count reaches zero. The load count column tells you if a DLL was statically loaded (i.e. as a result of being in the exe or another DLL's import table) or dynamically loaded. 
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 dlllist 
     ************************************************************************
@@ -323,7 +323,7 @@ To display a process's loaded DLLs, use the `dlllist` command. It walks the doub
     0x000007fefd860000            0x9f000             0xffff C:\Windows\system32\msvcrt.dll
     [snip]
 
-To display the DLLs for a specific process instead of all processes, use the -p or --pid filter as shown below. Also, in the following output, notice we're analyzing a Wow64 process. Wow64 processes have a limited list of DLLs in the PEB lists, but that doesn't mean they're the *only* DLLs loaded in the process address space. Thus Volatility will remind you to use the [ldrmodules](Command Reference#ldrmodules) instead for these processes. 
+To display the DLLs for a specific process instead of all processes, use the `-p` or `--pid` filter as shown below. Also, in the following output, notice we're analyzing a Wow64 process. Wow64 processes have a limited list of DLLs in the PEB lists, but that doesn't mean they're the *only* DLLs loaded in the process address space. Thus Volatility will remind you to use the [ldrmodules](Command Reference#ldrmodules) instead for these processes. 
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 dlllist -p 1892
     Volatility Foundation Volatility Framework 2.4
@@ -349,12 +349,12 @@ To display the DLLs for a process that is hidden or unlinked by a rootkit, first
 To extract a DLL from a process's memory space and dump it to disk for analysis, use the dlldump command. The syntax is nearly the same as what we've shown for dlllist above. You can:
 
 - Dump all DLLs from all processes
-- Dump all DLLs from a specific process (with --pid=PID)
-- Dump all DLLs from a hidden/unlinked process (with --offset=OFFSET)
-- Dump a PE from anywhere in process memory (with --base=BASEADDR), this option is useful for extracting hidden DLLs
-- Dump one or more DLLs that match a regular expression (--regex=REGEX), case sensitive or not (--ignore-case)
+- Dump all DLLs from a specific process (with `--pid=PID`)
+- Dump all DLLs from a hidden/unlinked process (with `--offset=OFFSET`)
+- Dump a PE from anywhere in process memory (with `--base=BASEADDR`), this option is useful for extracting hidden DLLs
+- Dump one or more DLLs that match a regular expression (`--regex=REGEX`), case sensitive or not (`--ignore-case`)
 
-To specify an output directory, use --dump-dir=DIR or -d DIR. 
+To specify an output directory, use `--dump-dir=DIR` or `-d DIR`. 
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 dlldump -D dlls/
     ...
@@ -415,7 +415,7 @@ To display the open handles in a process, use the handles command. This applies 
     0xfffffa8000da3040      4               0x68                0x0 Thread           TID 228 PID 4
     ...
 
-You can display handles for a particular process by specifying --pid=PID or the physical offset of an EPROCESS structure (--physical-offset=OFFSET). You can also filter by object type using -t or --object-type=OBJECTTYPE. For example to only display handles to process objects for pid 600, do the following:
+You can display handles for a particular process by specifying `--pid=PID` or the physical offset of an `_EPROCESS` structure (`--physical-offset=OFFSET`). You can also filter by object type using `-t` or `--object-type=OBJECTTYPE`. For example to only display handles to process objects for pid 600, do the following:
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 handles -p 296 -t Process
     Volatility Foundation Volatility Framework 2.4
@@ -433,7 +433,7 @@ You can display handles for a particular process by specifying --pid=PID or the 
 
 The object type can be any of the names printed by the "object \ObjectTypes" windbg command (see [Enumerate Object Types](http://computer.forensikblog.de/en/2009/04/enumerate-object-types.html) for more details.
 
-In some cases, the Details column will be blank (for example, if the objects don't have names). By default, you'll see both named and un-named objects. However, if you want to hide the less meaningful results and only show named objects, use the --silent parameter to this plugin.
+In some cases, the Details column will be blank (for example, if the objects don't have names). By default, you'll see both named and un-named objects. However, if you want to hide the less meaningful results and only show named objects, use the `--silent` parameter to this plugin.
 
 ## getsids
 
@@ -2584,7 +2584,7 @@ Now we can see a difference in how these two files are handled:
 
     $ python vol.py --profile=Win7SP0x86 strings –f win7.dd –s win7_strings.txt --output-file=win7_vol_strings.txt
 
-By default `strings` will only provide output for processes found by walking the doubly linked list pointed to by PsActiveProcessHead (see [pslist](Command Reference#pslist)) in addition to kernel addresses.  `strings` can also provide output for hidden processes (see [psscan](Command Reference#psscan)) by using the (capital) -S switch:
+By default `strings` will only provide output for processes found by walking the doubly linked list pointed to by `PsActiveProcessHead` (see [pslist](Command Reference#pslist)) in addition to kernel addresses.  `strings` can also provide output for hidden processes (see [psscan](Command Reference#psscan)) by using the (capital) -S switch:
 
     $ python vol.py --profile=Win7SP0x86 strings –f win7.dd –s win7_strings.txt --output-file=win7_vol_strings.txt -S 
 
