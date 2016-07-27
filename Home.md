@@ -15,9 +15,9 @@ For more information, click the link for the event you're interested in or read 
 
 Current Courses:
 
-* [Oct 2017 in Herndon](http://www.memoryanalysis.net/#!memory-forensics-training/c1q3n)
-* [Sep 2017 in London](http://www.memoryanalysis.net/#!memory-forensics-training/c1q3n)
-* [Apr 2017 in Herndon](http://www.memoryanalysis.net/#!memory-forensics-training/c1q3n)
+* [Oct 2017 in Herndon]http://www.memoryanalysis.net/#!New-Event-in-Herndon-VA-October-16th-20th-2017/c1zo4/5790ee090cf2fc65e32328bb)
+* [Sep 2017 in London](http://www.memoryanalysis.net/#!New-Event-in-London-UK-September-18th-22nd-2017/c1zo4/579773f50cf26dea5b38ea7b)
+* [Apr 2017 in Herndon](http://www.memoryanalysis.net/#!New-Event-in-Herndon-VA-April-3rd-7th-2017/c1zo4/5790ed550cf2a8522f937b79)
 * [Oct 2016 in Reston](http://www.memoryanalysis.net/#!New-Event-in-RestonHerndon-October-3rd-7th-2016/c1zo4/570f94780cf2d6bf6ee4e2ff)
 * [Aug 2016 in Amsterdam](http://www.memoryanalysis.net/#!New-Event-in-Amsterdam-August-29th-September-2nd-2016/c1zo4/570f941b0cf29719a387b385)
 
