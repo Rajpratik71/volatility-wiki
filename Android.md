@@ -391,3 +391,5 @@ Disable CONFIG_NETFILTER in the kernel's .config. This should only be necessary 
   * http://digitalforensicssolutions.com/papers/android-memory-analysis-DI.pdf - "Acquisition and analysis of volatile memory from android devices" by Joe Sylve, Andrew Case, Lodovico Marziale, and Golden G. Richard. 
 
   * http://blog.markloiseau.com/2012/07/how-to-compile-the-android-goldfish-emulator-kernel/ - "How to compile the Android Goldfish kernel" by Mark Loiseau
+
+  * https://source.android.com/source/downloading.html - "Downloading the Source"
