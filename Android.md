@@ -49,7 +49,7 @@ Our exact steps for Mac OS X are shown below.
 	/dev/disk2s1            EFI                             
 	/dev/disk2s2            Apple_HFS                       /Volumes/android
 	
-	$ curl https://dl-ssl.google.com/dl/googlesource/git-repo/repo > repo
+	$ curl https://storage.googleapis.com/git-repo-downloads/repo > repo
 	  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 	100 22889  100 22889    0     0  26917      0 --:--:-- --:--:-- --:--:--  137k
