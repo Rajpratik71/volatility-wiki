@@ -155,7 +155,7 @@ Before you can compile the kernel, you need a working config. If you are working
     $ cd ~/android-sdk/platform-tools
     $ ./adb pull /proc/config.gz
 
-Once you have config.gz, decompress it, and copy it to your ~/android-source directory as ".config". Alternately, if you're working with the Goldfish Emulator, there's a pre-existing config you can use located at ~/android-source/arch/arm/configs/goldfish_armv7_deconfig. 
+Once you have config.gz, decompress it, and copy it to your `~/android-source` directory as "`.config`". Alternately, if you're working with the Goldfish Emulator, there's a pre-existing config you can use located at `~/android-source/arch/arm/configs/goldfish_armv7_deconfig`. 
 
 	$ make goldfish_armv7_defconfig
 	........
@@ -164,13 +164,13 @@ Once you have config.gz, decompress it, and copy it to your ~/android-source dir
 	# configuration written to .config
     #
 
-Once your .config is in the ~/android-source directory, ensure the following settings exist and are enabled. 
+Once your `.config` is in the `~/android-source` directory, ensure the following settings exist and are enabled. 
 
 	CONFIG_MODULES=y
 	CONFIG_MODULES_UNLOAD=y
 	CONFIG_MODULES_FORCE_UNLOAD=y
 
-Now you can build the kernel. If all goes well, you'll have a new ~/android-source/arch/arm/boot/zImage file. 
+Now you can build the kernel. If all goes well, you'll have a new `~/android-source/arch/arm/boot/zImage` file. 
 
 	$ make 
 	.....
@@ -215,12 +215,12 @@ You should see an emulated Android device on your screen now, such as the follow
 
 # Download and Cross Compile LiME 
 
-For the most up to date instructions on compiling LiME, see the [project's documentation](http://lime-forensics.googlecode.com/files/LiME_Documentation_1.1.pdf).
+For the most up to date instructions on compiling LiME, see the [project's documentation](https://github.com/504ensicsLabs/LiME/tree/master/doc).
 
 Below, we checked out trunk, made the following changes to the Makefile for cross-compiling.
 
-	$ svn checkout http://lime-forensics.googlecode.com/svn/trunk/ lime-forensics
-	$ cd lime-forensics/src 
+	$ git clone https://github.com/504ensicsLabs/LiME.git
+	$ cd LiME/src 
 	$ svn diff
 	Index: Makefile
 	===================================================================
@@ -252,7 +252,7 @@ The final step is to make and then verify that you have an output lime-goldfish.
 
 # Load the LiME LKM on the Android Device 
 
-We use the Android Debug Bridge (adb) to upload the LiME driver onto the device:
+We use the Android Debug Bridge (`adb`) to upload the LiME driver onto the device:
 
 	$ cd ~/android-sdk/sdk/platform-tools/
 	$ ./adb push ~/lime-forensics/src/lime-goldfish.ko /sdcard/lime.ko
@@ -267,7 +267,7 @@ As described in the LiME documentation, you can either acquire memory over TCP o
 
 # Extract the Memory Dump File 
 
-The adb channel is slow, so its not good for transferring large files. We can use TSK to extract the lime.dump file from our device's sdcard. When executing the emulator with -verbose, you see a line like this:
+The `adb` channel is slow, so its not good for transferring large files. We can use TSK to extract the `lime.dump` file from our device's sdcard. When executing the emulator with `-verbose`, you see a line like this:
 
     emulator: autoconfig: -sdcard /Users/Michael/.android/avd/myavd.avd/sdcard.img
 
@@ -282,13 +282,13 @@ That tells you where the emulated sdcard device exists on your host operating sy
 	v/v 33423109:   $FAT2
 	d/d 33423110:   $OrphanFiles
 	
-	$ ./icat /Users/Michael/.android/avd/myavd.avd/sdcard.img 8 > ~/lime.dmp
+	$ icat /Users/Michael/.android/avd/myavd.avd/sdcard.img 8 > ~/lime.dmp
 
 # Verify Your Dwarfdump Installation 
 
-The next step will require a working dwarfdump installation. If you're on Linux, try apt-get install dwarfdump or the libdwarf-tools package. The stock dwarfdump command in OS X does not support the -d parameter, so if you're on a Mac, then you must build a new one [from source](http://reality.sgiweb.org/davea/dwarf.html).
+The next step will require a working `dwarfdump` installation. If you're on Linux, try apt-get install `dwarfdump` or the `libdwarf-tools` package. The stock `dwarfdump` command in OS X does not support the `-d` parameter, so if you're on a Mac, then you must build a new one [from source](http://reality.sgiweb.org/davea/dwarf.html).
 
-First build libdwarf and then build dwarfdump (no make install for either): 
+First build `libdwarf` and then build `dwarfdump` (no make install for either): 
 
 	$ tar -xvzf libdwarf-20130207.tar.gz
 	$ cd dwarf-20130207/libdwarf
@@ -296,7 +296,7 @@ First build libdwarf and then build dwarfdump (no make install for either):
 	$ cd ../dwarfdump 
 	$ ./configure && make
 
-Don't make install, because that may overwrite the dwarfdump that came with your Mac. Just record the full path to your new dwarfdump command so you can refer to it later. 
+Don't make install, because that may overwrite the `dwarfdump` that came with your Mac. Just record the full path to your new `dwarfdump` command so you can refer to it later. 
 
 # Build a Volatility Profile 
 
@@ -368,7 +368,7 @@ If you get the following error:
 	make[1]: *** [scripts/mod] Error 2
 	make: *** [scripts] Error 2
 
-Install Libelf from http://freecode.com/projects/libelf. Then copy elf.h to /usr/include. This should only be necessary on Mac. 
+Install Libelf from http://freecode.com/projects/libelf. Then copy `elf.h` to `/usr/include`. This should only be necessary on Mac. 
 
 ## netfilter xt_CONNMARK.o error while building the android kernel 
 
@@ -382,7 +382,7 @@ If you get the following error:
 	make[1]: *** [net/netfilter] Error 2
 	make: *** [net] Error 2
 
-Disable CONFIG_NETFILTER in the kernel's .config. This should only be necessary on Mac. 
+Disable `CONFIG_NETFILTER` in the kernel's `.config`. This should only be necessary on Mac. 
 
 # Related Links 
 
