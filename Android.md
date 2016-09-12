@@ -303,7 +303,7 @@ Don't make install, because that may overwrite the dwarfdump that came with your
 Get Volatility 2.3 or greater, if you don't already have it and change into the linux directory:
 
     $ git clone https://github.com/volatilityfoundation/volatility.git ~/android-volatility
-    $ cd ~android-volatility/tools/linux
+    $ cd ~/android-volatility/tools/linux
 
 Edit the Makefile like so:
 
@@ -329,7 +329,7 @@ Then make the module.ko driver. The output should be a non-empty module.dwarf fi
 	<1><0x24><DW_TAG_pointer_type> DW_AT_byte_size<0x00000004> DW_AT_type<<0x0000002a>>
 	....
 
-Now combine module.dwarf and the System.map from your android kernel source code into a zip file. Put it in the volatility/plugins/overlays/linux directory of your Volatility package:
+Now combine module.dwarf and the System.map from your android kernel source code into a zip file. Put it in the `volatility/plugins/overlays/linux` directory of your Volatility package:
 
 	$ zip ~/android-volatility/volatility/plugins/overlays/linux/Golfish-2.6.29.zip module.dwarf ~/android-source/System.map 
 	  adding: module.dwarf (deflated 90%)
