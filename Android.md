@@ -244,7 +244,7 @@ Below, we checked out trunk, made the following changes to the Makefile for cros
 	    
 	    $(MAKE) tidy
 
-The final step is to make and then verify that you have an output lime-goldfish.ko file. 
+The final step is to make and then verify that you have an output `lime-goldfish.ko` file. 
 
 	$ make 
 	$ ls 
