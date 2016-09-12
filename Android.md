@@ -286,7 +286,7 @@ That tells you where the emulated sdcard device exists on your host operating sy
 
 # Verify Your Dwarfdump Installation 
 
-The next step will require a working `dwarfdump` installation. If you're on Linux, try apt-get install `dwarfdump` or the `libdwarf-tools` package. The stock `dwarfdump` command in OS X does not support the `-d` parameter, so if you're on a Mac, then you must build a new one [from source](http://reality.sgiweb.org/davea/dwarf.html).
+The next step will require a working `dwarfdump` installation. If you're on Linux, try apt-get install `dwarfdump` or the `libdwarf-tools` package. The stock `dwarfdump` command in OS X does not support the `-d` parameter, so if you're on a Mac, then you must build a new one [from source](https://www.prevanders.net/dwarf.html).
 
 First build `libdwarf` and then build `dwarfdump` (no make install for either): 
 
