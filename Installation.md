@@ -37,14 +37,14 @@ This section does not apply to the standalone Windows executable, because the de
 
 For the most comprehensive plugin support, you should install the following libraries. If you do not install these libraries, you may see a warning message to raise your awareness, but all plugins that do not rely on the missing libraries will still work properly. 
 
- * [Distorm3](http://code.google.com/p/distorm/) - Powerful Disassembler Library For x86/AMD64 
+ * [Distorm3](https://github.com/gdabah/distorm/releases) - Powerful Disassembler Library For x86/AMD64 
       * Dependent plugins
           * apihooks
           * callbacks
           * impscan
           * kdbgscan, pslist, modules etc for Windows 8/2012 machines
           * the disassemble command in volshell, linux_volshell, and mac_volshell
- * [Yara](https://plusvic.github.io/yara/) - A malware identification and classification tool 
+ * [Yara](https://github.com/VirusTotal/yara/releases) - A malware identification and classification tool 
       * Dependent plugins
           * yarascan, linux_yarascan, mac_yarascan
       * Note: get yara from the project's main website, do not install it with pip.
