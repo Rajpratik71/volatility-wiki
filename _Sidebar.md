@@ -7,6 +7,7 @@ Getting Started
 * [[Mac]]
 * [[Android]]
 * [[Basic Usage|Volatility Usage]]
+* [[2.6 Profiles|2.6 Profiles]]
 * [[Encrypted KDBG|Encrypted-KDBG-(Win-8-and-later)]]
 * [[Pyinstaller Builds|Compiling-Binaries-with-Pyinstaller]]
 * [[Unified Output|Unified-Output]]
