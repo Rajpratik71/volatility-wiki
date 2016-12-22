@@ -2,7 +2,7 @@ This page documents some of the recent changes in the Windows kernel that affect
 
 # Notes on best practices / requirements
 
-* The distorm3 python module is a requirement for analyzing 64-bit Windows 8/2012 (and later) raw memory images
+* The distorm3 python module is a requirement for analyzing 64-bit Windows 8/2012 (and later) raw memory images. If you're using a standalone executable, then distorm3 is already included, however if you're using Volatility from source, then you will need to install distorm3. 
 * Previously, the parameter to `--kdbg` was the virtual address of the KDBG structure. On 64-bit Windows 8/2012 (and later), you pass the virtual address of `KdCopyDataBlock`. Both addresses are displayed in the output of the `kdbgscan` plugin. 
 
 ### Development notes
