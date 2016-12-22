@@ -7,7 +7,7 @@ Getting Started
 * [[Mac]]
 * [[Android]]
 * [[Basic Usage|Volatility Usage]]
-* [[Windows 8 and 2012|Windows 8/2012]]
+* [[Windows 8 And Above|Windows 8 And Above]]
 * [[Pyinstaller Builds|Compiling-Binaries-with-Pyinstaller]]
 * [[Unified Output|Unified-Output]]
 
