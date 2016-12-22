@@ -1,13 +1,13 @@
 This page documents some of the recent changes in the Windows kernel that affect memory forensics and what you can do to handle the differences gracefully. 
 
-# Notes on best practices 
+# Notes on best practices / requirements
 
-* The distorm3 python module is a requirement for analyzing 64-bit Windows 8 and 2012 raw memory images
-* Previously, the parameter to `--kdbg` was the virtual address of the KDBG structure. On 64-bit Windows 8 and 2012, you pass the virtual address of `KdCopyDataBlock`. Both addresses are displayed in the output of the `kdbgscan` plugin. 
+* The distorm3 python module is a requirement for analyzing 64-bit Windows 8/2012 (and later) raw memory images
+* Previously, the parameter to `--kdbg` was the virtual address of the KDBG structure. On 64-bit Windows 8/2012 (and later), you pass the virtual address of `KdCopyDataBlock`. Both addresses are displayed in the output of the `kdbgscan` plugin. 
 
-# Changes in the kernel 
+### Development notes
 
-* The KDBG is encrypted by default on all x64 Windows 8, 8.1, 2012, and 2012 R2
+* The KDBG is encrypted by default on all x64 Windows 8/2012 (and later)
 * The KDBG signature/size changed 
 * The DTB signature changed
 * New crash dump format (memory runs are bitmaps)
