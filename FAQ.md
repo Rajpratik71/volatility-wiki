@@ -242,4 +242,4 @@ If you have documentation, code or ideas to contribute, use one of the following
 
 - Through the [Github interface](https://github.com/volatilityfoundation/volatility/issues)
 - Through IRC: #volatility on freenode
-- Through the [Volatility Mailing List](http://lists.volatilesystems.com/mailman/listinfo/vol-users) 
+- Through the [Volatility Mailing List](https://lists.volatilityfoundation.org/mailman/listinfo/vol-users) 
