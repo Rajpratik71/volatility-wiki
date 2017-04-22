@@ -1086,7 +1086,7 @@ The output shows the offset of the LDR_DATA_TABLE_ENTRY structure, which is a vi
 
 ## modscan
 
-The modscan command finds LDR_DATA_TABLE_ENTRY structures by scanning physical memory for pool tags. This can pick up previously unloaded drivers and drivers that have been hidden/unlinked by rootkits. Unlike [modules](Command Reference#modules) the order of results has no relationship with the order in which the drivers loaded. As you can see below, DumpIt.sys was found at the lowest physical offset, but it was probably one of the last drivers to load (since it was used to acquire memory). 
+The modscan command finds LDR_DATA_TABLE_ENTRY structures by scanning physical memory for pool tags. This can pick up previously unloaded drivers and drivers that have been hidden/unlinked by rootkits. Unlike [modules](Command-Reference#modules) the order of results has no relationship with the order in which the drivers loaded. As you can see below, DumpIt.sys was found at the lowest physical offset, but it was probably one of the last drivers to load (since it was used to acquire memory). 
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 modscan
     Volatility Foundation Volatility Framework 2.4
@@ -1105,7 +1105,7 @@ The modscan command finds LDR_DATA_TABLE_ENTRY structures by scanning physical m
 
 ## moddump
 
-To extract a kernel driver to a file, use the moddump command. Supply the output directory with -D or --dump-dir=DIR. Without any additional parameters, all drivers identified by [modlist](Command Reference#modlist) will be dumped. If you want a specific driver, supply a regular expression of the driver's name with --regex=REGEX or the module's base address with --base=BASE. 
+To extract a kernel driver to a file, use the moddump command. Supply the output directory with -D or --dump-dir=DIR. Without any additional parameters, all drivers identified by [modlist](Command-Reference#modlist) will be dumped. If you want a specific driver, supply a regular expression of the driver's name with --regex=REGEX or the module's base address with --base=BASE. 
 
 For more information, see BDG's [Plugin Post: Moddump](http://moyix.blogspot.com/2008/10/plugin-post-moddump.html).
 
@@ -1122,7 +1122,7 @@ For more information, see BDG's [Plugin Post: Moddump](http://moyix.blogspot.com
     0xfffff88002c5d000 pacer.sys            OK: driver.fffff88002c5d000.sys
     [snip]
 
-Similar to [dlldump](Command Reference#dlldump), if critical parts of the PE header are not memory resident, then rebuilding/extracting the driver may fail. Additionally, for drivers that are mapped in different sessions (like win32k.sys), there is currently no way to specify which session to use when acquiring the driver sample. 
+Similar to [dlldump](Command-Reference#dlldump), if critical parts of the PE header are not memory resident, then rebuilding/extracting the driver may fail. Additionally, for drivers that are mapped in different sessions (like win32k.sys), there is currently no way to specify which session to use when acquiring the driver sample. 
 
 ## ssdt
 
@@ -1132,7 +1132,7 @@ To list the functions in the Native and GUI SSDTs, use the ssdt command. This di
 
 - There are multiple ways to locate the SSDTs in memory. Most tools do it by finding the exported KeServiceDescriptorTable symbol in the NT module, but this is not the way Volatility works.
 
-- For x86 systems, Volatility scans for ETHREAD objects (see the [thrdscan](Command Reference#thrdscan) command) and gathers all unique ETHREAD.Tcb.ServiceTable pointers. This method is more robust and complete, because it can detect when rootkits make copies of the existing SSDTs and assign them to particular threads. Also see the [threads](Command Reference#threads) command.
+- For x86 systems, Volatility scans for ETHREAD objects (see the [thrdscan](Command-Reference#thrdscan) command) and gathers all unique ETHREAD.Tcb.ServiceTable pointers. This method is more robust and complete, because it can detect when rootkits make copies of the existing SSDTs and assign them to particular threads. Also see the [threads](Command-Reference#threads) command.
 
 - For x64 systems (which do not have an ETHREAD.Tcb.ServiceTable member) Volatility disassembles code in ntKeAddSystemServiceTable and finds its references to the KeServiceDescriptorTable and KeServiceDescriptorTableShadow symbols.
 
@@ -1180,7 +1180,7 @@ Note that the NT module on your system may be ntkrnlpa.exe or ntkrnlmp.exe - so 
 
 ## driverscan
 
-To find DRIVER_OBJECTs in physical memory using pool tag scanning, use the driverscan command. This is another way to locate kernel modules, although not all kernel modules have an associated DRIVER_OBJECT. The DRIVER_OBJECT is what contains the 28 IRP (Major Function) tables, thus the [driverirp](Command Reference#driverirp) command is based on the methodology used by driverscan. 
+To find DRIVER_OBJECTs in physical memory using pool tag scanning, use the driverscan command. This is another way to locate kernel modules, although not all kernel modules have an associated DRIVER_OBJECT. The DRIVER_OBJECT is what contains the 28 IRP (Major Function) tables, thus the [driverirp](Command-Reference#driverirp) command is based on the methodology used by driverscan. 
 
 For more information, see Andreas Schuster's [Scanning for Drivers](http://computer.forensikblog.de/en/2009/04/scanning_for_drivers.html).
 
@@ -1281,7 +1281,7 @@ This plugin scans for symbolic link objects and outputs their information. In th
 
 ## thrdscan
 
-To find ETHREAD objects in physical memory with pool tag scanning, use the thrdscan command. Since an ETHREAD contains fields that identify its parent process, you can use this technique to find hidden processes. One such use case is documented in the [psxview](Command-ReferenceMal23#psxview) command. Also, for verbose details, try the [threads](Command Reference#threads) plugin. 
+To find ETHREAD objects in physical memory with pool tag scanning, use the thrdscan command. Since an ETHREAD contains fields that identify its parent process, you can use this technique to find hidden processes. One such use case is documented in the [psxview](Command-ReferenceMal23#psxview) command. Also, for verbose details, try the [threads](Command-Reference#threads) plugin. 
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 thrdscan
     Volatility Foundation Volatility Framework 2.4
@@ -1581,7 +1581,7 @@ Volatility is the only memory forensics framework with the ability to carve regi
 
 To find the physical addresses of CMHIVEs (registry hives) in memory, use the hivescan command. For more information, see BDG's [Enumerating Registry Hives](http://moyix.blogspot.com/2008/02/enumerating-registry-hives.html). 
 
-This plugin isn't generally useful by itself. Its meant to be inherited by other plugins (such as [hivelist](Command Reference#hivelist) below) that build on and interpret the information found in CMHIVEs. 
+This plugin isn't generally useful by itself. Its meant to be inherited by other plugins (such as [hivelist](Command-Reference#hivelist) below) that build on and interpret the information found in CMHIVEs. 
 
     $python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 hivescan
     Volatility Foundation Volatility Framework 2.4
@@ -1675,7 +1675,7 @@ Here you can see how the output appears when multiple hives (DEFAULT and ntuser.
     
     [snip]
 
-If you want to limit your search to a specific hive, printkey also accepts a virtual address to the hive. For example, to see the contents of HKEY_LOCAL_MACHINE, use the command below. Note: the offset is taken from the previous [hivelist](Command Reference#hivelist) output. 
+If you want to limit your search to a specific hive, printkey also accepts a virtual address to the hive. For example, to see the contents of HKEY_LOCAL_MACHINE, use the command below. Note: the offset is taken from the previous [hivelist](Command-Reference#hivelist) output. 
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 printkey -o 0xfffff8a000a15010
     Volatility Foundation Volatility Framework 2.4
@@ -1941,7 +1941,7 @@ This plugin parses and prints [Shellbag (pdf)](http://www.dfrws.org/2009/proceed
     ***************************************************************************
     [snip]
 
-Another option is to use the `--output=body` option for [TSK 3.x bodyfile format](http://wiki.sleuthkit.org/index.php?title=Body_file).  You can use this output option when you want to combine output from `timeliner`, [mftparser](Command Reference#mftparser) and [timeliner](Command Reference#timeliner).  You can also include a machine identifier in the bodyfile header with the `--machine` flag (this is useful when combining timelines from multiple machines).  Only ITEMPOS and FILE_ENTRY items are output with the bodyfile format:
+Another option is to use the `--output=body` option for [TSK 3.x bodyfile format](http://wiki.sleuthkit.org/index.php?title=Body_file).  You can use this output option when you want to combine output from `timeliner`, [mftparser](Command-Reference#mftparser) and [timeliner](Command-Reference#timeliner).  You can also include a machine identifier in the bodyfile header with the `--machine` flag (this is useful when combining timelines from multiple machines).  Only ITEMPOS and FILE_ENTRY items are output with the bodyfile format:
 
     $ python vol.py -f win7.vmem --profile=Win7SP1x86 shellbags --output=body
     Volatility Foundation Volatility Framework 2.4
@@ -2003,7 +2003,7 @@ In order to save output to a file, use the `--output-file` option.
 
 ## dumpregistry
 
-The `dumpregistry` plugin allows you to dump a registry hive to disk.  It works on all supported Windows versions (Windows XP-8.1).  By default the plugin will dump all registry files (including virtual registries like `HARDWARE`) found to disk, however you may specify the virtual offset for a specific hive in order to only dump one registry at a time.  One caveat about using this plugin (or the [dumpfiles](Command Reference#dumpfiles) plugin) is that there may be holes in the dumped registry file, so offline registry tools may crash if they are not made robustly to handle "corrupt" files.  These holes are denoted in the text output with lines like `Physical layer returned None for index 2000, filling with NULL`.  Example output is shown below:
+The `dumpregistry` plugin allows you to dump a registry hive to disk.  It works on all supported Windows versions (Windows XP-8.1).  By default the plugin will dump all registry files (including virtual registries like `HARDWARE`) found to disk, however you may specify the virtual offset for a specific hive in order to only dump one registry at a time.  One caveat about using this plugin (or the [dumpfiles](Command-Reference#dumpfiles) plugin) is that there may be holes in the dumped registry file, so offline registry tools may crash if they are not made robustly to handle "corrupt" files.  These holes are denoted in the text output with lines like `Physical layer returned None for index 2000, filling with NULL`.  Example output is shown below:
 
 ```
 $ python vol.py -f voltest.dmp --profile=Win7SP1x86 dumpregistry -D output
@@ -2186,7 +2186,7 @@ The hibinfo command reveals additional information stored in the hibernation fil
 
 The imagecopy command allows you to convert any existing type of address space (such as a crashdump, hibernation file, virtualbox core dump, vmware snapshot, or live firewire session) to a raw memory image. This conversion be necessary if some of your other forensic tools only support reading raw memory dumps. 
 
-The profile should be specified for this command, so if you don't know it already, use the [or [Command Reference#kdbgscan kdbgscan](Command Reference#imageinfo]) commands first.  The output file is specified with the -O flag.  The progress is updated as the file is converted:
+The profile should be specified for this command, so if you don't know it already, use the [or [Command-Reference#kdbgscan kdbgscan](Command-Reference#imageinfo]) commands first.  The output file is specified with the -O flag.  The progress is updated as the file is converted:
 
     $ python vol.py -f win7_x64.dmp --profile=Win7SP0x64 imagecopy -O copy.raw
     Volatility Foundation Volatility Framework 2.4
@@ -2584,7 +2584,7 @@ Now we can see a difference in how these two files are handled:
 
     $ python vol.py --profile=Win7SP0x86 strings –f win7.dd –s win7_strings.txt --output-file=win7_vol_strings.txt
 
-By default `strings` will only provide output for processes found by walking the doubly linked list pointed to by `PsActiveProcessHead` (see [pslist](Command Reference#pslist)) in addition to kernel addresses.  `strings` can also provide output for hidden processes (see [psscan](Command Reference#psscan)) by using the (capital) -S switch:
+By default `strings` will only provide output for processes found by walking the doubly linked list pointed to by `PsActiveProcessHead` (see [pslist](Command-Reference#pslist)) in addition to kernel addresses.  `strings` can also provide output for hidden processes (see [psscan](Command-Reference#psscan)) by using the (capital) -S switch:
 
     $ python vol.py --profile=Win7SP0x86 strings –f win7.dd –s win7_strings.txt --output-file=win7_vol_strings.txt -S 
 
@@ -2944,7 +2944,7 @@ If you don't want to do the extra step of importing, you can use the `--output=x
 
     $ python vol.py -f XPSP3x86.vmem timeliner --output=xlsx --output-file=output.xlsx
 
-Another option is to use the `--output=body` option for [TSK 3.x bodyfile format](http://wiki.sleuthkit.org/index.php?title=Body_file).  You can use this output option when you want to combine output from `timeliner`, [mftparser](Command Reference#mftparser) and [shellbags](Command Reference#shellbags).
+Another option is to use the `--output=body` option for [TSK 3.x bodyfile format](http://wiki.sleuthkit.org/index.php?title=Body_file).  You can use this output option when you want to combine output from `timeliner`, [mftparser](Command-Reference#mftparser) and [shellbags](Command-Reference#shellbags).
 
 By default everything except the registry LastWrite timestamps are included in the output of `timeliner`, this is because obtaining the registry timestamps is quite labor intensive.  In order to add them to the output, simply add the `--type=Registry` option when you run Volatility.  You can also limit your focus of registry timestamps by listing a specific registry name (like `--hive=SYSTEM`) or user (`--user=Jim`) or both (`--hive=UsrClass.dat   --user=jim`).  These options are case insensitive.  
 
