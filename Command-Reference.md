@@ -2186,7 +2186,7 @@ The hibinfo command reveals additional information stored in the hibernation fil
 
 The imagecopy command allows you to convert any existing type of address space (such as a crashdump, hibernation file, virtualbox core dump, vmware snapshot, or live firewire session) to a raw memory image. This conversion be necessary if some of your other forensic tools only support reading raw memory dumps. 
 
-The profile should be specified for this command, so if you don't know it already, use the [or [Command-Reference#kdbgscan kdbgscan](Command-Reference#imageinfo]) commands first.  The output file is specified with the -O flag.  The progress is updated as the file is converted:
+The profile should be specified for this command, so if you don't know it already, use the [kdbgscan](Command-Reference#kdbgscan) or [imageinfo](Command-Reference#imageinfo) commands first.  The output file is specified with the -O flag.  The progress is updated as the file is converted:
 
     $ python vol.py -f win7_x64.dmp --profile=Win7SP0x64 imagecopy -O copy.raw
     Volatility Foundation Volatility Framework 2.4
@@ -2280,7 +2280,7 @@ If you have an hpak file whose contents are compressed, you can extract and deco
 
 Scans for and parses potential Master Boot Records (MBRs).  There are different options for finding MBRs and filtering output.  For more information please see [Recovering Master Boot Records from Memory](http://volatility-labs.blogspot.com/2012/10/movp-43-recovering-master-boot-records.html).  While this plugin was written with Windows bootkits in mind, it can also be used with memory samples from other systems.
 
-When run without any extra options, `mbrparser` scans for and returns information all potential MBRs defined by signature ('\x55\xaa') found in memory.  Information includes: disassembly of bootcode (must have [distorm3](http://code.google.com/p/distorm/) installed) and partition information.  This will most likely have false positives.
+When run without any extra options, `mbrparser` scans for and returns information all potential MBRs defined by signature ('\x55\xaa') found in memory.  Information includes: disassembly of bootcode (must have [distorm3](https://github.com/gdabah/distorm) installed) and partition information.  This will most likely have false positives.
 
 If distorm3 is not installed, the `-H/--hex` option can be used to get the entire bootcode section in hex instead of disassembly:
 
