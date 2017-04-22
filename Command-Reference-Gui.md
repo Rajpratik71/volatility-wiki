@@ -1,19 +1,19 @@
 **Table of Contents**  
 
-- [sessions](Command Reference Gui#sessions)
-- [wndscan](Command Reference Gui#wndscan)
-- [deskscan](Command Reference Gui#deskscan)
-- [atomscan](Command Reference Gui#atomscan)
-- [atoms](Command Reference Gui#atoms)
-- [clipboard](Command Reference Gui#clipboard)
-- [eventhooks](Command Reference Gui#eventhooks)
-- [gahti](Command Reference Gui#gahti)
-- [messagehooks](Command Reference Gui#messagehooks)
-- [userhandles](Command Reference Gui#userhandles)
-- [screenshot](Command Reference Gui#screenshot)
-- [gditimers](Command Reference Gui#gditimers)
-- [windows](Command Reference Gui#windows)
-- [wintree](Command Reference Gui#wintree)
+- [sessions](Command-Reference-Gui#sessions)
+- [wndscan](Command-Reference-Gui#wndscan)
+- [deskscan](Command-Reference-Gui#deskscan)
+- [atomscan](Command-Reference-Gui#atomscan)
+- [atoms](Command-Reference-Gui#atoms)
+- [clipboard](Command-Reference-Gui#clipboard)
+- [eventhooks](Command-Reference-Gui#eventhooks)
+- [gahti](Command-Reference-Gui#gahti)
+- [messagehooks](Command-Reference-Gui#messagehooks)
+- [userhandles](Command-Reference-Gui#userhandles)
+- [screenshot](Command-Reference-Gui#screenshot)
+- [gditimers](Command-Reference-Gui#gditimers)
+- [windows](Command-Reference-Gui#windows)
+- [wintree](Command-Reference-Gui#wintree)
 
 The win32k.sys suite of plugins analyzes GUI memory. Most of these plugins are more thoroughly described (including details on underlying data structures, example use cases, etc) on the [Volatility Labs Blog](http://volatility-labs.blogspot.com), so the content here is just a quick summary. 
 
