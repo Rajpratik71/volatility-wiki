@@ -102,7 +102,7 @@ For a high level summary of the memory sample you're analyzing, use the imageinf
                Image date and time : 2012-02-22 11:29:02 UTC+0000
          Image local date and time : 2012-02-22 03:29:02 -0800
 
-The imageinfo output tells you the suggested profile that you should pass as the parameter to `--profile=PROFILE` when using other plugins. There may be more than one profile suggestion if profiles are closely related. It also prints the address of the KDBG (short for `_KDDEBUGGER_DATA64`) structure that will be used by plugins like [pslist](Command Reference#pslist) and [modules](Command Reference#modules) to find the process and module list heads, respectively. In some cases, especially larger memory samples, there may be multiple KDBG structures. Similarly, if there are multiple processors, you'll see the KPCR address and CPU number for each one. 
+The imageinfo output tells you the suggested profile that you should pass as the parameter to `--profile=PROFILE` when using other plugins. There may be more than one profile suggestion if profiles are closely related. It also prints the address of the KDBG (short for `_KDDEBUGGER_DATA64`) structure that will be used by plugins like [pslist](Command-Reference#pslist) and [modules](Command-Reference#modules) to find the process and module list heads, respectively. In some cases, especially larger memory samples, there may be multiple KDBG structures. Similarly, if there are multiple processors, you'll see the KPCR address and CPU number for each one. 
 
 Plugins automatically scan for the KPCR and KDBG values when they need them. However, you can specify the values directly for any plugin by providing `--kpcr=ADDRESS` or `--kdbg=ADDRESS`. By supplying the profile and KDBG (or failing that KPCR) to other Volatility commands, you'll get the most accurate and fastest results possible.
 
@@ -110,11 +110,11 @@ Plugins automatically scan for the KPCR and KDBG values when they need them. How
 
 ## kdbgscan
 
-As opposed to [imageinfo](Command Reference#imageinfo) which simply provides profile suggestions, kdbgscan is designed to positively identify the correct profile and the correct KDBG address (if there happen to be multiple). This plugin scans for the KDBGHeader signatures linked to Volatility profiles and applies sanity checks to reduce false positives. The verbosity of the output and number of sanity checks that can be performed depends on whether Volatility can find a DTB, so if you already know the correct profile (or if you have a profile suggestion from [imageinfo](Command Reference#imageinfo)), then make sure you use it. 
+As opposed to [imageinfo](Command-Reference#imageinfo) which simply provides profile suggestions, kdbgscan is designed to positively identify the correct profile and the correct KDBG address (if there happen to be multiple). This plugin scans for the KDBGHeader signatures linked to Volatility profiles and applies sanity checks to reduce false positives. The verbosity of the output and number of sanity checks that can be performed depends on whether Volatility can find a DTB, so if you already know the correct profile (or if you have a profile suggestion from [imageinfo](Command-Reference#imageinfo)), then make sure you use it. 
 
-Here's an example scenario of when this plugin can be useful. You have a memory sample that you believe to be Windows 2003 SP2 x64, but [pslist](Command Reference#pslist) doesn't show any processes. The `pslist` plugin relies on finding the process list head which is pointed to by KDBG. However, the plugin takes the *first* KDBG found in the memory sample, which is not always the *best* one. You may run into this problem if a KDBG with an invalid PsActiveProcessHead pointer is found earlier in a sample (i.e. at a lower physical offset) than the valid KDBG.
+Here's an example scenario of when this plugin can be useful. You have a memory sample that you believe to be Windows 2003 SP2 x64, but [pslist](Command-Reference#pslist) doesn't show any processes. The `pslist` plugin relies on finding the process list head which is pointed to by KDBG. However, the plugin takes the *first* KDBG found in the memory sample, which is not always the *best* one. You may run into this problem if a KDBG with an invalid PsActiveProcessHead pointer is found earlier in a sample (i.e. at a lower physical offset) than the valid KDBG.
 
-Notice below how `kdbgscan` picks up two KDBG structures: an invalid one (with 0 processes and 0 modules) is found first at `0xf80001172cb0` and a valid one (with 37 processes and 116 modules) is found next at `0xf80001175cf0`. In order to "fix" [pslist](Command Reference#pslist) for this sample, you would simply need to supply the `--kdbg=0xf80001175cf0` to the `plist` plugin.
+Notice below how `kdbgscan` picks up two KDBG structures: an invalid one (with 0 processes and 0 modules) is found first at `0xf80001172cb0` and a valid one (with 37 processes and 116 modules) is found next at `0xf80001175cf0`. In order to "fix" [pslist](Command-Reference#pslist) for this sample, you would simply need to supply the `--kdbg=0xf80001175cf0` to the `plist` plugin.
 
     $ python vol.py -f Win2K3SP2x64-6f1bedec.vmem --profile=Win2003SP2x64 kdbgscan
     Volatility Foundation Volatility Framework 2.4
@@ -178,7 +178,7 @@ Use this command to scan for potential KPCR structures by checking for the self-
     Details                       : CPU 1 (GenuineIntel @ 2220 MHz)
     CR3/DTB                       : 0x1dcec000
 
-If the `KdVersionBlock` is not null, then it may be possible to find the machine's KDBG address via the KPCR. In fact, the backup method of finding KDBG used by plugins such as [pslist](Command Reference#pslist) is to leverage `kpcrscan` and then call the `KPCR.get_kdbg()` API function. 
+If the `KdVersionBlock` is not null, then it may be possible to find the machine's KDBG address via the KPCR. In fact, the backup method of finding KDBG used by plugins such as [pslist](Command-Reference#pslist) is to leverage `kpcrscan` and then call the `KPCR.get_kdbg()` API function. 
 
 # Processes and DLLs
 
@@ -186,7 +186,7 @@ If the `KdVersionBlock` is not null, then it may be possible to find the machine
 
 To list the processes of a system, use the `pslist` command. This walks the doubly-linked list pointed to by `PsActiveProcessHead` and shows the offset, process name, process ID, the parent process ID, number of threads, number of handles, and date/time when the process started and exited. As of 2.1 it also shows the Session ID and if the process is a Wow64 process (it uses a 32 bit address space on a 64 bit kernel).
 
-This plugin does not detect hidden or unlinked processes (but [psscan](Command Reference#psscan) can do that).
+This plugin does not detect hidden or unlinked processes (but [psscan](Command-Reference#psscan) can do that).
 
 If you see processes with 0 threads, 0 handles, and/or a non-empty exit time, the process may not actually still be active. For more information, see [The Missing Active in PsActiveProcessHead](http://mnin.blogspot.com/2011/03/mis-leading-active-in.html). Below, you'll notice `regsvr32.exe` has terminated even though its still in the "active" list. 
 
@@ -323,7 +323,7 @@ To display a process's loaded DLLs, use the `dlllist` command. It walks the doub
     0x000007fefd860000            0x9f000             0xffff C:\Windows\system32\msvcrt.dll
     [snip]
 
-To display the DLLs for a specific process instead of all processes, use the `-p` or `--pid` filter as shown below. Also, in the following output, notice we're analyzing a Wow64 process. Wow64 processes have a limited list of DLLs in the PEB lists, but that doesn't mean they're the *only* DLLs loaded in the process address space. Thus Volatility will remind you to use the [ldrmodules](Command Reference#ldrmodules) instead for these processes. 
+To display the DLLs for a specific process instead of all processes, use the `-p` or `--pid` filter as shown below. Also, in the following output, notice we're analyzing a Wow64 process. Wow64 processes have a limited list of DLLs in the PEB lists, but that doesn't mean they're the *only* DLLs loaded in the process address space. Thus Volatility will remind you to use the [ldrmodules](Command-Reference#ldrmodules) instead for these processes. 
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 dlllist -p 1892
     Volatility Foundation Volatility Framework 2.4
@@ -371,7 +371,7 @@ To specify an output directory, use `--dump-dir=DIR` or `-d DIR`.
     0xfffffa80011c5700 lsass.exe            0x000007fefc5d0000 Secur32.dll          OK: module.444.173c5700.7fefc5d0000.dll
     ...
 
-If the extraction fails, as it did for a few DLLs above, it probably means that some of the memory pages in that DLL were not memory resident (due to paging). In particular, this is a problem if the first page containing the PE header and thus the PE section mappings is not available. In these cases you can still extract the memory segment using the [vaddump](Command Reference#vaddump) command, but you'll need to manually rebuild the PE header and fixup the sections (if you plan on analyzing in IDA Pro) as described in [Recovering CoreFlood Binaries with Volatility](http://mnin.blogspot.com/2008/11/recovering-coreflood-binaries-with.html). 
+If the extraction fails, as it did for a few DLLs above, it probably means that some of the memory pages in that DLL were not memory resident (due to paging). In particular, this is a problem if the first page containing the PE header and thus the PE section mappings is not available. In these cases you can still extract the memory segment using the [vaddump](Command-Reference#vaddump) command, but you'll need to manually rebuild the PE header and fixup the sections (if you plan on analyzing in IDA Pro) as described in [Recovering CoreFlood Binaries with Volatility](http://mnin.blogspot.com/2008/11/recovering-coreflood-binaries-with.html). 
 
 To dump a PE file that doesn't exist in the DLLs list (for example, due to code injection or malicious unlinking), just specify the base address of the PE in process memory:
 
@@ -506,7 +506,7 @@ For background information, see Richard Stevens and Eoghan Casey's [Extracting W
 
 ## consoles
 
-Similar to [cmdscan](Command Reference#cmdscan) the consoles plugin finds commands that attackers typed into cmd.exe or executed via backdoors. However, instead of scanning for COMMAND_HISTORY, this plugin scans for CONSOLE_INFORMATION. The major advantage to this plugin is it not only prints the commands attackers typed, but it collects the entire screen buffer (input **and** output). For instance, instead of just seeing "dir", you'll see exactly what the attacker saw, including all files and directories listed by the "dir" command. 
+Similar to [cmdscan](Command-Reference#cmdscan) the consoles plugin finds commands that attackers typed into cmd.exe or executed via backdoors. However, instead of scanning for COMMAND_HISTORY, this plugin scans for CONSOLE_INFORMATION. The major advantage to this plugin is it not only prints the commands attackers typed, but it collects the entire screen buffer (input **and** output). For instance, instead of just seeing "dir", you'll see exactly what the attacker saw, including all files and directories listed by the "dir" command. 
 
 Additionally, this plugin prints the following: 
 
@@ -675,7 +675,7 @@ This plugin shows you which process privileges are present, enabled, and/or enab
 
 ## envars
 
-To display a process's environment variables, use the envars plugin. Typically this will show the number of CPUs installed and the hardware architecture (though the [kdbgscan](Command Reference#kdbgscan) output is a much more reliable source), the process's current directory, temporary directory, session name, computer name, user name, and various other interesting artifacts. 
+To display a process's environment variables, use the envars plugin. Typically this will show the number of CPUs installed and the hardware architecture (though the [kdbgscan](Command-Reference#kdbgscan) output is a much more reliable source), the process's current directory, temporary directory, session name, computer name, user name, and various other interesting artifacts. 
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 envars
     Volatility Foundation Volatility Framework 2.4
@@ -730,7 +730,7 @@ This plugin only supports printing version information from process executables 
 
 ## enumfunc
 
-This plugin enumerates imported and exported functions from processes, dlls, and kernel drivers. Specifically, it handles functions imported by name or ordinal, functions exported by name or ordinal, and forwarded exports. The output will be very verbose in most cases (functions exported by ntdll, msvcrt, and kernel32 can reach 1000+ alone). So you can either reduce the verbosity by filtering criteria with the command-line options (shown below) or you can use look at the code in enumfunc.py and use it as an example of how to use the IAT and EAT parsing API functions in your own plugin. For example, the [apihooks](Command Reference#apihooks) plugin leverages the imports and exports APIs to find functions in memory when checking for hooks. 
+This plugin enumerates imported and exported functions from processes, dlls, and kernel drivers. Specifically, it handles functions imported by name or ordinal, functions exported by name or ordinal, and forwarded exports. The output will be very verbose in most cases (functions exported by ntdll, msvcrt, and kernel32 can reach 1000+ alone). So you can either reduce the verbosity by filtering criteria with the command-line options (shown below) or you can use look at the code in enumfunc.py and use it as an example of how to use the IAT and EAT parsing API functions in your own plugin. For example, the [apihooks](Command-Reference#apihooks) plugin leverages the imports and exports APIs to find functions in memory when checking for hooks. 
 
 Also note this plugin is in the contrib directory, so you can pass that to --plugins like this:
 
@@ -787,7 +787,7 @@ To show imported functions in kernel memory, use -K and -I like this:
 
 The memmap command shows you exactly which pages are memory resident, given a specific process DTB (or kernel DTB if you use this plugin on the Idle or System process). It shows you the virtual address of the page, the corresponding physical offset of the page, and the size of the page. The map information generated by this plugin comes from the underlying address space's get_available_addresses method. 
 
-As of 2.1, the new column DumpFileOffset helps you correlate the output of memmap with the dump file produced by the [memdump](Command Reference#memdump) plugin. For example, according to the output below, the page at virtual address 0x0000000000058000 in the System process's memory can be found at offset 0x00000000162ed000 of the win7_trial_64bit.raw file. After using [memdump](Command Reference#memdump) to extract the addressable memory of the System process to an individual file, you can find this page at offset 0x8000. 
+As of 2.1, the new column DumpFileOffset helps you correlate the output of memmap with the dump file produced by the [memdump](Command-Reference#memdump) plugin. For example, according to the output below, the page at virtual address 0x0000000000058000 in the System process's memory can be found at offset 0x00000000162ed000 of the win7_trial_64bit.raw file. After using [memdump](Command-Reference#memdump) to extract the addressable memory of the System process to an individual file, you can find this page at offset 0x8000. 
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 memmap -p 4 
     Volatility Foundation Volatility Framework 2.4
@@ -807,7 +807,7 @@ As of 2.1, the new column DumpFileOffset helps you correlate the output of memma
 
 ## memdump
 
-To extract all memory resident pages in a process (see [memmap](Command Reference#memmap) for details) into an individual file, use the memdump command. Supply the output directory with -D or --dump-dir=DIR. 
+To extract all memory resident pages in a process (see [memmap](Command-Reference#memmap) for details) into an individual file, use the memdump command. Supply the output directory with -D or --dump-dir=DIR. 
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 memdump -p 4 -D dump/
     Volatility Foundation Volatility Framework 2.4
@@ -817,7 +817,7 @@ To extract all memory resident pages in a process (see [memmap](Command Referenc
     $ ls -alh dump/4.dmp 
     -rw-r--r--  1 Michael  staff   111M Jun 24 15:47 dump/4.dmp
 
-To conclude the demonstration we began in the [memmap](Command Reference#memmap) discussion, we should now be able to make an assertion regarding the relationship of the mapped and extracted pages: 
+To conclude the demonstration we began in the [memmap](Command-Reference#memmap) discussion, we should now be able to make an assertion regarding the relationship of the mapped and extracted pages: 
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 volshell
     Volatility Foundation Volatility Framework 2.4
@@ -946,7 +946,7 @@ Fillcolor Legend:
 
 ## vaddump
 
-To extract the range of pages described by a VAD node, use the vaddump command. This is similar to [memdump](Command Reference#memdump), except the pages belonging to each VAD node are placed in separate files (named according to the starting and ending addresses) instead of one large conglomerate file. If any pages in the range are not memory resident, they're padded with 0's using the address space's zread() method. 
+To extract the range of pages described by a VAD node, use the vaddump command. This is similar to [memdump](Command-Reference#memdump), except the pages belonging to each VAD node are placed in separate files (named according to the starting and ending addresses) instead of one large conglomerate file. If any pages in the range are not memory resident, they're padded with 0's using the address space's zread() method. 
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 vaddump -D vads
     Volatility Foundation Volatility Framework 2.4
@@ -1052,9 +1052,9 @@ This plugin recovers fragments of IE history index.dat cache files. It can find 
 
 ## modules
 
-To view the list of kernel drivers loaded on the system, use the modules command. This walks the doubly-linked list of LDR_DATA_TABLE_ENTRY structures pointed to by PsLoadedModuleList. Similar to the [pslist](Command Reference#pslist) command, this relies on finding the KDBG structure. In rare cases, you may need to use [kdbgscan](Command Reference#kdbgscan) to find the most appropriate KDBG structure address and then supply it to this plugin like --kdbg=ADDRESS. 
+To view the list of kernel drivers loaded on the system, use the modules command. This walks the doubly-linked list of LDR_DATA_TABLE_ENTRY structures pointed to by PsLoadedModuleList. Similar to the [pslist](Command-Reference#pslist) command, this relies on finding the KDBG structure. In rare cases, you may need to use [kdbgscan](Command-Reference#kdbgscan) to find the most appropriate KDBG structure address and then supply it to this plugin like --kdbg=ADDRESS. 
 
-It cannot find hidden/unlinked kernel drivers, however [modscan](Command Reference#modscan) serves that purpose. Also, since this plugin uses list walking techniques, you typically can assume that the order the modules are displayed in the output is the order they were loaded on the system. For example, below, ntoskrnl.exe was first to load, followed by hal.dll, etc. 
+It cannot find hidden/unlinked kernel drivers, however [modscan](Command-Reference#modscan) serves that purpose. Also, since this plugin uses list walking techniques, you typically can assume that the order the modules are displayed in the output is the order they were loaded on the system. For example, below, ntoskrnl.exe was first to load, followed by hal.dll, etc. 
 
     $ python vol.py -f ~/Desktop/win7_trial_64bit.raw --profile=Win7SP0x64 modules
     Volatility Foundation Volatility Framework 2.4
