@@ -147,7 +147,7 @@ This command is similar to `atomscan` above, but it allows us to associate atom 
 
 # clipboard
 
-This command recovers data from users' clipboards. It walks the array of `tagCLIP` objects pointed to by `tagWINDOWSTATION.pClipBase` and takes the format (i.e. unicode, ansi, ole, bmp) and the handle value. Then it walks the USER handle table (also see the [userhandles](Command Reference Gui#userhandles) plugin) and filters for TYPE_CLIPDATA objects. It matches the handle value of those objects with the handles from `tagCLIP` so that a format can be associated with the raw data. For more information, see [MoVP 3.4: Recovering tagCLIPDATA What's In Your Clipboard?](http://volatility-labs.blogspot.com/2012/09/movp-34-recovering-tagclipdata-whats-in.html). 
+This command recovers data from users' clipboards. It walks the array of `tagCLIP` objects pointed to by `tagWINDOWSTATION.pClipBase` and takes the format (i.e. unicode, ansi, ole, bmp) and the handle value. Then it walks the USER handle table (also see the [userhandles](Command-Reference-Gui#userhandles) plugin) and filters for TYPE_CLIPDATA objects. It matches the handle value of those objects with the handles from `tagCLIP` so that a format can be associated with the raw data. For more information, see [MoVP 3.4: Recovering tagCLIPDATA What's In Your Clipboard?](http://volatility-labs.blogspot.com/2012/09/movp-34-recovering-tagclipdata-whats-in.html). 
 
 The output below shows an extracted unicode command that a user had copied to the clipboard:
 
