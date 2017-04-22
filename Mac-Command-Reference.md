@@ -46,7 +46,7 @@
 
 This plugin walks the linked list of processes and displays their short name, pid, uid, gid, bits (32, 64, or 64 shared), the DTB address, and creation time. You can tweak the timestamp time zone by using --tz=TIMEZONE (see [Setting the Timezone](Volatility-Usage23#Setting_the_Timezone)).
 
-Note: in testing, we determined that oftentimes the list is corrupt, leading to semi-garbage output. This is likely due to smearing while acquiring the memory sample. In these cases, use the [mac_tasks](Mac Command Reference#mac_tasks) plugin instead - it has been found to be a more reliable source of process listings. 
+Note: in testing, we determined that oftentimes the list is corrupt, leading to semi-garbage output. This is likely due to smearing while acquiring the memory sample. In these cases, use the [mac_tasks](Mac-Command-Reference#mac_tasks) plugin instead - it has been found to be a more reliable source of process listings. 
 
     $ python vol.py --profile=MacMountainLion_10_8_3_AMDx64 -f ~/10.8.3.mmr.macho mac_pslist
     Volatility Foundation Volatility Framework 2.4
