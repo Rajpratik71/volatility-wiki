@@ -1,19 +1,18 @@
 **Table of Contents**  
-
-- [malfind](Command Reference Mal#malfind)
-- [yarascan](Command Reference Mal#yarascan)
-- [svcscan](Command Reference Mal#svcscan)
-- [ldrmodules](Command Reference Mal#ldrmodules)
-- [impscan](Command Reference Mal#impscan)
-- [apihooks](Command Reference Mal#apihooks)
-- [idt](Command Reference Mal#idt)
-- [gdt](Command Reference Mal#gdt)
-- [threads](Command Reference Mal#threads)
-- [callbacks](Command Reference Mal#callbacks)
-- [driverirp](Command Reference Mal#driverirp)
-- [devicetree](Command Reference Mal#devicetree)
-- [psxview](Command Reference Mal#psxview)
-- [timers](Command Reference Mal#timers)
+- [malfind](Command-Reference-Mal#malfind)
+- [yarascan](Command-Reference-Mal#yarascan)
+- [svcscan](Command-Reference-Mal#svcscan)
+- [ldrmodules](Command-Reference-Mal#ldrmodules)
+- [impscan](Command-Reference-Mal#impscan)
+- [apihooks](Command-Reference-Mal#apihooks)
+- [idt](Command-Reference-Mal#idt)
+- [gdt](Command-Reference-Mal#gdt)
+- [threads](Command-Reference-Mal#threads)
+- [callbacks](Command-Reference-Mal#callbacks)
+- [driverirp](Command-Reference-Mal#driverirp)
+- [devicetree](Command-Reference-Mal#devicetree)
+- [psxview](Command-Reference-Mal#psxview)
+- [timers](Command-Reference-Mal#timers)
 
 Although all Volatility commands can help you hunt malware in one way or another, there are a few designed specifically for hunting rootkits and malicious code. The most comprehensive documentation for these commands can be found in the [Malware Analyst's Cookbook and DVD: Tools and Techniques For Fighting Malicious Code](http://www.amazon.com/dp/0470613033).  
 
