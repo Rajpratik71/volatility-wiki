@@ -7,7 +7,7 @@ As explained by Microsoft [KB 920730](http://support.microsoft.com/kb/920730), t
 # Notes
 
 * Network connections may be unavailable or closed in hibernation files, due to DHCP releases and other routine actions a system performs before hibernation. 
-* Volatility currently **does not support hibernation files from Windows 8 and later.** Support for modern hibernation files will be released sometime in the future.
+* Volatility currently **does not support hibernation files from Windows 8 and newer machines.** Support for modern hibernation files will be released sometime in the future.
 
 # File Format
 
