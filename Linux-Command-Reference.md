@@ -26,7 +26,6 @@
     - [linux_check_idt](Linux-Command-Reference#linux_check_idt)
     - [linux_check_syscall](Linux-Command-Reference#linux_check_syscall)
     - [linux_check_modules](Linux-Command-Reference#linux_check_modules)
-    - [linux_check_creds](Linux-Command-Reference#linux_check_creds-1)
 - [Networking](Linux-Command-Reference#networking)
     - [linux_arp](Linux-Command-Reference#linux_arp)
     - [linux_ifconfig](Linux-Command-Reference#linux_ifconfig)
