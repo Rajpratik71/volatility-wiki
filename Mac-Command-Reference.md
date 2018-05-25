@@ -1,5 +1,7 @@
 **Table of Contents**  
 
+- [Profile Finding](Mac-Command-Reference#profile)
+    - [mac_get_profile](Mac-Command-Reference#mac_get_profile)
 - [Processes](Mac-Command-Reference#processes)
     - [mac_pslist](Mac-Command-Reference#mac_pslist)
     - [mac_tasks](Mac-Command-Reference#mac_tasks)
@@ -39,6 +41,22 @@
 - [Miscellaneous](Mac-Command-Reference#miscellaneous)
     - [mac_volshell](Mac-Command-Reference#mac_volshell)
     - [mac_yarascan](Mac-Command-Reference#mac_yarascan)
+
+# Profile
+
+## mac_get_profile
+
+In order to figure out what profile you need for your Mac memory sample, you can run the `mac_get_profile` plugin:
+
+```
+$ python vol.py -f MEMORY.dmp  mac_get_profile
+Volatility Foundation Volatility Framework 2.6
+Profile                                            Shift Address     
+-------------------------------------------------- ------------------
+MacSierra_10_12_6_16G1114x64                       0x0000000011200000
+```
+
+Now you can find the appropriate profile (in this case `MacSierra_10_12_6_16G1114x64`) in our [profiles repository.](https://github.com/volatilityfoundation/profiles).
 
 # Processes
 
