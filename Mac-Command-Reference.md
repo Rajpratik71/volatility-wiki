@@ -56,7 +56,7 @@ Profile                                            Shift Address
 MacSierra_10_12_6_16G1114x64                       0x0000000011200000
 ```
 
-Now you can find the appropriate profile (in this case `MacSierra_10_12_6_16G1114x64`) in our [profiles repository.](https://github.com/volatilityfoundation/profiles).
+Now you can find the appropriate profile (in this case `MacSierra_10_12_6_16G1114x64`) in our [profiles repository.](https://github.com/volatilityfoundation/profiles)
 
 # Processes
 
