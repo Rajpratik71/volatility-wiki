@@ -65,6 +65,7 @@ Note: once the installers are released, update this section since some installer
 - Here is what you need for the core functionality:
     - A Windows, Linux, or Mac OS X machine
     - Python version 2.6 or greater (but not 3.x) 
+    - [Distorm3](https://code.google.com/p/distorm/) (For analysis of 64-bit Windows 8/2012, and later) See: [Encrypted KDBG](https://github.com/volatilityfoundation/volatility/wiki/Encrypted-KDBG-(Win-8-and-later))
 
 - Some plugins require third party libraries which you can get here:
     - [Distorm3](https://code.google.com/p/distorm/) (Malware Plugins, Volshell)
