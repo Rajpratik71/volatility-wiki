@@ -15,7 +15,7 @@ This is a list of publicly available memory samples for testing purposes.
 | [Hogfly's skydrive](http://cid-5694a755c9c6a175.skydrive.live.com/browse.aspx/Public) (13 samples) |  Assorted (mostly Windows XP x86) |
 | [Moyix's Fuzzy Hidden Process Sample](http://amnesia.gtisc.gatech.edu/~moyix/ds_fuzz_hidden_proc.img.bz2) |  Windows XP SP3 x86 |
 | [Honeynet Banking Troubles Image](https://www.honeynet.org/challenges/2010_3_banking_troubles) |  Windows XP SP2 x86 |
-| [NPS 2009-M57](http://digitalcorpora.org/corp/nps/scenarios/2009-m57-patents/ram/) (~70 samples)  |   Various XP / Vista x86 |
+| [NPS 2009-M57](http://downloads.digitalcorpora.org/corpora/scenarios/2009-m57-patents/ram/) (~70 samples)  |   Various XP / Vista x86 |
 | [Dougee's comparison samples](http://dougee652.blogspot.com/2011/04/malware-memory-images.html) |  WIndows XP x86 |
 | [DFRWS 2008 Forensic Challenge](http://www.dfrws.org/2008/challenge/submission.shtml)  |  CentOS |
 | [Honeynet Compromised Server Challenge](http://www.honeynet.org/challenges/2011_7_compromised_server)  |  Linux Debian 2.6.26-26 x86 |
